@@ -1,0 +1,282 @@
+{
+  "capitals": {
+    "AUT": "Viena",
+    "BEL": "Bruxelas",
+    "GBR": "Londres",
+    "DEU": "Berlim",
+    "ESP": "Madri",
+    "ITA": "Roma",
+    "GRC": "Atenas",
+    "POL": "Varsóvia",
+    "CZE": "Praga",
+    "HUN": "Budapeste",
+    "ROU": "Bucareste",
+    "DNK": "Copenhague",
+    "SWE": "Estocolmo",
+    "FIN": "Helsinque",
+    "NLD": "Amsterdã",
+    "CHE": "Berna",
+    "SRB": "Belgrado",
+    "RUS": "Moscou",
+    "UKR": "Kyiv",
+    "ISL": "Reiquiavique",
+    "HRV": "Zagreb",
+    "SVN": "Liubliana",
+    "SVK": "Bratislava",
+    "LUX": "Luxemburgo",
+    "ALB": "Tirana",
+    "BGR": "Sófia",
+    "LTU": "Vilnius",
+    "LVA": "Riga",
+    "EST": "Tallinn",
+    "CYP": "Nicósia",
+    "MCO": "Mônaco",
+    "VAT": "Cidade do Vaticano",
+    "SMR": "San Marino",
+    "AND": "Andorra-a-Velha",
+    "BRA": "Brasília",
+    "MEX": "Cidade do México",
+    "PAN": "Cidade do Panamá",
+    "GTM": "Cidade da Guatemala",
+    "CUB": "Havana",
+    "DOM": "Santo Domingo",
+    "HTI": "Porto Príncipe",
+    "TTO": "Porto de Espanha",
+    "USA": "Washington, D.C.",
+    "COL": "Bogotá",
+    "PRY": "Assunção",
+    "URY": "Montevidéu",
+    "GUY": "Georgetown",
+    "SUR": "Paramaribo",
+    "PRI": "San Juan",
+    "JPN": "Tóquio",
+    "CHN": "Pequim",
+    "KOR": "Seul",
+    "PRK": "Pyongyang",
+    "THA": "Bangcoc",
+    "VNM": "Hanói",
+    "KHM": "Phnom Penh",
+    "IDN": "Jacarta",
+    "IND": "Nova Délhi",
+    "NPL": "Catmandu",
+    "BGD": "Daca",
+    "PAK": "Islamabade",
+    "AFG": "Cabul",
+    "IRN": "Teerã",
+    "IRQ": "Bagdá",
+    "SAU": "Riade",
+    "YEM": "Sana",
+    "OMN": "Mascate",
+    "ARE": "Abu Dhabi",
+    "QAT": "Doha",
+    "BHR": "Manama",
+    "KWT": "Cidade do Kuwait",
+    "JOR": "Amã",
+    "LBN": "Beirute",
+    "SYR": "Damasco",
+    "ISR": "Jerusalém",
+    "TUR": "Ancara",
+    "GEO": "Tbilisi",
+    "ARM": "Erevã",
+    "AZE": "Baku",
+    "KAZ": "Astana",
+    "KGZ": "Bisqueque",
+    "TJK": "Duchambé",
+    "TKM": "Asgabate",
+    "UZB": "Tashkent",
+    "MNG": "Ulan Bator",
+    "BTN": "Timbu",
+    "MDV": "Malé",
+    "TLS": "Díli",
+    "TWN": "Taipé",
+    "SGP": "Singapura",
+    "LKA": "Sri Jayawardenepura Kotte",
+    "EGY": "Cairo",
+    "DZA": "Argel",
+    "TUN": "Túnis",
+    "MAR": "Rabat",
+    "LBY": "Trípoli",
+    "SDN": "Cartum",
+    "SSD": "Juba",
+    "ETH": "Adis Abeba",
+    "KEN": "Nairóbi",
+    "ZAF": "Pretória",
+    "MOZ": "Maputo",
+    "GNB": "Bissau",
+    "CPV": "Praia",
+    "STP": "São Tomé",
+    "SEN": "Dacar",
+    "SLE": "Freetown",
+    "GIN": "Conacri",
+    "MLI": "Bamaco",
+    "NER": "Niamei",
+    "TCD": "N'Djamena",
+    "CMR": "Iaundé",
+    "NGA": "Abuja",
+    "GHA": "Acra",
+    "CIV": "Yamoussoukro",
+    "BEN": "Porto Novo",
+    "BFA": "Uagadugu",
+    "CAF": "Bangui",
+    "COD": "Kinshasa",
+    "COG": "Brazzaville",
+    "GAB": "Libreville",
+    "GNQ": "Ciudad de la Paz",
+    "SOM": "Mogadíscio",
+    "DJI": "Djibuti",
+    "ERI": "Asmara",
+    "RWA": "Kigali",
+    "BDI": "Gitega",
+    "TZA": "Dodoma",
+    "UGA": "Campala",
+    "ZMB": "Lusaca",
+    "ZWE": "Harare",
+    "BWA": "Gaborone",
+    "NAM": "Windhoek",
+    "LSO": "Maseru",
+    "MDG": "Antananarivo",
+    "MUS": "Porto Luís",
+    "SYC": "Vitória",
+    "COM": "Moroni",
+    "MRT": "Nouakchott",
+    "PNG": "Porto Moresby",
+    "SLB": "Honiara",
+    "VUT": "Porto Vila",
+    "NCL": "Numeá",
+    "PYF": "Papeete"
+  },
+  "capitalAliases": {
+    "USA": [
+      "Washington",
+      "Washington DC",
+      "Washington D.C."
+    ],
+    "MEX": [
+      "Mexico",
+      "México DF"
+    ],
+    "ESP": [
+      "Madrid"
+    ],
+    "UKR": [
+      "Kiev"
+    ],
+    "CHN": [
+      "Beijing",
+      "Pequim"
+    ],
+    "THA": [
+      "Bangkok",
+      "Krung Thep"
+    ],
+    "IND": [
+      "Nova Delhi",
+      "New Delhi",
+      "Delhi"
+    ],
+    "KAZ": [
+      "Nur-Sultan",
+      "Nursultan"
+    ],
+    "BOL": [
+      "La Paz",
+      "Sucre"
+    ],
+    "ZAF": [
+      "Pretoria",
+      "Cape Town",
+      "Cidade do Cabo",
+      "Bloemfontein"
+    ],
+    "LKA": [
+      "Colombo",
+      "Kotte"
+    ],
+    "SWZ": [
+      "Mbabane",
+      "Lobamba"
+    ],
+    "TWN": [
+      "Taipei"
+    ],
+    "NLD": [
+      "Amsterdam"
+    ],
+    "BRA": [
+      "Brasilia"
+    ],
+    "CZE": [
+      "Prague"
+    ],
+    "TUR": [
+      "Ankara"
+    ],
+    "KOR": [
+      "Seoul"
+    ],
+    "CIV": [
+      "Yamussucro"
+    ],
+    "GNQ": [
+      "Djibloho",
+      "Oyala",
+      "Cidade da Paz"
+    ]
+  },
+  "countryAliases": {
+    "USA": [
+      "EUA",
+      "US",
+      "Estados Unidos da América"
+    ],
+    "GBR": [
+      "UK",
+      "Grã-Bretanha",
+      "Reino Unido"
+    ],
+    "CZE": [
+      "Tchéquia",
+      "Chequia",
+      "República Tcheca"
+    ],
+    "SWZ": [
+      "Suazilândia",
+      "Essuatíni"
+    ],
+    "COD": [
+      "RD Congo",
+      "RDC",
+      "Congo Kinshasa"
+    ],
+    "COG": [
+      "Congo Brazzaville"
+    ],
+    "MMR": [
+      "Birmânia"
+    ],
+    "CIV": [
+      "Costa do Marfim"
+    ],
+    "CPV": [
+      "Cabo Verde"
+    ],
+    "TLS": [
+      "Timor Leste"
+    ],
+    "MKD": [
+      "Macedônia",
+      "Macedônia do Norte"
+    ],
+    "TUR": [
+      "Turquia",
+      "Türkiye"
+    ],
+    "VAT": [
+      "Vaticano"
+    ],
+    "NLD": [
+      "Holanda",
+      "Países Baixos"
+    ]
+  }
+}
