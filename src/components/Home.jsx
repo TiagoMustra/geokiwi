@@ -3,6 +3,7 @@ import { MODES, REGIONS, countries } from '../data/index.js';
 import { scoreKey } from '../lib/game.js';
 import { Icon } from './Icon.jsx';
 import WorldMap from './WorldMap.jsx';
+import KeepCorrectControl from './KeepCorrectControl.jsx';
 
 export default function Home({ difficulty, setDifficulty, scores, onStart }) {
   const [regions, setRegions] = useState({ 1: 'mundo', 2: 'mundo', 3: 'mundo', 4: 'mundo' });
@@ -29,9 +30,9 @@ export default function Home({ difficulty, setDifficulty, scores, onStart }) {
     <section className="games-section" id="jogos" aria-labelledby="games-title">
       <div className="section-heading">
         <div><div className="section-kicker">SELEÇÃO DE MISSÃO</div><h2 id="games-title">Onde começa sua aventura<span>?</span></h2></div>
-        <div className="difficulty-control"><span>DIFICULDADE <Icon name="help" size={13} /></span><div className="segmented" aria-label="Dificuldade dos jogos de clicar"><button aria-pressed={difficulty === 'normal'} className={difficulty === 'normal' ? 'active' : ''} onClick={() => setDifficulty('normal')}>NORMAL</button><button aria-pressed={difficulty === 'dificil'} className={difficulty === 'dificil' ? 'active' : ''} onClick={() => setDifficulty('dificil')}><Icon name="bolt" size={12} /> DIFÍCIL</button></div></div>
+        <KeepCorrectControl checked={difficulty === 'normal'} onChange={value => setDifficulty(value ? 'normal' : 'dificil')} />
       </div>
-      <p className="difficulty-note">{difficulty === 'normal' ? 'No modo normal, seus acertos ficam no mapa. Escolha difícil para jogar sem pistas acumuladas.' : 'Desafio aceito: os acertos piscam e somem do mapa. Sem pistas por eliminação.'} <span>Válido para os jogos 1 e 3.</span></p>
+      <p className="difficulty-note">Todos os países da região, em ordem aleatória e sem repetição. <span>O verde dos acertos é opcional nos quatro jogos e pode ser alterado durante a partida.</span></p>
       <div className="games-grid">
         {MODES.map(mode => {
           const region = regions[mode.id];
@@ -48,6 +49,7 @@ export default function Home({ difficulty, setDifficulty, scores, onStart }) {
               <button className={`world-region ${region === 'mundo' ? 'selected' : ''}`} aria-pressed={region === 'mundo'} onClick={() => setRegions(previous => ({ ...previous, [mode.id]: 'mundo' }))}><Icon name="globe" size={13} />Mundo Todo<span>200+</span></button>
             </div>
             <div className="card-score"><span><Icon name="trophy" size={14} /> MELHOR PONTUAÇÃO</span><strong>{String(high).padStart(4, '0')}</strong></div>
+            <div className="full-run-label">{REGIONS.find(r => r.id === region).count} DESTINOS · SEM REPETIÇÃO</div>
             <button className="start-button" onClick={() => onStart(mode.id, region)}>JOGAR AGORA <Icon name="arrow" size={17} /></button>
           </article>;
         })}

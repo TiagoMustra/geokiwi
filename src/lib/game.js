@@ -1,5 +1,4 @@
 /** Rules shared by all four game modes. No UI or network dependencies. */
-export const ROUND_LENGTH = 15;
 export const POINTS = 100;
 
 export function normalizeAnswer(value = '') {
@@ -14,26 +13,27 @@ export function matchesAnswer(country, mode, value) {
 }
 
 export function makeQueue(pool, mode, random = Math.random) {
-  // A capital shared by two destinations must not produce an ambiguous prompt.
-  const capitalCounts = new Map();
-  pool.forEach(country => {
-    const key = normalizeAnswer(country.capital);
-    capitalCounts.set(key, (capitalCounts.get(key) ?? 0) + 1);
-  });
-  const eligible = pool.filter(country => mode !== 3 || capitalCounts.get(normalizeAnswer(country.capital)) === 1);
-  const shuffled = [...eligible];
+  // Every destination appears exactly once. The input database stays untouched.
+  const shuffled = [...pool];
   for (let i = shuffled.length - 1; i > 0; i--) {
     const j = Math.floor(random() * (i + 1));
     [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
   }
-  return shuffled.slice(0, ROUND_LENGTH);
+  return shuffled;
 }
 
-export function createGame({ mode, region, difficulty, pool, random }) {
-  return { mode, region, difficulty, queue: makeQueue(pool, mode, random), index: 0, answers: [], score: 0, streak: 0, bestStreak: 0, finished: false };
+export function createGame({ mode, region, difficulty, keepCorrect, pool, random }) {
+  const remember = keepCorrect ?? difficulty !== 'dificil';
+  return { mode, region, keepCorrect: remember, usedMapHints: remember, difficulty: remember ? 'normal' : 'dificil', queue: makeQueue(pool, mode, random), index: 0, answers: [], score: 0, streak: 0, bestStreak: 0, finished: false };
 }
 
 export function gameReducer(state, action) {
+  if (action.type === 'SET_KEEP_CORRECT') {
+    if (state.finished) return state;
+    // Enabling visual help once keeps this attempt in the assisted category.
+    const usedMapHints = state.usedMapHints || action.value;
+    return { ...state, keepCorrect: Boolean(action.value), usedMapHints, difficulty: usedMapHints ? 'normal' : 'dificil' };
+  }
   if (action.type === 'ANSWER') {
     if (state.finished || state.answers.length > state.index) return state;
     const correct = state.mode === 1 || state.mode === 3
@@ -51,16 +51,17 @@ export function gameReducer(state, action) {
 }
 
 export function scoreKey(mode, region, difficulty) {
-  return `${mode}:${region}:${mode === 1 || mode === 3 ? difficulty : 'normal'}`;
+  return `${mode}:${region}:${difficulty}`;
 }
 
-const STORAGE_KEY = 'geoquest.highscores.v1';
+// Full-region runs have separate records from the legacy 15-question format.
+const STORAGE_KEY = 'geoquest.highscores.v2';
 export function readScores(storage) {
   try {
     storage ??= globalThis.localStorage;
     const parsed = JSON.parse(storage.getItem(STORAGE_KEY) || '{}');
     if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return {};
-    return Object.fromEntries(Object.entries(parsed).filter(([key, value]) => /^[1-4]:(mundo|africa|asia|europa|americas|oceania):(normal|dificil)$/.test(key) && Number.isFinite(value) && value >= 0 && value <= ROUND_LENGTH * POINTS));
+    return Object.fromEntries(Object.entries(parsed).filter(([key, value]) => /^[1-4]:(mundo|africa|asia|europa|americas|oceania):(normal|dificil)$/.test(key) && Number.isSafeInteger(value) && value >= 0 && value % POINTS === 0));
   } catch { return {}; }
 }
 
@@ -70,4 +71,14 @@ export function saveScore(scores, game, storage) {
   let persisted = true;
   try { (storage ?? globalThis.localStorage).setItem(STORAGE_KEY, JSON.stringify(updated)); } catch { persisted = false; }
   return { scores: updated, persisted };
+}
+
+const PREFERENCES_KEY = 'geoquest.preferences.v1';
+export function readKeepCorrect(storage) {
+  try { return JSON.parse((storage ?? globalThis.localStorage).getItem(PREFERENCES_KEY) || '{}').keepCorrect !== false; }
+  catch { return true; }
+}
+export function saveKeepCorrect(value, storage) {
+  try { (storage ?? globalThis.localStorage).setItem(PREFERENCES_KEY, JSON.stringify({ keepCorrect: Boolean(value) })); }
+  catch { /* The preference remains usable in this session. */ }
 }

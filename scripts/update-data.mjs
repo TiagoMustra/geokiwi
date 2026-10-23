@@ -3,6 +3,7 @@ import { readFile, writeFile, mkdir } from 'node:fs/promises';
 // This script runs only during maintenance. The deployed game uses local files.
 const root = new URL('../', import.meta.url);
 const overrides = JSON.parse(await readFile(new URL('src/data/overrides.json', root), 'utf8'));
+const capitals = JSON.parse(await readFile(new URL('src/data/capital-coordinates.json', root), 'utf8'));
 const urls = {
   topology: 'https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-50m.json',
   countries: 'https://raw.githubusercontent.com/mledoze/countries/master/countries.json',
@@ -22,6 +23,7 @@ const countries = raw.filter(country => available.has(country.ccn3) && country.c
   const code = country.cca3;
   const nome_pt = country.translations.por?.common || country.name.common;
   const capital = overrides.capitals[code] || country.capital[0];
+  if (!capitals[code]?.coordinates) throw new Error(`Missing verified capital coordinates for ${code}. Update capital-coordinates.json first.`);
   return {
     id: country.ccn3,
     iso2: country.cca2.toLowerCase(),
@@ -32,6 +34,7 @@ const countries = raw.filter(country => available.has(country.ccn3) && country.c
     continente: regionIds[country.region],
     bandeira_url: `/flags/${country.cca2.toLowerCase()}.svg`,
     coordenadas_centro: [country.latlng[1], country.latlng[0]],
+    coordenadas_capital: capitals[code].coordinates,
     aliases: [...new Set([nome_pt, country.name.common, country.name.official, ...country.altSpellings, ...overrides.countryAliases[code] || []])],
     capitais_aceitas: [...new Set([capital, ...country.capital, ...overrides.capitalAliases[code] || []])],
   };

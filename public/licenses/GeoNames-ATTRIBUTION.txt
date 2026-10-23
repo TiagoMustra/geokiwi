@@ -1,0 +1,7 @@
+Capital coordinates: GeoNames (https://www.geonames.org/)
+Source: https://download.geonames.org/export/dump/cities500.zip
+Snapshot: 2026-10-23. Selected and joined to ISO country codes by GEOQUEST.
+Licensed under Creative Commons Attribution 4.0 International (CC BY 4.0).
+License: https://creativecommons.org/licenses/by/4.0/
+Individual place links and coordinate provenance: src/data/capital-coordinates.json
+Coordinates use [longitude, latitude].

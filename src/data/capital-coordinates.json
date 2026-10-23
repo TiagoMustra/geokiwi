@@ -1,0 +1,1842 @@
+{
+  "ABW": {
+    "nome": "Oranjestad",
+    "coordinates": [
+      -70.02703,
+      12.52398
+    ],
+    "source": "https://www.geonames.org/3577154/"
+  },
+  "AFG": {
+    "nome": "Kabul",
+    "coordinates": [
+      69.17233,
+      34.52813
+    ],
+    "source": "https://www.geonames.org/1138958/"
+  },
+  "AGO": {
+    "nome": "Luanda",
+    "coordinates": [
+      13.23432,
+      -8.83682
+    ],
+    "source": "https://www.geonames.org/2240449/"
+  },
+  "AIA": {
+    "nome": "The Valley",
+    "coordinates": [
+      -63.05783,
+      18.21704
+    ],
+    "source": "https://www.geonames.org/3573374/"
+  },
+  "ALA": {
+    "nome": "Mariehamn",
+    "coordinates": [
+      19.93481,
+      60.09726
+    ],
+    "source": "https://www.geonames.org/3041732/"
+  },
+  "ALB": {
+    "nome": "Tirana",
+    "coordinates": [
+      19.81866,
+      41.32744
+    ],
+    "source": "https://www.geonames.org/3183875/"
+  },
+  "AND": {
+    "nome": "Andorra la Vella",
+    "coordinates": [
+      1.52109,
+      42.50779
+    ],
+    "source": "https://www.geonames.org/3041563/"
+  },
+  "ARE": {
+    "nome": "Abu Dhabi",
+    "coordinates": [
+      54.39696,
+      24.45118
+    ],
+    "source": "https://www.geonames.org/292968/"
+  },
+  "ARG": {
+    "nome": "Buenos Aires",
+    "coordinates": [
+      -58.37723,
+      -34.61315
+    ],
+    "source": "https://www.geonames.org/3435910/"
+  },
+  "ARM": {
+    "nome": "Yerevan",
+    "coordinates": [
+      44.5126,
+      40.17765
+    ],
+    "source": "https://www.geonames.org/616052/"
+  },
+  "ASM": {
+    "nome": "Pago Pago",
+    "coordinates": [
+      -170.7025,
+      -14.27806
+    ],
+    "source": "https://www.geonames.org/5881576/"
+  },
+  "ATG": {
+    "nome": "Saint John’s",
+    "coordinates": [
+      -61.84329,
+      17.12096
+    ],
+    "source": "https://www.geonames.org/3576022/"
+  },
+  "AUS": {
+    "nome": "Canberra",
+    "coordinates": [
+      149.12807,
+      -35.28346
+    ],
+    "source": "https://www.geonames.org/2172517/"
+  },
+  "AUT": {
+    "nome": "Vienna",
+    "coordinates": [
+      16.37208,
+      48.20849
+    ],
+    "source": "https://www.geonames.org/2761369/"
+  },
+  "AZE": {
+    "nome": "Baku",
+    "coordinates": [
+      49.89201,
+      40.37767
+    ],
+    "source": "https://www.geonames.org/587084/"
+  },
+  "BDI": {
+    "nome": "Gitega",
+    "coordinates": [
+      29.92463,
+      -3.42708
+    ],
+    "source": "https://www.geonames.org/426272/"
+  },
+  "BEL": {
+    "nome": "Brussels",
+    "coordinates": [
+      4.34878,
+      50.85045
+    ],
+    "source": "https://www.geonames.org/2800866/"
+  },
+  "BEN": {
+    "nome": "Porto-Novo",
+    "coordinates": [
+      2.60359,
+      6.49646
+    ],
+    "source": "https://www.geonames.org/2392087/"
+  },
+  "BFA": {
+    "nome": "Ouagadougou",
+    "coordinates": [
+      -1.53388,
+      12.36566
+    ],
+    "source": "https://www.geonames.org/2357048/"
+  },
+  "BGD": {
+    "nome": "Dhaka",
+    "coordinates": [
+      90.40744,
+      23.7104
+    ],
+    "source": "https://www.geonames.org/1185241/"
+  },
+  "BGR": {
+    "nome": "Sofia",
+    "coordinates": [
+      23.32415,
+      42.69751
+    ],
+    "source": "https://www.geonames.org/727011/"
+  },
+  "BHR": {
+    "nome": "Manama",
+    "coordinates": [
+      50.58565,
+      26.22787
+    ],
+    "source": "https://www.geonames.org/290340/"
+  },
+  "BHS": {
+    "nome": "Nassau",
+    "coordinates": [
+      -77.34306,
+      25.05823
+    ],
+    "source": "https://www.geonames.org/3571824/"
+  },
+  "BIH": {
+    "nome": "Sarajevo",
+    "coordinates": [
+      18.35644,
+      43.84864
+    ],
+    "source": "https://www.geonames.org/3191281/"
+  },
+  "BLM": {
+    "nome": "Gustavia",
+    "coordinates": [
+      -62.84978,
+      17.89618
+    ],
+    "source": "https://www.geonames.org/3579132/"
+  },
+  "SHN": {
+    "nome": "Jamestown",
+    "coordinates": [
+      -5.71816,
+      -15.92488
+    ],
+    "source": "https://www.geonames.org/3370903/"
+  },
+  "BLR": {
+    "nome": "Minsk",
+    "coordinates": [
+      27.56653,
+      53.90019
+    ],
+    "source": "https://www.geonames.org/625144/"
+  },
+  "BLZ": {
+    "nome": "Belmopan",
+    "coordinates": [
+      -88.76401,
+      17.25376
+    ],
+    "source": "https://www.geonames.org/3582672/"
+  },
+  "BMU": {
+    "nome": "Hamilton",
+    "coordinates": [
+      -64.78303,
+      32.2949
+    ],
+    "source": "https://www.geonames.org/3573197/"
+  },
+  "BOL": {
+    "nome": "Sucre",
+    "coordinates": [
+      -65.26274,
+      -19.03332
+    ],
+    "source": "https://www.geonames.org/3903987/"
+  },
+  "BRA": {
+    "nome": "Brasília",
+    "coordinates": [
+      -47.92972,
+      -15.77972
+    ],
+    "source": "https://www.geonames.org/3469058/"
+  },
+  "BRB": {
+    "nome": "Bridgetown",
+    "coordinates": [
+      -59.62021,
+      13.10732
+    ],
+    "source": "https://www.geonames.org/3374036/"
+  },
+  "BRN": {
+    "nome": "Bandar Seri Begawan",
+    "coordinates": [
+      114.94006,
+      4.89035
+    ],
+    "source": "https://www.geonames.org/1820906/"
+  },
+  "BTN": {
+    "nome": "Thimphu",
+    "coordinates": [
+      89.64191,
+      27.46609
+    ],
+    "source": "https://www.geonames.org/1252416/"
+  },
+  "BWA": {
+    "nome": "Gaborone",
+    "coordinates": [
+      25.90859,
+      -24.65451
+    ],
+    "source": "https://www.geonames.org/933773/"
+  },
+  "CAF": {
+    "nome": "Bangui",
+    "coordinates": [
+      18.55496,
+      4.36122
+    ],
+    "source": "https://www.geonames.org/2389853/"
+  },
+  "CAN": {
+    "nome": "Ottawa",
+    "coordinates": [
+      -75.69812,
+      45.41117
+    ],
+    "source": "https://www.geonames.org/6094817/"
+  },
+  "CHE": {
+    "nome": "Bern",
+    "coordinates": [
+      7.44744,
+      46.94809
+    ],
+    "source": "https://www.geonames.org/2661552/"
+  },
+  "CHL": {
+    "nome": "Santiago",
+    "coordinates": [
+      -70.64827,
+      -33.45694
+    ],
+    "source": "https://www.geonames.org/3871336/"
+  },
+  "CHN": {
+    "nome": "Beijing",
+    "coordinates": [
+      116.39723,
+      39.9075
+    ],
+    "source": "https://www.geonames.org/1816670/"
+  },
+  "CIV": {
+    "nome": "Yamoussoukro",
+    "coordinates": [
+      -5.27674,
+      6.82055
+    ],
+    "source": "https://www.geonames.org/2279755/"
+  },
+  "CMR": {
+    "nome": "Yaoundé",
+    "coordinates": [
+      11.51667,
+      3.86667
+    ],
+    "source": "https://www.geonames.org/2220957/"
+  },
+  "COD": {
+    "nome": "Kinshasa",
+    "coordinates": [
+      15.31357,
+      -4.32758
+    ],
+    "source": "https://www.geonames.org/2314302/"
+  },
+  "COG": {
+    "nome": "Brazzaville",
+    "coordinates": [
+      15.28318,
+      -4.26613
+    ],
+    "source": "https://www.geonames.org/2260535/"
+  },
+  "COK": {
+    "nome": "Avarua",
+    "coordinates": [
+      -159.77546,
+      -21.2075
+    ],
+    "source": "https://www.geonames.org/4035715/"
+  },
+  "COL": {
+    "nome": "Bogotá",
+    "coordinates": [
+      -74.08175,
+      4.60971
+    ],
+    "source": "https://www.geonames.org/3688689/"
+  },
+  "COM": {
+    "nome": "Moroni",
+    "coordinates": [
+      43.25506,
+      -11.70216
+    ],
+    "source": "https://www.geonames.org/921772/"
+  },
+  "CPV": {
+    "nome": "Praia",
+    "coordinates": [
+      -23.51254,
+      14.93152
+    ],
+    "source": "https://www.geonames.org/3374333/"
+  },
+  "CRI": {
+    "nome": "San José",
+    "coordinates": [
+      -84.08489,
+      9.93388
+    ],
+    "source": "https://www.geonames.org/3621849/"
+  },
+  "CUB": {
+    "nome": "Havana",
+    "coordinates": [
+      -82.38304,
+      23.13302
+    ],
+    "source": "https://www.geonames.org/3553478/"
+  },
+  "CUW": {
+    "nome": "Willemstad",
+    "coordinates": [
+      -68.88641,
+      12.12246
+    ],
+    "source": "https://www.geonames.org/3513090/"
+  },
+  "CYM": {
+    "nome": "George Town",
+    "coordinates": [
+      -81.37436,
+      19.2866
+    ],
+    "source": "https://www.geonames.org/3580661/"
+  },
+  "CYP": {
+    "nome": "Nicosia",
+    "coordinates": [
+      33.35397,
+      35.17284
+    ],
+    "source": "https://www.geonames.org/146268/"
+  },
+  "CZE": {
+    "nome": "Prague",
+    "coordinates": [
+      14.42076,
+      50.08804
+    ],
+    "source": "https://www.geonames.org/3067696/"
+  },
+  "DEU": {
+    "nome": "Berlin",
+    "coordinates": [
+      13.41053,
+      52.52437
+    ],
+    "source": "https://www.geonames.org/2950159/"
+  },
+  "DJI": {
+    "nome": "Djibouti",
+    "coordinates": [
+      43.14503,
+      11.58901
+    ],
+    "source": "https://www.geonames.org/223817/"
+  },
+  "DMA": {
+    "nome": "Roseau",
+    "coordinates": [
+      -61.38808,
+      15.30174
+    ],
+    "source": "https://www.geonames.org/3575635/"
+  },
+  "DNK": {
+    "nome": "Copenhagen",
+    "coordinates": [
+      12.56553,
+      55.67594
+    ],
+    "source": "https://www.geonames.org/2618425/"
+  },
+  "DOM": {
+    "nome": "Santo Domingo",
+    "coordinates": [
+      -69.89232,
+      18.47186
+    ],
+    "source": "https://www.geonames.org/3492908/"
+  },
+  "DZA": {
+    "nome": "Algiers",
+    "coordinates": [
+      3.08746,
+      36.73225
+    ],
+    "source": "https://www.geonames.org/2507480/"
+  },
+  "ECU": {
+    "nome": "Quito",
+    "coordinates": [
+      -78.52495,
+      -0.22985
+    ],
+    "source": "https://www.geonames.org/3652462/"
+  },
+  "EGY": {
+    "nome": "Cairo",
+    "coordinates": [
+      31.24967,
+      30.06263
+    ],
+    "source": "https://www.geonames.org/360630/"
+  },
+  "ERI": {
+    "nome": "Asmara",
+    "coordinates": [
+      38.93184,
+      15.33805
+    ],
+    "source": "https://www.geonames.org/343300/"
+  },
+  "ESH": {
+    "nome": "Laayoune",
+    "coordinates": [
+      -13.18797,
+      27.1418
+    ],
+    "source": "https://www.geonames.org/2462881/"
+  },
+  "ESP": {
+    "nome": "Madrid",
+    "coordinates": [
+      -3.70256,
+      40.4165
+    ],
+    "source": "https://www.geonames.org/3117735/"
+  },
+  "EST": {
+    "nome": "Tallinn",
+    "coordinates": [
+      24.75353,
+      59.43696
+    ],
+    "source": "https://www.geonames.org/588409/"
+  },
+  "ETH": {
+    "nome": "Addis Ababa",
+    "coordinates": [
+      38.74689,
+      9.02497
+    ],
+    "source": "https://www.geonames.org/344979/"
+  },
+  "FIN": {
+    "nome": "Helsinki",
+    "coordinates": [
+      24.93545,
+      60.16952
+    ],
+    "source": "https://www.geonames.org/658225/"
+  },
+  "FJI": {
+    "nome": "Suva",
+    "coordinates": [
+      178.42531,
+      -18.13683
+    ],
+    "source": "https://www.geonames.org/2198148/"
+  },
+  "FLK": {
+    "nome": "Stanley",
+    "coordinates": [
+      -57.85701,
+      -51.69382
+    ],
+    "source": "https://www.geonames.org/3426691/"
+  },
+  "FRA": {
+    "nome": "Paris",
+    "coordinates": [
+      2.3488,
+      48.85341
+    ],
+    "source": "https://www.geonames.org/2988507/"
+  },
+  "FRO": {
+    "nome": "Tórshavn",
+    "coordinates": [
+      -6.77164,
+      62.00973
+    ],
+    "source": "https://www.geonames.org/2611396/"
+  },
+  "FSM": {
+    "nome": "Palikir",
+    "coordinates": [
+      158.16109,
+      6.92477
+    ],
+    "source": "https://www.geonames.org/2081986/"
+  },
+  "GAB": {
+    "nome": "Libreville",
+    "coordinates": [
+      9.45356,
+      0.39241
+    ],
+    "source": "https://www.geonames.org/2399697/"
+  },
+  "GBR": {
+    "nome": "London",
+    "coordinates": [
+      -0.12574,
+      51.50853
+    ],
+    "source": "https://www.geonames.org/2643743/"
+  },
+  "GEO": {
+    "nome": "Tbilisi",
+    "coordinates": [
+      44.83412,
+      41.69143
+    ],
+    "source": "https://www.geonames.org/611717/"
+  },
+  "GGY": {
+    "nome": "Saint Peter Port",
+    "coordinates": [
+      -2.53527,
+      49.45981
+    ],
+    "source": "https://www.geonames.org/3042287/"
+  },
+  "GHA": {
+    "nome": "Accra",
+    "coordinates": [
+      -0.1969,
+      5.55602
+    ],
+    "source": "https://www.geonames.org/2306104/"
+  },
+  "GIN": {
+    "nome": "Conakry",
+    "coordinates": [
+      -13.67729,
+      9.53795
+    ],
+    "source": "https://www.geonames.org/2422465/"
+  },
+  "GMB": {
+    "nome": "Banjul",
+    "coordinates": [
+      -16.57803,
+      13.45274
+    ],
+    "source": "https://www.geonames.org/2413876/"
+  },
+  "GNB": {
+    "nome": "Bissau",
+    "coordinates": [
+      -15.59767,
+      11.86357
+    ],
+    "source": "https://www.geonames.org/2374775/"
+  },
+  "GNQ": {
+    "nome": "Ciudad de la Paz",
+    "coordinates": [
+      10.82361,
+      1.5925
+    ],
+    "source": "https://www.geonames.org/12226438/"
+  },
+  "GRC": {
+    "nome": "Athens",
+    "coordinates": [
+      23.72784,
+      37.98376
+    ],
+    "source": "https://www.geonames.org/264371/"
+  },
+  "GRD": {
+    "nome": "Saint George's",
+    "coordinates": [
+      -61.75226,
+      12.05288
+    ],
+    "source": "https://www.geonames.org/3579925/"
+  },
+  "GRL": {
+    "nome": "Nuuk",
+    "coordinates": [
+      -51.72157,
+      64.18347
+    ],
+    "source": "https://www.geonames.org/3421319/"
+  },
+  "GTM": {
+    "nome": "Guatemala City",
+    "coordinates": [
+      -90.51327,
+      14.64072
+    ],
+    "source": "https://www.geonames.org/3598132/"
+  },
+  "GUM": {
+    "nome": "Hagåtña",
+    "coordinates": [
+      144.74886,
+      13.47567
+    ],
+    "source": "https://www.geonames.org/4044012/"
+  },
+  "GUY": {
+    "nome": "Georgetown",
+    "coordinates": [
+      -58.15527,
+      6.80448
+    ],
+    "source": "https://www.geonames.org/3378644/"
+  },
+  "HKG": {
+    "nome": "Central",
+    "coordinates": [
+      114.15846,
+      22.28299
+    ],
+    "source": "https://www.geonames.org/8223932/"
+  },
+  "HND": {
+    "nome": "Tegucigalpa",
+    "coordinates": [
+      -87.20681,
+      14.0818
+    ],
+    "source": "https://www.geonames.org/3600949/"
+  },
+  "HRV": {
+    "nome": "Zagreb",
+    "coordinates": [
+      15.97798,
+      45.81444
+    ],
+    "source": "https://www.geonames.org/3186886/"
+  },
+  "HTI": {
+    "nome": "Port-au-Prince",
+    "coordinates": [
+      -72.33881,
+      18.54349
+    ],
+    "source": "https://www.geonames.org/3718426/"
+  },
+  "HUN": {
+    "nome": "Budapest",
+    "coordinates": [
+      19.04045,
+      47.49835
+    ],
+    "source": "https://www.geonames.org/3054643/"
+  },
+  "IDN": {
+    "nome": "Jakarta",
+    "coordinates": [
+      106.84513,
+      -6.21462
+    ],
+    "source": "https://www.geonames.org/1642911/"
+  },
+  "IMN": {
+    "nome": "Douglas",
+    "coordinates": [
+      -4.48333,
+      54.15
+    ],
+    "source": "https://www.geonames.org/3042237/"
+  },
+  "IND": {
+    "nome": "New Delhi",
+    "coordinates": [
+      77.2148,
+      28.62137
+    ],
+    "source": "https://www.geonames.org/1261481/"
+  },
+  "IOT": {
+    "nome": "Downtown",
+    "coordinates": [
+      72.37676,
+      -7.26229
+    ],
+    "source": "https://www.geonames.org/7503195/"
+  },
+  "IRL": {
+    "nome": "Dublin",
+    "coordinates": [
+      -6.24889,
+      53.33306
+    ],
+    "source": "https://www.geonames.org/2964574/"
+  },
+  "IRN": {
+    "nome": "Tehran",
+    "coordinates": [
+      51.42151,
+      35.69439
+    ],
+    "source": "https://www.geonames.org/112931/"
+  },
+  "IRQ": {
+    "nome": "Baghdad",
+    "coordinates": [
+      44.40088,
+      33.34058
+    ],
+    "source": "https://www.geonames.org/98182/"
+  },
+  "ISL": {
+    "nome": "Reykjavík",
+    "coordinates": [
+      -21.89541,
+      64.13548
+    ],
+    "source": "https://www.geonames.org/3413829/"
+  },
+  "ISR": {
+    "nome": "Jerusalem",
+    "coordinates": [
+      35.21633,
+      31.76904
+    ],
+    "source": "https://www.geonames.org/281184/"
+  },
+  "ITA": {
+    "nome": "Rome",
+    "coordinates": [
+      12.51133,
+      41.89193
+    ],
+    "source": "https://www.geonames.org/3169070/"
+  },
+  "JAM": {
+    "nome": "Kingston",
+    "coordinates": [
+      -76.79358,
+      17.99702
+    ],
+    "source": "https://www.geonames.org/3489854/"
+  },
+  "JEY": {
+    "nome": "Saint Helier",
+    "coordinates": [
+      -2.10491,
+      49.18804
+    ],
+    "source": "https://www.geonames.org/3042091/"
+  },
+  "JOR": {
+    "nome": "Amman",
+    "coordinates": [
+      35.94503,
+      31.95522
+    ],
+    "source": "https://www.geonames.org/250441/"
+  },
+  "JPN": {
+    "nome": "Tokyo",
+    "coordinates": [
+      139.69171,
+      35.6895
+    ],
+    "source": "https://www.geonames.org/1850147/"
+  },
+  "KAZ": {
+    "nome": "Astana",
+    "coordinates": [
+      71.44598,
+      51.1801
+    ],
+    "source": "https://www.geonames.org/1526273/"
+  },
+  "KEN": {
+    "nome": "Nairobi",
+    "coordinates": [
+      36.81667,
+      -1.28333
+    ],
+    "source": "https://www.geonames.org/184745/"
+  },
+  "KGZ": {
+    "nome": "Bishkek",
+    "coordinates": [
+      74.59,
+      42.87
+    ],
+    "source": "https://www.geonames.org/1528675/"
+  },
+  "KHM": {
+    "nome": "Phnom Penh",
+    "coordinates": [
+      104.91601,
+      11.56245
+    ],
+    "source": "https://www.geonames.org/1821306/"
+  },
+  "KIR": {
+    "nome": "Tarawa",
+    "coordinates": [
+      172.97696,
+      1.3278
+    ],
+    "source": "https://www.geonames.org/2110257/"
+  },
+  "KNA": {
+    "nome": "Basseterre",
+    "coordinates": [
+      -62.72499,
+      17.2955
+    ],
+    "source": "https://www.geonames.org/3575551/"
+  },
+  "KOR": {
+    "nome": "Seoul",
+    "coordinates": [
+      126.9784,
+      37.566
+    ],
+    "source": "https://www.geonames.org/1835848/"
+  },
+  "KWT": {
+    "nome": "Kuwait City",
+    "coordinates": [
+      47.97429,
+      29.367
+    ],
+    "source": "https://www.geonames.org/285787/"
+  },
+  "LAO": {
+    "nome": "Vientiane",
+    "coordinates": [
+      102.6,
+      17.96667
+    ],
+    "source": "https://www.geonames.org/1651944/"
+  },
+  "LBN": {
+    "nome": "Beirut",
+    "coordinates": [
+      35.50157,
+      33.89332
+    ],
+    "source": "https://www.geonames.org/276781/"
+  },
+  "LBR": {
+    "nome": "Monrovia",
+    "coordinates": [
+      -10.7969,
+      6.30054
+    ],
+    "source": "https://www.geonames.org/2274895/"
+  },
+  "LBY": {
+    "nome": "Tripoli",
+    "coordinates": [
+      13.18733,
+      32.88743
+    ],
+    "source": "https://www.geonames.org/2210247/"
+  },
+  "LCA": {
+    "nome": "Castries",
+    "coordinates": [
+      -61.00614,
+      13.9957
+    ],
+    "source": "https://www.geonames.org/3576812/"
+  },
+  "LIE": {
+    "nome": "Vaduz",
+    "coordinates": [
+      9.52154,
+      47.14151
+    ],
+    "source": "https://www.geonames.org/3042030/"
+  },
+  "LKA": {
+    "nome": "Sri Jayewardenepura Kotte",
+    "coordinates": [
+      79.90708,
+      6.88297
+    ],
+    "source": "https://www.geonames.org/1238992/"
+  },
+  "LSO": {
+    "nome": "Maseru",
+    "coordinates": [
+      27.48333,
+      -29.31667
+    ],
+    "source": "https://www.geonames.org/932505/"
+  },
+  "LTU": {
+    "nome": "Vilnius",
+    "coordinates": [
+      25.2798,
+      54.68916
+    ],
+    "source": "https://www.geonames.org/593116/"
+  },
+  "LUX": {
+    "nome": "Luxembourg",
+    "coordinates": [
+      6.13268,
+      49.60982
+    ],
+    "source": "https://www.geonames.org/2960316/"
+  },
+  "LVA": {
+    "nome": "Riga",
+    "coordinates": [
+      24.10589,
+      56.946
+    ],
+    "source": "https://www.geonames.org/456172/"
+  },
+  "MAF": {
+    "nome": "Marigot",
+    "coordinates": [
+      -63.08302,
+      18.06819
+    ],
+    "source": "https://www.geonames.org/3578851/"
+  },
+  "MAR": {
+    "nome": "Rabat",
+    "coordinates": [
+      -6.83255,
+      34.01325
+    ],
+    "source": "https://www.geonames.org/2538475/"
+  },
+  "MCO": {
+    "nome": "Monaco",
+    "coordinates": [
+      7.42145,
+      43.73718
+    ],
+    "source": "https://www.geonames.org/2993458/"
+  },
+  "MDA": {
+    "nome": "Chisinau",
+    "coordinates": [
+      28.85938,
+      47.00902
+    ],
+    "source": "https://www.geonames.org/618426/"
+  },
+  "MDG": {
+    "nome": "Antananarivo",
+    "coordinates": [
+      47.53613,
+      -18.91368
+    ],
+    "source": "https://www.geonames.org/1070940/"
+  },
+  "MDV": {
+    "nome": "Male",
+    "coordinates": [
+      73.50916,
+      4.17521
+    ],
+    "source": "https://www.geonames.org/1282027/"
+  },
+  "MEX": {
+    "nome": "Mexico City",
+    "coordinates": [
+      -99.12766,
+      19.42847
+    ],
+    "source": "https://www.geonames.org/3530597/"
+  },
+  "MHL": {
+    "nome": "Majuro",
+    "coordinates": [
+      171.38027,
+      7.08971
+    ],
+    "source": "https://www.geonames.org/2113779/"
+  },
+  "MKD": {
+    "nome": "Skopje",
+    "coordinates": [
+      21.43141,
+      41.99646
+    ],
+    "source": "https://www.geonames.org/785842/"
+  },
+  "MLI": {
+    "nome": "Bamako",
+    "coordinates": [
+      -7.97522,
+      12.60915
+    ],
+    "source": "https://www.geonames.org/2460596/"
+  },
+  "MLT": {
+    "nome": "Valletta",
+    "coordinates": [
+      14.5148,
+      35.89968
+    ],
+    "source": "https://www.geonames.org/2562305/"
+  },
+  "MMR": {
+    "nome": "Nay Pyi Taw",
+    "coordinates": [
+      96.12972,
+      19.745
+    ],
+    "source": "https://www.geonames.org/6611854/"
+  },
+  "MNE": {
+    "nome": "Podgorica",
+    "coordinates": [
+      19.26309,
+      42.44124
+    ],
+    "source": "https://www.geonames.org/3193044/"
+  },
+  "MNG": {
+    "nome": "Ulan Bator",
+    "coordinates": [
+      106.88324,
+      47.90771
+    ],
+    "source": "https://www.geonames.org/2028462/"
+  },
+  "MNP": {
+    "nome": "Saipan",
+    "coordinates": [
+      145.7545,
+      15.21233
+    ],
+    "source": "https://www.geonames.org/7828758/"
+  },
+  "MOZ": {
+    "nome": "Maputo",
+    "coordinates": [
+      32.58322,
+      -25.96553
+    ],
+    "source": "https://www.geonames.org/1040652/"
+  },
+  "MRT": {
+    "nome": "Nouakchott",
+    "coordinates": [
+      -15.9785,
+      18.08581
+    ],
+    "source": "https://www.geonames.org/2377450/"
+  },
+  "MSR": {
+    "nome": "Plymouth",
+    "coordinates": [
+      -62.21292,
+      16.70555
+    ],
+    "source": "https://www.geonames.org/3578069/"
+  },
+  "MUS": {
+    "nome": "Port Louis",
+    "coordinates": [
+      57.49889,
+      -20.16194
+    ],
+    "source": "https://www.geonames.org/934154/"
+  },
+  "MWI": {
+    "nome": "Lilongwe",
+    "coordinates": [
+      33.78725,
+      -13.96692
+    ],
+    "source": "https://www.geonames.org/927967/"
+  },
+  "MYS": {
+    "nome": "Kuala Lumpur",
+    "coordinates": [
+      101.68653,
+      3.1412
+    ],
+    "source": "https://www.geonames.org/1735161/"
+  },
+  "NAM": {
+    "nome": "Windhoek",
+    "coordinates": [
+      17.08323,
+      -22.55941
+    ],
+    "source": "https://www.geonames.org/3352136/"
+  },
+  "NCL": {
+    "nome": "Nouméa",
+    "coordinates": [
+      166.44884,
+      -22.27407
+    ],
+    "source": "https://www.geonames.org/2139521/"
+  },
+  "NER": {
+    "nome": "Niamey",
+    "coordinates": [
+      2.1098,
+      13.51366
+    ],
+    "source": "https://www.geonames.org/2440485/"
+  },
+  "NFK": {
+    "nome": "Kingston",
+    "coordinates": [
+      167.96628,
+      -29.05459
+    ],
+    "source": "https://www.geonames.org/2161314/"
+  },
+  "NGA": {
+    "nome": "Abuja",
+    "coordinates": [
+      7.49508,
+      9.05785
+    ],
+    "source": "https://www.geonames.org/2352778/"
+  },
+  "NIC": {
+    "nome": "Managua",
+    "coordinates": [
+      -86.2504,
+      12.13282
+    ],
+    "source": "https://www.geonames.org/3617763/"
+  },
+  "NIU": {
+    "nome": "Alofi",
+    "coordinates": [
+      -169.91957,
+      -19.05294
+    ],
+    "source": "https://www.geonames.org/4036284/"
+  },
+  "NLD": {
+    "nome": "Amsterdam",
+    "coordinates": [
+      4.88969,
+      52.37403
+    ],
+    "source": "https://www.geonames.org/2759794/"
+  },
+  "NOR": {
+    "nome": "Oslo",
+    "coordinates": [
+      10.74609,
+      59.91273
+    ],
+    "source": "https://www.geonames.org/3143244/"
+  },
+  "NPL": {
+    "nome": "Kathmandu",
+    "coordinates": [
+      85.3206,
+      27.70169
+    ],
+    "source": "https://www.geonames.org/1283240/"
+  },
+  "NRU": {
+    "nome": "Yaren",
+    "coordinates": [
+      166.9252,
+      -0.55085
+    ],
+    "source": "https://www.geonames.org/7626461/"
+  },
+  "NZL": {
+    "nome": "Wellington",
+    "coordinates": [
+      174.77557,
+      -41.28664
+    ],
+    "source": "https://www.geonames.org/2179537/"
+  },
+  "OMN": {
+    "nome": "Muscat",
+    "coordinates": [
+      58.40778,
+      23.58413
+    ],
+    "source": "https://www.geonames.org/287286/"
+  },
+  "PAK": {
+    "nome": "Islamabad",
+    "coordinates": [
+      73.04329,
+      33.72148
+    ],
+    "source": "https://www.geonames.org/1176615/"
+  },
+  "PAN": {
+    "nome": "Panama City",
+    "coordinates": [
+      -79.51973,
+      8.9936
+    ],
+    "source": "https://www.geonames.org/3703443/"
+  },
+  "PCN": {
+    "nome": "Adamstown",
+    "coordinates": [
+      -130.10147,
+      -25.06597
+    ],
+    "source": "https://www.geonames.org/4030723/"
+  },
+  "PER": {
+    "nome": "Lima",
+    "coordinates": [
+      -77.02824,
+      -12.04318
+    ],
+    "source": "https://www.geonames.org/3936456/"
+  },
+  "PHL": {
+    "nome": "Manila",
+    "coordinates": [
+      120.9822,
+      14.6042
+    ],
+    "source": "https://www.geonames.org/1701668/"
+  },
+  "PLW": {
+    "nome": "Ngerulmud",
+    "coordinates": [
+      134.6238,
+      7.50077
+    ],
+    "source": "https://www.geonames.org/8063361/"
+  },
+  "PNG": {
+    "nome": "Port Moresby",
+    "coordinates": [
+      147.15089,
+      -9.47723
+    ],
+    "source": "https://www.geonames.org/2088122/"
+  },
+  "POL": {
+    "nome": "Warsaw",
+    "coordinates": [
+      21.01178,
+      52.22977
+    ],
+    "source": "https://www.geonames.org/756135/"
+  },
+  "PRI": {
+    "nome": "San Juan",
+    "coordinates": [
+      -66.10572,
+      18.46633
+    ],
+    "source": "https://www.geonames.org/4568127/"
+  },
+  "PRK": {
+    "nome": "Pyongyang",
+    "coordinates": [
+      125.75432,
+      39.03385
+    ],
+    "source": "https://www.geonames.org/1871859/"
+  },
+  "PRT": {
+    "nome": "Lisbon",
+    "coordinates": [
+      -9.1498,
+      38.72509
+    ],
+    "source": "https://www.geonames.org/2267057/"
+  },
+  "PRY": {
+    "nome": "Asunción",
+    "coordinates": [
+      -57.647,
+      -25.28646
+    ],
+    "source": "https://www.geonames.org/3439389/"
+  },
+  "PSE": {
+    "nome": "Ramallah",
+    "coordinates": [
+      35.20422,
+      31.89964
+    ],
+    "source": "https://www.geonames.org/282239/"
+  },
+  "PYF": {
+    "nome": "Papeete",
+    "coordinates": [
+      -149.56843,
+      -17.5347
+    ],
+    "source": "https://www.geonames.org/4033936/"
+  },
+  "QAT": {
+    "nome": "Doha",
+    "coordinates": [
+      51.53096,
+      25.28545
+    ],
+    "source": "https://www.geonames.org/290030/"
+  },
+  "ROU": {
+    "nome": "Bucharest",
+    "coordinates": [
+      26.10626,
+      44.43225
+    ],
+    "source": "https://www.geonames.org/683506/"
+  },
+  "RUS": {
+    "nome": "Moscow",
+    "coordinates": [
+      37.61781,
+      55.75204
+    ],
+    "source": "https://www.geonames.org/524901/"
+  },
+  "RWA": {
+    "nome": "Kigali",
+    "coordinates": [
+      30.05885,
+      -1.94995
+    ],
+    "source": "https://www.geonames.org/202061/"
+  },
+  "SAU": {
+    "nome": "Riyadh",
+    "coordinates": [
+      46.72185,
+      24.68773
+    ],
+    "source": "https://www.geonames.org/108410/"
+  },
+  "SDN": {
+    "nome": "Khartoum",
+    "coordinates": [
+      32.53241,
+      15.55177
+    ],
+    "source": "https://www.geonames.org/379252/"
+  },
+  "SEN": {
+    "nome": "Dakar",
+    "coordinates": [
+      -17.44406,
+      14.6937
+    ],
+    "source": "https://www.geonames.org/2253354/"
+  },
+  "SGP": {
+    "nome": "Singapore",
+    "coordinates": [
+      103.85007,
+      1.28967
+    ],
+    "source": "https://www.geonames.org/1880252/"
+  },
+  "SLB": {
+    "nome": "Honiara",
+    "coordinates": [
+      159.95,
+      -9.43333
+    ],
+    "source": "https://www.geonames.org/2108502/"
+  },
+  "SLE": {
+    "nome": "Freetown",
+    "coordinates": [
+      -13.2356,
+      8.48714
+    ],
+    "source": "https://www.geonames.org/2409306/"
+  },
+  "SLV": {
+    "nome": "San Salvador",
+    "coordinates": [
+      -89.18718,
+      13.68935
+    ],
+    "source": "https://www.geonames.org/3583361/"
+  },
+  "SMR": {
+    "nome": "San Marino",
+    "coordinates": [
+      12.44639,
+      43.93667
+    ],
+    "source": "https://www.geonames.org/3168070/"
+  },
+  "SOM": {
+    "nome": "Mogadishu",
+    "coordinates": [
+      45.34375,
+      2.03711
+    ],
+    "source": "https://www.geonames.org/53654/"
+  },
+  "SPM": {
+    "nome": "Saint-Pierre",
+    "coordinates": [
+      -56.1773,
+      46.77914
+    ],
+    "source": "https://www.geonames.org/3424934/"
+  },
+  "SRB": {
+    "nome": "Belgrade",
+    "coordinates": [
+      20.46513,
+      44.80401
+    ],
+    "source": "https://www.geonames.org/792680/"
+  },
+  "SSD": {
+    "nome": "Juba",
+    "coordinates": [
+      31.58247,
+      4.85165
+    ],
+    "source": "https://www.geonames.org/373303/"
+  },
+  "STP": {
+    "nome": "São Tomé",
+    "coordinates": [
+      6.7299,
+      0.33756
+    ],
+    "source": "https://www.geonames.org/2410763/"
+  },
+  "SUR": {
+    "nome": "Paramaribo",
+    "coordinates": [
+      -55.16682,
+      5.86638
+    ],
+    "source": "https://www.geonames.org/3383330/"
+  },
+  "SVK": {
+    "nome": "Bratislava",
+    "coordinates": [
+      17.10674,
+      48.14816
+    ],
+    "source": "https://www.geonames.org/3060972/"
+  },
+  "SVN": {
+    "nome": "Ljubljana",
+    "coordinates": [
+      14.50513,
+      46.05108
+    ],
+    "source": "https://www.geonames.org/3196359/"
+  },
+  "SWE": {
+    "nome": "Stockholm",
+    "coordinates": [
+      18.06871,
+      59.32938
+    ],
+    "source": "https://www.geonames.org/2673730/"
+  },
+  "SWZ": {
+    "nome": "Lobamba",
+    "coordinates": [
+      31.2,
+      -26.46667
+    ],
+    "source": "https://www.geonames.org/935048/"
+  },
+  "SXM": {
+    "nome": "Philipsburg",
+    "coordinates": [
+      -63.04582,
+      18.026
+    ],
+    "source": "https://www.geonames.org/3513392/"
+  },
+  "SYC": {
+    "nome": "Victoria",
+    "coordinates": [
+      55.45501,
+      -4.62001
+    ],
+    "source": "https://www.geonames.org/241131/"
+  },
+  "SYR": {
+    "nome": "Damascus",
+    "coordinates": [
+      36.29128,
+      33.5102
+    ],
+    "source": "https://www.geonames.org/170654/"
+  },
+  "TCA": {
+    "nome": "Cockburn Town",
+    "coordinates": [
+      -71.14188,
+      21.46122
+    ],
+    "source": "https://www.geonames.org/3576994/"
+  },
+  "TCD": {
+    "nome": "N'Djamena",
+    "coordinates": [
+      15.0444,
+      12.10672
+    ],
+    "source": "https://www.geonames.org/2427123/"
+  },
+  "TGO": {
+    "nome": "Lomé",
+    "coordinates": [
+      1.22154,
+      6.12874
+    ],
+    "source": "https://www.geonames.org/2365267/"
+  },
+  "THA": {
+    "nome": "Bangkok",
+    "coordinates": [
+      100.50144,
+      13.75398
+    ],
+    "source": "https://www.geonames.org/1609350/"
+  },
+  "TJK": {
+    "nome": "Dushanbe",
+    "coordinates": [
+      68.77905,
+      38.53575
+    ],
+    "source": "https://www.geonames.org/1221874/"
+  },
+  "TKM": {
+    "nome": "Ashgabat",
+    "coordinates": [
+      58.38333,
+      37.95
+    ],
+    "source": "https://www.geonames.org/162183/"
+  },
+  "TLS": {
+    "nome": "Dili",
+    "coordinates": [
+      125.57361,
+      -8.55861
+    ],
+    "source": "https://www.geonames.org/1645457/"
+  },
+  "TON": {
+    "nome": "Nuku‘alofa",
+    "coordinates": [
+      -175.20114,
+      -21.13683
+    ],
+    "source": "https://www.geonames.org/4032402/"
+  },
+  "TTO": {
+    "nome": "Port of Spain",
+    "coordinates": [
+      -61.51889,
+      10.66668
+    ],
+    "source": "https://www.geonames.org/3573890/"
+  },
+  "TUN": {
+    "nome": "Tunis",
+    "coordinates": [
+      10.16579,
+      36.81897
+    ],
+    "source": "https://www.geonames.org/2464470/"
+  },
+  "TUR": {
+    "nome": "Ankara",
+    "coordinates": [
+      32.85427,
+      39.91987
+    ],
+    "source": "https://www.geonames.org/323786/"
+  },
+  "TWN": {
+    "nome": "Taipei",
+    "coordinates": [
+      121.52639,
+      25.05306
+    ],
+    "source": "https://www.geonames.org/1668341/"
+  },
+  "TZA": {
+    "nome": "Dodoma",
+    "coordinates": [
+      35.73947,
+      -6.17221
+    ],
+    "source": "https://www.geonames.org/160196/"
+  },
+  "UGA": {
+    "nome": "Kampala",
+    "coordinates": [
+      32.58219,
+      0.31628
+    ],
+    "source": "https://www.geonames.org/232422/"
+  },
+  "UKR": {
+    "nome": "Kyiv",
+    "coordinates": [
+      30.5238,
+      50.45466
+    ],
+    "source": "https://www.geonames.org/703448/"
+  },
+  "URY": {
+    "nome": "Montevideo",
+    "coordinates": [
+      -56.18816,
+      -34.90328
+    ],
+    "source": "https://www.geonames.org/3441575/"
+  },
+  "USA": {
+    "nome": "Washington",
+    "coordinates": [
+      -77.03637,
+      38.89511
+    ],
+    "source": "https://www.geonames.org/4140963/"
+  },
+  "UZB": {
+    "nome": "Tashkent",
+    "coordinates": [
+      69.21627,
+      41.26465
+    ],
+    "source": "https://www.geonames.org/1512569/"
+  },
+  "VAT": {
+    "nome": "Vatican City",
+    "coordinates": [
+      12.45414,
+      41.90268
+    ],
+    "source": "https://www.geonames.org/6691831/"
+  },
+  "VCT": {
+    "nome": "Kingstown",
+    "coordinates": [
+      -61.22742,
+      13.15527
+    ],
+    "source": "https://www.geonames.org/3577887/"
+  },
+  "VEN": {
+    "nome": "Caracas",
+    "coordinates": [
+      -66.87919,
+      10.48801
+    ],
+    "source": "https://www.geonames.org/3646738/"
+  },
+  "VGB": {
+    "nome": "Road Town",
+    "coordinates": [
+      -64.62079,
+      18.42693
+    ],
+    "source": "https://www.geonames.org/3577430/"
+  },
+  "VIR": {
+    "nome": "Charlotte Amalie",
+    "coordinates": [
+      -64.9307,
+      18.3419
+    ],
+    "source": "https://www.geonames.org/4795467/"
+  },
+  "VNM": {
+    "nome": "Hanoi",
+    "coordinates": [
+      105.84117,
+      21.0245
+    ],
+    "source": "https://www.geonames.org/1581130/"
+  },
+  "VUT": {
+    "nome": "Port-Vila",
+    "coordinates": [
+      168.31366,
+      -17.73648
+    ],
+    "source": "https://www.geonames.org/2135171/"
+  },
+  "WLF": {
+    "nome": "Mata-Utu",
+    "coordinates": [
+      -176.17453,
+      -13.28163
+    ],
+    "source": "https://www.geonames.org/4034821/"
+  },
+  "WSM": {
+    "nome": "Apia",
+    "coordinates": [
+      -171.76666,
+      -13.83333
+    ],
+    "source": "https://www.geonames.org/4035413/"
+  },
+  "YEM": {
+    "nome": "Sanaa",
+    "coordinates": [
+      44.20646,
+      15.35452
+    ],
+    "source": "https://www.geonames.org/71137/"
+  },
+  "ZAF": {
+    "nome": "Pretoria",
+    "coordinates": [
+      28.18783,
+      -25.74486
+    ],
+    "source": "https://www.geonames.org/964137/"
+  },
+  "ZMB": {
+    "nome": "Lusaka",
+    "coordinates": [
+      28.28713,
+      -15.40669
+    ],
+    "source": "https://www.geonames.org/909137/"
+  },
+  "ZWE": {
+    "nome": "Harare",
+    "coordinates": [
+      31.05337,
+      -17.82772
+    ],
+    "source": "https://www.geonames.org/890299/"
+  }
+}

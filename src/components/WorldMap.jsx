@@ -5,7 +5,7 @@ import { Icon } from './Icon.jsx';
 import { focusGeometry } from '../lib/map.js';
 
 /** React owns each SVG country. D3 owns only the parent group's transform. */
-export default function WorldMap({ decorative = false, region = 'mundo', target, typed = false, difficulty = 'normal', solved = [], flash, onCountryClick, disabled = false, round = 0 }) {
+export default function WorldMap({ decorative = false, region = 'mundo', target, typed = false, showCapitalPin = false, keepCorrect = true, solved = [], flash, onCountryClick, disabled = false, round = 0 }) {
   const boxRef = useRef(null);
   const svgRef = useRef(null);
   const groupRef = useRef(null);
@@ -29,6 +29,7 @@ export default function WorldMap({ decorative = false, region = 'mundo', target,
   const graticule = useMemo(() => path(geoGraticule10()), [path]);
   const eligible = useMemo(() => features.filter(f => byId[f.id] && (region === 'mundo' || byId[f.id].continente === region)), [region]);
   const targets = useMemo(() => eligible.filter(f => geoArea(f) < 0.000012), [eligible]);
+  const capitalPosition = showCapitalPin && target?.coordenadas_capital ? projection(target.coordenadas_capital) : null;
 
   useEffect(() => {
     if (decorative) return;
@@ -48,20 +49,28 @@ export default function WorldMap({ decorative = false, region = 'mundo', target,
   useEffect(() => {
     if (decorative || !zoomRef.current) return;
     const selection = typed && target ? features.filter(f => f.id === target.id) : eligible;
-    const bounds = path.bounds(typed && target ? focusGeometry(selection, target.coordenadas_centro) : { type: 'FeatureCollection', features: selection });
-    const [[x0, y0], [x1, y1]] = bounds;
+    const focusCenter = showCapitalPin ? target.coordenadas_capital : target?.coordenadas_centro;
+    const bounds = path.bounds(typed && target ? focusGeometry(selection, focusCenter) : { type: 'FeatureCollection', features: selection });
+    // Some capital points sit just offshore at this cartographic scale. Include
+    // the marker in the camera bounds instead of clipping it from the view.
+    const pin = showCapitalPin && target?.coordenadas_capital ? projection(target.coordenadas_capital) : null;
+    const [[left, top], [right, bottom]] = bounds;
+    const x0 = pin ? Math.min(left, pin[0]) : left;
+    const y0 = pin ? Math.min(top, pin[1]) : top;
+    const x1 = pin ? Math.max(right, pin[0]) : right;
+    const y1 = pin ? Math.max(bottom, pin[1]) : bottom;
     const k = region === 'mundo' && !typed ? 1 : Math.min(typed ? 75 : 8, 0.76 / Math.max((x1 - x0) / width, (y1 - y0) / height));
     const transform = !typed && region === 'mundo' ? zoomIdentity : zoomIdentity.translate(width / 2, height / 2).scale(Math.max(0.8, k)).translate(-(x0 + x1) / 2, -(y0 + y1) / 2);
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     select(svgRef.current).transition().duration(reduced ? 0 : 650).call(zoomRef.current.transform, transform);
-  }, [decorative, target?.id, region, typed, width, height, path, eligible, round]);
+  }, [decorative, target?.id, region, typed, showCapitalPin, width, height, path, eligible, projection, round]);
 
   function countryClass(f) {
     if (decorative) return `country decoration ${['076', '124', '250', '356', '036', '710', '392'].includes(f.id) ? 'featured' : ''}`;
     const inRegion = byId[f.id] && (region === 'mundo' || byId[f.id].continente === region);
     let classes = `country ${inRegion ? 'playable' : 'outside'} ${typed ? 'typing-country' : ''}`;
     if (typed && f.id === target?.id) classes += ' target';
-    if (difficulty === 'normal' && solved.includes(f.id)) classes += ' correct';
+    if (keepCorrect && solved.includes(f.id)) classes += ' correct';
     if (flash?.id === f.id) classes += flash.correct ? ' correct' : ' wrong';
     return classes;
   }
@@ -83,6 +92,11 @@ export default function WorldMap({ decorative = false, region = 'mundo', target,
           if (!center) return null;
           return <circle key={`hit-${f.key}`} data-hit-country={f.id} cx={center[0]} cy={center[1]} r={4 / scale} className={`micro-country ${countryClass(f)}`} vectorEffect="non-scaling-stroke" onClick={event => choose(event, f)} />;
         })}
+        {!decorative && capitalPosition && <g className="capital-pin" role="img" aria-label="Localização da capital" data-capital-pin={target.id} transform={`translate(${capitalPosition[0]},${capitalPosition[1]}) scale(${1 / scale})`}>
+          <ellipse cx="0" cy="2" rx="7" ry="3" className="capital-pin-shadow" />
+          <path className="capital-pin-body" d="M-6-25H6v3h3v12H6v3H3v4L0 0l-3-3v-4h-3v-3h-3v-12h3Z" />
+          <rect x="-3" y="-19" width="6" height="6" className="capital-pin-center" />
+        </g>}
         {decorative && [byId['076'], byId['250'], byId['392']].filter(Boolean).map(c => {
           const [x, y] = projection(c.coordenadas_centro);
           return <g key={c.id} transform={`translate(${x},${y})`} className="hero-map-marker"><path d="M-5-5H5V5H-5Z" /><path d="M-12 0h-5m29 0h5M0-12v-5m0 29v5" /></g>;
