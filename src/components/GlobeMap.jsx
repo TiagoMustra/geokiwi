@@ -157,8 +157,8 @@ export default function GlobeMap({ decorative = false, region = 'mundo', target,
       onClickCapture={event => { if (ignoreClick.current) { event.preventDefault(); event.stopPropagation(); ignoreClick.current = false; } }}>
       <defs>
         <pattern id={`${gradientId}-dots`} width="22" height="22" patternUnits="userSpaceOnUse"><rect width="1" height="1" fill="#456778" opacity="0.35" /></pattern>
-        <radialGradient id={`${gradientId}-ocean`} cx="35%" cy="28%" r="80%"><stop stopColor="#234557" /><stop offset="0.64" stopColor="#132a3a" /><stop offset="1" stopColor="#07121c" /></radialGradient>
-        <radialGradient id={`${gradientId}-light`} cx="35%" cy="28%" r="72%"><stop stopColor="#c1edff" stopOpacity="0.12" /><stop offset="0.5" stopColor="#06111b" stopOpacity="0" /><stop offset="1" stopColor="#020912" stopOpacity="0.75" /></radialGradient>
+        <radialGradient id={`${gradientId}-ocean`} cx="35%" cy="28%" r="80%"><stop stopColor="var(--ocean-near)" /><stop offset="0.64" stopColor="var(--ocean-mid)" /><stop offset="1" stopColor="var(--ocean-far)" /></radialGradient>
+        <radialGradient id={`${gradientId}-light`} cx="35%" cy="28%" r="72%"><stop stopColor="#ffffff" stopOpacity="0.05" /><stop offset="0.5" stopColor="#06111b" stopOpacity="0" /><stop offset="1" stopColor="#020912" stopOpacity="var(--globe-shade)" /></radialGradient>
       </defs>
       <rect width={width} height={height} fill={`url(#${gradientId}-dots)`} />
       <circle className="globe-atmosphere" cx={width / 2} cy={height / 2} r={radius * camera.zoom + 3} />

@@ -102,3 +102,10 @@ export function readMapView(storage) {
 export function saveMapView(value, storage) {
   savePreferences({ mapView: value === 'globe' ? 'globe' : 'flat' }, storage);
 }
+export function readTheme(storage) {
+  try { return readPreferences(storage).theme === 'light' ? 'light' : 'dark'; }
+  catch { return 'dark'; }
+}
+export function saveTheme(value, storage) {
+  savePreferences({ theme: value === 'light' ? 'light' : 'dark' }, storage);
+}

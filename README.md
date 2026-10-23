@@ -37,7 +37,8 @@ geoquest/
 ├── src/
 │   ├── main.jsx               # Inicialização do React
 │   ├── App.jsx                # Navegação, recordes e áudio opcional
-│   ├── styles.css             # Tema, mapa, feedback e responsividade
+│   ├── styles.css             # Layout, mapa, feedback e responsividade
+│   ├── themes.css             # Temas escuro / claro e contraste dos mapas
 │   ├── data/
 │   │   ├── countries.json     # Estado central dos destinos
 │   │   ├── capital-coordinates.json # Coordenadas e fonte de cada capital
@@ -49,6 +50,7 @@ geoquest/
 │   │   ├── WorldMap.jsx       # Mapa plano com pan/zoom
 │   │   ├── GlobeMap.jsx       # Esfera interativa e rotação
 │   │   ├── MapViewControl.jsx # Seletor visível de mapa / globo
+│   │   ├── ThemeControl.jsx   # Switch Claro / Escuro no cabeçalho
 │   │   ├── CapitalPin.jsx     # Pin sem nome para as duas vistas
 │   │   ├── KeepCorrectControl.jsx # Switch visível no menu e no jogo
 │   │   ├── Game.jsx           # Tela de jogo e resultado
@@ -115,6 +117,14 @@ O seletor **Mapa plano / Globo 3D** fica visível no menu e no topo da partida. 
 - As classes de acerto/erro e a opção de manter o verde são as mesmas nas duas vistas. O pin da capital continua sem nome.
 - Eventos de movimento são agrupados com `requestAnimationFrame`; durante o gesto, as costas usam geometria mais leve, mantendo todos os territórios e ilhas. A geometria completa 1:50m regressa quando o gesto termina. Cada contorno simplificado é validado pela área esférica e orientação: se a simplificação inverter uma ilha ou alterar demasiado a sua área, o contorno original é mantido. Isso impede países de preencherem o complemento da Terra, taparem os vizinhos ou pintarem a esfera inteira. Os realces de hover são suspensos durante a navegação.
 
+### Temas e contraste
+
+O cabeçalho tem um switch **Claro / Escuro**, disponível no menu e durante qualquer partida, também no telemóvel. O modo claro usa superfícies creme e bege, com acentos pastel de sálvia, azul, lavanda e pêssego. Os textos usam tons escuros para manter a leitura. Menus, controlos, formulários, diálogos, resultados e feedback acompanham o tema.
+
+`themes.css` centraliza as cores de terra, fronteiras, oceanos e estados de resposta. No tema escuro, a terra é sálvia clara sobre mar azul profundo; a sombra da esfera foi reduzida para não ocultar os países nas bordas. No claro, o globo usa terra creme e oceanos azul acinzentado. O gradiente SVG lê variáveis CSS, pelo que o tema muda sem reiniciar a câmera nem a partida. O contraste de luminância entre terra e cada tom do mar é verificado automaticamente para evitar voltar à separação pouco legível da versão anterior.
+
+A preferência `theme` é guardada em `geoquest.preferences.v1`, em conjunto com `mapView` e `keepCorrect`. `public/theme-init.js` aplica a preferência antes de carregar a interface para evitar um flash do tema errado. O estado de tema fica fora do reducer do jogo: mudar a aparência preserva perguntas, pontuação, respostas, cores e orientação atual do globo.
+
 ## Passo 3 — Lógica dos quatro modos
 
 `lib/game.js` contém uma máquina de estados pura, utilizada por `useReducer` em `Game.jsx`. `makeQueue` embaralha **todos** os destinos da região com Fisher–Yates, sem repetição e sem limitar a 15 perguntas. Mundo Todo percorre os 230 destinos. O progresso usa o tamanho real da fila e a partida só termina depois do último destino. No jogo 3, capitais com nomes compartilhados, como Kingston, exibem a região como pista: assim nenhum destino precisa ser excluído.
@@ -160,7 +170,7 @@ Esse comando precisa de internet e atualiza `countries.json`, `world.json` e as 
 
 ## Validação
 
-**34 testes aprovados**, cobrindo integridade dos 230 destinos e bandeiras, coordenadas das capitais, seis regiões, quatro modos com os 230 destinos completos, ausência de limite de 15, ordem aleatória sem repetição, switch durante a partida, preferência persistida, separação dos recordes antigos, pontuações acima de 1.500, uma tentativa por pergunta, corrupção/bloqueio de armazenamento e geometria em tamanhos móveis e desktop. Os testes adicionais verificam Saltar nos dois modos de digitação, bloqueio de respostas duplicadas, fim da partida após o último salto, orientação e área de todas as ilhas simplificadas e ausência de preenchimentos excessivos durante drag/zoom. Os testes do globo verificam rotação completa, limites de zoom, recorte do hemisfério, todos os destinos visíveis, as 230 capitais centradas, geometria de movimento e preferências independentes. O build de produção foi gerado com sucesso.
+**38 testes aprovados**, cobrindo integridade dos 230 destinos e bandeiras, coordenadas das capitais, seis regiões, quatro modos com os 230 destinos completos, ausência de limite de 15, ordem aleatória sem repetição, switch durante a partida, preferência persistida, separação dos recordes antigos, pontuações acima de 1.500, uma tentativa por pergunta, corrupção/bloqueio de armazenamento e geometria em tamanhos móveis e desktop. Os testes adicionais verificam Saltar nos dois modos de digitação, bloqueio de respostas duplicadas, fim da partida após o último salto, orientação e área de todas as ilhas simplificadas e ausência de preenchimentos excessivos durante drag/zoom. Os testes do globo verificam rotação completa, limites de zoom, recorte do hemisfério, todos os destinos visíveis, as 230 capitais centradas, geometria de movimento e preferências independentes. Os testes de tema cobrem persistência independente das outras preferências, armazenamento bloqueado, aplicação antes do arranque e separação visual entre terra e mar nas duas paletas. O build de produção foi gerado com sucesso.
 
 A revisão visual automatizada ficou pendente: a política de segurança da ferramenta de navegador bloqueou a abertura da prévia local. Os testes de geometria não substituem uma revisão visual ou testes de gestos em dispositivos reais.
 

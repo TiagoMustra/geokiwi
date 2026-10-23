@@ -1,16 +1,18 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { MODES, REGIONS } from './data/index.js';
-import { readScores, saveScore, scoreKey, readKeepCorrect, saveKeepCorrect, readMapView, saveMapView } from './lib/game.js';
+import { readScores, saveScore, scoreKey, readKeepCorrect, saveKeepCorrect, readMapView, saveMapView, readTheme, saveTheme } from './lib/game.js';
 import { Icon, PixelGlobe } from './components/Icon.jsx';
 import Home from './components/Home.jsx';
 import Game from './components/Game.jsx';
 import Modal from './components/Modal.jsx';
+import ThemeControl from './components/ThemeControl.jsx';
 
 export default function App() {
   const [config, setConfig] = useState(null);
   const [gameId, setGameId] = useState(0);
   const [difficulty, setDifficulty] = useState(() => readKeepCorrect() ? 'normal' : 'dificil');
   const [mapView, setMapView] = useState(() => readMapView());
+  const [theme, setTheme] = useState(() => readTheme());
   const [scores, setScores] = useState(() => readScores());
   const [soundEnabled, setSoundEnabled] = useState(false);
   const [modal, setModal] = useState(null);
@@ -19,6 +21,12 @@ export default function App() {
 
   useEffect(() => { saveKeepCorrect(difficulty === 'normal'); }, [difficulty]);
   useEffect(() => { saveMapView(mapView); }, [mapView]);
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    const meta = document.querySelector('meta[name="theme-color"]');
+    if (meta) meta.content = theme === 'light' ? '#f4efe5' : '#0b1015';
+    saveTheme(theme);
+  }, [theme]);
 
   useEffect(() => {
     const listener = () => setScores(readScores());
@@ -63,7 +71,7 @@ export default function App() {
     <header className="site-header"><div className="header-inner">
       <button className="brand" onClick={() => { if (!config) window.scrollTo({ top: 0, behavior: 'smooth' }); else setModal('leave'); }} aria-label="GEOQUEST início"><PixelGlobe /><span>GEO<span className="brand-accent">QUEST</span><small>THE WORLD IS YOUR PLAYGROUND</small></span></button>
       <nav aria-label="Navegação principal"><button className={!modal ? 'nav-active' : ''} onClick={() => { if (!config) document.getElementById('jogos')?.scrollIntoView({ behavior: 'smooth' }); else setModal('leave'); }}>JOGAR<span>01</span></button><button className={modal === 'help' ? 'nav-active' : ''} onClick={() => setModal('help')}>COMO JOGAR<span>02</span></button><button className={modal === 'scores' ? 'nav-active' : ''} onClick={() => setModal('scores')}>RECORDES<span>03</span></button></nav>
-      <div className="header-right"><span className="ready-label"><span className="status-dot" /> PRONTO PARA EXPLORAR</span><button className="sound-toggle" aria-label={soundEnabled ? 'Desativar som' : 'Ativar som'} aria-pressed={soundEnabled} onClick={() => setSoundEnabled(enabled => !enabled)}><Icon name={soundEnabled ? 'volume' : 'muted'} size={18} /></button><span className="language-label">PT-BR</span></div>
+      <div className="header-right"><span className="ready-label"><span className="status-dot" /> PRONTO PARA EXPLORAR</span><ThemeControl value={theme} onChange={setTheme} /><button className="sound-toggle" aria-label={soundEnabled ? 'Desativar som' : 'Ativar som'} aria-pressed={soundEnabled} onClick={() => setSoundEnabled(enabled => !enabled)}><Icon name={soundEnabled ? 'volume' : 'muted'} size={18} /></button><span className="language-label">PT-BR</span></div>
     </div></header>
     {config ? <Game key={gameId} config={config} mapView={mapView} onMapViewChange={setMapView} highScores={scores} onKeepCorrectChange={value => setDifficulty(value ? 'normal' : 'dificil')} onExit={() => setConfig(null)} onReplay={() => start(config.mode, config.region)} onFinish={finish} sound={sound} /> : <Home difficulty={difficulty} setDifficulty={setDifficulty} mapView={mapView} setMapView={setMapView} scores={scores} onStart={start} />}
     {!config && <footer className="site-footer"><span><PixelGlobe size={14} /> GEOQUEST <b>© 2026</b></span><span>SEM PASSAPORTE. SEM LIMITES. SÓ CONHECIMENTO.</span><button onClick={() => setModal('about')}>DADOS & CRÉDITOS <Icon name="northeast" size={12} /></button></footer>}
