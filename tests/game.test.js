@@ -1,10 +1,10 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync, existsSync } from 'node:fs';
-import { geoNaturalEarth1, geoPath } from 'd3';
+import { geoPath } from 'd3';
 import { feature } from 'topojson-client';
 import { createGame, gameReducer, makeQueue, matchesAnswer, normalizeAnswer, readScores, saveScore, scoreKey, readKeepCorrect, saveKeepCorrect } from '../src/lib/game.js';
-import { focusGeometry } from '../src/lib/map.js';
+import { focusGeometry, createFlatProjection } from '../src/lib/map.js';
 
 const countries = JSON.parse(readFileSync(new URL('../src/data/countries.json', import.meta.url)));
 const topology = JSON.parse(readFileSync(new URL('../src/data/world.json', import.meta.url)));
@@ -221,7 +221,7 @@ test('blocked or malformed localStorage does not break the app', () => {
 test('SVG geography produces finite paths and zoom bounds at mobile and desktop sizes', () => {
   const features = feature(topology, topology.objects.countries).features.filter(f => f.id !== '010');
   for (const [width, height] of [[375, 360], [768, 500], [1360, 600]]) {
-    const projection = geoNaturalEarth1().fitExtent([[20, 30], [width - 20, height - 30]], { type: 'FeatureCollection', features });
+    const projection = createFlatProjection(width, height);
     const path = geoPath(projection);
     for (const f of features) {
       assert.ok(path(f) && !path(f).includes('NaN'), `Invalid path ${f.id}`);
@@ -232,7 +232,7 @@ test('SVG geography produces finite paths and zoom bounds at mobile and desktop 
 
 test('automatic zoom focuses a finite main landmass for every destination including overseas territories', () => {
   const features = feature(topology, topology.objects.countries).features;
-  const path = geoPath(geoNaturalEarth1());
+  const path = geoPath(createFlatProjection(1100, 590));
   for (const country of countries) {
     const geometry = focusGeometry(features.filter(f => f.id === country.id), country.coordenadas_centro);
     assert.ok(geometry, country.nome_pt);

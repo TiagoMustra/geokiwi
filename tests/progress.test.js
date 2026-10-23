@@ -1,10 +1,9 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { geoNaturalEarth1 } from 'd3';
 import { createGame, gameReducer, feedbackDuration } from '../src/lib/game.js';
 import { ACTIVITY_KEY, emptyActivity, checkpoint, readActivity, writeActivity, restoreGame, saveKey, summarizeStats } from '../src/lib/activity.js';
-import { getRegionTransform, regionRotation } from '../src/lib/map.js';
+import { getRegionTransform, createFlatProjection } from '../src/lib/map.js';
 import { getGlobeCamera } from '../src/lib/globe.js';
 const countries = JSON.parse(readFileSync(new URL('../src/data/countries.json', import.meta.url)));
 const pool = region => countries.filter(c => region === 'mundo' || c.continente === region);
@@ -119,7 +118,7 @@ test('corrupt or incompatible saves are ignored; score is recomputed from verifi
 
 test('European framing fills the map without Russia or overseas France forcing a global zoom', () => {
   for (const [width, height] of [[375, 360], [1360, 600]]) {
-    const projection = geoNaturalEarth1().rotate(regionRotation('europa')).fitExtent([[20, 30], [width - 20, height - 30]], { type: 'Sphere' });
+    const projection = createFlatProjection(width, height, 'europa');
     const transform = getRegionTransform('europa', projection, width, height);
     assert.ok(transform.k > 2, 'Europe starts zoomed in');
     for (const point of [[-9, 39], [2, 47], [25, 60], [-19, 65], [33, 35]]) {
@@ -129,7 +128,7 @@ test('European framing fills the map without Russia or overseas France forcing a
     const guiana = transform.apply(projection([-53, 4]));
     assert.ok(guiana[0] < 0 || guiana[1] > height);
     for (const region of ['africa', 'asia', 'americas', 'oceania']) {
-      const p = geoNaturalEarth1().rotate(regionRotation(region));
+      const p = createFlatProjection(width, height, region);
       const t = getRegionTransform(region, p, width, height);
       assert.ok([t.k, t.x, t.y].every(Number.isFinite));
     }

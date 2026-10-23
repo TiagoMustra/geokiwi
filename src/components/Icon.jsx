@@ -33,6 +33,11 @@ export function Icon({ name, size = 20, ...props }) {
   return <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="square" strokeLinejoin="miter" aria-hidden="true" {...props}><path d={paths[name] || paths.globe} /></svg>;
 }
 
-export function PixelGlobe({ size = 30 }) {
-  return <svg width={size} height={size} viewBox="0 0 32 32" aria-hidden="true"><path fill="currentColor" d="M8 0h16v4h4v4h4v16h-4v4h-4v4H8v-4H4v-4H0V8h4V4h4z"/><path fill="var(--bg, #0b1015)" d="M8 8h4v4H8zm8-4h4v8h8v4H16zm-12 12h12v4h4v8h-4v-4h-4v-4H4zm20 4h4v4h-4z"/></svg>;
+export function KiwiMark({ size = 32, ...props }) {
+  return <svg width={size} height={size} viewBox="0 0 32 32" className="kiwi-mark" aria-hidden="true" {...props}>
+    <path fill="#95683e" d="M8 0h16v4h4v4h4v16h-4v4h-4v4H8v-4H4v-4H0V8h4V4h4Z" />
+    <path fill="#b8e96d" d="M8 4h16v4h4v16h-4v4H8v-4H4V8h4Z" />
+    <path fill="#f8efc8" d="M12 10h8v2h2v8h-2v2h-8v-2H10v-8h2Z" />
+    <path fill="#263421" d="M8 8h2v4H8Zm14 0h2v4h-2ZM6 14h3v3H6Zm17 0h3v3h-3ZM8 21h2v4H8Zm14 0h2v4h-2ZM14 5h4v2h-4Zm0 20h4v2h-4Z" />
+  </svg>;
 }

@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { MODES, REGIONS, countries } from '../data/index.js';
 import { saveKey } from '../lib/activity.js';
 import { scoreKey } from '../lib/game.js';
-import { Icon } from './Icon.jsx';
+import { Icon, KiwiMark } from './Icon.jsx';
 import WorldMap from './WorldMap.jsx';
 import KeepCorrectControl from './KeepCorrectControl.jsx';
 import MapViewControl from './MapViewControl.jsx';
@@ -15,18 +15,18 @@ export default function Home({ difficulty, setDifficulty, mapView = 'flat', setM
   return <main className="home-shell">
     <section className="hero" aria-labelledby="hero-title">
       <div className="hero-copy">
-        <div className="eyebrow"><span className="tiny-plus">+</span> EXPLORE. APRENDA. SUBA DE NÍVEL.</div>
-        <h1 id="hero-title">O MUNDO É SEU<br /><span>PLAYGROUND.</span><span className="pixel-cursor" /></h1>
+        <div className="eyebrow"><span className="tiny-plus">+</span> EXPLORA. APRENDE. REPETE.</div>
+        <h1 id="hero-title">O MUNDO É TEU<br /><span>PARA EXPLORAR.</span><span className="pixel-cursor" /></h1>
         <p>De um país ao outro, um desafio de cada vez.<br />Coloque seu conhecimento no mapa.</p>
         <a className="hero-link" href="#jogos">ESCOLHA SUA MISSÃO <Icon name="arrow" size={17} /></a>
         <div className="hero-stats"><span><strong>{countries.length}</strong> PAÍSES E TERRITÓRIOS</span><i /><span><strong>04</strong> MODOS DE JOGO</span><i /><span><strong>∞</strong> DESCOBERTAS</span></div>
       </div>
       <div className="hero-art" aria-hidden="true">
-        <div className="art-topline"><span><span className="status-dot" /> WORLD EXPLORER</span><span>LIVE ATLAS / 01</span></div>
+        <div className="art-topline"><span><span className="status-dot" /> KIWI EXPLORER</span><span>LIVE ATLAS / 01</span></div>
         {mapView === 'globe' ? <GlobeMap decorative /> : <WorldMap decorative />}
         {mapView === 'flat' && <><div className="art-coordinate coordinate-one">23°33′ S<br /><span>46°38′ W</span></div>
         <div className="art-coordinate coordinate-two">35°40′ N<br /><span>139°41′ E</span></div></>}
-        <div className="map-floating-tag"><Icon name="crosshair" size={15} /><span>PRÓXIMO DESTINO: O ACERTO</span></div>
+        <div className="map-floating-tag"><KiwiMark size={18} /><span>UMA DOSE FRESCA DE GEOGRAFIA</span></div>
         <span className="corner top-left" /><span className="corner bottom-right" />
       </div>
     </section>

@@ -1,6 +1,6 @@
-# GEOQUEST
+# GeoKiwi
 
-Site de jogos de geografia em português, construído com **React + Vite + D3.js + TopoJSON**. Tema escuro, fontes pixeladas locais, quatro modos, seis regiões, partidas retomáveis e estatísticas no navegador.
+Site de jogos de geografia em português, construído com **React + Vite + D3.js + TopoJSON**. Marca GeoKiwi com rodela de kiwi pixelada, verde kiwi, creme e castanho nos temas claro/escuro, fontes pixeladas locais, quatro modos, seis regiões, partidas retomáveis e estatísticas no navegador.
 
 ## Executar
 
@@ -90,7 +90,7 @@ Também estão disponíveis `iso2`, `iso3`, `aliases` e `capitais_aceitas`. As c
 
 ## Passo 2 — Mapa interativo SVG
 
-`WorldMap.jsx` usa `geoNaturalEarth1` e `geoPath`. Cada território é um `<path>` React independente, identificado por `data-country-id`, com as classes:
+`WorldMap.jsx` usa `geoEquirectangular` (plate carrée) e `geoPath`. A projeção tem contorno retangular de proporção 2:1, meridianos verticais e paralelos horizontais; as regiões polares ficam esticadas. `createFlatProjection` usa os limites da esfera para manter o retângulo completo, e uma camada SVG própria desenha o oceano e a sua moldura. Cada território é um `<path>` React independente, identificado por `data-country-id`, com as classes:
 
 | Classe | Comportamento |
 | --- | --- |
@@ -149,6 +149,8 @@ Ao concluir a partida, a tela mostra pontuação, acertos, melhor sequência, re
 
 ### Recordes
 
+A marca mudou de GEOQUEST para GeoKiwi. As chaves locais `geoquest.*` e o endereço publicado foram mantidos para conservar partidas, estatísticas, recordes e preferências existentes.
+
 Chave dos percursos completos: `geoquest.highscores.v2`. Os antigos recordes de 15 perguntas permanecem intactos em `v1`, sem serem comparados ao novo formato. A preferência do switch usa `geoquest.preferences.v1`. Cada registro usa a composição:
 
 ```text
@@ -185,7 +187,7 @@ Esse comando precisa de internet e atualiza `countries.json`, `world.json` e as 
 
 ## Validação
 
-**46 testes aprovados**, cobrindo integridade dos 230 destinos e bandeiras, coordenadas das capitais, seis regiões, quatro modos com os 230 destinos completos, ausência de limite de 15, ordem aleatória sem repetição, switch durante a partida, preferência persistida, separação dos recordes antigos, pontuações acima de 1.500, uma tentativa por pergunta, corrupção/bloqueio de armazenamento e geometria em tamanhos móveis e desktop. Os testes adicionais verificam Saltar nos dois modos de digitação, bloqueio de respostas duplicadas, fim da partida após o último salto, orientação e área de todas as ilhas simplificadas e ausência de preenchimentos excessivos durante drag/zoom. Os testes do globo verificam rotação completa, limites de zoom, recorte do hemisfério, todos os destinos visíveis, as 230 capitais centradas, geometria de movimento e preferências independentes. Os testes de tema cobrem persistência independente das outras preferências, armazenamento bloqueado, aplicação antes do arranque e separação visual entre terra e mar nas duas paletas. Os novos testes verificam recuperação das quatro modalidades sem mudar a fila, gravação atómica e deduplicação após recarregar, isolamento de jogos/regiões, saltos nas estatísticas de capitais, remoção da partida concluída, armazenamento corrompido/bloqueado e enquadramento europeu em ecrãs pequenos e grandes. Mais 17 verificações de renderização React cobrem Home com partida guardada, quatro jogos nas duas vistas, feedback automático e estatísticas. O build de produção foi gerado com sucesso.
+**48 testes aprovados**, cobrindo integridade dos 230 destinos e bandeiras, coordenadas das capitais, seis regiões, quatro modos com os 230 destinos completos, ausência de limite de 15, ordem aleatória sem repetição, switch durante a partida, preferência persistida, separação dos recordes antigos, pontuações acima de 1.500, uma tentativa por pergunta, corrupção/bloqueio de armazenamento e geometria em tamanhos móveis e desktop. Os testes adicionais verificam Saltar nos dois modos de digitação, bloqueio de respostas duplicadas, fim da partida após o último salto, orientação e área de todas as ilhas simplificadas e ausência de preenchimentos excessivos durante drag/zoom. Os testes do globo verificam rotação completa, limites de zoom, recorte do hemisfério, todos os destinos visíveis, as 230 capitais centradas, geometria de movimento e preferências independentes. Os testes de tema cobrem persistência independente das outras preferências, armazenamento bloqueado, aplicação antes do arranque e separação visual entre terra e mar nas duas paletas. Os testes da projeção verificam o retângulo completo 2:1, meridianos verticais, paralelos horizontais e as 230 capitais dentro do mapa, também com enquadramento do Pacífico e das Américas. Os novos testes verificam recuperação das quatro modalidades sem mudar a fila, gravação atómica e deduplicação após recarregar, isolamento de jogos/regiões, saltos nas estatísticas de capitais, remoção da partida concluída, armazenamento corrompido/bloqueado e enquadramento europeu em ecrãs pequenos e grandes. Mais 17 verificações de renderização React cobrem Home com partida guardada, quatro jogos nas duas vistas, feedback automático e estatísticas. O build de produção foi gerado com sucesso.
 
 A revisão visual automatizada ficou pendente: a política de segurança da ferramenta de navegador bloqueou a abertura da prévia local. Os testes de geometria não substituem uma revisão visual ou testes de gestos em dispositivos reais.
 

@@ -1,8 +1,8 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import { geoNaturalEarth1, geoPath, geoGraticule10, geoArea, select, zoom, zoomIdentity } from 'd3';
+import { geoPath, geoGraticule10, geoArea, select, zoom, zoomIdentity } from 'd3';
 import { features, byId } from '../data/index.js';
 import { Icon } from './Icon.jsx';
-import { focusGeometry, getRegionTransform, regionRotation } from '../lib/map.js';
+import { focusGeometry, getRegionTransform, createFlatProjection } from '../lib/map.js';
 import CapitalPin from './CapitalPin.jsx';
 
 /** React owns each SVG country. D3 owns only the parent group's transform. */
@@ -24,9 +24,10 @@ export default function WorldMap({ decorative = false, region = 'mundo', target,
   }, []);
 
   const { width, height } = size;
-  const projection = useMemo(() => geoNaturalEarth1().rotate(regionRotation(decorative ? 'mundo' : region)).fitExtent([[20, 30], [width - 20, height - 30]], { type: 'FeatureCollection', features }), [width, height, region, decorative]);
+  const projection = useMemo(() => createFlatProjection(width, height, decorative ? 'mundo' : region), [width, height, region, decorative]);
   const path = useMemo(() => geoPath(projection), [projection]);
   const geometries = useMemo(() => features.map(f => ({ feature: f, d: path(f) })), [path]);
+  const worldOutline = useMemo(() => path({ type: 'Sphere' }), [path]);
   const graticule = useMemo(() => path(geoGraticule10()), [path]);
   const eligible = useMemo(() => features.filter(f => byId[f.id] && (region === 'mundo' || byId[f.id].continente === region)), [region]);
   const targets = useMemo(() => eligible.filter(f => geoArea(f) < 0.000012), [eligible]);
@@ -91,6 +92,7 @@ export default function WorldMap({ decorative = false, region = 'mundo', target,
       <defs><pattern id={decorative ? 'hero-dots' : 'map-dots'} width="18" height="18" patternUnits="userSpaceOnUse"><rect x="0" y="0" width="1" height="1" fill="#33404d" opacity="0.45" /></pattern></defs>
       <rect width={width} height={height} fill={`url(#${decorative ? 'hero-dots' : 'map-dots'})`} />
       <g ref={groupRef}>
+        <path d={worldOutline} className="flat-world-ocean" vectorEffect="non-scaling-stroke" />
         <path d={graticule} className="graticule" vectorEffect="non-scaling-stroke" />
         {geometries.map(({ feature: f, d }, index) => <path key={f.key} data-country-id={f.id} d={d} className={countryClass(f)} vectorEffect="non-scaling-stroke" tabIndex={!decorative && !typed && !disabled && byId[f.id] && (region === 'mundo' || byId[f.id].continente === region) ? 0 : undefined} role={!decorative && !typed && byId[f.id] ? 'button' : undefined} aria-label={!decorative && !typed && byId[f.id] ? `Selecionar território ${index + 1} no mapa` : undefined} onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); choose({ defaultPrevented: false }, f); } }} onClick={event => choose(event, f)} />)}
         {!decorative && targets.map(f => {

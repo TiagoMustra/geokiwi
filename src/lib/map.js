@@ -1,4 +1,4 @@
-import { geoArea, geoContains, zoomIdentity } from 'd3';
+import { geoArea, geoContains, geoEquirectangular, zoomIdentity } from 'd3';
 
 /** Zoom to the main landmass; overseas islands must not force a global view. */
 export function focusGeometry(features, center) {
@@ -33,4 +33,10 @@ export function getRegionTransform(region, projection, width, height) {
   const top = Math.min(...points.map(p => p[1])), bottom = Math.max(...points.map(p => p[1]));
   const scale = Math.max(0.8, Math.min(8, 0.88 / Math.max((right - left) / width, (bottom - top) / height)));
   return zoomIdentity.translate(width / 2, height / 2).scale(scale).translate(-(left + right) / 2, -(top + bottom) / 2);
+}
+
+/** Plate carrée: a 2:1 rectangle with straight meridians and parallels. */
+export function createFlatProjection(width, height, region = 'mundo') {
+  return geoEquirectangular().rotate(regionRotation(region))
+    .fitExtent([[20, 30], [width - 20, height - 30]], { type: 'Sphere' });
 }
