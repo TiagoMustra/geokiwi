@@ -86,7 +86,7 @@ Também estão disponíveis `iso2`, `iso3`, `aliases` e `capitais_aceitas`. As c
 
 `src/data/index.js` converte a topologia com `topojson.feature`, cria `byId` e centraliza `MODES`, `REGIONS` e `getPool`. O jogo inclui apenas destinos com geometria e capital disponíveis. Mundo Todo inclui países e territórios; a base contém 230 destinos: África 57, Ásia 49, Europa 50, Américas 51 e Oceania 23. A Antártida não participa. Alguns microestados sem geometria nesta escala não estão na seleção.
 
-`Home.jsx` gera os quatro cards a partir de `MODES`. Cada card mantém sua própria região selecionada. A seleção atual determina o recorde exibido e a partida iniciada pelo botão **Jogar agora**. O switch **Manter acertos a verde** afeta os quatro jogos. A preferência fica salva no navegador e está disponível também na tela de jogo, podendo ser alterada sem reiniciar a partida.
+`Home.jsx` gera os quatro cards a partir de `MODES`. Cada card mantém sua própria região selecionada. A seleção atual determina o recorde exibido e a partida iniciada pelo botão **Jogar**. Os cartões mostram um título direto, uma indicação curta de clicar/escrever e um exemplo visual estático de pista → resposta, sem os parágrafos e etiquetas redundantes. `ModePreview.jsx` usa a forma real de Portugal e um pin de Lisboa para ilustrar cada ação; os botões das seis regiões permanecem iguais. Partidas guardadas apresentam apenas o progresso e as ações de retomar ou começar de novo. O switch **Manter acertos a verde** afeta os quatro jogos. A preferência fica salva no navegador e está disponível também na tela de jogo, podendo ser alterada sem reiniciar a partida.
 
 ## Passo 2 — Mapa interativo SVG
 
