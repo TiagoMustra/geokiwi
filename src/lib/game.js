@@ -24,7 +24,7 @@ export function makeQueue(pool, mode, random = Math.random) {
 
 export function createGame({ mode, region, difficulty, keepCorrect, pool, random }) {
   const remember = keepCorrect ?? difficulty !== 'dificil';
-  return { mode, region, keepCorrect: remember, usedMapHints: remember, difficulty: remember ? 'normal' : 'dificil', queue: makeQueue(pool, mode, random), index: 0, answers: [], score: 0, streak: 0, bestStreak: 0, finished: false };
+  return { id: globalThis.crypto?.randomUUID?.() || `run-${Date.now()}-${Math.random().toString(36).slice(2)}`, startedAt: Date.now(), mode, region, keepCorrect: remember, usedMapHints: remember, difficulty: remember ? 'normal' : 'dificil', queue: makeQueue(pool, mode, random), index: 0, answers: [], score: 0, streak: 0, bestStreak: 0, finished: false };
 }
 
 export function gameReducer(state, action) {
@@ -109,3 +109,6 @@ export function readTheme(storage) {
 export function saveTheme(value, storage) {
   savePreferences({ theme: value === 'light' ? 'light' : 'dark' }, storage);
 }
+
+// Enough time to read errors; successful answers keep the game moving.
+export const feedbackDuration = result => result.correct ? 850 : 2300;

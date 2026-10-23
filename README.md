@@ -1,6 +1,6 @@
 # GEOQUEST
 
-Site de jogos de geografia em português, construído com **React + Vite + D3.js + TopoJSON**. Tema escuro, fontes pixeladas locais, quatro modos, seis regiões e recordes no navegador.
+Site de jogos de geografia em português, construído com **React + Vite + D3.js + TopoJSON**. Tema escuro, fontes pixeladas locais, quatro modos, seis regiões, partidas retomáveis e estatísticas no navegador.
 
 ## Executar
 
@@ -39,6 +39,7 @@ geoquest/
 │   ├── App.jsx                # Navegação, recordes e áudio opcional
 │   ├── styles.css             # Layout, mapa, feedback e responsividade
 │   ├── themes.css             # Temas escuro / claro e contraste dos mapas
+│   ├── progress.css           # Partidas guardadas e painel de estatísticas
 │   ├── data/
 │   │   ├── countries.json     # Estado central dos destinos
 │   │   ├── capital-coordinates.json # Coordenadas e fonte de cada capital
@@ -53,11 +54,13 @@ geoquest/
 │   │   ├── ThemeControl.jsx   # Switch Claro / Escuro no cabeçalho
 │   │   ├── CapitalPin.jsx     # Pin sem nome para as duas vistas
 │   │   ├── KeepCorrectControl.jsx # Switch visível no menu e no jogo
-│   │   ├── Game.jsx           # Tela de jogo e resultado
+│   │   ├── Game.jsx           # Jogo, avanço automático e resultado
+│   │   ├── Statistics.jsx     # Países, capitais e comparação de continentes
 │   │   ├── Icon.jsx           # Ícones SVG e globo pixelado
 │   │   └── Modal.jsx          # Diálogos com foco e Escape nativos
 │   └── lib/
 │       ├── game.js            # Regras, reducer e localStorage
+│       ├── activity.js        # Autosave, recuperação e agregação sem duplicações
 │       ├── map.js             # Escolha da massa de terra para zoom
 │       └── globe.js           # Projeção, rotação, visibilidade e câmera esférica
 ├── scripts/update-data.mjs    # Atualização explícita dos dados
@@ -99,9 +102,9 @@ Também estão disponíveis `iso2`, `iso3`, `aliases` e `capitais_aceitas`. As c
 
 As fronteiras usam `vector-effect="non-scaling-stroke"` para manter a espessura durante o zoom. Microterritórios ganham marcadores adicionais de quatro pixels; o `<path>` original continua presente.
 
-D3 controla somente a transformação do `<g>`: `zoom()` suporta arrastar, roda do mouse e pinch. Os botões chamam `scaleBy`; o botão de mira restaura o mapa inteiro. O React mantém as classes e os eventos dos países. As strings dos caminhos são memorizadas para evitar recalcular a geometria a cada movimento.
+D3 controla somente a transformação do `<g>`: `zoom()` suporta arrastar, roda do mouse e pinch. Os botões chamam `scaleBy`; o botão de mira recentra a região selecionada. O React mantém as classes e os eventos dos países. As strings dos caminhos são memorizadas para evitar recalcular a geometria a cada movimento.
 
-O mapa observa o espaço disponível com `ResizeObserver`. Ao entrar em uma região, ajusta a câmera aos limites dela. Nos modos 2 e 4, a câmera aproxima o país. No jogo 4, um pin pixelado sem nome marca `coordenadas_capital`; o nome do país aparece na pergunta, mas o da capital só é revelado depois da resposta. O pin mantém tamanho visual constante no zoom, acompanha o pan e participa do enquadramento da câmera para não ficar fora da tela. `focusGeometry` seleciona o polígono que contém seu centro ou a maior massa de terra; isso evita que territórios ultramarinos distantes impeçam um zoom útil. Todas as partes do país permanecem desenhadas e destacadas.
+O mapa observa o espaço disponível com `ResizeObserver`. Ao entrar numa região, usa um enquadramento geográfico fixo do continente, sem incluir territórios ultramarinos ou toda a extensão asiática da Rússia na Europa. A projeção centra o Pacífico na Oceania e as Américas no seu próprio eixo. Nos jogos de clicar, o enquadramento e o zoom manual mantêm-se entre perguntas; o país seguinte não provoca um zoom-out. O globo também aproxima a Europa automaticamente. Nos modos 2 e 4, a câmera aproxima o país. No jogo 4, um pin pixelado sem nome marca `coordenadas_capital`; o nome do país aparece na pergunta, mas o da capital só é revelado depois da resposta. O pin mantém tamanho visual constante no zoom, acompanha o pan e participa do enquadramento da câmera para não ficar fora da tela. `focusGeometry` seleciona o polígono que contém seu centro ou a maior massa de terra; isso evita que territórios ultramarinos distantes impeçam um zoom útil. Todas as partes do país permanecem desenhadas e destacadas.
 
 ### Mapa plano e Globo 3D
 
@@ -136,9 +139,9 @@ A preferência `theme` é guardada em `geoquest.preferences.v1`, em conjunto com
 | 3 — Siga a capital | Apenas a capital, sem bandeira | Clique no país; compara o ID |
 | 4 — Qual é a capital? | País identificado + pin sem nome na capital | Texto; compara com `capitais_aceitas` |
 
-`ANSWER` aceita uma única tentativa por pergunta. Um acerto vale **100 pontos**. O máximo depende da região; no Mundo Todo são 23.000 pontos. O reducer e um bloqueio imediato impedem pontuação duplicada por cliques rápidos ou Enter repetido. Nos modos 2 e 4, o botão **Saltar** está disponível ao lado do input, mesmo vazio. A ação `SKIP` regista a pergunta como incorreta, atribui zero pontos, interrompe a sequência e apresenta a resposta correta com o mesmo feedback vermelho de um erro. O jogador avança com **Próximo**; cliques repetidos não saltam outras perguntas nem permitem responder depois de revelar a solução. `NEXT` só avança após uma resposta ou salto. A próxima pergunta é iniciada pelo jogador, para dar tempo de ler o feedback.
+`ANSWER` aceita uma única tentativa por pergunta. Um acerto vale **100 pontos**. O máximo depende da região; no Mundo Todo são 23.000 pontos. O reducer e um bloqueio imediato impedem pontuação duplicada por cliques rápidos ou Enter repetido. Nos modos 2 e 4, o botão **Saltar** está disponível ao lado do input, mesmo vazio. A ação `SKIP` regista a pergunta como incorreta, atribui zero pontos, interrompe a sequência e apresenta a resposta correta com o mesmo feedback vermelho de um erro. O jogo avança automaticamente: 850 ms após um acerto e 2.300 ms após um erro ou salto. **Pausar** suspende o feedback para ler; **Continuar** retoma a contagem. A última solução permanece visível na pergunta seguinte. Abrir um diálogo ou ocultar o separador suspende o avanço. `NEXT` só avança após uma resposta ou salto, e os temporizadores são cancelados ao desmontar o jogo ou fazer pausa. Enter repetido e cliques duplos não permitem responder depois de revelar a solução.
 
-Com **Manter acertos a verde** ligado, todos os países acertados permanecem verdes, incluindo os acertos anteriores ao momento de ligar a opção. Desligado, o feedback dura 1,1 segundo e a cor original retorna; o destaque amarelo do alvo permanece nos modos de digitação. Erros sempre piscam em vermelho. O switch altera apenas a apresentação e preserva fila, progresso, pontuação e respostas. Se a ajuda visual for ligada em qualquer momento, a partida é classificada como assistida para os recordes, mesmo que a opção seja desligada depois.
+Com **Manter acertos a verde** ligado, todos os países acertados permanecem verdes, incluindo os acertos anteriores ao momento de ligar a opção. Desligado, a cor original retorna ao avançar automaticamente; o destaque amarelo do alvo permanece nos modos de digitação. Erros sempre piscam em vermelho. O switch altera apenas a apresentação e preserva fila, progresso, pontuação e respostas. Se a ajuda visual for ligada em qualquer momento, a partida é classificada como assistida para os recordes, mesmo que a opção seja desligada depois.
 
 `normalizeAnswer` remove acentos, pontuação, espaços e diferenças de maiúsculas. Nomes em português e inglês são aceitos. Capitais com múltiplas respostas válidas têm aliases explícitos; por exemplo, a África do Sul aceita Pretória, Cidade do Cabo e Bloemfontein. As equivalências estão nos dados, sem aceitar aproximações arbitrárias que confundam países distintos.
 
@@ -156,6 +159,18 @@ modo:região:dificuldade
 
 Nos quatro modos, `normal` identifica partidas com ajuda visual e `dificil` identifica partidas em que o verde permanente nunca foi ligado. Um resultado inferior não substitui o recorde. Dados inválidos são descartados; se o navegador bloquear o armazenamento, o jogo continua e informa que o recorde ficará apenas na sessão. A tabela **Recordes** mostra todas as combinações.
 
+### Progresso guardado e estatísticas
+
+`geoquest.activity.v1` contém partidas e estatísticas num único documento localStorage. Cada combinação de jogo e região tem uma partida guardada, com o identificador da sessão, a fila completa de IDs, respostas, posição e estado do verde. A gravação acontece ao começar e após cada resposta, avanço ou alteração do verde. **Guardar e sair** volta ao menu; o cartão seleciona a região da partida guardada mais recente e oferece **Retomar partida** e **Começar novo jogo**. Substituir uma partida exige a escolha explícita no diálogo e mantém estatísticas e recordes.
+
+`restoreGame` valida os destinos contra a base atual e reconstrói a pontuação pelo reducer. A fila nunca é baralhada de novo. Se a página fechar durante o feedback, a resposta é mostrada ao retomar antes de avançar. A última pergunta pode ser retomada para concluir o resultado. Partidas incompatíveis com a base atual são ignoradas sem descartar as estatísticas válidas.
+
+`checkpoint` regista apenas respostas ainda não agregadas, usando um ledger por identificador de partida. Gravação, estatísticas e marcador de processamento são persistidos juntos, prevenindo duplicações no StrictMode, ao retomar ou ao concluir a última pergunta. Ao terminar, remove apenas a partida correspondente e incrementa os percursos completos uma vez.
+
+A aba **Estatísticas** mostra respostas, taxa de acerto, destinos únicos, percursos completos, melhor sequência global, barras por continente e listas dos dez destinos mais difíceis e mais fortes. Os filtros separam países (jogos 1/2), capitais (3/4) ou um jogo específico. Saltos contam como erros e são também mostrados separadamente. As comparações de melhor/pior continente exigem três tentativas por continente e mostram a dimensão da amostra; continentes sem tentativas não são tratados como 0%. Os dados anteriores não são inventados a partir dos recordes: a recolha começa nesta atualização.
+
+Os dados são locais a este navegador e origem, sem sincronização entre dispositivos; limpar os dados do navegador apaga-os. Se o armazenamento estiver bloqueado ou sem espaço, a aplicação informa que só conserva o progresso na sessão atual e continua a funcionar em memória.
+
 ## Atualizar os dados
 
 Edite traduções ou equivalências em `src/data/overrides.json` e execute:
@@ -170,7 +185,7 @@ Esse comando precisa de internet e atualiza `countries.json`, `world.json` e as 
 
 ## Validação
 
-**38 testes aprovados**, cobrindo integridade dos 230 destinos e bandeiras, coordenadas das capitais, seis regiões, quatro modos com os 230 destinos completos, ausência de limite de 15, ordem aleatória sem repetição, switch durante a partida, preferência persistida, separação dos recordes antigos, pontuações acima de 1.500, uma tentativa por pergunta, corrupção/bloqueio de armazenamento e geometria em tamanhos móveis e desktop. Os testes adicionais verificam Saltar nos dois modos de digitação, bloqueio de respostas duplicadas, fim da partida após o último salto, orientação e área de todas as ilhas simplificadas e ausência de preenchimentos excessivos durante drag/zoom. Os testes do globo verificam rotação completa, limites de zoom, recorte do hemisfério, todos os destinos visíveis, as 230 capitais centradas, geometria de movimento e preferências independentes. Os testes de tema cobrem persistência independente das outras preferências, armazenamento bloqueado, aplicação antes do arranque e separação visual entre terra e mar nas duas paletas. O build de produção foi gerado com sucesso.
+**46 testes aprovados**, cobrindo integridade dos 230 destinos e bandeiras, coordenadas das capitais, seis regiões, quatro modos com os 230 destinos completos, ausência de limite de 15, ordem aleatória sem repetição, switch durante a partida, preferência persistida, separação dos recordes antigos, pontuações acima de 1.500, uma tentativa por pergunta, corrupção/bloqueio de armazenamento e geometria em tamanhos móveis e desktop. Os testes adicionais verificam Saltar nos dois modos de digitação, bloqueio de respostas duplicadas, fim da partida após o último salto, orientação e área de todas as ilhas simplificadas e ausência de preenchimentos excessivos durante drag/zoom. Os testes do globo verificam rotação completa, limites de zoom, recorte do hemisfério, todos os destinos visíveis, as 230 capitais centradas, geometria de movimento e preferências independentes. Os testes de tema cobrem persistência independente das outras preferências, armazenamento bloqueado, aplicação antes do arranque e separação visual entre terra e mar nas duas paletas. Os novos testes verificam recuperação das quatro modalidades sem mudar a fila, gravação atómica e deduplicação após recarregar, isolamento de jogos/regiões, saltos nas estatísticas de capitais, remoção da partida concluída, armazenamento corrompido/bloqueado e enquadramento europeu em ecrãs pequenos e grandes. Mais 17 verificações de renderização React cobrem Home com partida guardada, quatro jogos nas duas vistas, feedback automático e estatísticas. O build de produção foi gerado com sucesso.
 
 A revisão visual automatizada ficou pendente: a política de segurança da ferramenta de navegador bloqueou a abertura da prévia local. Os testes de geometria não substituem uma revisão visual ou testes de gestos em dispositivos reais.
 

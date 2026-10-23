@@ -1,0 +1,31 @@
+import { useMemo, useState } from 'react';
+import { countries, MODES, REGIONS } from '../data/index.js';
+import { summarizeStats } from '../lib/activity.js';
+import { Icon } from './Icon.jsx';
+
+const percentage = (correct, attempts) => attempts ? `${Math.round(correct / attempts * 100)}%` : '—';
+export default function Statistics({ activity, onBack, onRecords }) {
+  const [filter, setFilter] = useState('all');
+  const stats = useMemo(() => summarizeStats(activity, countries, filter), [activity, filter]);
+  const capitals = filter === 'capitals' || filter === '3' || filter === '4';
+  // Require more than one lucky answer before labelling a continent a strength.
+  const ranked = stats.continents.filter(row => row.attempts >= 3).sort((a, b) => b.accuracy - a.accuracy || b.attempts - a.attempts);
+  const best = ranked[0], worst = ranked.at(-1);
+  const name = id => REGIONS.find(region => region.id === id)?.name;
+  const ranking = (rows, empty) => rows.length ? <ol className="country-ranking">{rows.slice(0, 10).map(row => <li key={row.country.id}>
+    <img src={row.country.bandeira_url} alt="" /><div><strong>{capitals ? row.country.capital : row.country.nome_pt}</strong><small>{capitals ? row.country.nome_pt : name(row.country.continente)}{row.skips ? ` · ${row.skips} saltada${row.skips > 1 ? 's' : ''}` : ''}</small></div><span><b>{percentage(row.correct, row.attempts)}</b><small>{row.correct}/{row.attempts} acertos</small></span>
+  </li>)}</ol> : <p className="stats-empty-small">{empty}</p>;
+  return <main className="stats-page accent-lime">
+    <div className="stats-top"><button className="secondary-button" onClick={onBack}><Icon name="back" size={15} /> JOGAR</button><button className="secondary-button" onClick={onRecords}><Icon name="trophy" size={15} /> RECORDES</button></div>
+    <div className="section-kicker">DIÁRIO DE EXPLORAÇÃO</div><h1>O teu conhecimento no mapa<span>.</span></h1><p className="stats-intro">Descobre o que já dominas e o que vale a pena treinar. Cada resposta conta, mesmo numa partida por acabar.</p>
+    <div className="stats-filters"><div role="group" aria-label="Filtrar estatísticas">{[['all', 'Tudo'], ['countries', 'Países'], ['capitals', 'Capitais']].map(([value, label]) => <button key={value} aria-pressed={filter === value} onClick={() => setFilter(value)}>{label}</button>)}</div><label>POR JOGO <select value={['all', 'countries', 'capitals'].includes(filter) ? '' : filter} onChange={event => setFilter(event.target.value || 'all')}><option value="">Todos os jogos</option>{MODES.map(mode => <option value={mode.id} key={mode.id}>0{mode.id} · {mode.title}</option>)}</select></label></div>
+    <div className="stats-metrics"><div><span>RESPOSTAS</span><strong>{stats.attempts}</strong><small>{stats.skips} perguntas saltadas</small></div><div><span>TAXA DE ACERTO</span><strong>{percentage(stats.correct, stats.attempts)}</strong><small>{stats.correct} respostas certas</small></div><div><span>DESTINOS EXPLORADOS</span><strong>{stats.coverage}<em>/{countries.length}</em></strong><small>Países e territórios únicos</small></div><div><span>PERCURSOS COMPLETOS</span><strong>{activity.completed}</strong><small>Todos os jogos · melhor sequência: {activity.bestStreak}</small></div></div>
+    {!stats.attempts && <div className="stats-empty"><Icon name="chart" size={34} /><h2>A tua próxima resposta começa este mapa.</h2><p>As estatísticas são recolhidas a partir desta atualização e ficam guardadas neste navegador. Os recordes anteriores continuam disponíveis.</p><button className="primary-button" onClick={onBack}>COMEÇAR A EXPLORAR <Icon name="arrow" size={16} /></button></div>}
+    <section className="stats-panel continent-panel"><div className="stats-panel-heading"><h2>Continente a continente</h2><span>ACERTOS / TENTATIVAS</span></div><div className="continent-layout"><div className="continent-bars">{REGIONS.filter(region => region.id !== 'mundo').map(region => {
+      const row = stats.continents.find(row => row.id === region.id);
+      return <div className="continent-row" key={region.id}><div><strong>{region.name}</strong><span>{row.attempts ? `${percentage(row.correct, row.attempts)} · ${row.correct}/${row.attempts}` : 'Sem tentativas'}</span></div><div className="continent-track" role="img" aria-label={`${region.name}: ${row.attempts ? `${percentage(row.correct, row.attempts)} de acertos em ${row.attempts} tentativas` : 'sem tentativas'}`}><i style={{ width: `${(row.accuracy || 0) * 100}%` }} /></div></div>;
+    })}</div><div className="continent-insights"><div><span>MAIOR FACILIDADE</span><strong>{best ? name(best.id) : 'Ainda a explorar'}</strong><small>{best ? `${percentage(best.correct, best.attempts)} de acertos · ${best.attempts} tentativas` : 'Responde a pelo menos 3 perguntas de um continente.'}</small></div><div><span>PARA TREINAR</span><strong>{ranked.length >= 2 && worst.accuracy < best.accuracy ? name(worst.id) : 'Ainda sem diferença'}</strong><small>{ranked.length >= 2 && worst.accuracy < best.accuracy ? `${percentage(worst.correct, worst.attempts)} de acertos · ${worst.attempts} tentativas` : 'Comparamos continentes com pelo menos 3 tentativas.'}</small></div><p>O número de tentativas ajuda a interpretar cada resultado. Uma amostra maior dá uma imagem mais fiel do teu progresso.</p></div></div></section>
+    <div className="stats-rankings"><section className="stats-panel"><div className="stats-panel-heading"><h2>{capitals ? 'Capitais para rever' : 'Destinos para rever'}</h2><Icon name="crosshair" size={19} /></div><p>Menor taxa de acerto primeiro; os erros e saltos indicam onde praticar.</p>{ranking(stats.weakest, 'Ainda não há erros neste filtro. Continua a explorar!')}</section><section className="stats-panel"><div className="stats-panel-heading"><h2>{capitals ? 'Capitais que dominas' : 'Os teus pontos fortes'}</h2><Icon name="bolt" size={19} /></div><p>Maior taxa de acerto primeiro, com o total de tentativas ao lado.</p>{ranking(stats.strongest, 'Os teus primeiros acertos vão aparecer aqui.')}</section></div>
+    <p className="stats-footnote">Países: jogos 1 e 2 · Capitais: jogos 3 e 4. Saltar conta como erro. Os dados ficam neste navegador; a apresentação do mapa e o tema não alteram as estatísticas.</p>
+  </main>;
+}

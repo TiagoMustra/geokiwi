@@ -2,11 +2,11 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import { geoNaturalEarth1, geoPath, geoGraticule10, geoArea, select, zoom, zoomIdentity } from 'd3';
 import { features, byId } from '../data/index.js';
 import { Icon } from './Icon.jsx';
-import { focusGeometry } from '../lib/map.js';
+import { focusGeometry, getRegionTransform, regionRotation } from '../lib/map.js';
 import CapitalPin from './CapitalPin.jsx';
 
 /** React owns each SVG country. D3 owns only the parent group's transform. */
-export default function WorldMap({ decorative = false, region = 'mundo', target, typed = false, showCapitalPin = false, keepCorrect = true, solved = [], flash, onCountryClick, disabled = false, round = 0 }) {
+export default function WorldMap({ decorative = false, region = 'mundo', target, typed = false, showCapitalPin = false, keepCorrect = true, solved = [], flash, onCountryClick, disabled = false }) {
   const boxRef = useRef(null);
   const svgRef = useRef(null);
   const groupRef = useRef(null);
@@ -24,7 +24,7 @@ export default function WorldMap({ decorative = false, region = 'mundo', target,
   }, []);
 
   const { width, height } = size;
-  const projection = useMemo(() => geoNaturalEarth1().fitExtent([[20, 30], [width - 20, height - 30]], { type: 'FeatureCollection', features }), [width, height]);
+  const projection = useMemo(() => geoNaturalEarth1().rotate(regionRotation(decorative ? 'mundo' : region)).fitExtent([[20, 30], [width - 20, height - 30]], { type: 'FeatureCollection', features }), [width, height, region, decorative]);
   const path = useMemo(() => geoPath(projection), [projection]);
   const geometries = useMemo(() => features.map(f => ({ feature: f, d: path(f) })), [path]);
   const graticule = useMemo(() => path(geoGraticule10()), [path]);
@@ -47,11 +47,16 @@ export default function WorldMap({ decorative = false, region = 'mundo', target,
     return () => { element.interrupt(); element.on('.zoom', null); };
   }, [decorative, width, height]);
 
+  const focusId = typed ? target?.id : null;
   useEffect(() => {
     if (decorative || !zoomRef.current) return;
-    const selection = typed && target ? features.filter(f => f.id === target.id) : eligible;
+    if (!typed) {
+      select(svgRef.current).interrupt().call(zoomRef.current.transform, getRegionTransform(region, projection, width, height));
+      return;
+    }
+    const selection = features.filter(f => f.id === target.id);
     const focusCenter = showCapitalPin ? target.coordenadas_capital : target?.coordenadas_centro;
-    const bounds = path.bounds(typed && target ? focusGeometry(selection, focusCenter) : { type: 'FeatureCollection', features: selection });
+    const bounds = path.bounds(focusGeometry(selection, focusCenter));
     // Some capital points sit just offshore at this cartographic scale. Include
     // the marker in the camera bounds instead of clipping it from the view.
     const pin = showCapitalPin && target?.coordenadas_capital ? projection(target.coordenadas_capital) : null;
@@ -60,11 +65,11 @@ export default function WorldMap({ decorative = false, region = 'mundo', target,
     const y0 = pin ? Math.min(top, pin[1]) : top;
     const x1 = pin ? Math.max(right, pin[0]) : right;
     const y1 = pin ? Math.max(bottom, pin[1]) : bottom;
-    const k = region === 'mundo' && !typed ? 1 : Math.min(typed ? 75 : 8, 0.76 / Math.max((x1 - x0) / width, (y1 - y0) / height));
-    const transform = !typed && region === 'mundo' ? zoomIdentity : zoomIdentity.translate(width / 2, height / 2).scale(Math.max(0.8, k)).translate(-(x0 + x1) / 2, -(y0 + y1) / 2);
+    const k = Math.min(75, 0.76 / Math.max((x1 - x0) / width, (y1 - y0) / height));
+    const transform = zoomIdentity.translate(width / 2, height / 2).scale(Math.max(0.8, k)).translate(-(x0 + x1) / 2, -(y0 + y1) / 2);
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     select(svgRef.current).transition().duration(reduced ? 0 : 650).call(zoomRef.current.transform, transform);
-  }, [decorative, target?.id, region, typed, showCapitalPin, width, height, path, eligible, projection, round]);
+  }, [decorative, focusId, region, typed, showCapitalPin, width, height, path, eligible, projection]);
 
   function countryClass(f) {
     if (decorative) return `country decoration ${['076', '124', '250', '356', '036', '710', '392'].includes(f.id) ? 'featured' : ''}`;
@@ -105,7 +110,7 @@ export default function WorldMap({ decorative = false, region = 'mundo', target,
       <div className="map-controls">
         <button aria-label="Aumentar zoom" onClick={() => select(svgRef.current).transition().duration(200).call(zoomRef.current.scaleBy, 1.6)}><Icon name="plus" /></button>
         <button aria-label="Diminuir zoom" onClick={() => select(svgRef.current).transition().duration(200).call(zoomRef.current.scaleBy, 1 / 1.6)}><Icon name="minus" /></button>
-        <button aria-label="Ver mapa inteiro" title="Ver mapa inteiro" onClick={() => select(svgRef.current).transition().duration(350).call(zoomRef.current.transform, zoomIdentity)}><Icon name="crosshair" /></button>
+        <button aria-label="Recentrar região" title="Recentrar região" onClick={() => select(svgRef.current).transition().duration(350).call(zoomRef.current.transform, getRegionTransform(region, projection, width, height))}><Icon name="crosshair" /></button>
       </div>
       <div className="map-help"><span>ARRASTE PARA EXPLORAR</span><span>SCROLL PARA ZOOM</span></div>
       <div className="map-credit">NATURAL EARTH · D3.JS</div>

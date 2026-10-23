@@ -127,7 +127,7 @@ export default function GlobeMap({ decorative = false, region = 'mundo', target,
   }
   function reset() {
     const initial = getGlobeCamera({ width, height, region, typed, target, showCapitalPin, features });
-    updateCamera({ ...initial, zoom: 1 });
+    updateCamera(initial);
   }
   function choose(event, feature) {
     if (event.defaultPrevented || decorative || typed || disabled || !byId[feature.id] || (region !== 'mundo' && byId[feature.id].continente !== region)) return;

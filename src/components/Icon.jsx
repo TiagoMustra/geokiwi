@@ -1,4 +1,8 @@
 const paths = {
+  save: 'M4 3h13l4 4v14H3V3Zm3 0v7h10V3M7 21v-7h10v7',
+  pause: 'M7 4v16M17 4v16',
+  play: 'm7 4 13 8-13 8V4Z',
+  chart: 'M4 3v18h18M8 16v-4m5 4V8m5 8V4',
   arrow: 'M5 12h14m-6-6 6 6-6 6',
   northeast: 'M6 18 18 6M6 6h12v12',
   pin: 'M18 9c0 5-6 11-6 11S6 14 6 9a6 6 0 1 1 12 0Z M10 9h4M12 7v4',

@@ -34,7 +34,7 @@ export function getGlobeCamera({ width, height, region = 'mundo', typed = false,
   const center = typed && target
     ? showCapitalPin ? target.coordenadas_capital : target.coordenadas_centro
     : REGION_CENTERS[region] || REGION_CENTERS.mundo;
-  const camera = { rotation: [-center[0], -center[1], 0], zoom: 1 };
+  const camera = { rotation: [-center[0], -center[1], 0], zoom: typed ? 1 : ({ europa: 2.1, africa: 1.15, asia: 1.1, oceania: 1.1 }[region] || 1) };
   if (typed && target) {
     const geometry = focusGeometry(features.filter(f => f.id === target.id), center);
     const projection = createGlobeProjection(width, height, camera);
