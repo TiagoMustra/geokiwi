@@ -1,4 +1,4 @@
-import { geoArea, geoContains, geoEquirectangular, zoomIdentity } from 'd3';
+import { geoArea, geoContains, geoMercator, zoomIdentity } from 'd3';
 
 /** Zoom to the main landmass; overseas islands must not force a global view. */
 export function focusGeometry(features, center) {
@@ -35,8 +35,27 @@ export function getRegionTransform(region, projection, width, height) {
   return zoomIdentity.translate(width / 2, height / 2).scale(scale).translate(-(left + right) / 2, -(top + bottom) / 2);
 }
 
-/** Plate carrée: a 2:1 rectangle with straight meridians and parallels. */
+// A regular web-map Mercator, with the same scale on both axes. Fit the
+// playable north/south span; horizontal space is filled by repeated worlds.
 export function createFlatProjection(width, height, region = 'mundo') {
-  return geoEquirectangular().rotate(regionRotation(region))
-    .fitExtent([[20, 30], [width - 20, height - 30]], { type: 'Sphere' });
+  const mercatorY = latitude => Math.log(Math.tan(Math.PI / 4 + latitude * Math.PI / 360));
+  const north = mercatorY(84.5), south = mercatorY(-60);
+  const padding = Math.min(24, height * 0.06);
+  const scale = Math.max(1, (height - padding * 2) / (north - south));
+  return geoMercator().rotate(regionRotation(region)).scale(scale)
+    .translate([width / 2, padding + north * scale]).precision(0.15);
+}
+
+/** Visible copies plus one buffer on each side. Recompute only when crossing
+ * a world boundary, while D3 moves the parent group on every pointer event. */
+export function getWorldCopies(transform, projection, width) {
+  const period = 2 * Math.PI * projection.scale();
+  const left = projection.translate()[0] - period / 2;
+  const x0 = transform.invertX(0), x1 = transform.invertX(width);
+  return {
+    first: Math.floor((x0 - left) / period) - 1,
+    last: Math.floor((x1 - left) / period) + 1,
+    primary: Math.round((transform.invertX(width / 2) - projection.translate()[0]) / period),
+    k: transform.k,
+  };
 }

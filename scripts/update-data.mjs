@@ -7,15 +7,16 @@ const capitals = JSON.parse(await readFile(new URL('src/data/capital-coordinates
 const urls = {
   topology: 'https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-50m.json',
   countries: 'https://raw.githubusercontent.com/mledoze/countries/master/countries.json',
+  detailed: 'https://cdn.jsdelivr.net/npm/world-atlas@2.0.2/countries-10m.json',
 };
 async function download(url) {
   const response = await fetch(url);
   if (!response.ok) throw new Error(`${response.status}: ${url}`);
   return response;
 }
-const [topology, raw] = await Promise.all(Object.values(urls).map(async url => (await download(url)).json()));
+const [topology, raw, detailed] = await Promise.all(Object.values(urls).map(async url => (await download(url)).json()));
 const regionIds = { Africa: 'africa', Asia: 'asia', Europe: 'europa', Americas: 'americas', Oceania: 'oceania' };
-topology.objects.countries.geometries.forEach(geometry => {
+for (const map of [topology, detailed]) map.objects.countries.geometries.forEach(geometry => {
   if (geometry.properties.name === 'Kosovo') geometry.id = '383';
 });
 const available = new Set(topology.objects.countries.geometries.map(geometry => geometry.id).filter(Boolean));
@@ -41,6 +42,7 @@ const countries = raw.filter(country => available.has(country.ccn3) && country.c
 });
 if (countries.length < 200) throw new Error('Data validation failed: fewer than 200 playable destinations.');
 await mkdir(new URL('public/flags/', root), { recursive: true });
+await mkdir(new URL('public/maps/', root), { recursive: true });
 // Download in batches to avoid flooding the flag provider.
 for (let i = 0; i < countries.length; i += 8) {
   await Promise.all(countries.slice(i, i + 8).map(async country => {
@@ -51,5 +53,6 @@ for (let i = 0; i < countries.length; i += 8) {
 await Promise.all([
   writeFile(new URL('src/data/countries.json', root), JSON.stringify(countries)),
   writeFile(new URL('src/data/world.json', root), JSON.stringify(topology)),
+  writeFile(new URL('public/maps/countries-10m.json', root), JSON.stringify(detailed)),
 ]);
 console.log(`Updated ${countries.length} destinations, their geometry and flags. Run pnpm test and pnpm build.`);

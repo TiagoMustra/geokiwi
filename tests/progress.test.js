@@ -120,7 +120,7 @@ test('European framing fills the map without Russia or overseas France forcing a
   for (const [width, height] of [[375, 360], [1360, 600]]) {
     const projection = createFlatProjection(width, height, 'europa');
     const transform = getRegionTransform('europa', projection, width, height);
-    assert.ok(transform.k > 2, 'Europe starts zoomed in');
+    assert.ok(transform.k > 1.5, 'Europe starts zoomed in');
     for (const point of [[-9, 39], [2, 47], [25, 60], [-19, 65], [33, 35]]) {
       const [x, y] = transform.apply(projection(point));
       assert.ok(x >= 0 && x <= width && y >= 0 && y <= height, `${point} fits ${width}x${height}`);
