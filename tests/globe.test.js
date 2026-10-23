@@ -1,7 +1,7 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
-import { geoPath } from 'd3';
+import { geoArea, geoPath } from 'd3';
 import { feature } from 'topojson-client';
 import { clampGlobeZoom, createGlobeProjection, getGlobeCamera, globePointVisible, globeRadius, rotateGlobe, simplifyGlobeFeatures } from '../src/lib/globe.js';
 import { readKeepCorrect, saveKeepCorrect, readMapView, saveMapView } from '../src/lib/game.js';
@@ -119,4 +119,37 @@ test('motion geometry keeps every territory, polygon and valid closed ring', () 
     });
   }
   assert.ok(motionPoints < fullPoints * 0.7, 'dragging should process substantially fewer coastline points');
+});
+
+test('movement never reverses island winding or turns a country into the rest of Earth', () => {
+  const simplified = simplifyGlobeFeatures(features);
+  const signedArea = ring => {
+    const area = geoArea({ type: 'Polygon', coordinates: [ring] });
+    return area > Math.PI * 2 ? area - Math.PI * 4 : area;
+  };
+  for (let i = 0; i < features.length; i++) {
+    const originalArea = geoArea(features[i]);
+    const movingArea = geoArea(simplified[i]);
+    assert.ok(movingArea < Math.PI, `A country must not cover a hemisphere: ${features[i].properties.name}`);
+    assert.ok(Math.abs(movingArea - originalArea) <= originalArea * 0.11 + 1e-12, `Country area changed: ${features[i].properties.name}`);
+    const rings = geometry => (geometry.type === 'MultiPolygon' ? geometry.coordinates : [geometry.coordinates]).flat();
+    const before = rings(features[i].geometry);
+    const after = rings(simplified[i].geometry);
+    before.forEach((ring, j) => assert.equal(Math.sign(signedArea(after[j])), Math.sign(signedArea(ring)), `Island winding reversed in ${features[i].properties.name}`));
+  }
+});
+
+test('drag and zoom geometry cannot cover neighbouring countries with an oversized fill', () => {
+  const simplified = simplifyGlobeFeatures(features);
+  for (const rotation of [[0, -15, 0], [90, 0, 0], [-120, -20, 0], [175, 60, 0]]) {
+    for (const zoom of [1, 8]) {
+      const projection = createGlobeProjection(1100, 590, { rotation, zoom });
+      const path = geoPath(projection);
+      const sphereArea = Math.PI * projection.scale() ** 2;
+      features.forEach((original, i) => {
+        const difference = Math.abs(path.area(original) - path.area(simplified[i]));
+        assert.ok(difference < sphereArea * 0.02, `Oversized motion fill: ${original.properties.name} at ${rotation} / ${zoom}`);
+      });
+    }
+  }
 });

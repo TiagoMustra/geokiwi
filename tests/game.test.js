@@ -74,6 +74,42 @@ test('answers accept Portuguese, English, accents, punctuation and registered va
   assert.ok(!matchesAnswer(brazil, 2, ''));
 });
 
+for (const mode of [2, 4]) {
+  test(`typing mode ${mode}: Skip reveals an incorrect answer with zero points and no required input`, () => {
+    let game = createGame({ mode, region: 'mundo', difficulty: 'normal', pool: countries.slice(0, 3) });
+    const first = game.queue[0];
+    game = gameReducer(game, { type: 'ANSWER', value: mode === 2 ? first.nome_pt : first.capital });
+    game = gameReducer(game, { type: 'NEXT' });
+    assert.equal(game.streak, 1);
+    const target = game.queue[game.index];
+    // A skip must stay incorrect even if a valid partial/complete answer is present.
+    game = gameReducer(game, { type: 'SKIP', value: mode === 2 ? target.nome_pt : target.capital });
+    assert.equal(game.score, 100);
+    assert.equal(game.streak, 0);
+    assert.equal(game.bestStreak, 1);
+    assert.equal(game.answers.length, 2);
+    assert.deepEqual(game.answers[1], { country: target, correct: false, skipped: true, value: '' });
+    assert.ok(game.answers[1].country.nome_pt && game.answers[1].country.capital, 'correct answer is available for feedback');
+    assert.equal(gameReducer(game, { type: 'SKIP' }), game, 'cannot skip the same question twice');
+    assert.equal(gameReducer(game, { type: 'ANSWER', value: target.capital }), game, 'cannot submit after skipping');
+    game = gameReducer(game, { type: 'NEXT' });
+    assert.equal(game.index, 2);
+    game = gameReducer(game, { type: 'SKIP' });
+    assert.equal(game.answers.length, 3);
+    game = gameReducer(game, { type: 'NEXT' });
+    assert.equal(game.finished, true);
+    assert.equal(game.score, 100);
+    assert.equal(gameReducer(game, { type: 'SKIP' }), game);
+  });
+}
+
+test('Skip is restricted to the two typing modes', () => {
+  for (const mode of [1, 3]) {
+    const game = createGame({ mode, region: 'mundo', difficulty: 'normal', pool: countries });
+    assert.equal(gameReducer(game, { type: 'SKIP' }), game);
+  }
+});
+
 for (const mode of [1, 2, 3, 4]) {
   test(`mode ${mode}: correct and incorrect answers, single attempt, progression and final score`, () => {
     let game = createGame({ mode, region: 'mundo', difficulty: 'normal', pool: countries });

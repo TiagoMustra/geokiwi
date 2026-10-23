@@ -1,4 +1,4 @@
-import { geoDistance, geoOrthographic, geoPath } from 'd3';
+import { geoArea, geoDistance, geoOrthographic, geoPath } from 'd3';
 import { focusGeometry } from './map.js';
 
 export const REGION_CENTERS = {
@@ -58,7 +58,19 @@ function simplifyRing(ring, tolerance) {
     }
   }
   points.push(ring[ring.length - 1]);
-  return points.length >= 4 ? points : ring;
+  if (points.length < 4) return ring;
+  // A closed ring can still be invalid on a sphere. Thinning a tiny island
+  // can reverse its winding: D3 then fills Earth's complement, hiding other
+  // countries and making a single hover/target color paint the whole globe.
+  const signedArea = coordinates => {
+    const area = geoArea({ type: 'Polygon', coordinates: [coordinates] });
+    return area > Math.PI * 2 ? area - Math.PI * 4 : area;
+  };
+  const original = signedArea(ring);
+  const reduced = signedArea(points);
+  if (!Number.isFinite(reduced) || Math.sign(original) !== Math.sign(reduced)
+    || Math.abs(reduced - original) > Math.abs(original) * 0.1) return ring;
+  return points;
 }
 
 export function simplifyGlobeFeatures(features) {

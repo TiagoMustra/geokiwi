@@ -72,7 +72,7 @@ export default function GlobeMap({ decorative = false, region = 'mundo', target,
   }, [decorative, height, updateCamera]);
 
   const projection = useMemo(() => createGlobeProjection(width, height, camera), [width, height, camera]);
-  const path = useMemo(() => geoPath(projection).digits(moving ? 1 : 2), [projection, moving]);
+  const path = useMemo(() => geoPath(projection).digits(2), [projection]);
   const geometries = useMemo(() => (moving ? movingFeatures : features).map(feature => ({ feature, d: path(feature) })), [moving, path]);
   const grid = useMemo(() => path(graticule), [path]);
   const microCountries = useMemo(() => features.filter(f => byId[f.id] && geoArea(f) < 0.000012 && (region === 'mundo' || byId[f.id].continente === region)), [region]);
@@ -151,7 +151,7 @@ export default function GlobeMap({ decorative = false, region = 'mundo', target,
     }
   }
 
-  return <div ref={boxRef} className={`map-container globe-container ${decorative ? 'decorative-map' : ''}`} data-map-view="globe">
+  return <div ref={boxRef} className={`map-container globe-container ${moving ? 'is-navigating' : ''} ${decorative ? 'decorative-map' : ''}`} data-map-view="globe">
     <svg ref={svgRef} viewBox={`0 0 ${width} ${height}`} role={decorative ? 'img' : 'group'} tabIndex={decorative ? undefined : 0} aria-label={decorative ? 'Globo terrestre' : 'Globo terrestre interativo. Arraste ou use as setas para rodar. Use scroll, pinch ou os botões para ampliar.'}
       onPointerDown={pointerDown} onPointerMove={pointerMove} onPointerUp={pointerUp} onPointerCancel={pointerUp} onLostPointerCapture={event => { if (event.target === svgRef.current) pointerUp(event); }} onKeyDown={keyDown}
       onClickCapture={event => { if (ignoreClick.current) { event.preventDefault(); event.stopPropagation(); ignoreClick.current = false; } }}>

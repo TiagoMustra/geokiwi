@@ -113,7 +113,7 @@ O seletor **Mapa plano / Globo 3D** fica visível no menu e no topo da partida. 
 - Nos modos de digitação, a esfera vira-se para o país ou capital da pergunta. Nos modos de clicar, a orientação inicial depende apenas da região, preserva-se entre perguntas e nunca revela a resposta.
 - Pins e marcadores de microterritórios têm um teste explícito de hemisfério; nunca atravessam visualmente a parte de trás da esfera.
 - As classes de acerto/erro e a opção de manter o verde são as mesmas nas duas vistas. O pin da capital continua sem nome.
-- Eventos de movimento são agrupados com `requestAnimationFrame`; durante o gesto, as costas usam geometria mais leve, mantendo todos os territórios e ilhas. A geometria completa 1:50m regressa quando o gesto termina.
+- Eventos de movimento são agrupados com `requestAnimationFrame`; durante o gesto, as costas usam geometria mais leve, mantendo todos os territórios e ilhas. A geometria completa 1:50m regressa quando o gesto termina. Cada contorno simplificado é validado pela área esférica e orientação: se a simplificação inverter uma ilha ou alterar demasiado a sua área, o contorno original é mantido. Isso impede países de preencherem o complemento da Terra, taparem os vizinhos ou pintarem a esfera inteira. Os realces de hover são suspensos durante a navegação.
 
 ## Passo 3 — Lógica dos quatro modos
 
@@ -126,7 +126,7 @@ O seletor **Mapa plano / Globo 3D** fica visível no menu e no topo da partida. 
 | 3 — Siga a capital | Apenas a capital, sem bandeira | Clique no país; compara o ID |
 | 4 — Qual é a capital? | País identificado + pin sem nome na capital | Texto; compara com `capitais_aceitas` |
 
-`ANSWER` aceita uma única tentativa por pergunta. Um acerto vale **100 pontos**. O máximo depende da região; no Mundo Todo são 23.000 pontos. O reducer e um bloqueio imediato impedem pontuação duplicada por cliques rápidos ou Enter repetido. `NEXT` só avança após uma resposta. A próxima pergunta é iniciada pelo jogador, para dar tempo de ler o feedback.
+`ANSWER` aceita uma única tentativa por pergunta. Um acerto vale **100 pontos**. O máximo depende da região; no Mundo Todo são 23.000 pontos. O reducer e um bloqueio imediato impedem pontuação duplicada por cliques rápidos ou Enter repetido. Nos modos 2 e 4, o botão **Saltar** está disponível ao lado do input, mesmo vazio. A ação `SKIP` regista a pergunta como incorreta, atribui zero pontos, interrompe a sequência e apresenta a resposta correta com o mesmo feedback vermelho de um erro. O jogador avança com **Próximo**; cliques repetidos não saltam outras perguntas nem permitem responder depois de revelar a solução. `NEXT` só avança após uma resposta ou salto. A próxima pergunta é iniciada pelo jogador, para dar tempo de ler o feedback.
 
 Com **Manter acertos a verde** ligado, todos os países acertados permanecem verdes, incluindo os acertos anteriores ao momento de ligar a opção. Desligado, o feedback dura 1,1 segundo e a cor original retorna; o destaque amarelo do alvo permanece nos modos de digitação. Erros sempre piscam em vermelho. O switch altera apenas a apresentação e preserva fila, progresso, pontuação e respostas. Se a ajuda visual for ligada em qualquer momento, a partida é classificada como assistida para os recordes, mesmo que a opção seja desligada depois.
 
@@ -160,7 +160,7 @@ Esse comando precisa de internet e atualiza `countries.json`, `world.json` e as 
 
 ## Validação
 
-**29 testes aprovados**, cobrindo integridade dos 230 destinos e bandeiras, coordenadas das capitais, seis regiões, quatro modos com os 230 destinos completos, ausência de limite de 15, ordem aleatória sem repetição, switch durante a partida, preferência persistida, separação dos recordes antigos, pontuações acima de 1.500, uma tentativa por pergunta, corrupção/bloqueio de armazenamento e geometria em tamanhos móveis e desktop. Os testes do globo verificam rotação completa, limites de zoom, recorte do hemisfério, todos os destinos visíveis, as 230 capitais centradas, geometria de movimento e preferências independentes. O build de produção foi gerado com sucesso.
+**34 testes aprovados**, cobrindo integridade dos 230 destinos e bandeiras, coordenadas das capitais, seis regiões, quatro modos com os 230 destinos completos, ausência de limite de 15, ordem aleatória sem repetição, switch durante a partida, preferência persistida, separação dos recordes antigos, pontuações acima de 1.500, uma tentativa por pergunta, corrupção/bloqueio de armazenamento e geometria em tamanhos móveis e desktop. Os testes adicionais verificam Saltar nos dois modos de digitação, bloqueio de respostas duplicadas, fim da partida após o último salto, orientação e área de todas as ilhas simplificadas e ausência de preenchimentos excessivos durante drag/zoom. Os testes do globo verificam rotação completa, limites de zoom, recorte do hemisfério, todos os destinos visíveis, as 230 capitais centradas, geometria de movimento e preferências independentes. O build de produção foi gerado com sucesso.
 
 A revisão visual automatizada ficou pendente: a política de segurança da ferramenta de navegador bloqueou a abertura da prévia local. Os testes de geometria não substituem uma revisão visual ou testes de gestos em dispositivos reais.
 

@@ -34,13 +34,16 @@ export function gameReducer(state, action) {
     const usedMapHints = state.usedMapHints || action.value;
     return { ...state, keepCorrect: Boolean(action.value), usedMapHints, difficulty: usedMapHints ? 'normal' : 'dificil' };
   }
-  if (action.type === 'ANSWER') {
+  if (action.type === 'ANSWER' || action.type === 'SKIP') {
     if (state.finished || state.answers.length > state.index) return state;
-    const correct = state.mode === 1 || state.mode === 3
-      ? action.value === state.queue[state.index].id
-      : matchesAnswer(state.queue[state.index], state.mode, action.value);
+    const skipped = action.type === 'SKIP';
+    if (skipped && state.mode !== 2 && state.mode !== 4) return state;
+    const value = skipped ? '' : action.value;
+    const correct = !skipped && (state.mode === 1 || state.mode === 3
+      ? value === state.queue[state.index].id
+      : matchesAnswer(state.queue[state.index], state.mode, value));
     const streak = correct ? state.streak + 1 : 0;
-    return { ...state, score: state.score + (correct ? POINTS : 0), streak, bestStreak: Math.max(streak, state.bestStreak), answers: [...state.answers, { country: state.queue[state.index], correct, value: action.value }] };
+    return { ...state, score: state.score + (correct ? POINTS : 0), streak, bestStreak: Math.max(streak, state.bestStreak), answers: [...state.answers, { country: state.queue[state.index], correct, value, skipped }] };
   }
   if (action.type === 'NEXT') {
     if (state.answers.length <= state.index || state.finished) return state;
