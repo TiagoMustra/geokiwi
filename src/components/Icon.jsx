@@ -7,6 +7,7 @@ const paths = {
   city: 'M3 21V9h6v12m0 0V3h7v18m0-12h5v12M1 21h22M12 6h1m-1 4h1m-1 4h1m-7-2h0m0 4h0m13-3h0m0 4h0',
   trophy: 'M8 3h8v8a4 4 0 0 1-8 0V3ZM8 5H4v3a4 4 0 0 0 4 4m8-7h4v3a4 4 0 0 1-4 4m-4 3v5m-5 1h10',
   globe: 'M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0ZM3 12h18M12 3c5 6 5 12 0 18-5-6-5-12 0-18Z',
+  map: 'm3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2V5Zm6-2v16m6-14v16',
   crosshair: 'M18 12a6 6 0 1 1-12 0 6 6 0 0 1 12 0ZM12 2v5m0 10v5M2 12h5m10 0h5',
   bolt: 'm13 2-9 12h7l-1 8 10-13h-8l1-7Z',
   volume: 'M11 5 6 9H3v6h3l5 4V5Zm4 3a6 6 0 0 1 0 8m3-11a10 10 0 0 1 0 14',

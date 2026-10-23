@@ -3,6 +3,7 @@ import { geoNaturalEarth1, geoPath, geoGraticule10, geoArea, select, zoom, zoomI
 import { features, byId } from '../data/index.js';
 import { Icon } from './Icon.jsx';
 import { focusGeometry } from '../lib/map.js';
+import CapitalPin from './CapitalPin.jsx';
 
 /** React owns each SVG country. D3 owns only the parent group's transform. */
 export default function WorldMap({ decorative = false, region = 'mundo', target, typed = false, showCapitalPin = false, keepCorrect = true, solved = [], flash, onCountryClick, disabled = false, round = 0 }) {
@@ -92,11 +93,7 @@ export default function WorldMap({ decorative = false, region = 'mundo', target,
           if (!center) return null;
           return <circle key={`hit-${f.key}`} data-hit-country={f.id} cx={center[0]} cy={center[1]} r={4 / scale} className={`micro-country ${countryClass(f)}`} vectorEffect="non-scaling-stroke" onClick={event => choose(event, f)} />;
         })}
-        {!decorative && capitalPosition && <g className="capital-pin" role="img" aria-label="Localização da capital" data-capital-pin={target.id} transform={`translate(${capitalPosition[0]},${capitalPosition[1]}) scale(${1 / scale})`}>
-          <ellipse cx="0" cy="2" rx="7" ry="3" className="capital-pin-shadow" />
-          <path className="capital-pin-body" d="M-6-25H6v3h3v12H6v3H3v4L0 0l-3-3v-4h-3v-3h-3v-12h3Z" />
-          <rect x="-3" y="-19" width="6" height="6" className="capital-pin-center" />
-        </g>}
+        {!decorative && capitalPosition && <CapitalPin position={capitalPosition} countryId={target.id} scale={scale} />}
         {decorative && [byId['076'], byId['250'], byId['392']].filter(Boolean).map(c => {
           const [x, y] = projection(c.coordenadas_centro);
           return <g key={c.id} transform={`translate(${x},${y})`} className="hero-map-marker"><path d="M-5-5H5V5H-5Z" /><path d="M-12 0h-5m29 0h5M0-12v-5m0 29v5" /></g>;

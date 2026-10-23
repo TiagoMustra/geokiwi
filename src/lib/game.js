@@ -74,11 +74,28 @@ export function saveScore(scores, game, storage) {
 }
 
 const PREFERENCES_KEY = 'geoquest.preferences.v1';
+function readPreferences(storage) {
+  const value = JSON.parse((storage ?? globalThis.localStorage).getItem(PREFERENCES_KEY) || '{}');
+  return value && typeof value === 'object' && !Array.isArray(value) ? value : {};
+}
+function savePreferences(patch, storage) {
+  try {
+    let previous = {};
+    try { previous = readPreferences(storage); } catch { /* Repair invalid stored JSON. */ }
+    (storage ?? globalThis.localStorage).setItem(PREFERENCES_KEY, JSON.stringify({ ...previous, ...patch }));
+  } catch { /* Preferences remain usable in this session if storage is blocked. */ }
+}
 export function readKeepCorrect(storage) {
-  try { return JSON.parse((storage ?? globalThis.localStorage).getItem(PREFERENCES_KEY) || '{}').keepCorrect !== false; }
+  try { return readPreferences(storage).keepCorrect !== false; }
   catch { return true; }
 }
 export function saveKeepCorrect(value, storage) {
-  try { (storage ?? globalThis.localStorage).setItem(PREFERENCES_KEY, JSON.stringify({ keepCorrect: Boolean(value) })); }
-  catch { /* The preference remains usable in this session. */ }
+  savePreferences({ keepCorrect: Boolean(value) }, storage);
+}
+export function readMapView(storage) {
+  try { return readPreferences(storage).mapView === 'globe' ? 'globe' : 'flat'; }
+  catch { return 'flat'; }
+}
+export function saveMapView(value, storage) {
+  savePreferences({ mapView: value === 'globe' ? 'globe' : 'flat' }, storage);
 }

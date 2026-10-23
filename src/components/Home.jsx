@@ -4,8 +4,10 @@ import { scoreKey } from '../lib/game.js';
 import { Icon } from './Icon.jsx';
 import WorldMap from './WorldMap.jsx';
 import KeepCorrectControl from './KeepCorrectControl.jsx';
+import MapViewControl from './MapViewControl.jsx';
+import GlobeMap from './GlobeMap.jsx';
 
-export default function Home({ difficulty, setDifficulty, scores, onStart }) {
+export default function Home({ difficulty, setDifficulty, mapView = 'flat', setMapView, scores, onStart }) {
   const [regions, setRegions] = useState({ 1: 'mundo', 2: 'mundo', 3: 'mundo', 4: 'mundo' });
   const played = Object.keys(scores).length;
   return <main className="home-shell">
@@ -19,9 +21,9 @@ export default function Home({ difficulty, setDifficulty, scores, onStart }) {
       </div>
       <div className="hero-art" aria-hidden="true">
         <div className="art-topline"><span><span className="status-dot" /> WORLD EXPLORER</span><span>LIVE ATLAS / 01</span></div>
-        <WorldMap decorative />
-        <div className="art-coordinate coordinate-one">23°33′ S<br /><span>46°38′ W</span></div>
-        <div className="art-coordinate coordinate-two">35°40′ N<br /><span>139°41′ E</span></div>
+        {mapView === 'globe' ? <GlobeMap decorative /> : <WorldMap decorative />}
+        {mapView === 'flat' && <><div className="art-coordinate coordinate-one">23°33′ S<br /><span>46°38′ W</span></div>
+        <div className="art-coordinate coordinate-two">35°40′ N<br /><span>139°41′ E</span></div></>}
         <div className="map-floating-tag"><Icon name="crosshair" size={15} /><span>PRÓXIMO DESTINO: O ACERTO</span></div>
         <span className="corner top-left" /><span className="corner bottom-right" />
       </div>
@@ -30,8 +32,8 @@ export default function Home({ difficulty, setDifficulty, scores, onStart }) {
     <section className="games-section" id="jogos" aria-labelledby="games-title">
       <div className="section-heading">
         <div><div className="section-kicker">SELEÇÃO DE MISSÃO</div><h2 id="games-title">Onde começa sua aventura<span>?</span></h2></div>
-        <KeepCorrectControl checked={difficulty === 'normal'} onChange={value => setDifficulty(value ? 'normal' : 'dificil')} />
       </div>
+      <div className="home-map-settings"><MapViewControl value={mapView} onChange={setMapView} /><KeepCorrectControl checked={difficulty === 'normal'} onChange={value => setDifficulty(value ? 'normal' : 'dificil')} /></div>
       <p className="difficulty-note">Todos os países da região, em ordem aleatória e sem repetição. <span>O verde dos acertos é opcional nos quatro jogos e pode ser alterado durante a partida.</span></p>
       <div className="games-grid">
         {MODES.map(mode => {

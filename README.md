@@ -46,16 +46,20 @@ geoquest/
 │   │   └── index.js           # GeoJSON, índices, regiões e modos
 │   ├── components/
 │   │   ├── Home.jsx           # Cards e seleção de região/dificuldade
-│   │   ├── WorldMap.jsx       # Componente central do mapa
+│   │   ├── WorldMap.jsx       # Mapa plano com pan/zoom
+│   │   ├── GlobeMap.jsx       # Esfera interativa e rotação
+│   │   ├── MapViewControl.jsx # Seletor visível de mapa / globo
+│   │   ├── CapitalPin.jsx     # Pin sem nome para as duas vistas
 │   │   ├── KeepCorrectControl.jsx # Switch visível no menu e no jogo
 │   │   ├── Game.jsx           # Tela de jogo e resultado
 │   │   ├── Icon.jsx           # Ícones SVG e globo pixelado
 │   │   └── Modal.jsx          # Diálogos com foco e Escape nativos
 │   └── lib/
 │       ├── game.js            # Regras, reducer e localStorage
-│       └── map.js             # Escolha da massa de terra para zoom
+│       ├── map.js             # Escolha da massa de terra para zoom
+│       └── globe.js           # Projeção, rotação, visibilidade e câmera esférica
 ├── scripts/update-data.mjs    # Atualização explícita dos dados
-└── tests/game.test.js         # Testes automatizados
+└── tests/                     # Regras dos jogos e geometria do globo
 ```
 
 Os destinos seguem o formato solicitado. Exemplo real:
@@ -96,6 +100,20 @@ As fronteiras usam `vector-effect="non-scaling-stroke"` para manter a espessura 
 D3 controla somente a transformação do `<g>`: `zoom()` suporta arrastar, roda do mouse e pinch. Os botões chamam `scaleBy`; o botão de mira restaura o mapa inteiro. O React mantém as classes e os eventos dos países. As strings dos caminhos são memorizadas para evitar recalcular a geometria a cada movimento.
 
 O mapa observa o espaço disponível com `ResizeObserver`. Ao entrar em uma região, ajusta a câmera aos limites dela. Nos modos 2 e 4, a câmera aproxima o país. No jogo 4, um pin pixelado sem nome marca `coordenadas_capital`; o nome do país aparece na pergunta, mas o da capital só é revelado depois da resposta. O pin mantém tamanho visual constante no zoom, acompanha o pan e participa do enquadramento da câmera para não ficar fora da tela. `focusGeometry` seleciona o polígono que contém seu centro ou a maior massa de terra; isso evita que territórios ultramarinos distantes impeçam um zoom útil. Todas as partes do país permanecem desenhadas e destacadas.
+
+### Mapa plano e Globo 3D
+
+O seletor **Mapa plano / Globo 3D** fica visível no menu e no topo da partida. `App.jsx` mantém a vista selecionada fora do estado da partida: trocar a vista remonta apenas o componente do mapa, preservando pergunta, respostas, pontuação e acertos. A preferência `mapView` é guardada em `geoquest.preferences.v1` sem sobrescrever `keepCorrect`.
+
+`GlobeMap.jsx` usa a projeção esférica ortográfica de D3, com recorte de 90 graus. Cada país continua a ser um `<path>` clicável. A rotação altera a projeção das coordenadas geográficas; os países curvam-se com a esfera e deixam de aparecer quando passam ao hemisfério oculto. Iluminação, oceano, atmosfera e grelha reforçam a leitura da esfera.
+
+- Arrastar com rato ou um dedo roda a esfera; longitude contínua e latitude limitada evitam inversões nos polos.
+- Scroll, pinch de dois dedos e os botões + / − controlam o zoom. As setas do teclado rodam a esfera, + / − ampliam e Home recentra.
+- Gestos de arrastar e pinch são distinguidos dos cliques, para não responder acidentalmente.
+- Nos modos de digitação, a esfera vira-se para o país ou capital da pergunta. Nos modos de clicar, a orientação inicial depende apenas da região, preserva-se entre perguntas e nunca revela a resposta.
+- Pins e marcadores de microterritórios têm um teste explícito de hemisfério; nunca atravessam visualmente a parte de trás da esfera.
+- As classes de acerto/erro e a opção de manter o verde são as mesmas nas duas vistas. O pin da capital continua sem nome.
+- Eventos de movimento são agrupados com `requestAnimationFrame`; durante o gesto, as costas usam geometria mais leve, mantendo todos os territórios e ilhas. A geometria completa 1:50m regressa quando o gesto termina.
 
 ## Passo 3 — Lógica dos quatro modos
 
@@ -142,7 +160,7 @@ Esse comando precisa de internet e atualiza `countries.json`, `world.json` e as 
 
 ## Validação
 
-**20 testes aprovados**, cobrindo integridade dos 230 destinos e bandeiras, coordenadas das capitais, seis regiões, quatro modos com os 230 destinos completos, ausência de limite de 15, ordem aleatória sem repetição, switch durante a partida, preferência persistida, separação dos recordes antigos, pontuações acima de 1.500, uma tentativa por pergunta, corrupção/bloqueio de armazenamento e geometria em tamanhos móveis e desktop. O build de produção foi gerado com sucesso.
+**29 testes aprovados**, cobrindo integridade dos 230 destinos e bandeiras, coordenadas das capitais, seis regiões, quatro modos com os 230 destinos completos, ausência de limite de 15, ordem aleatória sem repetição, switch durante a partida, preferência persistida, separação dos recordes antigos, pontuações acima de 1.500, uma tentativa por pergunta, corrupção/bloqueio de armazenamento e geometria em tamanhos móveis e desktop. Os testes do globo verificam rotação completa, limites de zoom, recorte do hemisfério, todos os destinos visíveis, as 230 capitais centradas, geometria de movimento e preferências independentes. O build de produção foi gerado com sucesso.
 
 A revisão visual automatizada ficou pendente: a política de segurança da ferramenta de navegador bloqueou a abertura da prévia local. Os testes de geometria não substituem uma revisão visual ou testes de gestos em dispositivos reais.
 
