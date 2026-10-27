@@ -5,10 +5,11 @@ import { Icon } from './Icon.jsx';
 import { focusGeometry, getRegionTransform, createFlatProjection, getWorldCopies } from '../lib/map.js';
 import { loadDetailedWorld } from '../lib/flat-detail.js';
 import CapitalPin from './CapitalPin.jsx';
+import MapAnswerLabel from './MapAnswerLabel.jsx';
 
 /** React owns country paths; D3 moves their parent. Each horizontal copy uses
  * the same country IDs and game state, so wrapping cannot create new answers. */
-export default function WorldMap({ decorative = false, region = 'mundo', target, typed = false, showCapitalPin = false, keepCorrect = true, solved = [], flash, onCountryClick, disabled = false }) {
+export default function WorldMap({ decorative = false, region = 'mundo', target, typed = false, showCapitalPin = false, keepCorrect = true, solved = [], flash, onCountryClick, disabled = false, reveal = null }) {
   const boxRef = useRef(null);
   const svgRef = useRef(null);
   const groupRef = useRef(null);
@@ -30,7 +31,7 @@ export default function WorldMap({ decorative = false, region = 'mundo', target,
   useEffect(() => {
     if (decorative) return;
     let active = true;
-    loadDetailedWorld().then(land => { if (active) setDetail(land); }).catch(() => { /* The bundled 1:50m map remains fully playable. */ });
+    loadDetailedWorld(features).then(land => { if (active) setDetail(land); }).catch(() => { /* The bundled 1:50m map remains fully playable. */ });
     return () => { active = false; };
   }, [decorative]);
 
@@ -41,6 +42,7 @@ export default function WorldMap({ decorative = false, region = 'mundo', target,
   const graticule = useMemo(() => path(geoGraticule10()), [path]);
   const eligible = useMemo(() => features.filter(f => byId[f.id] && (region === 'mundo' || byId[f.id].continente === region)), [region]);
   const targets = useMemo(() => eligible.filter(f => geoArea(f) < 0.000012).map(feature => ({ feature, center: projection(byId[feature.id].coordenadas_centro) })), [eligible, projection]);
+  const revealPosition = reveal ? projection(reveal.showCapital ? reveal.country.coordenadas_capital : reveal.country.coordenadas_centro) : null;
   const capitalPosition = showCapitalPin && target?.coordenadas_capital ? projection(target.coordenadas_capital) : null;
 
   useEffect(() => {
@@ -120,7 +122,8 @@ export default function WorldMap({ decorative = false, region = 'mundo', target,
           <path d={graticule} className="graticule" vectorEffect="non-scaling-stroke" />
           {countryPaths}
           {!decorative && targets.map(({ feature: f, center }) => center && <circle key={`hit-${f.key}`} data-hit-country={f.id} cx={center[0]} cy={center[1]} r={4 / scale} className={`micro-country ${countryClass(f)}`} vectorEffect="non-scaling-stroke" onClick={event => choose(event, f)} />)}
-          {!decorative && capitalPosition && <CapitalPin position={capitalPosition} countryId={target.id} scale={scale} />}
+          {!decorative && capitalPosition && !reveal && <CapitalPin position={capitalPosition} countryId={target.id} scale={scale} />}
+          {!decorative && revealPosition && <MapAnswerLabel position={revealPosition} {...reveal} scale={scale} />}
           {decorative && [byId['076'], byId['250'], byId['392']].map(c => {
             const [x, y] = projection(c.coordenadas_centro);
             return <g key={c.id} transform={`translate(${x},${y})`} className="hero-map-marker"><path d="M-5-5H5V5H-5Z" /><path d="M-12 0h-5m29 0h5M0-12v-5m0 29v5" /></g>;

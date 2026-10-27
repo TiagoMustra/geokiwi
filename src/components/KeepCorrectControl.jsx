@@ -1,7 +1,7 @@
 import { Icon } from './Icon.jsx';
 
-export default function KeepCorrectControl({ checked, onChange }) {
-  return <button type="button" className={`keep-correct-control ${checked ? 'is-on' : ''}`} role="switch" aria-checked={checked} aria-label="Manter acertos a verde" onClick={() => onChange(!checked)}>
+export default function KeepCorrectControl({ checked, onChange, compact = false }) {
+  return <button type="button" className={`keep-correct-control ${checked ? 'is-on' : ''} ${compact ? 'is-compact' : ''}`} role="switch" aria-checked={checked} aria-label="Manter acertos a verde" onClick={() => onChange(!checked)}>
     <Icon name="check" size={19} />
     <span className="keep-correct-copy"><strong>Manter acertos a verde</strong><small>{checked ? 'As cores ficam no mapa' : 'As cores desaparecem após o feedback'}</small></span>
     <span className="keep-correct-state">{checked ? 'LIGADO' : 'DESLIGADO'}</span>

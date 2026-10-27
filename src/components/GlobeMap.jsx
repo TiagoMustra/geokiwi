@@ -4,12 +4,13 @@ import { features, byId } from '../data/index.js';
 import { clampGlobeZoom, createGlobeProjection, getGlobeCamera, globePointVisible, globeRadius, rotateGlobe, simplifyGlobeFeatures } from '../lib/globe.js';
 import { Icon } from './Icon.jsx';
 import CapitalPin from './CapitalPin.jsx';
+import MapAnswerLabel from './MapAnswerLabel.jsx';
 
 const movingFeatures = simplifyGlobeFeatures(features);
 const graticule = geoGraticule10();
 const distance = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1]);
 
-export default function GlobeMap({ decorative = false, region = 'mundo', target, typed = false, showCapitalPin = false, keepCorrect = true, solved = [], flash, onCountryClick, disabled = false }) {
+export default function GlobeMap({ decorative = false, region = 'mundo', target, typed = false, showCapitalPin = false, keepCorrect = true, solved = [], flash, onCountryClick, disabled = false, reveal = null }) {
   const boxRef = useRef(null);
   const svgRef = useRef(null);
   const frameRef = useRef(null);
@@ -122,6 +123,9 @@ export default function GlobeMap({ decorative = false, region = 'mundo', target,
     else dragStart.current = [...pointers.current.values()][0];
   }
 
+  const revealCoordinates = reveal && (reveal.showCapital ? reveal.country.coordenadas_capital : reveal.country.coordenadas_centro);
+  const revealPosition = revealCoordinates && globePointVisible(revealCoordinates, projection) ? projection(revealCoordinates) : null;
+
   function changeZoom(factor) {
     updateCamera({ ...cameraRef.current, zoom: clampGlobeZoom(cameraRef.current.zoom * factor) });
   }
@@ -173,7 +177,8 @@ export default function GlobeMap({ decorative = false, region = 'mundo', target,
         const position = projection(byId[feature.id].coordenadas_centro);
         return <circle key={feature.key} data-hit-country={feature.id} cx={position[0]} cy={position[1]} r="4" className={`micro-country ${classes(feature)}`} vectorEffect="non-scaling-stroke" onClick={event => choose(event, feature)} />;
       })}
-      {!decorative && capitalPosition && <CapitalPin position={capitalPosition} countryId={target.id} />}
+      {!decorative && capitalPosition && !reveal && <CapitalPin position={capitalPosition} countryId={target.id} />}
+      {!decorative && revealPosition && <MapAnswerLabel position={revealPosition} {...reveal} />}
     </svg>
     {!decorative && <>
       <div className="map-caption"><span className="status-dot" /> GLOBO INTERATIVO <span className="map-scale">{camera.zoom.toFixed(1)}×</span></div>

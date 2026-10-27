@@ -1,4 +1,5 @@
 const paths = {
+  settings: 'M9 3h6l1 3 3 1 2 5-2 5-3 1-1 3H9l-1-3-3-1-2-5 2-5 3-1 1-3ZM16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0Z',
   save: 'M4 3h13l4 4v14H3V3Zm3 0v7h10V3M7 21v-7h10v7',
   pause: 'M7 4v16M17 4v16',
   play: 'm7 4 13 8-13 8V4Z',

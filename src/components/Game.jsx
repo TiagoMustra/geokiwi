@@ -3,18 +3,20 @@ import { MODES, REGIONS, getPool, byId } from '../data/index.js';
 import { createGame, gameReducer, POINTS, normalizeAnswer, scoreKey, feedbackDuration } from '../lib/game.js';
 import WorldMap from './WorldMap.jsx';
 import Modal from './Modal.jsx';
-import { Icon } from './Icon.jsx';
+import { Icon, KiwiMark } from './Icon.jsx';
 import KeepCorrectControl from './KeepCorrectControl.jsx';
 import MapViewControl from './MapViewControl.jsx';
 import GlobeMap from './GlobeMap.jsx';
+import ThemeControl from './ThemeControl.jsx';
 
 const noop = () => {};
 
-export default function Game({ config, onExit, onFinish, onReplay, sound, highScores, onKeepCorrectChange, mapView = 'flat', onMapViewChange, initialGame, onCheckpoint = noop, storageAvailable = true, paused = false }) {
+export default function Game({ config, onExit, onFinish, onReplay, sound, highScores, onKeepCorrectChange, mapView = 'flat', onMapViewChange, initialGame, onCheckpoint = noop, storageAvailable = true, paused = false, theme = 'dark', onThemeChange = noop, soundEnabled = false, onSoundChange = noop, onStatistics = noop }) {
   const [game, dispatch] = useReducer(gameReducer, initialGame || config, value => value.queue ? value : createGame({ ...value, pool: getPool(value.region) }));
   const [input, setInput] = useState('');
   const [flash, setFlash] = useState(null);
   const [showExit, setShowExit] = useState(false);
+  const [showSettings, setShowSettings] = useState(false);
   const inputRef = useRef(null);
   const [reading, setReading] = useState(false);
   const [hidden, setHidden] = useState(false);
@@ -59,10 +61,10 @@ export default function Game({ config, onExit, onFinish, onReplay, sound, highSc
   }, [result]);
 
   useEffect(() => {
-    if (!result || game.finished || reading || showExit || paused || hidden) return;
+    if (!result || game.finished || reading || showExit || showSettings || paused || hidden) return;
     timerRef.current = setTimeout(() => { setFlash(null); dispatch({ type: 'NEXT' }); }, feedbackDuration(result));
     return () => clearTimeout(timerRef.current);
-  }, [result, game.finished, reading, showExit, paused, hidden]);
+  }, [result, game.finished, reading, showExit, showSettings, paused, hidden]);
 
   function answer(value) {
     if (result || game.finished || answerLock.current) return;
@@ -92,21 +94,25 @@ export default function Game({ config, onExit, onFinish, onReplay, sound, highSc
     </main>;
   }
 
-  return <main className={`game-screen accent-${mode.color}`}>
-    <div className="game-meta"><button onClick={() => setShowExit(true)}><Icon name="save" size={15} /> GUARDAR E SAIR</button><span>JOGO 0{mode.id} <b>/</b> {mode.title.toUpperCase()} <b>/</b> {region.name.toUpperCase()}</span><span className="autosave-status"><span className="status-dot" />{storageAvailable ? "PROGRESSO GUARDADO AUTOMATICAMENTE" : "PROGRESSO APENAS NESTA SESSÃO"}</span></div>
-    <div className="question-bar">
-      <div className="question-heading"><span className="question-eyebrow">{mode.id === 1 ? 'ENCONTRE ESTE PAÍS' : mode.id === 2 ? 'QUAL É O PAÍS EM DESTAQUE?' : mode.id === 3 ? 'A QUAL PAÍS PERTENCE ESTA CAPITAL?' : `QUAL É A CAPITAL DE ${target.nome_pt.toUpperCase()}?`}</span>
-        {mode.id === 1 ? <h1><img src={target.bandeira_url} alt={`Bandeira de ${target.nome_pt}`} />{target.nome_pt}</h1> : mode.id === 3 ? <><h1><Icon name="city" size={30} />{target.capital}</h1>{sharedCapital && <span className="capital-context">REGIÃO: {REGIONS.find(r => r.id === target.continente)?.name.toUpperCase()}</span>}</> : <div className="typing-answer-row"><form onSubmit={event => { event.preventDefault(); answer(input); }}><label className="sr-only" htmlFor="answer-input">{mode.id === 2 ? 'Nome do país' : 'Nome da capital'}</label><input id="answer-input" ref={inputRef} value={input} maxLength={200} autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck="false" placeholder={mode.id === 2 ? 'Digite o nome do país…' : 'Digite o nome da capital…'} onChange={event => setInput(event.target.value)} disabled={Boolean(result)} /><button aria-label="Confirmar resposta" disabled={Boolean(result) || !input.trim()} type="submit"><Icon name="enter" /></button></form><button className="skip-button" type="button" onClick={skip} disabled={Boolean(result)} aria-label="Saltar pergunta e revelar a resposta" title="Revelar a resposta. Conta como resposta incorreta.">SALTAR <Icon name="arrow" size={16} /></button></div>}
-      </div>
-      <div className="question-stat"><span>PONTOS</span><strong>{String(game.score).padStart(4, '0')}</strong></div>
-      <div className="question-stat progress-stat"><span>PROGRESSO</span><strong>{String(game.answers.length).padStart(2, '0')}<small>/{game.queue.length}</small></strong><div className="progress-track"><i style={{ width: `${game.answers.length / game.queue.length * 100}%` }} /></div></div>
+  return <main className={`game-screen play-screen accent-${mode.color}`}>
+    <div className="game-map-area"><MapComponent region={game.region} target={target} typed={mode.input} showCapitalPin={mode.id === 4} keepCorrect={game.keepCorrect} solved={correctAnswers.map(answer => answer.country.id)} flash={flash} onCountryClick={answer} disabled={Boolean(result) || paused || showExit || showSettings} reveal={result ? { country: target, correct: result.correct, showCapital: game.mode >= 3 } : null} />
     </div>
-    <div className="game-options-bar"><span><Icon name={mode.id === 4 ? 'pin' : 'globe'} size={15} />{mode.id === 4 ? 'O pin marca a capital. Qual é o nome?' : 'Percorra todos os países da região.'}</span><div className="game-options-actions"><MapViewControl value={mapView} onChange={onMapViewChange} /><KeepCorrectControl checked={game.keepCorrect} onChange={changeKeepCorrect} /></div></div>
-    <div className="game-map-area"><MapComponent region={game.region} target={target} typed={mode.input} showCapitalPin={mode.id === 4} keepCorrect={game.keepCorrect} solved={correctAnswers.map(answer => answer.country.id)} flash={flash} onCountryClick={answer} disabled={Boolean(result) || paused || showExit} />
-      {!result && game.index > 0 && <div className={`last-answer ${game.answers[game.index - 1].correct ? 'is-correct' : 'is-wrong'}`}><Icon name={game.answers[game.index - 1].correct ? 'check' : 'close'} size={14} /><span>ANTERIOR: {game.answers[game.index - 1].country.nome_pt}{game.mode >= 3 ? ` · ${game.answers[game.index - 1].country.capital}` : ''}</span></div>}
-      {!result && <div className="map-prompt"><Icon name={mode.id === 4 ? 'pin' : mode.input ? 'keyboard' : 'pin'} size={16} />{mode.id === 4 ? 'Observe o pin da capital e digite o nome acima.' : mode.input ? 'Observe o território em destaque e digite sua resposta acima.' : 'Faça sua escolha: clique no país correto.'}</div>}
-      {result && <div className={`feedback-bar ${result.correct ? 'is-correct' : 'is-wrong'}`} role="status"><div className="feedback-icon"><Icon name={result.correct ? 'check' : 'close'} size={24} /></div><div><strong>{result.correct ? `NA MOSCA! +${POINTS} PONTOS` : result.skipped ? 'PERGUNTA SALTADA · 0 PONTOS' : 'QUASE! CONTINUE EXPLORANDO.'}</strong><p>{mode.id === 3 || mode.id === 4 ? `${target.capital} é a capital de ${target.nome_pt}.` : `Resposta: ${target.nome_pt}.`}{!result.correct && !mode.input && byId[result.value] ? ` Você escolheu ${byId[result.value].nome_pt}.` : ''}</p></div><button aria-pressed={reading} onClick={() => setReading(value => !value)}><Icon name={reading ? 'play' : 'pause'} size={16} />{reading ? 'CONTINUAR' : 'PAUSAR'}</button><div className="auto-advance"><span>{reading ? 'EM PAUSA · LEIA A RESPOSTA' : game.index + 1 === game.queue.length ? 'A PREPARAR RESULTADO…' : 'A PRÓXIMA PERGUNTA VEM JÁ…'}</span>{!reading && !paused && !showExit && !hidden && <i key={`${game.index}-${reading}`} style={{ animationDuration: `${feedbackDuration(result)}ms` }} />}</div></div>}
+    <div className="play-score-panel">
+      <button className="play-exit" onClick={() => setShowExit(true)} aria-label="Guardar e sair" title="Guardar e sair"><Icon name="back" size={18} /><KiwiMark size={23} /><span className="sr-only">GUARDAR E SAIR</span></button>
+      <div className="play-score"><span>PONTOS</span><strong>{game.score}</strong></div>
+      <div className="play-round"><span>RONDA</span><strong>{game.index + 1}<small>/{game.queue.length}</small></strong></div>
     </div>
+    <section className={`play-question ${mode.input ? 'has-input' : ''}`} aria-label="Pergunta atual">
+      <span className="play-instruction">{mode.id === 1 ? 'ENCONTRA ESTE PAÍS' : mode.id === 2 ? 'ESCREVE O NOME DO PAÍS' : mode.id === 3 ? 'ENCONTRA O PAÍS DESTA CAPITAL' : 'ESCREVE A CAPITAL DESTE PAÍS'}</span>
+      {mode.id === 1 || mode.id === 4 ? <h1><img src={target.bandeira_url} alt={`Bandeira de ${target.nome_pt}`} />{target.nome_pt}</h1> : mode.id === 3 ? <h1><Icon name="city" size={24} />{target.capital}</h1> : <h1>Que país é este?</h1>}
+      {sharedCapital && <span className="play-capital-context">{REGIONS.find(r => r.id === target.continente)?.name}</span>}
+      {mode.input && <div className="play-input-row"><form onSubmit={event => { event.preventDefault(); answer(input); }}><label className="sr-only" htmlFor="answer-input">{mode.id === 2 ? 'Nome do país' : 'Nome da capital'}</label><input id="answer-input" ref={inputRef} value={input} maxLength={200} autoComplete="off" autoCorrect="off" autoCapitalize="off" spellCheck="false" placeholder={mode.id === 2 ? 'Nome do país…' : 'Nome da capital…'} onChange={event => setInput(event.target.value)} disabled={Boolean(result)} /><button aria-label="Confirmar resposta" disabled={Boolean(result) || !input.trim()} type="submit"><Icon name="enter" size={19} /></button></form><button className="play-skip" type="button" onClick={skip} disabled={Boolean(result)} title="Saltar e revelar a resposta" aria-label="Saltar pergunta e revelar a resposta">SALTAR</button></div>}
+    </section>
+    <div className="play-controls"><div className="play-controls-top"><MapViewControl compact value={mapView} onChange={onMapViewChange} /><button className="play-settings-button" aria-label="Opções de jogo" title="Opções de jogo" onClick={() => setShowSettings(true)}><Icon name="settings" size={18} /></button></div><KeepCorrectControl compact checked={game.keepCorrect} onChange={changeKeepCorrect} /></div>
+    {!result && game.index === 0 && <p className="play-first-tip">{mode.id === 4 ? 'O pin marca a capital.' : mode.input ? 'Observa o território em destaque.' : 'Clica no mapa para responder.'}</p>}
+    {!result && game.index > 0 && <div className={`play-previous ${game.answers[game.index - 1].correct ? 'is-correct' : 'is-wrong'}`}><Icon name={game.answers[game.index - 1].correct ? 'check' : 'close'} size={13} /><span>{game.answers[game.index - 1].country.nome_pt}{game.mode >= 3 ? ` · ${game.answers[game.index - 1].country.capital}` : ''}</span></div>}
+    {result && <div className={`play-feedback ${result.correct ? 'is-correct' : 'is-wrong'}`} role="status"><Icon name={result.correct ? 'check' : 'close'} size={22} /><div><strong>{result.correct ? `+${POINTS} PONTOS` : result.skipped ? 'SALTADA · 0 PONTOS' : '0 PONTOS'}</strong><p>{game.mode >= 3 ? `${target.capital} · ${target.nome_pt}` : target.nome_pt}{!result.correct && !mode.input && byId[result.value] ? ` — escolheste ${byId[result.value].nome_pt}` : ''}</p></div><button aria-pressed={reading} aria-label={reading ? 'Continuar o jogo' : 'Pausar para ler a resposta'} onClick={() => setReading(value => !value)}><Icon name={reading ? 'play' : 'pause'} size={17} /><span>{reading ? 'CONTINUAR' : 'PAUSAR'}</span></button><div className="play-countdown" aria-label={reading ? 'Em pausa' : 'Próxima pergunta automática'}>{!reading && !paused && !showExit && !showSettings && !hidden && <i key={`${game.index}-${reading}`} style={{ animationDuration: `${feedbackDuration(result)}ms` }} />}</div><span className="sr-only">{reading ? 'EM PAUSA' : 'A PRÓXIMA PERGUNTA VEM JÁ'}</span></div>}
+    {showSettings && <Modal title="Opções de jogo" onClose={() => setShowSettings(false)}><div className="play-settings-content"><p>Jogo {mode.id} · {mode.title} · {region.name}</p><div className="play-preferences"><ThemeControl value={theme} onChange={onThemeChange} /><button className="secondary-button" aria-pressed={soundEnabled} onClick={() => onSoundChange(!soundEnabled)}><Icon name={soundEnabled ? 'volume' : 'muted'} size={18} />{soundEnabled ? 'SOM LIGADO' : 'SOM DESLIGADO'}</button></div><p role="status">{storageAvailable ? 'PROGRESSO GUARDADO AUTOMATICAMENTE neste navegador.' : 'O navegador bloqueou a gravação. O progresso fica apenas nesta sessão.'}</p><div className="modal-actions"><button className="primary-button" onClick={() => setShowSettings(false)}>CONTINUAR A JOGAR</button><button className="secondary-button" onClick={onStatistics}>ESTATÍSTICAS <Icon name="chart" size={16} /></button></div></div></Modal>}
     {showExit && <Modal title="Fazer uma pausa?" onClose={() => setShowExit(false)}><p>O progresso fica guardado automaticamente neste navegador, incluindo a ordem dos países, os pontos e os acertos. Podes retomar esta partida no cartão do jogo e da região.</p><div className="modal-actions"><button className="primary-button" onClick={() => setShowExit(false)}>CONTINUAR JOGANDO</button><button className="secondary-button" onClick={() => { onCheckpoint(game); onExit(); }}>GUARDAR E VOLTAR AO MENU</button></div></Modal>}
   </main>;
 }
