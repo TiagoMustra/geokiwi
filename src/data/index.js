@@ -1,12 +1,14 @@
 import { feature } from 'topojson-client';
 import countries from './countries.json';
 import topology from './world.json';
+import extra from './extra-geometries.json';
+import { mapPoliticalFeature } from '../lib/catalog.js';
 
 export { countries };
 export const byId = Object.fromEntries(countries.map(country => [country.id, country]));
-export const features = feature(topology, topology.objects.countries).features
+export const features = [...feature(topology, topology.objects.countries).features, ...extra]
   .filter(country => country.id !== '010')
-  .map((country, index) => ({ ...country, id: country.id ? String(country.id).padStart(3, '0') : `unmapped-${index}`, key: `land-${index}` }));
+  .map((country, index) => mapPoliticalFeature({ ...country, id: country.id ? String(country.id).padStart(3, '0') : `unmapped-${index}`, key: `land-${index}` }));
 
 export const REGIONS = [
   { id: 'mundo', name: 'Mundo Todo', short: 'Mundo', icon: 'globe' },
@@ -24,6 +26,6 @@ export const MODES = [
   { id: 4, title: 'Qual é a capital?', label: 'TERRITÓRIO → CAPITAL', description: 'Observe o país em destaque e nomeie sua capital.', action: 'Digite a capital', icon: 'city', color: 'orange', input: true },
 ];
 
-export function getPool(region = 'mundo') {
-  return countries.filter(country => region === 'mundo' || country.continente === region);
+export function getPool(region = 'mundo', includeTerritories = false) {
+  return countries.filter(country => (includeTerritories || country.isCountry) && (region === 'mundo' || country.continente === region));
 }

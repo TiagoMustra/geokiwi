@@ -8,6 +8,7 @@ import { focusGeometry, createFlatProjection } from '../src/lib/map.js';
 
 const countries = JSON.parse(readFileSync(new URL('../src/data/countries.json', import.meta.url)));
 const topology = JSON.parse(readFileSync(new URL('../src/data/world.json', import.meta.url)));
+const extra = JSON.parse(readFileSync(new URL('../src/data/extra-geometries.json', import.meta.url)));
 const brazil = countries.find(c => c.iso3 === 'BRA');
 const china = countries.find(c => c.iso3 === 'CHN');
 const memoryStorage = initial => {
@@ -17,7 +18,7 @@ const memoryStorage = initial => {
 
 test('country database has 200+ destinations, all required fields, geometry and local flags', () => {
   assert.ok(countries.length > 200);
-  const ids = new Set(topology.objects.countries.geometries.map(f => f.id));
+  const ids = new Set([...topology.objects.countries.geometries, ...extra].map(f => f.id));
   assert.equal(new Set(countries.map(c => c.id)).size, countries.length);
   for (const country of countries) {
     assert.ok(ids.has(country.id), `Missing geometry: ${country.nome_pt}`);
@@ -60,7 +61,7 @@ test('the queue is randomized, does not mutate the dataset and contains the comp
   assert.notDeepEqual(first, original);
   assert.notDeepEqual(first, second);
   assert.deepEqual(countries.map(c => c.id), original);
-  assert.equal(first.length, 230);
+  assert.equal(first.length, countries.length);
 });
 
 test('answers accept Portuguese, English, accents, punctuation and registered variants', () => {
@@ -219,7 +220,7 @@ test('blocked or malformed localStorage does not break the app', () => {
 });
 
 test('SVG geography produces finite paths and zoom bounds at mobile and desktop sizes', () => {
-  const features = feature(topology, topology.objects.countries).features.filter(f => f.id !== '010');
+  const features = [...feature(topology, topology.objects.countries).features, ...extra].filter(f => f.id !== '010');
   for (const [width, height] of [[375, 360], [768, 500], [1360, 600]]) {
     const projection = createFlatProjection(width, height);
     const path = geoPath(projection);
@@ -231,7 +232,7 @@ test('SVG geography produces finite paths and zoom bounds at mobile and desktop 
 });
 
 test('automatic zoom focuses a finite main landmass for every destination including overseas territories', () => {
-  const features = feature(topology, topology.objects.countries).features;
+  const features = [...feature(topology, topology.objects.countries).features, ...extra];
   const path = geoPath(createFlatProjection(1100, 590));
   for (const country of countries) {
     const geometry = focusGeometry(features.filter(f => f.id === country.id), country.coordenadas_centro);

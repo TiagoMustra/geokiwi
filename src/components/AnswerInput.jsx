@@ -1,7 +1,7 @@
 import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { getNameSuggestions, nextSuggestionIndex } from '../lib/suggestions.js';
 
-export default function AnswerInput({ value, onChange, inputRef, pool, mode, enabled, disabled }) {
+export default function AnswerInput({ value, onChange, onSelect, inputRef, pool, mode, enabled, disabled }) {
   const [open, setOpen] = useState(false);
   const [focused, setFocused] = useState(false);
   const [active, setActive] = useState(-1);
@@ -13,6 +13,7 @@ export default function AnswerInput({ value, onChange, inputRef, pool, mode, ena
 
   function choose(item) {
     onChange(item.value);
+    onSelect(item.value);
     setOpen(false); setActive(-1);
     inputRef.current?.focus({ preventScroll: true });
   }
@@ -26,7 +27,6 @@ export default function AnswerInput({ value, onChange, inputRef, pool, mode, ena
       if (visible) event.preventDefault();
       setOpen(false); setActive(-1);
     } else if (event.key === 'Tab') {
-      if (visible && active >= 0) choose(items[active]);
       setOpen(false);
     }
   }

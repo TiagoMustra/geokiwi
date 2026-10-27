@@ -83,7 +83,7 @@ export default function Game({ config, onExit, onFinish, onReplay, sound, highSc
   }
 
   if (game.finished) {
-    const isNewRecord = game.score > (initialScores.current[scoreKey(game.mode, game.region, game.difficulty)] || 0);
+    const isNewRecord = game.score > (initialScores.current[scoreKey(game.mode, game.region, game.difficulty, game.legacyQueue ? undefined : game.includeTerritories)] || 0);
     return <main className={`results-page accent-${mode.color}`}>
       <div className="results-spark">✦ + ✦</div>
       <div className="results-trophy"><Icon name="trophy" size={48} /></div>
@@ -97,7 +97,7 @@ export default function Game({ config, onExit, onFinish, onReplay, sound, highSc
   }
 
   return <main className={`game-screen play-screen accent-${mode.color}`}>
-    <div className="game-map-area"><MapComponent region={game.region} target={target} typed={mode.input} showCapitalPin={mode.id === 4} keepCorrect={game.keepCorrect} solved={correctAnswers.map(answer => answer.country.id)} flash={flash} onCountryClick={answer} disabled={Boolean(result) || paused || showExit || showSettings} reveal={result ? { country: target, correct: result.correct, showCapital: game.mode >= 3 } : null} />
+    <div className="game-map-area"><MapComponent queue={game.queue} region={game.region} target={target} typed={mode.input} showCapitalPin={mode.id === 4} keepCorrect={game.keepCorrect} solved={correctAnswers.map(answer => answer.country.id)} flash={flash} onCountryClick={answer} disabled={Boolean(result) || paused || showExit || showSettings} reveal={result ? { country: target, correct: result.correct, showCapital: game.mode >= 3 } : null} />
     </div>
     <div className="play-score-panel">
       <button className="play-exit" onClick={() => setShowExit(true)} aria-label="Guardar e sair" title="Guardar e sair"><Icon name="back" size={18} /><KiwiMark size={23} /><span className="sr-only">GUARDAR E SAIR</span></button>
@@ -108,7 +108,7 @@ export default function Game({ config, onExit, onFinish, onReplay, sound, highSc
       <span className="play-instruction">{mode.id === 1 ? 'ENCONTRA ESTE PAÍS' : mode.id === 2 ? 'NOME DO PAÍS' : mode.id === 3 ? 'ENCONTRA O PAÍS DESTA CAPITAL' : 'CAPITAL DE'}</span>
       {mode.id === 1 || mode.id === 4 ? <h1><img src={target.bandeira_url} alt={`Bandeira de ${target.nome_pt}`} />{target.nome_pt}</h1> : mode.id === 3 ? <h1><Icon name="city" size={24} />{target.capital}</h1> : <h1 className="sr-only">Que país é este?</h1>}
       {sharedCapital && <span className="play-capital-context">{REGIONS.find(r => r.id === target.continente)?.name}</span>}
-      {mode.input && <div className="play-input-row"><form onSubmit={event => { event.preventDefault(); answer(input); }}><label className="sr-only" htmlFor="answer-input">{mode.id === 2 ? 'Nome do país' : 'Nome da capital'}</label><AnswerInput value={input} onChange={setInput} inputRef={inputRef} pool={game.queue} mode={game.mode} enabled={suggestionsEnabled} disabled={Boolean(result)} /><button aria-label="Confirmar resposta" disabled={Boolean(result) || !input.trim()} type="submit"><Icon name="enter" size={19} /></button></form><button className="play-skip" type="button" onClick={skip} disabled={Boolean(result)} title="Saltar e revelar a resposta" aria-label="Saltar pergunta e revelar a resposta">SALTAR</button></div>}
+      {mode.input && <div className="play-input-row"><form onSubmit={event => { event.preventDefault(); answer(input); }}><label className="sr-only" htmlFor="answer-input">{mode.id === 2 ? 'Nome do país' : 'Nome da capital'}</label><AnswerInput value={input} onChange={setInput} onSelect={answer} inputRef={inputRef} pool={game.queue} mode={game.mode} enabled={suggestionsEnabled} disabled={Boolean(result)} /><button aria-label="Confirmar resposta" disabled={Boolean(result) || !input.trim()} type="submit"><Icon name="enter" size={19} /></button></form><button className="play-skip" type="button" onClick={skip} disabled={Boolean(result)} title="Saltar e revelar a resposta" aria-label="Saltar pergunta e revelar a resposta">SALTAR</button></div>}
     </section>
     <div className="play-controls"><div className="play-controls-top"><MapViewControl compact value={mapView} onChange={onMapViewChange} /><button className="play-settings-button" aria-label="Opções de jogo" title="Opções de jogo" onClick={() => setShowSettings(true)}><Icon name="settings" size={18} /></button></div><KeepCorrectControl compact checked={game.keepCorrect} onChange={changeKeepCorrect} />{mode.input && <SuggestionsControl checked={suggestionsEnabled} onChange={onSuggestionsChange} />}</div>
     {!result && game.index === 0 && <p className="play-first-tip">{mode.id === 4 ? 'O pin marca a capital.' : mode.input ? 'Observa o território em destaque.' : 'Clica no mapa para responder.'}</p>}

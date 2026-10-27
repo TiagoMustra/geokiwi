@@ -8,7 +8,8 @@ import { readKeepCorrect, saveKeepCorrect, readMapView, saveMapView } from '../s
 
 const countries = JSON.parse(readFileSync(new URL('../src/data/countries.json', import.meta.url)));
 const topology = JSON.parse(readFileSync(new URL('../src/data/world.json', import.meta.url)));
-const features = feature(topology, topology.objects.countries).features.filter(f => f.id !== '010');
+const extra = JSON.parse(readFileSync(new URL('../src/data/extra-geometries.json', import.meta.url)));
+const features = [...feature(topology, topology.objects.countries).features, ...extra].filter(f => f.id !== '010');
 const storage = () => {
   const values = new Map();
   return { getItem: key => values.get(key) || null, setItem: (key, value) => values.set(key, value) };

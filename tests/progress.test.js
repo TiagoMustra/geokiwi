@@ -7,7 +7,7 @@ import { getRegionTransform, createFlatProjection } from '../src/lib/map.js';
 import { getGlobeCamera } from '../src/lib/globe.js';
 const countries = JSON.parse(readFileSync(new URL('../src/data/countries.json', import.meta.url)));
 const pool = region => countries.filter(c => region === 'mundo' || c.continente === region);
-const make = (mode = 1, region = 'europa') => createGame({ mode, region, difficulty: 'dificil', pool: pool(region), random: () => .4 });
+const make = (mode = 1, region = 'europa') => createGame({ mode, region, difficulty: 'dificil', includeTerritories: true, pool: pool(region), random: () => .4 });
 const storage = () => { const data = new Map(); return { getItem: key => data.get(key), setItem: (key, value) => data.set(key, value) }; };
 function respond(game, correct = true) {
   const target = game.queue[game.index];
@@ -21,7 +21,7 @@ test('each mode resumes the same full shuffled queue, feedback, score and green 
     game = respond(game, false);
     game = gameReducer(game, { type: 'SET_KEEP_CORRECT', value: true });
     const activity = checkpoint(emptyActivity(), game, 12345);
-    const saved = activity.saves[saveKey(mode, 'europa')];
+    const saved = activity.saves[saveKey(mode, 'europa', true)];
     const restored = restoreGame(saved, countries);
     assert.deepEqual(restored, game);
     assert.equal(saved.updatedAt, 12345);
@@ -44,11 +44,11 @@ test('autosave and statistics survive reload atomically; replayed checkpoints ne
   assert.equal(summarizeStats(activity, countries).attempts, 1);
   assert.equal(writeActivity(activity, memory), true);
   activity = readActivity(countries, memory);
-  const restored = restoreGame(activity.saves['1:europa'], countries);
+  const restored = restoreGame(activity.saves['1:europa:territorios'], countries);
   activity = checkpoint(activity, restored);
   assert.equal(summarizeStats(activity, countries).attempts, 1);
   assert.equal(summarizeStats(activity, countries).correct, 1);
-  assert.equal(activity.saves['1:europa'].answers.length, 1);
+  assert.equal(activity.saves['1:europa:territorios'].answers.length, 1);
 });
 
 test('one saved run per game and region; a new run replaces only its own save and retains past statistics', () => {
@@ -58,8 +58,8 @@ test('one saved run per game and region; a new run replaces only its own save an
   assert.equal(summarizeStats(activity, countries).attempts, 3);
   const fresh = make();
   activity = checkpoint(activity, fresh);
-  assert.equal(activity.saves['1:europa'].id, fresh.id);
-  assert.equal(activity.saves['1:europa'].answers.length, 0);
+  assert.equal(activity.saves['1:europa:territorios'].id, fresh.id);
+  assert.equal(activity.saves['1:europa:territorios'].answers.length, 0);
   assert.equal(Object.keys(activity.saves).length, 3);
   assert.equal(summarizeStats(activity, countries).attempts, 3);
 });
@@ -73,7 +73,7 @@ test('complete runs remove the resume card and count the final answer and comple
     if (i === game.queue.length - 1) {
       const memory = storage(); writeActivity(activity, memory);
       activity = readActivity(countries, memory);
-      game = restoreGame(activity.saves['4:oceania'], countries);
+      game = restoreGame(activity.saves['4:oceania:territorios'], countries);
     }
     game = gameReducer(game, { type: 'NEXT' });
     activity = checkpoint(activity, game);
@@ -81,7 +81,7 @@ test('complete runs remove the resume card and count the final answer and comple
   activity = checkpoint(activity, game);
   assert.equal(game.finished, true);
   assert.equal(activity.completed, 1);
-  assert.equal(activity.saves['4:oceania'], undefined);
+  assert.equal(activity.saves['4:oceania:territorios'], undefined);
   assert.equal(summarizeStats(activity, countries).attempts, game.queue.length);
 });
 
@@ -105,11 +105,11 @@ test('country and capital metrics separate correctly; skipped capitals are error
 test('corrupt or incompatible saves are ignored; score is recomputed from verified answers', () => {
   const memory = storage();
   const game = respond(make());
-  const good = checkpoint(emptyActivity(), game).saves['1:europa'];
+  const good = checkpoint(emptyActivity(), game).saves['1:europa:territorios'];
   for (const patch of [{ queue: ['bad'] }, { index: 10000 }, { mode: 8 }, { answers: [{ id: 'bad', value: 'bad' }] }, { queue: good.queue.map(() => good.queue[0]) }]) assert.equal(restoreGame({ ...good, ...patch }, countries), null);
   assert.equal(restoreGame({ ...good, score: 999999 }, countries).score, 100);
   memory.setItem(ACTIVITY_KEY, '{broken'); assert.deepEqual(readActivity(countries, memory), emptyActivity());
-  memory.setItem(ACTIVITY_KEY, JSON.stringify({ version: 1, saves: { '1:europa': { ...good, queue: ['bad'] } }, stats: { '1:000': { attempts: 1, correct: 1, skips: 0 } } }));
+  memory.setItem(ACTIVITY_KEY, JSON.stringify({ version: 1, saves: { '1:europa:territorios': { ...good, queue: ['bad'] } }, stats: { '1:000': { attempts: 1, correct: 1, skips: 0 } } }));
   assert.deepEqual(readActivity(countries, memory), emptyActivity());
   const blocked = { getItem() { throw Error('blocked'); }, setItem() { throw Error('quota'); } };
   assert.deepEqual(readActivity(countries, blocked), emptyActivity());

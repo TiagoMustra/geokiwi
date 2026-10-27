@@ -3,13 +3,14 @@ import { geoPath, geoArea, select, zoom, zoomIdentity } from 'd3';
 import { features, byId } from '../data/index.js';
 import { Icon } from './Icon.jsx';
 import { focusGeometry, getRegionTransform, createFlatProjection, getWorldCopies, createFlatGraticule } from '../lib/map.js';
+import { mapPoliticalFeature } from '../lib/catalog.js';
 import { loadDetailedWorld } from '../lib/flat-detail.js';
 import CapitalPin from './CapitalPin.jsx';
 import MapAnswerLabel from './MapAnswerLabel.jsx';
 
 /** React owns country paths; D3 moves their parent. Each horizontal copy uses
  * the same country IDs and game state, so wrapping cannot create new answers. */
-export default function WorldMap({ decorative = false, region = 'mundo', target, typed = false, showCapitalPin = false, keepCorrect = true, solved = [], flash, onCountryClick, disabled = false, reveal = null }) {
+export default function WorldMap({ decorative = false, region = 'mundo', target, typed = false, showCapitalPin = false, keepCorrect = true, solved = [], flash, onCountryClick, disabled = false, reveal = null, queue = null }) {
   const boxRef = useRef(null);
   const svgRef = useRef(null);
   const groupRef = useRef(null);
@@ -38,9 +39,10 @@ export default function WorldMap({ decorative = false, region = 'mundo', target,
   const projection = useMemo(() => createFlatProjection(width, height, decorative ? 'mundo' : region), [width, height, region, decorative]);
   const path = useMemo(() => geoPath(projection), [projection]);
   const period = 2 * Math.PI * projection.scale();
-  const geometries = useMemo(() => (detail || features).map(feature => ({ feature, d: path(feature) })), [path, detail]);
+  const geometries = useMemo(() => (detail || features).map(mapPoliticalFeature).map(feature => ({ feature, d: path(feature) })), [path, detail]);
   const graticule = useMemo(() => path(createFlatGraticule()), [path]);
-  const eligible = useMemo(() => features.filter(f => byId[f.id] && (region === 'mundo' || byId[f.id].continente === region)), [region]);
+  const playableIds = useMemo(() => queue ? new Set(queue.map(c => c.id)) : null, [queue]);
+  const eligible = useMemo(() => features.filter(f => byId[f.id] && (!playableIds || playableIds.has(f.id)) && (region === 'mundo' || byId[f.id].continente === region)), [region, playableIds]);
   const targets = useMemo(() => eligible.filter(f => geoArea(f) < 0.000012).map(feature => ({ feature, center: projection(byId[feature.id].coordenadas_centro) })), [eligible, projection]);
   const revealPosition = reveal ? projection(reveal.showCapital ? reveal.country.coordenadas_capital : reveal.country.coordenadas_centro) : null;
   const capitalPosition = showCapitalPin && target?.coordenadas_capital ? projection(target.coordenadas_capital) : null;
@@ -86,22 +88,22 @@ export default function WorldMap({ decorative = false, region = 'mundo', target,
 
   const countryClass = useCallback(f => {
     if (decorative) return `country decoration ${['076', '124', '250', '356', '036', '710', '392'].includes(f.id) ? 'featured' : ''}`;
-    const inRegion = byId[f.id] && (region === 'mundo' || byId[f.id].continente === region);
+    const inRegion = byId[f.id] && (!playableIds || playableIds.has(f.id)) && (region === 'mundo' || byId[f.id].continente === region);
     let classes = `country ${inRegion ? 'playable' : 'outside'} ${typed ? 'typing-country' : ''}`;
     if (typed && f.id === target?.id) classes += ' target';
     if (keepCorrect && solved.includes(f.id)) classes += ' correct';
     if (flash?.id === f.id) classes += flash.correct ? ' correct' : ' wrong';
     return classes;
-  }, [decorative, region, typed, target?.id, keepCorrect, solved, flash]);
+  }, [decorative, region, typed, target?.id, keepCorrect, solved, flash, playableIds]);
 
   const choose = useCallback((event, f) => {
-    if (event.defaultPrevented || disabled || typed || !byId[f.id] || (region !== 'mundo' && byId[f.id].continente !== region)) return;
+    if (event.defaultPrevented || disabled || typed || !byId[f.id] || (playableIds && !playableIds.has(f.id)) || (region !== 'mundo' && byId[f.id].continente !== region)) return;
     onCountryClick?.(f.id);
-  }, [disabled, typed, region, onCountryClick]);
+  }, [disabled, typed, region, onCountryClick, playableIds]);
 
   // Reuse the expensive path elements while zooming. Duplicate only the small
   // interactive wrappers; geography remains SVG-sharp at every zoom level.
-  const countryPaths = useMemo(() => geometries.map(({ feature: f, d }, index) => <path key={f.key} data-country-id={f.id} d={d} className={countryClass(f)} vectorEffect="non-scaling-stroke" role={!decorative && !typed && byId[f.id] ? 'button' : undefined} aria-label={!decorative && !typed && byId[f.id] ? `Selecionar território ${index + 1} no mapa` : undefined} onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); choose({ defaultPrevented: false }, f); } }} onClick={event => choose(event, f)} />), [geometries, countryClass, decorative, typed, choose]);
+  const countryPaths = useMemo(() => geometries.map(({ feature: f, d }, index) => <path key={f.key} data-country-id={f.id} d={d} className={countryClass(f)} vectorEffect="non-scaling-stroke" role={!decorative && !typed && byId[f.id] && (!playableIds || playableIds.has(f.id)) ? 'button' : undefined} aria-label={!decorative && !typed && byId[f.id] ? `Selecionar território ${index + 1} no mapa` : undefined} onKeyDown={event => { if (event.key === 'Enter' || event.key === ' ') { event.preventDefault(); choose({ defaultPrevented: false }, f); } }} onClick={event => choose(event, f)} />), [geometries, countryClass, decorative, typed, choose, playableIds]);
   const copies = Array.from({ length: view.last - view.first + 1 }, (_, index) => view.first + index);
 
   // Focus only the central visible world via delegated keyboard navigation.

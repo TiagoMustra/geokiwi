@@ -10,7 +10,7 @@ const movingFeatures = simplifyGlobeFeatures(features);
 const graticule = geoGraticule10();
 const distance = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1]);
 
-export default function GlobeMap({ decorative = false, region = 'mundo', target, typed = false, showCapitalPin = false, keepCorrect = true, solved = [], flash, onCountryClick, disabled = false, reveal = null }) {
+export default function GlobeMap({ decorative = false, region = 'mundo', target, typed = false, showCapitalPin = false, keepCorrect = true, solved = [], flash, onCountryClick, disabled = false, reveal = null, queue = null }) {
   const boxRef = useRef(null);
   const svgRef = useRef(null);
   const frameRef = useRef(null);
@@ -76,7 +76,8 @@ export default function GlobeMap({ decorative = false, region = 'mundo', target,
   const path = useMemo(() => geoPath(projection).digits(2), [projection]);
   const geometries = useMemo(() => (moving ? movingFeatures : features).map(feature => ({ feature, d: path(feature) })), [moving, path]);
   const grid = useMemo(() => path(graticule), [path]);
-  const microCountries = useMemo(() => features.filter(f => byId[f.id] && geoArea(f) < 0.000012 && (region === 'mundo' || byId[f.id].continente === region)), [region]);
+  const playableIds = useMemo(() => queue ? new Set(queue.map(c => c.id)) : null, [queue]);
+  const microCountries = useMemo(() => features.filter(f => byId[f.id] && (!playableIds || playableIds.has(f.id)) && geoArea(f) < 0.000012 && (region === 'mundo' || byId[f.id].continente === region)), [region, playableIds]);
   const capitalPosition = showCapitalPin && globePointVisible(target?.coordenadas_capital, projection) ? projection(target.coordenadas_capital) : null;
 
   function pointerDown(event) {
@@ -134,12 +135,12 @@ export default function GlobeMap({ decorative = false, region = 'mundo', target,
     updateCamera(initial);
   }
   function choose(event, feature) {
-    if (event.defaultPrevented || decorative || typed || disabled || !byId[feature.id] || (region !== 'mundo' && byId[feature.id].continente !== region)) return;
+    if (event.defaultPrevented || decorative || typed || disabled || !byId[feature.id] || (playableIds && !playableIds.has(feature.id)) || (region !== 'mundo' && byId[feature.id].continente !== region)) return;
     onCountryClick?.(feature.id);
   }
   function classes(feature) {
     if (decorative) return `country decoration ${['076', '124', '250', '356', '036', '710', '392'].includes(feature.id) ? 'featured' : ''}`;
-    const eligible = byId[feature.id] && (region === 'mundo' || byId[feature.id].continente === region);
+    const eligible = byId[feature.id] && (!playableIds || playableIds.has(feature.id)) && (region === 'mundo' || byId[feature.id].continente === region);
     return `country ${eligible ? 'playable' : 'outside'}${typed ? ' typing-country' : ''}${typed && feature.id === target?.id ? ' target' : ''}${keepCorrect && solved.includes(feature.id) ? ' correct' : ''}${flash?.id === feature.id ? flash.correct ? ' correct' : ' wrong' : ''}`;
   }
   function keyDown(event) {
@@ -169,7 +170,7 @@ export default function GlobeMap({ decorative = false, region = 'mundo', target,
       <circle className="globe-ocean" cx={width / 2} cy={height / 2} r={radius * camera.zoom} fill={`url(#${gradientId}-ocean)`} />
       <path d={grid} className="graticule" vectorEffect="non-scaling-stroke" />
       {geometries.map(({ feature, d }, index) => {
-        const playable = d && !decorative && !typed && !disabled && byId[feature.id] && (region === 'mundo' || byId[feature.id].continente === region);
+        const playable = d && !decorative && !typed && !disabled && byId[feature.id] && (!playableIds || playableIds.has(feature.id)) && (region === 'mundo' || byId[feature.id].continente === region);
         return <path key={feature.key} data-country-id={feature.id} d={d || undefined} className={classes(feature)} vectorEffect="non-scaling-stroke" tabIndex={playable ? 0 : undefined} role={playable ? 'button' : undefined} aria-label={playable ? `Selecionar território ${index + 1} no globo` : undefined} onClick={event => choose(event, feature)} onKeyDown={event => { if (playable && (event.key === 'Enter' || event.key === ' ')) { event.preventDefault(); choose({ defaultPrevented: false }, feature); } }} />;
       })}
       <circle className="globe-light" cx={width / 2} cy={height / 2} r={radius * camera.zoom} fill={`url(#${gradientId}-light)`} />

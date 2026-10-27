@@ -22,9 +22,9 @@ export function makeQueue(pool, mode, random = Math.random) {
   return shuffled;
 }
 
-export function createGame({ mode, region, difficulty, keepCorrect, pool, random }) {
+export function createGame({ mode, region, difficulty, keepCorrect, pool, random, includeTerritories }) {
   const remember = keepCorrect ?? difficulty !== 'dificil';
-  return { id: globalThis.crypto?.randomUUID?.() || `run-${Date.now()}-${Math.random().toString(36).slice(2)}`, startedAt: Date.now(), mode, region, keepCorrect: remember, usedMapHints: remember, difficulty: remember ? 'normal' : 'dificil', queue: makeQueue(pool, mode, random), index: 0, answers: [], score: 0, streak: 0, bestStreak: 0, finished: false };
+  return { id: globalThis.crypto?.randomUUID?.() || `run-${Date.now()}-${Math.random().toString(36).slice(2)}`, startedAt: Date.now(), mode, region, ...(typeof includeTerritories === 'boolean' ? { includeTerritories } : {}), keepCorrect: remember, usedMapHints: remember, difficulty: remember ? 'normal' : 'dificil', queue: makeQueue(pool, mode, random), index: 0, answers: [], score: 0, streak: 0, bestStreak: 0, finished: false };
 }
 
 export function gameReducer(state, action) {
@@ -53,8 +53,8 @@ export function gameReducer(state, action) {
   return state;
 }
 
-export function scoreKey(mode, region, difficulty) {
-  return `${mode}:${region}:${difficulty}`;
+export function scoreKey(mode, region, difficulty, includeTerritories) {
+  return `${mode}:${region}:${difficulty}${typeof includeTerritories === 'boolean' ? includeTerritories ? ':territorios' : ':paises' : ''}`;
 }
 
 // Full-region runs have separate records from the legacy 15-question format.
@@ -64,12 +64,12 @@ export function readScores(storage) {
     storage ??= globalThis.localStorage;
     const parsed = JSON.parse(storage.getItem(STORAGE_KEY) || '{}');
     if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return {};
-    return Object.fromEntries(Object.entries(parsed).filter(([key, value]) => /^[1-4]:(mundo|africa|asia|europa|americas|oceania):(normal|dificil)$/.test(key) && Number.isSafeInteger(value) && value >= 0 && value % POINTS === 0));
+    return Object.fromEntries(Object.entries(parsed).filter(([key, value]) => /^[1-4]:(mundo|africa|asia|europa|americas|oceania):(normal|dificil)(:(paises|territorios))?$/.test(key) && Number.isSafeInteger(value) && value >= 0 && value % POINTS === 0));
   } catch { return {}; }
 }
 
 export function saveScore(scores, game, storage) {
-  const key = scoreKey(game.mode, game.region, game.difficulty);
+  const key = scoreKey(game.mode, game.region, game.difficulty, game.legacyQueue ? undefined : game.includeTerritories);
   const updated = { ...scores, [key]: Math.max(scores[key] || 0, game.score) };
   let persisted = true;
   try { (storage ?? globalThis.localStorage).setItem(STORAGE_KEY, JSON.stringify(updated)); } catch { persisted = false; }
@@ -120,3 +120,8 @@ export function readSuggestions(storage) {
 export function saveSuggestions(value, storage) {
   savePreferences({ suggestions: Boolean(value) }, storage);
 }
+
+export function readIncludeTerritories(storage) {
+  try { return readPreferences(storage).includeTerritories === true; } catch { return false; }
+}
+export function saveIncludeTerritories(value, storage) { savePreferences({ includeTerritories: Boolean(value) }, storage); }

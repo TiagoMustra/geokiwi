@@ -1838,5 +1838,21 @@
       -17.82772
     ],
     "source": "https://www.geonames.org/890299/"
+  },
+  "UNK": {
+    "nome": "Pristina",
+    "coordinates": [
+      21.1655,
+      42.6629
+    ],
+    "source": "https://www.geonames.org/786714/"
+  },
+  "TUV": {
+    "nome": "Funafuti",
+    "coordinates": [
+      179.19417,
+      -8.52425
+    ],
+    "source": "https://www.geonames.org/2110394/"
   }
 }

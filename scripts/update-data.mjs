@@ -1,4 +1,5 @@
 import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { feature } from 'topojson-client';
 
 // This script runs only during maintenance. The deployed game uses local files.
 const root = new URL('../', import.meta.url);
@@ -20,13 +21,14 @@ for (const map of [topology, detailed]) map.objects.countries.geometries.forEach
   if (geometry.properties.name === 'Kosovo') geometry.id = '383';
 });
 const available = new Set(topology.objects.countries.geometries.map(geometry => geometry.id).filter(Boolean));
-const countries = raw.filter(country => available.has(country.ccn3) && country.capital?.length && regionIds[country.region]).map(country => {
+const countries = raw.filter(country => (available.has(country.ccn3) || ['UNK', 'TUV'].includes(country.cca3)) && country.capital?.length && regionIds[country.region]).map(country => {
   const code = country.cca3;
   const nome_pt = country.translations.por?.common || country.name.common;
   const capital = overrides.capitals[code] || country.capital[0];
   if (!capitals[code]?.coordinates) throw new Error(`Missing verified capital coordinates for ${code}. Update capital-coordinates.json first.`);
   return {
-    id: country.ccn3,
+    id: code === 'UNK' ? '383' : country.ccn3,
+    isCountry: Boolean(country.independent) || ['UNK', 'PSE', 'TWN'].includes(code),
     iso2: country.cca2.toLowerCase(),
     iso3: code,
     nome_pt,
@@ -53,6 +55,7 @@ for (let i = 0; i < countries.length; i += 8) {
 await Promise.all([
   writeFile(new URL('src/data/countries.json', root), JSON.stringify(countries)),
   writeFile(new URL('src/data/world.json', root), JSON.stringify(topology)),
+  writeFile(new URL('src/data/extra-geometries.json', root), JSON.stringify(feature(detailed, detailed.objects.countries).features.filter(item => item.id === '798'))),
   writeFile(new URL('public/maps/countries-10m.json', root), JSON.stringify(detailed)),
 ]);
 console.log(`Updated ${countries.length} destinations, their geometry and flags. Run pnpm test and pnpm build.`);
