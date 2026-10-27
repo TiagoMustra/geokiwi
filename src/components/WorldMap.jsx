@@ -1,8 +1,8 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { geoPath, geoGraticule10, geoArea, select, zoom, zoomIdentity } from 'd3';
+import { geoPath, geoArea, select, zoom, zoomIdentity } from 'd3';
 import { features, byId } from '../data/index.js';
 import { Icon } from './Icon.jsx';
-import { focusGeometry, getRegionTransform, createFlatProjection, getWorldCopies } from '../lib/map.js';
+import { focusGeometry, getRegionTransform, createFlatProjection, getWorldCopies, createFlatGraticule } from '../lib/map.js';
 import { loadDetailedWorld } from '../lib/flat-detail.js';
 import CapitalPin from './CapitalPin.jsx';
 import MapAnswerLabel from './MapAnswerLabel.jsx';
@@ -39,7 +39,7 @@ export default function WorldMap({ decorative = false, region = 'mundo', target,
   const path = useMemo(() => geoPath(projection), [projection]);
   const period = 2 * Math.PI * projection.scale();
   const geometries = useMemo(() => (detail || features).map(feature => ({ feature, d: path(feature) })), [path, detail]);
-  const graticule = useMemo(() => path(geoGraticule10()), [path]);
+  const graticule = useMemo(() => path(createFlatGraticule()), [path]);
   const eligible = useMemo(() => features.filter(f => byId[f.id] && (region === 'mundo' || byId[f.id].continente === region)), [region]);
   const targets = useMemo(() => eligible.filter(f => geoArea(f) < 0.000012).map(feature => ({ feature, center: projection(byId[feature.id].coordenadas_centro) })), [eligible, projection]);
   const revealPosition = reveal ? projection(reveal.showCapital ? reveal.country.coordenadas_capital : reveal.country.coordenadas_centro) : null;

@@ -1,4 +1,4 @@
-import { geoArea, geoContains, geoMercator, zoomIdentity } from 'd3';
+import { geoArea, geoContains, geoMercator, geoGraticule, zoomIdentity } from 'd3';
 
 /** Zoom to the main landmass; overseas islands must not force a global view. */
 export function focusGeometry(features, center) {
@@ -58,4 +58,12 @@ export function getWorldCopies(transform, projection, width) {
     primary: Math.round((transform.invertX(width / 2) - projection.translate()[0]) / period),
     k: transform.k,
   };
+}
+
+
+/** Extend minor meridians to Mercator's full polar cap, instead of stopping at
+ * 80 degrees and leaving an ungridded band above the normal parallels. */
+export function createFlatGraticule() {
+  const limit = 85.0511287798066;
+  return geoGraticule().extent([[-180, -limit], [180, limit]]).step([10, 10])();
 }
