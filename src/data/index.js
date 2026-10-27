@@ -2,6 +2,7 @@ import { feature } from 'topojson-client';
 import countries from './countries.json';
 import topology from './world.json';
 import extra from './extra-geometries.json';
+import { regionIncludes } from '../lib/regions.js';
 import { mapPoliticalFeature } from '../lib/catalog.js';
 
 export { countries };
@@ -27,5 +28,5 @@ export const MODES = [
 ];
 
 export function getPool(region = 'mundo', includeTerritories = false) {
-  return countries.filter(country => (includeTerritories || country.isCountry) && (region === 'mundo' || country.continente === region));
+  return countries.filter(country => (includeTerritories || country.isCountry) && regionIncludes(region, country.continente));
 }

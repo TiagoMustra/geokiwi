@@ -67,3 +67,12 @@ export function createFlatGraticule() {
   const limit = 85.0511287798066;
   return geoGraticule().extent([[-180, -limit], [180, limit]]).step([10, 10])();
 }
+
+/** Convert a screen click to a geographic coordinate, accounting for zoom and repeated worlds. */
+export function flatClickCoordinate(point, transform, projection) {
+  const [px, py] = transform.invert(point);
+  const period = 2 * Math.PI * projection.scale(), cx = projection.translate()[0];
+  const x = ((px - cx + period / 2) % period + period) % period - period / 2 + cx;
+  const coords = projection.invert([x, py]);
+  return coords && coords.every(Number.isFinite) && Math.abs(coords[1]) <= 85 ? coords : null;
+}

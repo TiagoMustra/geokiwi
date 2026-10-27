@@ -1,3 +1,5 @@
+import { readExtra, readExtraRecord } from '../lib/extra-game.js';
+import { toggleRegion, regionIncludes } from '../lib/regions.js';
 import { useState } from 'react';
 import { MODES, REGIONS, countries, getPool } from '../data/index.js';
 import { saveKey } from '../lib/activity.js';
@@ -9,8 +11,9 @@ import MapViewControl from './MapViewControl.jsx';
 import GlobeMap from './GlobeMap.jsx';
 import ModePreview, { CARD_TITLES } from './ModePreview.jsx';
 
-export default function Home({ difficulty, setDifficulty, mapView = 'flat', setMapView, scores, onStart, saves = {}, onResume, onStatistics, includeTerritories = false, setIncludeTerritories = () => {} }) {
+export default function Home({ difficulty, setDifficulty, mapView = 'flat', setMapView, scores, onStart, saves = {}, onResume, onStatistics, includeTerritories = false, setIncludeTerritories = () => {}, onExtraStart = () => {} }) {
   const [regions, setRegions] = useState(() => Object.fromEntries(MODES.map(mode => [mode.id, Object.values(saves).filter(save => save.mode === mode.id).sort((a, b) => b.updatedAt - a.updatedAt)[0]?.region || 'mundo'])));
+  const [capitalRegion, setCapitalRegion] = useState('mundo');
   const played = Object.keys(scores).length;
   return <main className="home-shell">
     <section className="hero" aria-labelledby="hero-title">
@@ -19,7 +22,7 @@ export default function Home({ difficulty, setDifficulty, mapView = 'flat', setM
         <h1 id="hero-title">O MUNDO É TEU<br /><span>PARA EXPLORAR.</span><span className="pixel-cursor" /></h1>
         <p>De um país ao outro, um desafio de cada vez.<br />Coloque seu conhecimento no mapa.</p>
         <a className="hero-link" href="#jogos">ESCOLHA SUA MISSÃO <Icon name="arrow" size={17} /></a>
-        <div className="hero-stats"><span><strong>{getPool('mundo', includeTerritories).length}</strong> {includeTerritories ? 'PAÍSES E TERRITÓRIOS' : 'PAÍSES'}</span><i /><span><strong>04</strong> MODOS DE JOGO</span><i /><span><strong>∞</strong> DESCOBERTAS</span></div>
+        <div className="hero-stats"><span><strong>{getPool('mundo', includeTerritories).length}</strong> {includeTerritories ? 'PAÍSES E TERRITÓRIOS' : 'PAÍSES'}</span><i /><span><strong>07</strong> MODOS DE JOGO</span><i /><span><strong>∞</strong> DESCOBERTAS</span></div>
       </div>
       <div className="hero-art" aria-hidden="true">
         <div className="art-topline"><span><span className="status-dot" /> KIWI EXPLORER</span><span>LIVE ATLAS / 01</span></div>
@@ -47,9 +50,9 @@ export default function Home({ difficulty, setDifficulty, mapView = 'flat', setM
             <div className="simple-card-header"><span className="card-action"><Icon name={mode.input ? 'keyboard' : 'crosshair'} size={16} />{mode.input ? 'ESCREVER' : 'CLICAR NO MAPA'}</span><span className="card-number">0{mode.id}</span></div>
             <h3 id={`mode-title-${mode.id}`}>{CARD_TITLES[mode.id]}</h3>
             <ModePreview mode={mode.id} />
-            <div className="region-heading">REGIÃO</div>
+            <div className="region-heading">REGIÕES · ESCOLHE UMA OU MAIS</div>
             <div className="region-grid" aria-label={`Região do jogo ${mode.id}`}>
-              {REGIONS.filter(r => r.id !== 'mundo').map(r => <button key={r.id} aria-pressed={region === r.id} className={`${region === r.id ? 'selected' : ''} ${saves[saveKey(mode.id, r.id, includeTerritories)] ? 'has-save' : ''}`} title={saves[saveKey(mode.id, r.id, includeTerritories)] ? 'Partida guardada nesta região' : undefined} onClick={() => setRegions(previous => ({ ...previous, [mode.id]: r.id }))}>{r.name}</button>)}
+              {REGIONS.filter(r => r.id !== 'mundo').map(r => <button key={r.id} aria-pressed={region !== 'mundo' && regionIncludes(region, r.id)} className={`${region !== 'mundo' && regionIncludes(region, r.id) ? 'selected' : ''} ${saves[saveKey(mode.id, r.id, includeTerritories)] ? 'has-save' : ''}`} title={saves[saveKey(mode.id, r.id, includeTerritories)] ? 'Partida guardada nesta região' : undefined} onClick={() => setRegions(previous => ({ ...previous, [mode.id]: toggleRegion(region, r.id) }))}>{r.name}</button>)}
               <button className={`world-region ${region === 'mundo' ? 'selected' : ''}`} aria-pressed={region === 'mundo'} onClick={() => setRegions(previous => ({ ...previous, [mode.id]: 'mundo' }))}><Icon name="globe" size={13} />Mundo Todo<span>{getPool('mundo', includeTerritories).length}</span></button>
             </div>
             <div className="card-score"><span><Icon name="trophy" size={14} /> RECORDE</span><strong>{String(high).padStart(4, '0')}</strong></div>
@@ -59,6 +62,20 @@ export default function Home({ difficulty, setDifficulty, mapView = 'flat', setM
           </article>;
         })}
       </div>
+      <div className="section-heading extra-heading"><div><div className="section-kicker">MAIS DESAFIOS</div><h2>Explora mais<span>.</span></h2></div></div>
+      <div className="games-grid extra-grid">{[
+        {kind:'municipios',title:'Concelhos de Portugal',detail:'Encontra os 308 concelhos no mapa.',icon:'pin'},
+        {kind:'capitais',title:'Aproximação de capitais',detail:'Coloca o pin perto da capital e ganha até 5 000 pontos.',icon:'city'},
+        {kind:'estados',title:'Estados dos EUA',detail:'Encontra os 50 estados no mapa.',icon:'flag'}
+      ].map((item,index) => {
+        const region = item.kind === 'capitais' ? capitalRegion : 'mundo';
+        const scope = item.kind === 'capitais' ? `${region}:${includeTerritories ? 'territorios' : 'paises'}` : region;
+        const saved=readExtra(item.kind,scope);
+        const high=readExtraRecord(item.kind,`${scope}:${difficulty}`);
+        return <article className="game-card simple-game-card accent-lime" key={item.kind}><div className="simple-card-header"><span className="card-action"><Icon name={item.icon} size={16}/> CLICAR NO MAPA</span><span className="card-number">0{index+5}</span></div><h3>{item.title}</h3><p className="extra-description">{item.detail}</p>
+        {item.kind === 'capitais' && <><div className="region-heading">REGIÕES · ESCOLHE UMA OU MAIS</div><div className="region-grid">{REGIONS.filter(r=>r.id!=='mundo').map(r=><button key={r.id} aria-pressed={region!=='mundo'&&regionIncludes(region,r.id)} className={region!=='mundo'&&regionIncludes(region,r.id)?'selected':''} onClick={()=>setCapitalRegion(toggleRegion(region,r.id))}>{r.name}</button>)}<button className={`world-region ${region==='mundo'?'selected':''}`} aria-pressed={region==='mundo'} onClick={()=>setCapitalRegion('mundo')}><Icon name="globe" size={13}/> Mundo Todo<span>{getPool('mundo',includeTerritories).length}</span></button></div></>}
+        <div className="card-score"><span><Icon name="trophy" size={14}/> RECORDE</span><strong>{String(high).padStart(4,'0')}</strong></div>{saved && <div className="saved-run compact-saved-run"><span>{saved.answers.length}/{saved.queue.length} GUARDADOS</span><button className="start-button" onClick={()=>onExtraStart(item.kind,region,true)}>RETOMAR PARTIDA</button></div>}<button className={saved?'new-run-button':'start-button'} onClick={()=>onExtraStart(item.kind,region,false)}>{saved?'COMEÇAR NOVO JOGO':'JOGAR'} <Icon name="arrow" size={17}/></button></article>;
+      })}</div>
     </section>
     <div className="bottom-ribbon"><span><Icon name="trophy" size={17} /><strong>Seu único rival é você.</strong> Supere seus recordes a cada partida.</span><span><span className="status-dot" /> {played ? `${played} DESAFIO${played > 1 ? 'S' : ''} NO SEU HISTÓRICO` : 'SEUS RECORDES FICAM NESTE NAVEGADOR'}</span></div>
   </main>;

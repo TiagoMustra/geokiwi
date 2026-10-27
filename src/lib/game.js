@@ -1,3 +1,4 @@
+import { validRegion } from './regions.js';
 /** Rules shared by all four game modes. No UI or network dependencies. */
 export const POINTS = 100;
 
@@ -22,9 +23,9 @@ export function makeQueue(pool, mode, random = Math.random) {
   return shuffled;
 }
 
-export function createGame({ mode, region, difficulty, keepCorrect, pool, random, includeTerritories }) {
+export function createGame({ mode, region, difficulty, keepCorrect, pool, random, includeTerritories, practice = false }) {
   const remember = keepCorrect ?? difficulty !== 'dificil';
-  return { id: globalThis.crypto?.randomUUID?.() || `run-${Date.now()}-${Math.random().toString(36).slice(2)}`, startedAt: Date.now(), mode, region, ...(typeof includeTerritories === 'boolean' ? { includeTerritories } : {}), keepCorrect: remember, usedMapHints: remember, difficulty: remember ? 'normal' : 'dificil', queue: makeQueue(pool, mode, random), index: 0, answers: [], score: 0, streak: 0, bestStreak: 0, finished: false };
+  return { id: globalThis.crypto?.randomUUID?.() || `run-${Date.now()}-${Math.random().toString(36).slice(2)}`, startedAt: Date.now(), mode, region, ...(practice ? { practice: true } : {}), ...(typeof includeTerritories === 'boolean' ? { includeTerritories } : {}), keepCorrect: remember, usedMapHints: remember, difficulty: remember ? 'normal' : 'dificil', queue: makeQueue(pool, mode, random), index: 0, answers: [], score: 0, streak: 0, bestStreak: 0, finished: false };
 }
 
 export function gameReducer(state, action) {
@@ -57,6 +58,8 @@ export function scoreKey(mode, region, difficulty, includeTerritories) {
   return `${mode}:${region}:${difficulty}${typeof includeTerritories === 'boolean' ? includeTerritories ? ':territorios' : ':paises' : ''}`;
 }
 
+function validScoreKey(key) { const [mode, region, difficulty, scope, ...extra] = key.split(':'); return /^[1-4]$/.test(mode) && validRegion(region) && ['normal','dificil'].includes(difficulty) && !extra.length && (scope === undefined || ['paises','territorios'].includes(scope)); }
+
 // Full-region runs have separate records from the legacy 15-question format.
 const STORAGE_KEY = 'geoquest.highscores.v2';
 export function readScores(storage) {
@@ -64,7 +67,7 @@ export function readScores(storage) {
     storage ??= globalThis.localStorage;
     const parsed = JSON.parse(storage.getItem(STORAGE_KEY) || '{}');
     if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return {};
-    return Object.fromEntries(Object.entries(parsed).filter(([key, value]) => /^[1-4]:(mundo|africa|asia|europa|americas|oceania):(normal|dificil)(:(paises|territorios))?$/.test(key) && Number.isSafeInteger(value) && value >= 0 && value % POINTS === 0));
+    return Object.fromEntries(Object.entries(parsed).filter(([key, value]) => validScoreKey(key) && Number.isSafeInteger(value) && value >= 0 && value % POINTS === 0));
   } catch { return {}; }
 }
 

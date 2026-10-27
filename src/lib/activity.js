@@ -1,8 +1,9 @@
+import { regionIncludes, validRegion } from './regions.js';
 import { gameReducer } from './game.js';
 
 export const ACTIVITY_KEY = 'geoquest.activity.v1';
 export const saveKey = (mode, region, includeTerritories) => `${mode}:${region}${typeof includeTerritories === 'boolean' ? includeTerritories ? ':territorios' : ':paises' : ''}`;
-const validKey = key => /^[1-4]:(mundo|africa|asia|europa|americas|oceania)(:(paises|territorios))?$/.test(key);
+const validKey = key => { const [mode, region, scope, ...extra] = key.split(':'); return /^[1-4]$/.test(mode) && validRegion(region) && !extra.length && (scope === undefined || ['paises','territorios'].includes(scope)); };
 const object = value => value && typeof value === 'object' && !Array.isArray(value);
 const count = value => Number.isSafeInteger(value) && value >= 0;
 export const emptyActivity = () => ({ version: 1, saves: {}, stats: {}, runs: {}, completed: 0, bestStreak: 0 });
@@ -10,6 +11,7 @@ export const emptyActivity = () => ({ version: 1, saves: {}, stats: {}, runs: {}
 export function serializeGame(game, now = Date.now()) {
   return { id: game.id, mode: game.mode, region: game.region, startedAt: game.startedAt, updatedAt: now,
     keepCorrect: game.keepCorrect, usedMapHints: game.usedMapHints,
+    ...(game.practice ? { practice: true } : {}),
     ...(game.legacyQueue || typeof game.includeTerritories !== 'boolean' ? {} : { includeTerritories: game.includeTerritories }),
     queue: game.queue.map(country => country.id), index: game.index,
     answers: game.answers.map(a => ({ id: a.country.id, value: a.value, skipped: a.skipped })) };
@@ -21,16 +23,16 @@ export function restoreGame(snapshot, countries) {
     || typeof snapshot.id !== 'string' || snapshot.id.length > 100
     || !Array.isArray(snapshot.queue) || !Array.isArray(snapshot.answers)) return null;
   const legacy = typeof snapshot.includeTerritories !== 'boolean';
-  const pool = countries.filter(c => (snapshot.region === 'mundo' || c.continente === snapshot.region) && (legacy ? !['383', '798'].includes(c.id) : snapshot.includeTerritories || c.isCountry));
+  const pool = countries.filter(c => regionIncludes(snapshot.region, c.continente) && (legacy ? !['383', '798'].includes(c.id) : snapshot.includeTerritories || c.isCountry));
   const lookup = Object.fromEntries(pool.map(c => [c.id, c]));
-  if (snapshot.queue.length !== pool.length || new Set(snapshot.queue).size !== pool.length
-    || snapshot.queue.some(id => !lookup[id]) || snapshot.answers.length > pool.length
-    || !Number.isInteger(snapshot.index) || snapshot.index < 0 || snapshot.index >= pool.length
+  if ((!snapshot.practice && snapshot.queue.length !== pool.length) || snapshot.queue.length === 0 || new Set(snapshot.queue).size !== snapshot.queue.length
+    || snapshot.queue.some(id => !lookup[id]) || snapshot.answers.length > snapshot.queue.length
+    || !Number.isInteger(snapshot.index) || snapshot.index < 0 || snapshot.index >= snapshot.queue.length
     || ![snapshot.index, snapshot.index + 1].includes(snapshot.answers.length)) return null;
   const keepCorrect = snapshot.keepCorrect !== false;
   const usedMapHints = keepCorrect || snapshot.usedMapHints !== false;
   let game = { id: snapshot.id, startedAt: Number.isFinite(snapshot.startedAt) ? snapshot.startedAt : Date.now(),
-    mode: snapshot.mode, region: snapshot.region, includeTerritories: legacy || snapshot.includeTerritories, ...(legacy ? { legacyQueue: true } : {}), keepCorrect, usedMapHints,
+    mode: snapshot.mode, region: snapshot.region, ...(snapshot.practice ? { practice: true } : {}), includeTerritories: legacy || snapshot.includeTerritories, ...(legacy ? { legacyQueue: true } : {}), keepCorrect, usedMapHints,
     difficulty: usedMapHints ? 'normal' : 'dificil', queue: snapshot.queue.map(id => lookup[id]),
     index: 0, answers: [], score: 0, streak: 0, bestStreak: 0, finished: false };
   for (let i = 0; i < snapshot.answers.length; i++) {

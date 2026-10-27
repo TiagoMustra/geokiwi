@@ -52,7 +52,9 @@ for (let i = 0; i < countries.length; i += 8) {
     await writeFile(new URL(`public${country.bandeira_url}`, root), await response.text());
   }));
 }
+const flagSvgs = Object.fromEntries(await Promise.all(countries.map(async country => [country.iso2, await readFile(new URL(`public${country.bandeira_url}`, root), 'utf8')])));
 await Promise.all([
+  writeFile(new URL('src/data/flag-svgs.json', root), JSON.stringify(flagSvgs)),
   writeFile(new URL('src/data/countries.json', root), JSON.stringify(countries)),
   writeFile(new URL('src/data/world.json', root), JSON.stringify(topology)),
   writeFile(new URL('src/data/extra-geometries.json', root), JSON.stringify(feature(detailed, detailed.objects.countries).features.filter(item => item.id === '798'))),

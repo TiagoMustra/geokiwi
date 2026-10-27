@@ -1,6 +1,6 @@
 # GeoKiwi
 
-Site de jogos de geografia em português, construído com **React + Vite + D3.js + TopoJSON**. Marca GeoKiwi com rodela de kiwi pixelada, verde kiwi, creme e castanho nos temas claro/escuro, fontes pixeladas locais, quatro modos, seis regiões, partidas retomáveis e estatísticas no navegador.
+Site de jogos de geografia em português, construído com **React + Vite + D3.js + TopoJSON**. Marca GeoKiwi com rodela de kiwi pixelada, verde kiwi, creme e castanho nos temas claro/escuro, fontes pixeladas locais, sete modos, seleção de vários continentes, partidas retomáveis e estatísticas no navegador.
 
 ## Executar
 
@@ -30,7 +30,7 @@ geoquest/
 ├── package.json
 ├── vite.config.js
 ├── public/
-│   ├── flags/                 # 230 bandeiras SVG locais
+│   ├── flags/                 # bandeiras SVG locais
 │   ├── fonts/                 # Press Start 2P + Space Grotesk e licenças
 │   ├── licenses/              # Licenças dos dados e bandeiras
 │   └── favicon.svg
@@ -84,7 +84,7 @@ Os destinos seguem o formato solicitado. Exemplo real:
 
 Também estão disponíveis `iso2`, `iso3`, `aliases` e `capitais_aceitas`. As coordenadas usam a ordem GeoJSON/D3: **longitude, latitude**. O `id` é o código numérico ISO em três dígitos, preservando os zeros iniciais, para unir dados e geometria.
 
-`src/data/index.js` converte a topologia com `topojson.feature`, cria `byId` e centraliza `MODES`, `REGIONS` e `getPool`. O jogo inclui apenas destinos com geometria e capital disponíveis. Mundo Todo inclui países e territórios; a base contém 230 destinos: África 57, Ásia 49, Europa 50, Américas 51 e Oceania 23. A Antártida não participa. Alguns microestados sem geometria nesta escala não estão na seleção.
+`src/data/index.js` converte a topologia com `topojson.feature`, cria `byId` e centraliza `MODES`, `REGIONS` e `getPool`. Os jogos principais incluem países por defeito e permitem ativar territórios. É possível combinar continentes. As rondas de treino usam apenas respostas erradas e não substituem recordes dos percursos completos.
 
 `Home.jsx` gera os quatro cards a partir de `MODES`. Cada card mantém sua própria região selecionada. A seleção atual determina o recorde exibido e a partida iniciada pelo botão **Jogar**. Os cartões mostram um título direto, uma indicação curta de clicar/escrever e um exemplo visual estático de pista → resposta, sem os parágrafos e etiquetas redundantes. `ModePreview.jsx` usa a forma real de Portugal e um pin de Lisboa para ilustrar cada ação; os botões das seis regiões permanecem iguais. Partidas guardadas apresentam apenas o progresso e as ações de retomar ou começar de novo. O switch **Manter acertos a verde** afeta os quatro jogos. A preferência fica salva no navegador e está disponível também na tela de jogo, podendo ser alterada sem reiniciar a partida.
 
@@ -213,3 +213,11 @@ A revisão visual automatizada ficou pendente: a política de segurança da ferr
 - [Autoridade de Nusantara, julho de 2026](https://ikn.go.id/id/posts/pembangunan-tahap-ii-ikn-terus-berjalan-otorita-ikn-lakukan-evaluasi-berkala): cronograma de transição da capital indonésia.
 
 Os créditos também estão acessíveis no rodapé do site. As fronteiras são cartográficas e podem incluir áreas disputadas; o jogo não pretende definir soberania.
+
+## Modos adicionais e fontes dos limites
+
+- Concelhos de Portugal: 308 geometrias da Carta Administrativa Oficial de Portugal, Direção-Geral do Território, [versão GeoJSON](https://github.com/nmota/caop_GeoJSON), simplificada para o jogo; [CAOP](https://www.dgterritorio.gov.pt/atividades/cartografia/cartografia-tematica/caop), CC BY 4.0. A versão fornecida pelo repositório é histórica; não foi verificada como CAOP 2025.
+- Estados dos EUA: 50 estados, fonte [US Atlas](https://github.com/topojson/us-atlas), derivada do US Census Bureau, domínio público.
+- Aproximação de capitais: distância geodésica em quilómetros; pontos = arredondar(5000 × exp(-distância / 2000)). Acima de 100 km, a capital entra no treino final.
+- Os modos adicionais guardam a partida e os recordes localmente, por modo, região e ajuda visual. O painel de estatísticas existente acompanha os quatro modos de países e capitais por nome.
+- As bandeiras são incorporadas em `src/data/flag-svgs.json`, evitando uma requisição por pergunta.

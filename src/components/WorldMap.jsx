@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { geoPath, geoArea, select, zoom, zoomIdentity } from 'd3';
+import { geoPath, geoArea, select, zoom, zoomIdentity, zoomTransform, pointer } from 'd3';
+import { regionIncludes } from '../lib/regions.js';
 import { features, byId } from '../data/index.js';
 import { Icon } from './Icon.jsx';
-import { focusGeometry, getRegionTransform, createFlatProjection, getWorldCopies, createFlatGraticule } from '../lib/map.js';
+import { focusGeometry, getRegionTransform, createFlatProjection, getWorldCopies, createFlatGraticule, flatClickCoordinate } from '../lib/map.js';
 import { mapPoliticalFeature } from '../lib/catalog.js';
 import { loadDetailedWorld } from '../lib/flat-detail.js';
 import CapitalPin from './CapitalPin.jsx';
@@ -10,7 +11,7 @@ import MapAnswerLabel from './MapAnswerLabel.jsx';
 
 /** React owns country paths; D3 moves their parent. Each horizontal copy uses
  * the same country IDs and game state, so wrapping cannot create new answers. */
-export default function WorldMap({ decorative = false, region = 'mundo', target, typed = false, showCapitalPin = false, keepCorrect = true, solved = [], flash, onCountryClick, disabled = false, reveal = null, queue = null }) {
+export default function WorldMap({ decorative = false, region = 'mundo', target, typed = false, showCapitalPin = false, keepCorrect = true, solved = [], flash, onCountryClick, disabled = false, reveal = null, queue = null, wrong = [], onPointClick = null, guessPoint = null }) {
   const boxRef = useRef(null);
   const svgRef = useRef(null);
   const groupRef = useRef(null);
@@ -42,9 +43,10 @@ export default function WorldMap({ decorative = false, region = 'mundo', target,
   const geometries = useMemo(() => (detail || features).map(mapPoliticalFeature).map(feature => ({ feature, d: path(feature) })), [path, detail]);
   const graticule = useMemo(() => path(createFlatGraticule()), [path]);
   const playableIds = useMemo(() => queue ? new Set(queue.map(c => c.id)) : null, [queue]);
-  const eligible = useMemo(() => features.filter(f => byId[f.id] && (!playableIds || playableIds.has(f.id)) && (region === 'mundo' || byId[f.id].continente === region)), [region, playableIds]);
+  const eligible = useMemo(() => features.filter(f => byId[f.id] && (!playableIds || playableIds.has(f.id)) && regionIncludes(region, byId[f.id].continente)), [region, playableIds]);
   const targets = useMemo(() => eligible.filter(f => geoArea(f) < 0.000012).map(feature => ({ feature, center: projection(byId[feature.id].coordenadas_centro) })), [eligible, projection]);
   const revealPosition = reveal ? projection(reveal.showCapital ? reveal.country.coordenadas_capital : reveal.country.coordenadas_centro) : null;
+  const guessPosition = guessPoint ? projection(guessPoint) : null;
   const capitalPosition = showCapitalPin && target?.coordenadas_capital ? projection(target.coordenadas_capital) : null;
 
   useEffect(() => {
@@ -88,18 +90,19 @@ export default function WorldMap({ decorative = false, region = 'mundo', target,
 
   const countryClass = useCallback(f => {
     if (decorative) return `country decoration ${['076', '124', '250', '356', '036', '710', '392'].includes(f.id) ? 'featured' : ''}`;
-    const inRegion = byId[f.id] && (!playableIds || playableIds.has(f.id)) && (region === 'mundo' || byId[f.id].continente === region);
+    const inRegion = byId[f.id] && (!playableIds || playableIds.has(f.id)) && regionIncludes(region, byId[f.id].continente);
     let classes = `country ${inRegion ? 'playable' : 'outside'} ${typed ? 'typing-country' : ''}`;
     if (typed && f.id === target?.id) classes += ' target';
     if (keepCorrect && solved.includes(f.id)) classes += ' correct';
     if (flash?.id === f.id) classes += flash.correct ? ' correct' : ' wrong';
+    if (wrong.includes(f.id)) classes += ' wrong';
     return classes;
-  }, [decorative, region, typed, target?.id, keepCorrect, solved, flash, playableIds]);
+  }, [decorative, region, typed, target?.id, keepCorrect, solved, flash, playableIds, wrong]);
 
   const choose = useCallback((event, f) => {
-    if (event.defaultPrevented || disabled || typed || !byId[f.id] || (playableIds && !playableIds.has(f.id)) || (region !== 'mundo' && byId[f.id].continente !== region)) return;
+    if (onPointClick || event.defaultPrevented || disabled || typed || !byId[f.id] || (playableIds && !playableIds.has(f.id)) || !regionIncludes(region, byId[f.id].continente)) return;
     onCountryClick?.(f.id);
-  }, [disabled, typed, region, onCountryClick, playableIds]);
+  }, [disabled, typed, region, onCountryClick, playableIds, onPointClick]);
 
   // Reuse the expensive path elements while zooming. Duplicate only the small
   // interactive wrappers; geography remains SVG-sharp at every zoom level.
@@ -112,18 +115,23 @@ export default function WorldMap({ decorative = false, region = 'mundo', target,
     paths?.forEach(element => {
       const id = element.dataset.countryId;
       const primary = Number(element.closest('[data-world-copy]').dataset.worldCopy) === view.primary;
-      element.setAttribute('tabindex', primary && !disabled && !typed && byId[id] && (region === 'mundo' || byId[id].continente === region) ? '0' : '-1');
+      element.setAttribute('tabindex', primary && !disabled && !typed && byId[id] && regionIncludes(region, byId[id].continente) ? '0' : '-1');
     });
   }, [view.primary, view.first, view.last, detail, disabled, typed, region]);
 
   return <div ref={boxRef} className={`map-container mercator-map ${decorative ? 'decorative-map' : ''}`}>
-    <svg ref={svgRef} viewBox={`0 0 ${width} ${height}`} aria-label={decorative ? 'Mapa do mundo' : 'Mapa interativo com deslocamento horizontal contínuo. Arraste para mover e use a rolagem ou os botões para ampliar.'} role={decorative ? 'img' : 'group'}>
+    <svg ref={svgRef} onClick={event => {
+      if (!onPointClick || disabled || event.defaultPrevented) return;
+      const coords = flatClickCoordinate(pointer(event, svgRef.current), zoomTransform(svgRef.current), projection);
+      if (coords) onPointClick(coords);
+    }} viewBox={`0 0 ${width} ${height}`} aria-label={decorative ? 'Mapa do mundo' : 'Mapa interativo com deslocamento horizontal contínuo. Arraste para mover e use a rolagem ou os botões para ampliar.'} role={decorative ? 'img' : 'group'}>
       <rect width={width} height={height} className="mercator-ocean" />
       <g ref={groupRef}>
         {copies.map(copy => <g key={copy} data-world-copy={copy} transform={`translate(${copy * period},0)`} aria-hidden={!decorative && copy !== view.primary ? true : undefined}>
           <path d={graticule} className="graticule" vectorEffect="non-scaling-stroke" />
           {countryPaths}
           {!decorative && targets.map(({ feature: f, center }) => center && <circle key={`hit-${f.key}`} data-hit-country={f.id} cx={center[0]} cy={center[1]} r={4 / scale} className={`micro-country ${countryClass(f)}`} vectorEffect="non-scaling-stroke" onClick={event => choose(event, f)} />)}
+          {!decorative && guessPosition && <circle cx={guessPosition[0]} cy={guessPosition[1]} r={7 / scale} fill="var(--accent)" stroke="var(--progress-panel)" strokeWidth={2 / scale} pointerEvents="none" />}
           {!decorative && capitalPosition && !reveal && <CapitalPin position={capitalPosition} countryId={target.id} scale={scale} />}
           {!decorative && revealPosition && <MapAnswerLabel position={revealPosition} {...reveal} scale={scale} />}
           {decorative && [byId['076'], byId['250'], byId['392']].map(c => {
