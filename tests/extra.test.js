@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { geoArea, geoPath, geoMercator, geoAlbersUsa, zoomIdentity } from 'd3';
-import { capitalDistance, capitalPoints, scoreCapitalGuess, migrateCapitalGame, readCapitalRecord, saveExtraRecord, readExtra, writeExtra } from '../src/lib/extra-game.js';
+import { capitalDistance, capitalPoints, scoreCapitalGuess, migrateCapitalGame, readCapitalRecord, saveExtraRecord, extraScope, extraQueueIds, readExtra, writeExtra } from '../src/lib/extra-game.js';
 import { createGame, gameReducer, saveScore, readScores } from '../src/lib/game.js';
 import { checkpoint, emptyActivity, restoreGame, readActivity, writeActivity, saveKey } from '../src/lib/activity.js';
 import { toggleRegion, regionIncludes, validRegion } from '../src/lib/regions.js';
@@ -60,4 +60,15 @@ test('capital records remain visible after green answer colors are removed',()=>
  saveExtraRecord('capitais',`${scope}:dificil:v2`,250,mem);
  saveExtraRecord('capitais',`${scope}:sem-verde:v2`,400,mem);
  assert.equal(readCapitalRecord(scope,mem),400);
+});
+
+test('municipality practice uses one valid target and saves separately from the full run',()=>{
+ const features=JSON.parse(readFileSync(new URL('../public/maps/municipios.json',import.meta.url))).features;
+ const index=JSON.parse(readFileSync(new URL('../src/data/municipios-index.json',import.meta.url)));
+ assert.equal(index.length,308);assert.equal(new Set(index.map(x=>x.id)).size,308);
+ const lagoas=index.filter(x=>x.label.startsWith('Lagoa ('));assert.equal(lagoas.length,2);assert.notEqual(lagoas[0].id,lagoas[1].id);
+ assert.equal(extraQueueIds('municipios',features).length,308);assert.deepEqual(extraQueueIds('municipios',features,'0806'),['0806']);assert.deepEqual(extraQueueIds('municipios',features,'9999'),[]);
+ const full=extraScope('municipios','mundo'),single=extraScope('municipios','mundo',false,'0806');assert.notEqual(full,single);
+ const mem=storage();writeExtra('municipios',full,{queue:['0101'],answers:[]},mem);writeExtra('municipios',single,{queue:['0806'],answers:[]},mem);
+ assert.equal(readExtra('municipios',full,mem).queue[0],'0101');assert.equal(readExtra('municipios',single,mem).queue[0],'0806');
 });

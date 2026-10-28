@@ -1,3 +1,6 @@
+import municipalities from '../data/municipios-index.json';
+import { normalizeAnswer } from '../lib/game.js';
+import { extraScope } from '../lib/extra-game.js';
 import { GAME_CATEGORIES, categoryHasGame } from '../lib/categories.js';
 import { readExtra, readExtraRecord, readCapitalRecord } from '../lib/extra-game.js';
 import { toggleRegion, regionIncludes } from '../lib/regions.js';
@@ -15,6 +18,9 @@ import ModePreview, { CARD_TITLES } from './ModePreview.jsx';
 export default function Home({ difficulty, setDifficulty, mapView = 'flat', setMapView, scores, onStart, saves = {}, onResume, onStatistics, includeTerritories = false, setIncludeTerritories = () => {}, onExtraStart = () => {}, initialCategory = null }) {
   const [regions, setRegions] = useState(() => Object.fromEntries(MODES.map(mode => [mode.id, Object.values(saves).filter(save => save.mode === mode.id).sort((a, b) => b.updatedAt - a.updatedAt)[0]?.region || 'mundo'])));
   const [capitalRegion, setCapitalRegion] = useState('mundo');
+  const [municipalityMode, setMunicipalityMode] = useState('all');
+  const [municipalityInput, setMunicipalityInput] = useState('');
+  const selectedMunicipality = municipalities.find(item => normalizeAnswer(item.label) === normalizeAnswer(municipalityInput));
   const [selectedCategory, setSelectedCategory] = useState(initialCategory);
   const [lastCategory, setLastCategory] = useState(initialCategory);
   const shownCategory = selectedCategory || lastCategory;
@@ -84,12 +90,15 @@ export default function Home({ difficulty, setDifficulty, mapView = 'flat', setM
         {id:7,kind:'estados',title:'Estados dos EUA',detail:'Encontra os 50 estados no mapa.',icon:'flag'}
       ].filter(item => categoryHasGame(activeCategory, item.id)).map(item => {
         const region = item.kind === 'capitais' ? capitalRegion : 'mundo';
-        const scope = item.kind === 'capitais' ? `${region}:${includeTerritories ? 'territorios' : 'paises'}` : region;
-        const saved=readExtra(item.kind,scope);
-        const high = item.kind === 'capitais' ? readCapitalRecord(scope) : readExtraRecord(item.kind,`${scope}:${difficulty}`);
+        const waitingForMunicipality = item.kind === 'municipios' && municipalityMode === 'one' && !selectedMunicipality;
+        const municipalityId = item.kind === 'municipios' && municipalityMode === 'one' ? selectedMunicipality?.id : null;
+        const scope = waitingForMunicipality ? null : extraScope(item.kind, region, includeTerritories, municipalityId);
+        const saved = scope ? readExtra(item.kind,scope) : null;
+        const high = !scope ? 0 : item.kind === 'capitais' ? readCapitalRecord(scope) : readExtraRecord(item.kind,`${scope}:${difficulty}`);
         return <article className="game-card simple-game-card accent-lime" key={item.kind}><div className="simple-card-header"><span className="card-action"><Icon name={item.icon} size={16}/> CLICAR NO MAPA</span><span className="card-number">0{item.id}</span></div><h3>{item.title}</h3><ModePreview mode={item.id} />
+        {item.kind === 'municipios' && <div className="municipality-picker"><span className="region-heading">CONCELHOS</span><div className="municipality-options" role="group" aria-label="Escolher concelhos"><button type="button" className={municipalityMode === 'all' ? 'selected' : ''} aria-pressed={municipalityMode === 'all'} onClick={() => setMunicipalityMode('all')}>Todos</button><button type="button" className={municipalityMode === 'one' ? 'selected' : ''} aria-pressed={municipalityMode === 'one'} onClick={() => setMunicipalityMode('one')}>Um concelho</button></div>{municipalityMode === 'one' && <><label className="sr-only" htmlFor="municipality-search">Seleciona um concelho</label><input id="municipality-search" type="text" list="municipality-suggestions" autoComplete="off" value={municipalityInput} onChange={event => setMunicipalityInput(event.target.value)} placeholder="Escreve um concelho…"/><datalist id="municipality-suggestions">{municipalities.map(m => <option key={m.id} value={m.label}/>)}</datalist><small>{selectedMunicipality ? '1 concelho selecionado' : 'Escolhe um nome da lista'}</small></>}</div>}
         {item.kind === 'capitais' && <><div className="region-heading">REGIÕES</div><div className="region-grid">{REGIONS.filter(r=>r.id!=='mundo').map(r=><button key={r.id} aria-pressed={region!=='mundo'&&regionIncludes(region,r.id)} className={region!=='mundo'&&regionIncludes(region,r.id)?'selected':''} onClick={()=>setCapitalRegion(toggleRegion(region,r.id))}>{r.name}</button>)}<button className={`world-region ${region==='mundo'?'selected':''}`} aria-pressed={region==='mundo'} onClick={()=>setCapitalRegion('mundo')}><Icon name="globe" size={13}/> Mundo Todo<span>{getPool('mundo',includeTerritories).length}</span></button></div></>}
-        <div className="card-score"><span><Icon name="trophy" size={14}/> RECORDE</span><strong>{String(high).padStart(4,'0')}</strong></div>{saved && <div className="saved-run compact-saved-run"><span>{saved.answers.length}/{saved.queue.length} GUARDADOS</span><button className="start-button" onClick={()=>onExtraStart(item.kind,region,true)}>RETOMAR PARTIDA</button></div>}<button className={saved?'new-run-button':'start-button'} onClick={()=>onExtraStart(item.kind,region,false)}>{saved?'COMEÇAR NOVO JOGO':'JOGAR'} <Icon name="arrow" size={17}/></button></article>;
+        <div className="card-score"><span><Icon name="trophy" size={14}/> RECORDE</span><strong>{String(high).padStart(4,'0')}</strong></div>{saved && <div className="saved-run compact-saved-run"><span>{saved.answers.length}/{saved.queue.length} GUARDADOS</span><button className="start-button" onClick={()=>onExtraStart(item.kind,region,true,municipalityId)}>RETOMAR PARTIDA</button></div>}<button className={saved?'new-run-button':'start-button'} disabled={waitingForMunicipality} onClick={()=>onExtraStart(item.kind,region,false,municipalityId)}>{saved?'COMEÇAR NOVO JOGO':'JOGAR'} <Icon name="arrow" size={17}/></button></article>;
       })}</div>
         </section>}</div>
       </div>
