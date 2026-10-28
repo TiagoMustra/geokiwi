@@ -55,3 +55,10 @@
 .play-controls .extra-restart{margin-top:6px;color:var(--progress-ink);border:1px solid var(--line);background:var(--progress-panel)}
 .play-controls .extra-restart:hover,.play-controls .extra-restart:focus-visible{color:var(--accent);border-color:var(--accent)}
 @media(max-width:800px) and (min-height:501px){.play-question{top:142px}.play-question.has-input{top:175px}}
+.other-saved-run{margin-top:12px;border-top:1px solid var(--line);color:var(--progress-soft)}
+.other-saved-run summary{display:flex;justify-content:space-between;gap:8px;padding:12px 0;cursor:pointer;font:11px/1.4 Space,sans-serif;list-style:none}
+.other-saved-run summary::-webkit-details-marker{display:none}
+.other-saved-run summary span{color:var(--accent);font:14px var(--mono)}
+.other-saved-run[open] summary span{transform:rotate(45deg)}
+.other-saved-run p{font:12px/1.5 Space,sans-serif;margin:0 0 2px;color:var(--progress-soft)}
+.other-saved-run .new-run-button{width:100%;padding:9px 0}
