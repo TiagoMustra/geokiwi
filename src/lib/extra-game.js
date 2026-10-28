@@ -35,3 +35,8 @@ export function removeExtra(kind, region, storage) { try { (storage ?? globalThi
 
 export function readExtraRecord(kind, scope, storage) { try { return Number((storage ?? globalThis.localStorage).getItem(`geokiwi.extra.record:${kind}:${scope}`)) || 0; } catch { return 0; } }
 export function saveExtraRecord(kind, scope, score, storage) { try { (storage ?? globalThis.localStorage).setItem(`geokiwi.extra.record:${kind}:${scope}`, String(Math.max(readExtraRecord(kind,scope,storage),score))); } catch {} }
+
+/** Preserve records from before the capital map stopped showing green countries. */
+export function readCapitalRecord(scope, storage) {
+  return Math.max(...['sem-verde','normal','dificil'].map(setting => readExtraRecord('capitais', `${scope}:${setting}:v2`, storage)));
+}

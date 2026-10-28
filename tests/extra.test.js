@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { geoArea, geoPath, geoMercator, geoAlbersUsa, zoomIdentity } from 'd3';
-import { capitalDistance, capitalPoints, scoreCapitalGuess, migrateCapitalGame, readExtra, writeExtra } from '../src/lib/extra-game.js';
+import { capitalDistance, capitalPoints, scoreCapitalGuess, migrateCapitalGame, readCapitalRecord, saveExtraRecord, readExtra, writeExtra } from '../src/lib/extra-game.js';
 import { createGame, gameReducer, saveScore, readScores } from '../src/lib/game.js';
 import { checkpoint, emptyActivity, restoreGame, readActivity, writeActivity, saveKey } from '../src/lib/activity.js';
 import { toggleRegion, regionIncludes, validRegion } from '../src/lib/regions.js';
@@ -52,4 +52,12 @@ test('district boundaries are a finite multi-line overlay, separate from municip
  assert.equal(boundaries.geometry.type,'MultiLineString');assert.ok(boundaries.geometry.coordinates.length>18);
  const coordinates=boundaries.geometry.coordinates.flat();assert.ok(coordinates.length>10000);
  assert.ok(coordinates.every(([x,y])=>x>=-10&&x<=-6&&y>=36&&y<=43));
+});
+
+test('capital records remain visible after green answer colors are removed',()=>{
+ const mem=storage(),scope='europa:paises';
+ saveExtraRecord('capitais',`${scope}:normal:v2`,300,mem);
+ saveExtraRecord('capitais',`${scope}:dificil:v2`,250,mem);
+ saveExtraRecord('capitais',`${scope}:sem-verde:v2`,400,mem);
+ assert.equal(readCapitalRecord(scope,mem),400);
 });
