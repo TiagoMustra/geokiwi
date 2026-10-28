@@ -123,7 +123,11 @@ export default function WorldMap({ decorative = false, region = 'mundo', target,
     <svg ref={svgRef} onClick={event => {
       if (!onPointClick || disabled || event.defaultPrevented) return;
       const coords = flatClickCoordinate(pointer(event, svgRef.current), zoomTransform(svgRef.current), projection);
-      if (coords) onPointClick(coords);
+      if (coords) {
+        const shape = event.target.closest?.('[data-country-id], [data-hit-country]');
+        const countryId = shape?.getAttribute('data-country-id') || shape?.getAttribute('data-hit-country') || null;
+        onPointClick(coords, countryId);
+      }
     }} viewBox={`0 0 ${width} ${height}`} aria-label={decorative ? 'Mapa do mundo' : 'Mapa interativo com deslocamento horizontal contínuo. Arraste para mover e use a rolagem ou os botões para ampliar.'} role={decorative ? 'img' : 'group'}>
       <rect width={width} height={height} className="mercator-ocean" />
       <g ref={groupRef}>

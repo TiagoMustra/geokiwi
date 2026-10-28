@@ -27,3 +27,14 @@
 .results-map{width:min(850px,100%);margin:24px auto;text-align:left}.results-map>p{font:9px var(--mono);color:var(--progress-soft)}.results-map>div{height:clamp(250px,45vh,480px);border:1px solid var(--line);overflow:hidden}.retry-prompt{margin:18px auto;display:flex;align-items:center;justify-content:center;gap:16px;flex-wrap:wrap}.retry-prompt p{margin:0}.results-map .map-controls{display:none}
 
 .extra-heading{margin-top:52px}.extra-grid .extra-description{color:var(--progress-soft);font-size:14px;line-height:1.5;min-height:55px}.extra-grid .card-score{margin-top:auto}.extra-restart{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:9px;font:9px var(--mono)}
+/* Compact examples make each clue and answer visible at a glance. */
+.simple-game-card h3{font-size:clamp(18px,1.45vw,23px);margin-bottom:12px;min-height:52px;display:flex;align-items:center}
+.simple-game-card .mode-preview{height:100px;margin-bottom:14px}
+.preview-clue{gap:5px}.preview-clue small,.preview-input small{font:7px var(--mono);color:var(--progress-soft);letter-spacing:.4px}
+.preview-input{gap:5px;min-width:92px}.preview-input strong{display:flex;align-items:center;padding:8px;background:var(--progress-panel);border:1px solid var(--line);border-bottom:2px solid var(--accent)}.preview-input strong span{color:var(--accent);margin-left:5px}.preview-divisions,.preview-usa>path:not(.preview-outline){fill:none;stroke:var(--progress-soft);stroke-width:1;opacity:.8}
+.capital-points-pop{position:absolute;left:50%;bottom:calc(100% + 8px);transform:translateX(-50%);color:var(--accent);font:22px Pixel,monospace;text-shadow:2px 2px 0 var(--progress-panel);pointer-events:none;animation:points-pop 1.7s ease-out both}
+@keyframes points-pop{0%{opacity:0;transform:translate(-50%,12px) scale(.7)}20%{opacity:1;transform:translate(-50%,0) scale(1.15)}65%{opacity:1;transform:translate(-50%,-10px) scale(1)}100%{opacity:0;transform:translate(-50%,-28px) scale(1)}}
+@media(prefers-reduced-motion:reduce){.capital-points-pop{animation:none;opacity:1}}
+@media(max-width:680px){.simple-game-card h3{min-height:0;font-size:22px}.simple-game-card .mode-preview{height:100px}.preview-flow{gap:18px}}
+
+.district-boundary{fill:none;stroke:var(--progress-ink);stroke-width:1.8;stroke-linejoin:round;stroke-linecap:round;opacity:.8;pointer-events:none}.district-legend{position:absolute;left:18px;bottom:28px;color:var(--progress-ink);background:var(--progress-panel);border:1px solid var(--line);padding:6px 8px;font:8px var(--mono);pointer-events:none}.district-legend i{display:inline-block;width:16px;height:2px;background:var(--progress-ink);vertical-align:middle;margin-right:5px}

@@ -218,6 +218,6 @@ Os créditos também estão acessíveis no rodapé do site. As fronteiras são c
 
 - Concelhos de Portugal: 308 geometrias da Carta Administrativa Oficial de Portugal, Direção-Geral do Território, [versão GeoJSON](https://github.com/nmota/caop_GeoJSON), simplificada para o jogo; [CAOP](https://www.dgterritorio.gov.pt/atividades/cartografia/cartografia-tematica/caop), CC BY 4.0. A versão fornecida pelo repositório é histórica; não foi verificada como CAOP 2025.
 - Estados dos EUA: 50 estados, fonte [US Atlas](https://github.com/topojson/us-atlas), derivada do US Census Bureau, domínio público.
-- Aproximação de capitais: distância geodésica em quilómetros; pontos = arredondar(5000 × exp(-distância / 2000)). Acima de 100 km, a capital entra no treino final.
+- Aproximação de capitais: distância geodésica em quilómetros; pontos = arredondar(100 × exp(-distância / 500)), com máximo de 25 fora do país. Acima de 100 km ou fora do país, a capital entra no treino final.
 - Os modos adicionais guardam a partida e os recordes localmente, por modo, região e ajuda visual. O painel de estatísticas existente acompanha os quatro modos de países e capitais por nome.
 - As bandeiras são incorporadas em `src/data/flag-svgs.json`, evitando uma requisição por pergunta.

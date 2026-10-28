@@ -2,7 +2,7 @@ import test from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { geoArea, geoPath, geoMercator, geoAlbersUsa, zoomIdentity } from 'd3';
-import { capitalDistance, capitalPoints, readExtra, writeExtra } from '../src/lib/extra-game.js';
+import { capitalDistance, capitalPoints, scoreCapitalGuess, migrateCapitalGame, readExtra, writeExtra } from '../src/lib/extra-game.js';
 import { createGame, gameReducer, saveScore, readScores } from '../src/lib/game.js';
 import { checkpoint, emptyActivity, restoreGame, readActivity, writeActivity, saveKey } from '../src/lib/activity.js';
 import { toggleRegion, regionIncludes, validRegion } from '../src/lib/regions.js';
@@ -32,9 +32,24 @@ test('retry games persist only the mistaken destinations without affecting full-
   const pool=countries.filter(c=>c.isCountry&&c.continente==='europa').slice(0,3);const game=createGame({mode:2,region:'europa',includeTerritories:false,pool,practice:true});const saved=checkpoint(emptyActivity(),game).saves[saveKey(2,'europa',false)];const restored=restoreGame(saved,countries);assert.equal(restored.practice,true);assert.equal(restored.queue.length,3);
 });
 test('capital distances and points behave geographically',()=>{
-  assert.ok(capitalDistance([0,0],[0,0])<.001);assert.equal(capitalPoints(0),5000);assert.ok(Math.abs(capitalDistance([0,0],[1,0])-111.2)<1);assert.ok(capitalPoints(100)>capitalPoints(1000));assert.ok(capitalPoints(1000)>capitalPoints(10000));
+  assert.ok(capitalDistance([0,0],[0,0])<.001);assert.equal(capitalPoints(0),100);assert.ok(Math.abs(capitalDistance([0,0],[1,0])-111.2)<1);assert.ok(capitalPoints(100)>capitalPoints(1000));assert.ok(capitalPoints(1000)>capitalPoints(10000));assert.equal(capitalPoints(0,false),25);assert.equal(scoreCapitalGuess(3,'040','756').points,25);assert.equal(scoreCapitalGuess(3,'756','756').points,99);assert.equal(scoreCapitalGuess(3,null,'756').points,99);assert.equal(scoreCapitalGuess(6,null,'756').points,25);
   const mem=storage();writeExtra('capitais','europa:paises',{queue:['1'],answers:[]},mem);assert.equal(readExtra('capitais','europa:paises',mem).queue[0],'1');assert.equal(readExtra('capitais','europa:territorios',mem),null);
 });
 test('capital map click inverts pan and zoom including repeated worlds',()=>{
   const p=createFlatProjection(1100,590);const t=zoomIdentity.translate(65,-20).scale(2);const period=2*Math.PI*p.scale();const source=[-9.14,38.72];const point=p(source);for(const offset of [-2,-1,0,1,2]){const result=flatClickCoordinate(t.apply([point[0]+period*offset,point[1]]),t,p);assert.ok(Math.abs(result[0]-source[0])<1e-8);assert.ok(Math.abs(result[1]-source[1])<1e-8);}
+});
+
+test('legacy capital saves preserve their order and migrate earlier points to the new scale',()=>{
+  const country={id:'756',coordenadas_capital:[7.447,46.948]};
+  const old={queue:['756'],answers:[{id:'756',guess:[7.447,46.948],points:5000,correct:true}],index:0,score:5000};
+  const migrated=migrateCapitalGame(old,[country],[]);
+  assert.deepEqual(migrated.queue,old.queue);assert.equal(migrated.answers[0].points,100);assert.equal(migrated.score,100);assert.equal(migrated.scoringVersion,2);
+  assert.strictEqual(migrateCapitalGame(migrated,[country],[]),migrated);
+});
+
+test('district boundaries are a finite multi-line overlay, separate from municipality selection',()=>{
+ const boundaries=JSON.parse(readFileSync(new URL('../public/maps/distritos.json',import.meta.url)));
+ assert.equal(boundaries.geometry.type,'MultiLineString');assert.ok(boundaries.geometry.coordinates.length>18);
+ const coordinates=boundaries.geometry.coordinates.flat();assert.ok(coordinates.length>10000);
+ assert.ok(coordinates.every(([x,y])=>x>=-10&&x<=-6&&y>=36&&y<=43));
 });
