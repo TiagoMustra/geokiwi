@@ -216,7 +216,7 @@ Os créditos também estão acessíveis no rodapé do site. As fronteiras são c
 
 ## Modos adicionais e fontes dos limites
 
-- Concelhos de Portugal: opção para percorrer os 308 ou praticar um concelho específico; cada seleção tem progresso e recorde próprios. Ao errar, a resposta correta aparece a amarelo. Dados: 308 geometrias da Carta Administrativa Oficial de Portugal, Direção-Geral do Território, [versão GeoJSON](https://github.com/nmota/caop_GeoJSON), simplificada para o jogo; [CAOP](https://www.dgterritorio.gov.pt/atividades/cartografia/cartografia-tematica/caop), CC BY 4.0. A versão fornecida pelo repositório é histórica; não foi verificada como CAOP 2025.
+- Concelhos de Portugal: opção para percorrer os 308 ou praticar todos os concelhos de um distrito; cada seleção tem progresso e recorde próprios. Ao errar, a resposta correta aparece a amarelo. Dados: 308 geometrias da Carta Administrativa Oficial de Portugal, Direção-Geral do Território, [versão GeoJSON](https://github.com/nmota/caop_GeoJSON), simplificada para o jogo; [CAOP](https://www.dgterritorio.gov.pt/atividades/cartografia/cartografia-tematica/caop), CC BY 4.0. A versão fornecida pelo repositório é histórica; não foi verificada como CAOP 2025.
 - Estados dos EUA: 50 estados, fonte [US Atlas](https://github.com/topojson/us-atlas), derivada do US Census Bureau, domínio público.
 - Aproximação de capitais: distância geodésica em quilómetros; pontos = arredondar(100 × exp(-distância / 500)), com máximo de 25 fora do país. Acima de 100 km ou fora do país, a capital entra no treino final.
 - Os modos adicionais guardam a partida e os recordes localmente, por modo, região e ajuda visual. O painel de estatísticas existente acompanha os quatro modos de países e capitais por nome.

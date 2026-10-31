@@ -30,7 +30,7 @@ export default function ExtraGame({ config, onExit, keepCorrectInitial = true })
     load.then(([items, districtLines]) => {
       if (!active) return;
       const ids = extraQueueIds(kind, items, municipalityId);
-      if (!ids.length) { setError('Não foi possível encontrar o concelho selecionado.'); return; }
+      if (!ids.length) { setError('Não foi possível encontrar o distrito selecionado.'); return; }
       let saved = resume && readExtra(kind, saveRegion);
       if (isCapital && saved && saved.scoringVersion !== 2 && validSaved(saved, ids)) {
         saved = migrateCapitalGame(saved, items, features);

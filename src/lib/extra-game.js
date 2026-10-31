@@ -44,10 +44,10 @@ export function readCapitalRecord(scope, storage) {
 /** Namespaces individual municipality practice separately from full runs. */
 export function extraScope(kind, region = 'mundo', includeTerritories = false, municipalityId = null) {
   if (kind === 'capitais') return `${region}:${includeTerritories ? 'territorios' : 'paises'}`;
-  if (kind === 'municipios' && municipalityId) return `${region}:concelho:${municipalityId}`;
+  if (kind === 'municipios' && municipalityId) return `${region}:distrito:${municipalityId}`;
   return region;
 }
 export function extraQueueIds(kind, features, municipalityId = null) {
   const ids = features.map(feature => String(feature.id));
-  return kind === 'municipios' && municipalityId ? ids.filter(id => id === municipalityId) : ids;
+  return kind === 'municipios' && municipalityId ? ids.filter(id => id.startsWith(municipalityId)) : ids;
 }

@@ -67,8 +67,18 @@ test('municipality practice uses one valid target and saves separately from the 
  const index=JSON.parse(readFileSync(new URL('../src/data/municipios-index.json',import.meta.url)));
  assert.equal(index.length,308);assert.equal(new Set(index.map(x=>x.id)).size,308);
  const lagoas=index.filter(x=>x.label.startsWith('Lagoa ('));assert.equal(lagoas.length,2);assert.notEqual(lagoas[0].id,lagoas[1].id);
- assert.equal(extraQueueIds('municipios',features).length,308);assert.deepEqual(extraQueueIds('municipios',features,'0806'),['0806']);assert.deepEqual(extraQueueIds('municipios',features,'9999'),[]);
- const full=extraScope('municipios','mundo'),single=extraScope('municipios','mundo',false,'0806');assert.notEqual(full,single);
+ assert.equal(extraQueueIds('municipios',features).length,308);assert.deepEqual(extraQueueIds('municipios',features,'08'),features.filter(f=>String(f.id).startsWith('08')).map(f=>String(f.id)));assert.deepEqual(extraQueueIds('municipios',features,'9999'),[]);
+ const full=extraScope('municipios','mundo'),single=extraScope('municipios','mundo',false,'08');assert.notEqual(full,single);
  const mem=storage();writeExtra('municipios',full,{queue:['0101'],answers:[]},mem);writeExtra('municipios',single,{queue:['0806'],answers:[]},mem);
  assert.equal(readExtra('municipios',full,mem).queue[0],'0101');assert.equal(readExtra('municipios',single,mem).queue[0],'0806');
+});
+
+test('each mainland district selects all and only its own municipalities',()=>{
+ const fs=JSON.parse(readFileSync(new URL('../public/maps/municipios.json',import.meta.url))).features;
+ for(let n=1;n<=18;n++){
+  const id=String(n).padStart(2,'0');const selected=extraQueueIds('municipios',fs,id);
+  assert.ok(selected.length>0,id);assert.ok(selected.every(item=>item.startsWith(id)));
+  assert.equal(selected.length,fs.filter(item=>String(item.id).startsWith(id)).length);
+ }
+ assert.notEqual(extraScope('municipios','mundo',false,'11'),extraScope('municipios','mundo',false,'13'));
 });
