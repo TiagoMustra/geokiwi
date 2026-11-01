@@ -1,5 +1,7 @@
 # Publicar o GeoKiwi no Cloudflare Pages
 
+Projeto já criado na conta autorizada: `geokiwi`, com endereço `https://geokiwi.pages.dev`. O domínio `geokiwi.pt` ainda tem de ser comprado e associado. Para atualizar este projeto, usa apenas `npm run cloudflare:deploy` após o login; não é necessário repetir a criação.
+
 O projeto está preparado para alojamento estático. Não precisa de servidor próprio, base de dados, conta OpenAI dos jogadores ou computador ligado em casa. A compra do domínio e a criação da conta Cloudflare são feitas por ti. Nada neste documento afirma que o domínio já foi comprado ou ligado.
 
 ## Opção mais simples: carregar o ZIP
