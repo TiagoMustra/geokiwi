@@ -20,6 +20,6 @@ Initial world framing is only slightly closer: 1.1× on the flat map and 1.08× 
 
 ## Facts and language
 
-`src/data/kiwi-facts.js` contains 108 distinct PT/EN facts with individual primary-source links. `KiwiFacts.jsx` rotates them every 12 seconds, with previous, next and pause controls. Rotation pauses while reading/focusing, while the tab is hidden, and for reduced-motion preferences.
+`src/data/kiwi-facts.js` contains at least 100 distinct PT/EN facts exclusively about kiwifruit, with individual primary-source links. Bird facts are excluded. `KiwiFacts.jsx` rotates them every 12 seconds, with previous, next and pause controls. Rotation pauses while reading/focusing, while the tab is hidden, and for reduced-motion preferences.
 
 `src/i18n/` holds the PT/EN interface catalog, display names, context and shared JSX text-rendering adapter. Language is stored separately from game progress in `geokiwi.locale.v1`. Inputs, country IDs, answer IDs, queues and storage keys are preserved. English country and capital names remain accepted answers. No translation API or backend is needed.

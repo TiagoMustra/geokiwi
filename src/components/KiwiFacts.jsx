@@ -4,8 +4,8 @@ import { Icon, KiwiMark } from './Icon.jsx';
 import '../facts.css';
 
 const COPY = {
-  pt: { label: 'Curiosidade kiwi', previous: 'Curiosidade anterior', next: 'Próxima curiosidade', pause: 'Pausar curiosidades', play: 'Rodar curiosidades', source: 'Fonte', position: 'de', category: { fruit: 'FRUTA', bird: 'AVE', geography: 'GEOGRAFIA' } },
-  en: { label: 'Kiwi fact', previous: 'Previous fact', next: 'Next fact', pause: 'Pause facts', play: 'Rotate facts', source: 'Source', position: 'of', category: { fruit: 'FRUIT', bird: 'BIRD', geography: 'GEOGRAPHY' } },
+  pt: { label: 'Curiosidade sobre kiwi-fruta', previous: 'Curiosidade anterior', next: 'Próxima curiosidade', pause: 'Pausar curiosidades', play: 'Rodar curiosidades', source: 'Fonte', position: 'de', category: { fruit: 'FRUTA', geography: 'GEOGRAFIA' } },
+  en: { label: 'Kiwifruit fact', previous: 'Previous fact', next: 'Next fact', pause: 'Pause facts', play: 'Rotate facts', source: 'Source', position: 'of', category: { fruit: 'FRUIT', geography: 'GEOGRAPHY' } },
 };
 
 /** A quiet carousel: automatic changes never interrupt screen-reader speech. */
