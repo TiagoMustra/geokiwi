@@ -6,5 +6,6 @@ import './themes.css';
 import './progress.css';
 import './kiwi.css';
 import './play.css';
+import './islands.css';
 
 createRoot(document.getElementById('root')).render(<React.StrictMode><App /></React.StrictMode>);

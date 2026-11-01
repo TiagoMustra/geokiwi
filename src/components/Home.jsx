@@ -25,9 +25,8 @@ export default function Home({ difficulty, setDifficulty, mapView = 'flat', setM
   const activeCategory = GAME_CATEGORIES.find(category => category.id === shownCategory);
   const countryTotal = getPool('mundo', false).length;
   const worldTotal = getPool('mundo', includeTerritories).length;
-  return <main className="home-shell">
-    <section className="hero restored-hero kiwi-banner" aria-labelledby="hero-title">
-      <img className="kiwi-banner-image" src="/art/kiwi-explorer-banner-v1.png" width="2172" height="724" alt="" aria-hidden="true" fetchPriority="high" />
+  return <main className="home-shell island-home" data-background="islands">
+    <section className="hero restored-hero island-hero" aria-labelledby="hero-title">
       <div className="hero-copy">
         <h1 id="hero-title" aria-label="O mundo é teu para explorar."><span className="hero-type-line hero-type-first" aria-hidden="true">O MUNDO É TEU</span><span className="hero-type-line hero-type-second" aria-hidden="true">PARA EXPLORAR.<i className="pixel-cursor" /></span></h1>
       </div>
@@ -42,7 +41,7 @@ export default function Home({ difficulty, setDifficulty, mapView = 'flat', setM
         const open = selectedCategory === category.id;
         const hasSave = Object.values(saves).some(save => categoryHasGame(category, save.mode));
         return <button type="button" key={category.id} className={`category-card accent-${category.color} ${open ? 'is-open' : ''}`} aria-expanded={open} aria-controls="category-games" onClick={() => { setLastCategory(category.id); setSelectedCategory(open ? null : category.id); }}>
-          <span className="category-icon"><Icon name={category.icon} size={26}/></span>
+          <span className="category-icon"><Icon name={category.icon} size={48}/></span>
           <span className="category-copy"><strong>{category.name}</strong><small>{category.description}</small><span>{category.games.length} JOGOS{hasSave ? ' · PARTIDA GUARDADA' : ''}</span></span>
           <span className="category-toggle" aria-hidden="true"><Icon name={open ? 'minus' : 'plus'} size={17}/></span>
         </button>;

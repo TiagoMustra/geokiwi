@@ -6,6 +6,7 @@ import { readExtra, extraScope } from './lib/extra-game.js';
 import { readActivity, checkpoint, writeActivity, restoreGame, saveKey } from './lib/activity.js';
 import Statistics from './components/Statistics.jsx';
 import Home from './components/Home.jsx';
+import HomeBackdrop from './components/HomeBackdrop.jsx';
 import Game from './components/Game.jsx';
 import ExtraGame from './components/ExtraGame.jsx';
 import Modal from './components/Modal.jsx';
@@ -113,7 +114,8 @@ export default function App() {
     });
   }, []);
 
-  return <div className={config || extra ? 'app is-playing' : 'app'}>
+  return <div className={config || extra ? 'app is-playing' : page === 'home' ? 'app is-home' : 'app'}>
+    {!config && !extra && page === 'home' && <HomeBackdrop />}
     <header className="site-header"><div className="header-inner">
       <button className="brand" onClick={() => { if (!config) { home(); window.scrollTo({ top: 0, behavior: 'smooth' }); } else setModal('leave'); }} aria-label="GeoKiwi início"><KiwiMark /><span>GEO<span className="brand-accent">KIWI</span><small>O TEU MUNDO DE GEOGRAFIA</small></span></button>
       <nav aria-label="Navegação principal"><button className={page === 'home' && !modal ? 'nav-active' : ''} onClick={() => { if (config) setModal('leave'); else { home(); setTimeout(() => document.getElementById('jogos')?.scrollIntoView({ behavior: 'smooth' }), 0); } }}>JOGAR<span>01</span></button><button className="help-nav" onClick={() => setModal('help')}>COMO JOGAR<span>02</span></button><button className={page === 'stats' ? 'stats-nav nav-active' : 'stats-nav'} onClick={statistics}>ESTATÍSTICAS<span>03</span></button><button className="records-nav" onClick={() => setModal('scores')}>RECORDES<span>04</span></button></nav>

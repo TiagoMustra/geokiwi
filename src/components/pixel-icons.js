@@ -1,0 +1,86 @@
+/** Shared 16px artwork: the same silhouettes and palette in menus and games. */
+export const pixelPalette = {
+  edge: '#514d37', shade: '#8e7551', paper: '#eee2b9', light: '#fff4d0',
+  sea: '#7699a3', deep: '#4d7180', sky: '#adc6c5',
+  leaf: '#a9b87b', green: '#687f50', soft: '#cedaa7', clay: '#b98564',
+};
+
+export const pixelArtwork = {
+  globe: [
+    ['edge', 'M5 0h6v1h2v1h1v2h1v2h1v5h-1v2h-1v1h-2v1H5v-1H3v-1H2v-2H1V6h1V4h1V2h2Z'],
+    ['sea', 'M5 1h6v1h2v2h1v2h1v5h-1v2h-2v1H5v-1H3v-2H2V6h1V4h1V2h1Z'],
+    ['deep', 'M12 4h2v2h1v5h-1v2h-2v1H6v-1h5v-2h1V8h1V6h-1Z'],
+    ['leaf', 'M5 2h4v1H7v2H5v2H3V5h1V3h1Zm5 1h2v2h1v2h-2v2H9V7H8V5h2ZM4 8h3v1h2v2H8v2H6v-2H5V9H4Z'],
+    ['soft', 'M5 2h3v1H6v1H4V3h1Zm5 2h2v2h-2ZM5 8h2v2H5Z'],
+    ['sky', 'M9 1h2v1H9ZM3 6h1v1H3Zm7 10h2v1h-2Z'],
+    ['shade', 'M6 15h5v1H6Z'],
+  ],
+  city: [
+    ['edge', 'M7 0h2v2h1v1h2v1h1v2h1v1h-1v1h1v6h2v2H0v-2h2V8h1V7H2V6h1V4h1V3h2V2h1Z'],
+    ['shade', 'M4 5h8v1h1v1H3V6h1ZM2 8h12v1H2ZM1 14h14v1H1Z'],
+    ['paper', 'M5 4h6v1H5ZM4 5h8v1H4ZM3 7h10v1H3ZM3 9h2v5H3Zm4 0h2v5H7Zm4 0h2v5h-2Z'],
+    ['light', 'M6 3h4v1H6ZM4 9h1v4H4Zm4 0h1v4H8Zm4 0h1v4h-1ZM2 14h12v1H2Z'],
+    ['green', 'M0 12h1v2h1v1H0Zm14 1h1v-2h1v4h-2Z'],
+  ],
+  map: [
+    ['edge', 'M0 2h2V1h3v1h2v1h2V2h2V1h3v1h2v12h-2v1h-3v-1H9v-1H7v1H5v1H2v-1H0Z'],
+    ['paper', 'M1 3h1V2h3v1h2v1h2V3h2V2h3v1h1v10h-1v1h-3v-1H9v-1H7v1H5v1H2v-1H1Z'],
+    ['sea', 'M2 4h3v2H4v2H2Zm3 4h2v2H5Zm6-4h3v3h-1v2h-2Zm0 7h3v2h-3Z'],
+    ['leaf', 'M3 6h2v2H4v3H2V9h1ZM6 5h2v1h2v2h1v3H9v-1H7V8H6Zm7 3h1v3h-2V9h1Z'],
+    ['shade', 'M5 2h1v12H5ZM10 3h1v10h-1Z'],
+    ['light', 'M2 3h2v1H2Zm5 3h1v1H7Zm5-3h2v1h-2Z'],
+  ],
+  pin: [
+    ['edge', 'M5 0h6v1h2v2h1v5h-1v2h-2v2H9v3H7v-3H5v-2H3V8H2V3h1V1h2Z'],
+    ['clay', 'M5 1h6v1h2v6h-1v2h-2v2H9v2H8v-2H6v-2H4V8H3V3h1V2h1Z'],
+    ['paper', 'M6 3h4v1h1v3h-1v1H6V7H5V4h1Z'],
+    ['light', 'M6 3h4v1H6Z'],
+    ['shade', 'M7 14h2v1H7Z'],
+  ],
+  keyboard: [
+    ['edge', 'M1 2h14v1h1v11H0V3h1Z'],
+    ['shade', 'M1 3h14v10H1Z'],
+    ['paper', 'M1 3h14v8H1Z'],
+    ['light', 'M2 4h12v1H2Z'],
+    ['green', 'M2 5h2v2H2Zm3 0h2v2H5Zm3 0h2v2H8Zm3 0h2v2h-2ZM2 8h2v2H2Zm3 0h6v2H5Zm7 0h2v2h-2Z'],
+  ],
+  flag: [
+    ['edge', 'M2 0h2v1h10v1h1v7h-1v1H4v6H2Z'],
+    ['shade', 'M3 1h1v14H3Z'],
+    ['paper', 'M4 2h9v6H4Z'],
+    ['clay', 'M4 2h9v2H4Z'],
+    ['green', 'M4 6h9v2H4Z'],
+  ],
+  trophy: [
+    ['edge', 'M4 0h8v2h4v5h-1v2h-3v1h-2v3h3v3H3v-3h3v-3H4V9H1V7H0V2h4Zm-2 4v3h2V4Zm10 0v3h2V4Z'],
+    ['shade', 'M4 1h8v6h-1v2H9v5h3v1H4v-1h3V9H5V7H4Z'],
+    ['paper', 'M5 1h5v5H9v2H6V6H5Z'],
+    ['light', 'M5 1h5v1H5ZM5 14h5v1H5Z'],
+  ],
+};
+
+/** Solid, stepped glyphs remain legible in the smallest game controls. */
+export const pixelGlyphs = {
+  arrow: 'M8 2h2v2h2v2h2v4h-2v2h-2v2H8v-2h2v-2H1V6h9V4H8Z',
+  back: 'M6 2h2v2H6v2h9v4H6v2h2v2H6v-2H4v-2H2V6h2V4h2Z',
+  northeast: 'M5 1h10v10h-2V5h-2v2H9v2H7v2H5v2H3v2H1v-2h2v-2h2V9h2V7h2V5h2V3H5Z',
+  plus: 'M6 1h4v5h5v4h-5v5H6v-5H1V6h5Z',
+  minus: 'M1 6h14v4H1Z',
+  play: 'M3 1h2v1h2v2h3v2h3v1h2v2h-2v1h-3v2H7v2H5v1H3Z',
+  pause: 'M3 1h4v14H3Zm6 0h4v14H9Z',
+  check: 'M12 2h3v3h-2v2h-2v2H9v2H7v2H4v-2H2V9H0V6h3v2h2v2h1V8h2V6h2V4h2Z',
+  close: 'M1 1h3v2h2v2h4V3h2V1h3v3h-2v2h-2v4h2v2h2v3h-3v-2h-2v-2H6v2H4v2H1v-3h2v-2h2V6H3V4H1Z',
+  chevron: 'M5 1h3v2h2v2h2v2h2v2h-2v2h-2v2H8v2H5v-3h2v-2h2V6H7V4H5Z',
+  enter: 'M12 1h3v10H5v2h2v2H4v-2H2v-2H0V9h2V7h2V5h3v2H5v1h7Z',
+  crosshair: 'M7 0h2v3h3v1h1v3h3v2h-3v3h-1v1H9v3H7v-3H4v-1H3V9H0V7h3V4h1V3h3Zm-1 5H5v6h6V5H9v2H7V5Zm1 2h2v2H7Z',
+  settings: 'M6 0h4v2h2v2h2v2h2v4h-2v2h-2v2h-2v2H6v-2H4v-2H2v-2H0V6h2V4h2V2h2Zm0 5v1H5v4h1v1h4v-1h1V6h-1V5Z',
+  save: 'M0 0h12v2h2v2h2v12H0Zm3 1v4h8V1Zm1 8v5h8V9Z',
+  chart: 'M0 0h2v14h14v2H0Zm4 8h2v4H4Zm4-4h2v8H8Zm4-4h2v12h-2Z',
+  sun: 'M7 0h2v2H7ZM2 2h2v2H2Zm10 0h2v2h-2ZM5 4h6v1h1v6h-1v1H5v-1H4V5h1ZM0 7h2v2H0Zm14 0h2v2h-2ZM2 12h2v2H2Zm10 0h2v2h-2ZM7 14h2v2H7Z',
+  moon: 'M6 0h4v2H8v2H6v6h2v2h6v-2h2v3h-2v2h-3v1H6v-1H3v-2H1v-3H0V6h1V3h2V1h3Z',
+  bolt: 'M8 0h5v2h-2v2H9v2h6v2h-2v2h-2v2H9v2H7v2H3v-3h2v-3H1V8h2V6h2V4h2V2h1Z',
+  volume: 'M6 2h2v12H6v-2H3v-2H0V6h3V4h3Zm4 3h2v6h-2Zm3-3h2v3h1v6h-1v3h-2v-3h1V5h-1Z',
+  muted: 'M6 2h2v12H6v-2H3v-2H0V6h3V4h3Zm4 3h2v2h2V5h2v2h-2v2h2v2h-2V9h-2v2h-2V9h2V7h-2Z',
+  reset: 'M5 0h7v1h2v2h1v2h1v6h-1v2h-2v2h-3v1H5v-1H2v-2H1v-2h3v2h2v1h4v-1h2v-2h1V5h-1V3h-2V2H6v1H4v2h3v2H0V0h2v3h1V1h2Z',
+  help: 'M4 0h8v1h2v2h1v2h1v6h-1v2h-2v2h-2v1H4v-1H2v-2H1v-2H0V5h1V3h1V1h2Zm1 4v2h2V5h2v2H7v3h2V9h2V4Zm2 8v2h2v-2Z',
+};
