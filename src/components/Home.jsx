@@ -11,8 +11,6 @@ import { scoreKey } from '../lib/game.js';
 import { Icon } from './Icon.jsx';
 import KeepCorrectControl from './KeepCorrectControl.jsx';
 import MapViewControl from './MapViewControl.jsx';
-import WorldMap from './WorldMap.jsx';
-import GlobeMap from './GlobeMap.jsx';
 import ModePreview, { CARD_TITLES } from './ModePreview.jsx';
 
 export default function Home({ difficulty, setDifficulty, mapView = 'flat', setMapView, scores, onStart, saves = {}, onResume, onStatistics, includeTerritories = false, setIncludeTerritories = () => {}, onExtraStart = () => {}, initialCategory = null }) {
@@ -26,11 +24,11 @@ export default function Home({ difficulty, setDifficulty, mapView = 'flat', setM
   const shownCategory = selectedCategory || lastCategory;
   const activeCategory = GAME_CATEGORIES.find(category => category.id === shownCategory);
   return <main className="home-shell">
-    <section className="hero restored-hero" aria-labelledby="hero-title">
+    <section className="hero restored-hero kiwi-banner" aria-labelledby="hero-title">
+      <img className="kiwi-banner-image" src="/art/kiwi-explorer-banner-v1.png" width="2172" height="724" alt="" aria-hidden="true" fetchPriority="high" />
       <div className="hero-copy">
         <h1 id="hero-title" aria-label="O mundo é teu para explorar."><span className="hero-type-line hero-type-first" aria-hidden="true">O MUNDO É TEU</span><span className="hero-type-line hero-type-second" aria-hidden="true">PARA EXPLORAR.<i className="pixel-cursor" /></span></h1>
       </div>
-      <div className="hero-art" aria-hidden="true">{mapView === 'globe' ? <GlobeMap decorative/> : <WorldMap decorative/>}<span className="corner top-left"/><span className="corner bottom-right"/></div>
     </section>
     <section className="games-section" id="jogos" aria-labelledby="games-title">
       <div className="section-heading">
