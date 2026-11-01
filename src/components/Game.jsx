@@ -12,6 +12,7 @@ import ThemeControl from './ThemeControl.jsx';
 import AnswerInput from './AnswerInput.jsx';
 import SuggestionsControl from './SuggestionsControl.jsx';
 import RestartButton from './RestartButton.jsx';
+import ResultsScreen from './ResultsScreen.jsx';
 
 const noop = () => {};
 
@@ -88,18 +89,9 @@ export default function Game({ config, onExit, onFinish, onReplay, onRetry = noo
 
   if (game.finished) {
     const isNewRecord = !game.practice && game.score > (initialScores.current[scoreKey(game.mode, game.region, game.difficulty, game.legacyQueue ? undefined : game.includeTerritories)] || 0);
-    return <main className={`results-page accent-${mode.color}`}>
-      <div className="results-spark">✦ + ✦</div>
-      <div className="results-trophy"><Icon name="trophy" size={48} /></div>
-      <div className="eyebrow">{isNewRecord ? 'NOVO RECORDE DESBLOQUEADO!' : 'MISSÃO CONCLUÍDA'}</div>
-      <h1>{game.score === game.queue.length * POINTS ? 'O mundo é seu!' : game.score >= game.queue.length * POINTS / 2 ? 'Bela exploração!' : 'Cada partida, uma descoberta.'}</h1>
-      <p>{mode.title} <span> / </span> {region.name} <span> / </span> {game.difficulty === 'dificil' ? 'Sem acertos visíveis' : 'Com ajuda visual'}</p>
-      <div className="results-stats"><div><span>PONTUAÇÃO FINAL</span><strong>{String(game.score).padStart(4, '0')}</strong></div><div><span>ACERTOS</span><strong>{correctAnswers.length}<small>/{game.queue.length}</small></strong></div><div><span>MELHOR SEQUÊNCIA</span><strong>{game.bestStreak}<small>✦</small></strong></div></div>
-      <div className="results-map"><p>PAÍSES A REVER · {mistakes.length} A VERMELHO</p><div><MapComponent region={game.region} queue={game.queue} solved={correctAnswers.map(a => a.country.id)} wrong={mistakes.map(c => c.id)} disabled /></div></div>
-      {mistakes.length > 0 && <div className="retry-prompt"><p>Queres praticar apenas os que falhaste?</p><button className="primary-button" onClick={() => onRetry(mistakes)}>PRATICAR {mistakes.length} ERROS <Icon name="arrow" size={16} /></button></div>}
-      <div className="results-actions"><button className="primary-button" onClick={onReplay}><Icon name="reset" size={17} /> JOGAR DE NOVO</button><button className="secondary-button" onClick={onExit}>VOLTAR AO MENU <Icon name="arrow" size={17} /></button></div>
+    return <ResultsScreen title={mode.title} context={region.name} score={game.score} correct={correctAnswers.length} total={game.queue.length} mistakes={mistakes.length} newRecord={isNewRecord} onRetry={() => onRetry(mistakes)} onReplay={onReplay} onExit={onExit} map={<MapComponent region={game.region} queue={game.queue} solved={correctAnswers.map(a => a.country.id)} wrong={mistakes.map(c => c.id)} disabled />}>
       <details className="answer-review"><summary>REVISAR AS {game.queue.length} RESPOSTAS <span>+</span></summary><div>{game.answers.map((answer, i) => <div className="review-row" key={answer.country.id}><span>{String(i + 1).padStart(2, '0')}</span><Icon name={answer.correct ? 'check' : 'close'} size={16} /><span>{answer.country.nome_pt}</span><strong>{answer.country.capital}</strong></div>)}</div></details>
-    </main>;
+    </ResultsScreen>;
   }
 
   return <main className={`game-screen play-screen accent-${mode.color}`}>

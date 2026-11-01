@@ -1,18 +1,16 @@
-const districts = ['Aveiro','Beja','Braga','Bragança','Castelo Branco','Coimbra','Évora','Faro','Guarda','Leiria','Lisboa','Portalegre','Porto','Santarém','Setúbal','Viana do Castelo','Vila Real','Viseu'].map((label, index) => ({ id: String(index + 1).padStart(2, '0'), label }));
+import { districts } from '../data/districts.js';
 import { normalizeAnswer } from '../lib/game.js';
 import { extraScope } from '../lib/extra-game.js';
 import { GAME_CATEGORIES, categoryHasGame } from '../lib/categories.js';
 import { readExtra, readExtraRecord, readCapitalRecord } from '../lib/extra-game.js';
 import { toggleRegion, regionIncludes } from '../lib/regions.js';
 import { useState } from 'react';
-import { MODES, REGIONS, countries, getPool } from '../data/index.js';
+import { MODES, REGIONS, getPool } from '../data/index.js';
 import { saveKey } from '../lib/activity.js';
 import { scoreKey } from '../lib/game.js';
-import { Icon, KiwiMark } from './Icon.jsx';
-import WorldMap from './WorldMap.jsx';
+import { Icon } from './Icon.jsx';
 import KeepCorrectControl from './KeepCorrectControl.jsx';
 import MapViewControl from './MapViewControl.jsx';
-import GlobeMap from './GlobeMap.jsx';
 import ModePreview, { CARD_TITLES } from './ModePreview.jsx';
 
 export default function Home({ difficulty, setDifficulty, mapView = 'flat', setMapView, scores, onStart, saves = {}, onResume, onStatistics, includeTerritories = false, setIncludeTerritories = () => {}, onExtraStart = () => {}, initialCategory = null }) {
@@ -25,31 +23,12 @@ export default function Home({ difficulty, setDifficulty, mapView = 'flat', setM
   const [lastCategory, setLastCategory] = useState(initialCategory);
   const shownCategory = selectedCategory || lastCategory;
   const activeCategory = GAME_CATEGORIES.find(category => category.id === shownCategory);
-  const played = Object.keys(scores).length;
   return <main className="home-shell">
-    <section className="hero" aria-labelledby="hero-title">
-      <div className="hero-copy">
-        <div className="eyebrow"><span className="tiny-plus">+</span> EXPLORA. APRENDE. REPETE.</div>
-        <h1 id="hero-title">O MUNDO É TEU<br /><span>PARA EXPLORAR.</span><span className="pixel-cursor" /></h1>
-        <p>De um país ao outro, um desafio de cada vez.<br />Coloque seu conhecimento no mapa.</p>
-        <a className="hero-link" href="#jogos">ESCOLHA SUA MISSÃO <Icon name="arrow" size={17} /></a>
-        <div className="hero-stats"><span><strong>{getPool('mundo', includeTerritories).length}</strong> {includeTerritories ? 'PAÍSES E TERRITÓRIOS' : 'PAÍSES'}</span><i /><span><strong>07</strong> MODOS DE JOGO</span><i /><span><strong>∞</strong> DESCOBERTAS</span></div>
-      </div>
-      <div className="hero-art" aria-hidden="true">
-        <div className="art-topline"><span><span className="status-dot" /> KIWI EXPLORER</span><span>LIVE ATLAS / 01</span></div>
-        {mapView === 'globe' ? <GlobeMap decorative /> : <WorldMap decorative />}
-        {mapView === 'flat' && <><div className="art-coordinate coordinate-one">23°33′ S<br /><span>46°38′ W</span></div>
-        <div className="art-coordinate coordinate-two">35°40′ N<br /><span>139°41′ E</span></div></>}
-        <div className="map-floating-tag"><KiwiMark size={18} /><span>UMA DOSE FRESCA DE GEOGRAFIA</span></div>
-        <span className="corner top-left" /><span className="corner bottom-right" />
-      </div>
-    </section>
-
     <section className="games-section" id="jogos" aria-labelledby="games-title">
       <div className="section-heading">
-        <div><div className="section-kicker">SELEÇÃO DE MISSÃO</div><h2 id="games-title">Escolhe o teu jogo<span>.</span></h2></div>
+        <h1 id="games-title">Escolhe o teu jogo</h1>
       </div>
-      <div className="home-map-settings"><MapViewControl value={mapView} onChange={setMapView} /><button type="button" className={`territories-control ${includeTerritories ? 'is-on' : ''}`} role="switch" aria-checked={includeTerritories} onClick={() => setIncludeTerritories(!includeTerritories)}><span><strong>Incluir territórios</strong><small>Ex.: Guernsey e Jersey</small></span><b>{includeTerritories ? 'LIGADO' : 'DESLIGADO'}</b></button><KeepCorrectControl checked={difficulty === 'normal'} onChange={value => setDifficulty(value ? 'normal' : 'dificil')} /></div>
+
       <p className="save-explainer"><Icon name="save" size={16} /><span>Progresso guardado automaticamente neste navegador.</span><button onClick={onStatistics}>VER ESTATÍSTICAS <Icon name="chart" size={15} /></button></p>
       <div className="category-grid" aria-label="Categorias de jogos">{GAME_CATEGORIES.map(category => {
         const open = selectedCategory === category.id;
@@ -63,6 +42,7 @@ export default function Home({ difficulty, setDifficulty, mapView = 'flat', setM
       <div id="category-games" className={`category-expansion ${selectedCategory ? 'is-open' : ''}`} aria-hidden={!selectedCategory} inert={!selectedCategory}>
         <div className="category-expansion-inner">{activeCategory && <section className="category-content" key={activeCategory.id} aria-label={`Jogos de ${activeCategory.name}`}>
           <div className="category-heading"><span>{activeCategory.name}</span><small>ESCOLHE UM JOGO</small></div>
+      <div className="home-map-settings"><MapViewControl value={mapView} onChange={setMapView} /><button type="button" className={`territories-control ${includeTerritories ? 'is-on' : ''}`} role="switch" aria-checked={includeTerritories} onClick={() => setIncludeTerritories(!includeTerritories)}><span><strong>Incluir territórios</strong><small>Ex.: Guernsey e Jersey</small></span><b>{includeTerritories ? 'LIGADO' : 'DESLIGADO'}</b></button><KeepCorrectControl checked={difficulty === 'normal'} onChange={value => setDifficulty(value ? 'normal' : 'dificil')} /></div>
           <div className="games-grid category-games-grid">
         {MODES.filter(mode => categoryHasGame(activeCategory, mode.id)).map(mode => {
           const region = regions[mode.id];
@@ -103,6 +83,6 @@ export default function Home({ difficulty, setDifficulty, mapView = 'flat', setM
         </section>}</div>
       </div>
     </section>
-    <div className="bottom-ribbon"><span><Icon name="trophy" size={17} /><strong>Seu único rival é você.</strong> Supere seus recordes a cada partida.</span><span><span className="status-dot" /> {played ? `${played} DESAFIO${played > 1 ? 'S' : ''} NO SEU HISTÓRICO` : 'SEUS RECORDES FICAM NESTE NAVEGADOR'}</span></div>
+
   </main>;
 }

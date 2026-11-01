@@ -1,0 +1,1 @@
+export const districts = ['Aveiro','Beja','Braga','Bragança','Castelo Branco','Coimbra','Évora','Faro','Guarda','Leiria','Lisboa','Portalegre','Porto','Santarém','Setúbal','Viana do Castelo','Vila Real','Viseu'].map((label, index) => ({ id: String(index + 1).padStart(2, '0'), label }));
