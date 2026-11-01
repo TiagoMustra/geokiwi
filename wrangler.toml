@@ -1,0 +1,4 @@
+# Cloudflare Pages: static files only; no Worker, database or paid bindings.
+name = "geokiwi"
+pages_build_output_dir = "./dist"
+compatibility_date = "2026-11-01"

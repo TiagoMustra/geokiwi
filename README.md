@@ -221,3 +221,7 @@ Os créditos também estão acessíveis no rodapé do site. As fronteiras são c
 - Aproximação de capitais: distância geodésica em quilómetros; pontos = arredondar(100 × exp(-distância / 500)), com máximo de 25 fora do país. Acima de 100 km ou fora do país, a capital entra no treino final.
 - Os modos adicionais guardam a partida e os recordes localmente, por modo, região e ajuda visual. O painel de estatísticas existente acompanha os quatro modos de países e capitais por nome.
 - As bandeiras são incorporadas em `src/data/flag-svgs.json`, evitando uma requisição por pergunta.
+
+## Cloudflare Pages e domínio geokiwi.pt
+
+Preparação pronta em `wrangler.toml`, com os comandos `cloudflare:login`, `cloudflare:create`, `cloudflare:deploy` e `cloudflare:package`. O script de embalagem gera um ZIP só com os ficheiros estáticos. O guia [docs/PUBLICAR-CLOUDFLARE.md](docs/PUBLICAR-CLOUDFLARE.md) explica o upload, o domínio e onde os dados são guardados. A publicação numa conta Cloudflare requer o login do proprietário; preparar o código não cria a conta nem regista o domínio.
