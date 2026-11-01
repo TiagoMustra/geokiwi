@@ -29,7 +29,6 @@ export default function Home({ difficulty, setDifficulty, mapView = 'flat', setM
     <section className="hero restored-hero" aria-labelledby="hero-title">
       <div className="hero-copy">
         <h1 id="hero-title" aria-label="O mundo é teu para explorar."><span className="hero-type-line hero-type-first" aria-hidden="true">O MUNDO É TEU</span><span className="hero-type-line hero-type-second" aria-hidden="true">PARA EXPLORAR.<i className="pixel-cursor" /></span></h1>
-        <a className="hero-link" href="#jogos">ESCOLHER JOGO <Icon name="arrow" size={17}/></a>
       </div>
       <div className="hero-art" aria-hidden="true">{mapView === 'globe' ? <GlobeMap decorative/> : <WorldMap decorative/>}<span className="corner top-left"/><span className="corner bottom-right"/></div>
     </section>
