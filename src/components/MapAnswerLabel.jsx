@@ -1,7 +1,9 @@
+import { useLocale } from '../i18n/LocaleContext.jsx';
 export default function MapAnswerLabel({ position, country, correct, showCapital = false, scale = 1 }) {
+  const {countryName,capitalName}=useLocale();
   const shorten = text => text.length > 30 ? `${text.slice(0, 28)}…` : text;
-  const name = shorten(country.nome_pt);
-  const capital = showCapital ? shorten(country.capital) : '';
+  const name = shorten(countryName(country));
+  const capital = showCapital ? shorten(capitalName(country)) : '';
   const width = Math.max(116, Math.min(248, Math.max(name.length, capital.length) * 6.7 + 24));
   const height = showCapital ? 48 : 31;
   return <g className={`map-answer-label ${correct ? 'is-correct' : 'is-revealed'}`} role="img" aria-label={`${country.nome_pt}${showCapital ? `, capital ${country.capital}` : ''}`} transform={`translate(${position[0]},${position[1]}) scale(${1 / scale})`}>

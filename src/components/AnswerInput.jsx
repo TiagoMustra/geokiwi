@@ -1,13 +1,15 @@
 import { useEffect, useId, useMemo, useRef, useState } from 'react';
+import { useLocale } from '../i18n/LocaleContext.jsx';
 import { getNameSuggestions, nextSuggestionIndex } from '../lib/suggestions.js';
 
 export default function AnswerInput({ value, onChange, onSelect, inputRef, pool, mode, enabled, disabled }) {
+  const {locale}=useLocale();
   const [open, setOpen] = useState(false);
   const [focused, setFocused] = useState(false);
   const [active, setActive] = useState(-1);
   const listRef = useRef(null);
   const listId = useId();
-  const items = useMemo(() => enabled ? getNameSuggestions(pool, mode, value) : [], [pool, mode, value, enabled]);
+  const items = useMemo(() => enabled ? getNameSuggestions(pool, mode, value, 6, locale) : [], [pool, mode, value, enabled, locale]);
   const visible = enabled && !disabled && focused && open && items.length > 0;
   useEffect(() => { if (visible && active >= 0) listRef.current?.children[active]?.scrollIntoView({ block: 'nearest' }); }, [active, visible]);
 

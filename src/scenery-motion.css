@@ -1,0 +1,30 @@
+/* One light animated layer, entirely separate from the game map SVG. */
+.scene-motion{position:absolute;inset:0;overflow:hidden;pointer-events:none}
+.scene-boat-route{position:absolute;left:74%;top:76%;width:82px;height:92px;animation:sail-route 95s ease-in-out infinite alternate;will-change:transform}
+.scene-sailboat{display:block;width:100%;height:100%}
+.scene-boat-bob{animation:sail-bob 4.5s ease-in-out infinite;transform-origin:50% 90%}
+.scene-boat-wake{display:block;width:64px;height:2px;margin:-3px auto 0;background:repeating-linear-gradient(90deg,#d9e5d0aa 0 8px,transparent 8px 13px);animation:wake-shimmer 4s ease-in-out infinite}
+.scene-waves{position:absolute;inset:0;width:100%;height:100%;opacity:.43;pointer-events:none}
+.wave-shimmer{animation:wave-glint 6s ease-in-out infinite}.wave-two{animation-delay:-2s}.wave-three{animation-delay:-4s}
+.scene-birds{position:absolute;left:14%;top:21%;width:74px;opacity:.65;animation:birds-drift 110s linear infinite;will-change:transform}
+.scene-birds svg{width:100%;height:auto}.scene-wing-up{animation:wing-flap 1.4s steps(1,end) infinite}.scene-wing-down{animation:wing-flap 1.4s steps(1,end) infinite reverse}
+.scene-kiwi-walk{position:absolute;width:56px;left:5%;bottom:8%;animation:kiwi-wander 28s ease-in-out infinite alternate}
+.scene-kiwi-bird{width:100%;height:auto;animation:kiwi-bob .65s steps(2,end) infinite}
+.kiwi-walk-legs{transform-origin:center;animation:kiwi-step .65s steps(2,end) infinite}
+.scene-fern{position:absolute;width:100px;height:100px;bottom:-8px;left:-10px;transform-origin:45% 100%;animation:fern-sway 8s ease-in-out infinite;opacity:.82}
+.scene-fern-right{left:auto;right:-10px;width:82px;animation-delay:-3s;transform:scaleX(-1)}
+.home-scenery[data-paused="true"] .scene-motion *{animation-play-state:paused!important}
+.scenic-app.is-playing:has(.play-screen) .home-scenery{visibility:hidden}
+.scenic-app.is-playing:has(.play-screen) .scene-motion *{animation-play-state:paused!important}
+@keyframes sail-route{from{transform:translate(0,0)}to{transform:translate(8vw,-2vh)}}
+@keyframes sail-bob{0%,100%{transform:translateY(1px) rotate(-1deg)}50%{transform:translateY(-3px) rotate(1deg)}}
+@keyframes wake-shimmer{0%,100%{opacity:.3;transform:scaleX(.9)}50%{opacity:.7;transform:scaleX(1.1)}}
+@keyframes wave-glint{0%,100%{opacity:.05;transform:translateX(-3px)}50%{opacity:.85;transform:translateX(4px)}}
+@keyframes birds-drift{from{transform:translateX(-22vw)}to{transform:translateX(100vw)}}
+@keyframes wing-flap{0%,49%{opacity:1}50%,100%{opacity:0}}
+@keyframes kiwi-wander{from{transform:translateX(0)}to{transform:translateX(9vw)}}
+@keyframes kiwi-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-1px)}}
+@keyframes kiwi-step{0%,100%{transform:translateX(-1px)}50%{transform:translateX(1px)}}
+@keyframes fern-sway{0%,100%{rotate:-2deg}50%{rotate:2deg}}
+@media(max-width:680px){.scene-boat-route{left:53%;top:63%;width:51px;height:59px}.scene-kiwi-walk{width:38px;left:3%;bottom:7%}.scene-fern{width:65px;height:65px}.scene-birds{width:48px;top:24%}@keyframes sail-route{from{transform:translate(0,0)}to{transform:translate(19vw,-2vh)}}}
+@media(prefers-reduced-motion:reduce){.scene-motion *{animation:none!important;will-change:auto!important}.scene-wing-down{display:none}}

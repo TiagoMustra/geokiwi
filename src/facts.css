@@ -1,0 +1,17 @@
+.kiwi-facts{display:grid;grid-template-columns:24px minmax(0,1fr) auto;align-items:start;gap:12px;width:min(690px,100%);padding:14px 16px;margin:22px auto 0;color:var(--progress-ink);background:var(--progress-panel);border:1px solid var(--line);text-align:left}
+.kiwi-facts>.kiwi-mark{margin-top:3px;flex:none}
+.kiwi-facts-content{min-width:0}
+.kiwi-facts-heading{display:flex;align-items:center;gap:9px;flex-wrap:wrap;font:8px/1.4 var(--mono);letter-spacing:.45px;color:var(--progress-soft)}
+.kiwi-facts-heading small{font:7px/1.4 var(--mono);color:var(--accent);border-left:1px solid var(--line);padding-left:9px}
+.kiwi-fact-text{font:13px/1.5 Space,sans-serif;margin:7px 0;min-height:39px;animation:kiwi-fact-in .2s ease-out}
+.kiwi-facts-meta{display:flex;justify-content:space-between;align-items:center;gap:8px;font:9px/1.4 Space,sans-serif;color:var(--progress-soft)}
+.kiwi-facts-meta a{display:inline-flex;align-items:center;gap:4px;text-decoration:underline;text-decoration-color:transparent;text-underline-offset:3px;min-width:0}
+.kiwi-facts-meta a:hover,.kiwi-facts-meta a:focus-visible{text-decoration-color:currentColor;color:var(--progress-ink)}
+.kiwi-facts-meta>span{white-space:nowrap;font:8px/1.4 var(--mono)}
+.kiwi-facts-controls{display:flex;gap:3px;margin-top:0}
+.kiwi-facts-controls button{display:grid;place-items:center;min-width:28px;min-height:28px;padding:6px;border:1px solid var(--line);background:none;color:var(--progress-soft)}
+.kiwi-facts-controls button:hover,.kiwi-facts-controls button:focus-visible{border-color:var(--accent);color:var(--accent)}
+.kiwi-facts-controls button:disabled{opacity:.35;cursor:default}
+@keyframes kiwi-fact-in{from{opacity:.35;transform:translateY(2px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:680px){.kiwi-facts{grid-template-columns:21px minmax(0,1fr);gap:10px;padding:13px;margin-top:18px}.kiwi-facts>.kiwi-mark{width:21px;height:21px}.kiwi-facts-content{grid-row:span 2}.kiwi-facts-controls{grid-column:1;grid-row:2;flex-direction:column;gap:3px}.kiwi-facts-controls button{min-width:25px;min-height:25px;padding:4px}.kiwi-fact-text{min-height:60px;font-size:12px}.kiwi-facts-meta{align-items:flex-start;flex-wrap:wrap;gap:6px}}
+@media(prefers-reduced-motion:reduce){.kiwi-fact-text{animation:none}}

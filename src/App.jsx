@@ -11,6 +11,7 @@ import Game from './components/Game.jsx';
 import ExtraGame from './components/ExtraGame.jsx';
 import Modal from './components/Modal.jsx';
 import ThemeControl from './components/ThemeControl.jsx';
+import LanguageControl from './components/LanguageControl.jsx';
 
 export default function App() {
   const [page, setPage] = useState('home');
@@ -114,12 +115,12 @@ export default function App() {
     });
   }, []);
 
-  return <div className={config || extra ? 'app is-playing' : page === 'home' ? 'app is-home' : 'app'}>
-    {!config && !extra && page === 'home' && <HomeBackdrop />}
+  return <div className={config || extra ? 'app is-playing scenic-app' : page === 'home' ? 'app is-home scenic-app' : 'app scenic-app'}>
+    <HomeBackdrop />
     <header className="site-header"><div className="header-inner">
       <button className="brand" onClick={() => { if (!config) { home(); window.scrollTo({ top: 0, behavior: 'smooth' }); } else setModal('leave'); }} aria-label="GeoKiwi início"><KiwiMark /><span>GEO<span className="brand-accent">KIWI</span><small>O TEU MUNDO DE GEOGRAFIA</small></span></button>
       <nav aria-label="Navegação principal"><button className={page === 'home' && !modal ? 'nav-active' : ''} onClick={() => { if (config) setModal('leave'); else { home(); setTimeout(() => document.getElementById('jogos')?.scrollIntoView({ behavior: 'smooth' }), 0); } }}>JOGAR<span>01</span></button><button className="help-nav" onClick={() => setModal('help')}>COMO JOGAR<span>02</span></button><button className={page === 'stats' ? 'stats-nav nav-active' : 'stats-nav'} onClick={statistics}>ESTATÍSTICAS<span>03</span></button><button className="records-nav" onClick={() => setModal('scores')}>RECORDES<span>04</span></button></nav>
-      <div className="header-right"><span className="ready-label"><span className="status-dot" /> PRONTO PARA EXPLORAR</span><ThemeControl value={theme} onChange={setTheme} /><button className="sound-toggle" aria-label={soundEnabled ? 'Desativar som' : 'Ativar som'} aria-pressed={soundEnabled} onClick={() => setSoundEnabled(enabled => !enabled)}><Icon name={soundEnabled ? 'volume' : 'muted'} size={18} /></button><span className="language-label">PT-BR</span></div>
+      <div className="header-right"><span className="ready-label"><span className="status-dot" /> PRONTO PARA EXPLORAR</span><ThemeControl value={theme} onChange={setTheme} /><button className="sound-toggle" aria-label={soundEnabled ? 'Desativar som' : 'Ativar som'} aria-pressed={soundEnabled} onClick={() => setSoundEnabled(enabled => !enabled)}><Icon name={soundEnabled ? 'volume' : 'muted'} size={18} /></button><LanguageControl /></div>
     </div></header>
     {extra ? <ExtraGame key={gameId} config={extra} keepCorrectInitial={difficulty === 'normal'} onExit={home} /> : config ? <Game key={gameId} config={config} suggestionsEnabled={suggestionsEnabled} onSuggestionsChange={setSuggestionsEnabled} theme={theme} onThemeChange={setTheme} soundEnabled={soundEnabled} onSoundChange={setSoundEnabled} onStatistics={statistics} initialGame={config.initialGame} onCheckpoint={saveProgress} storageAvailable={storageAvailable} paused={Boolean(modal)} mapView={mapView} onMapViewChange={setMapView} highScores={scores} onKeepCorrectChange={value => setDifficulty(value ? 'normal' : 'dificil')} onExit={home} onReplay={() => launch(config.mode, config.region, config.initialGame.includeTerritories, config.initialGame.practice ? config.initialGame.queue : null)} onRetry={pool => launch(config.mode, config.region, config.initialGame.includeTerritories, pool)} onFinish={finish} sound={sound} /> : page === 'stats' ? <Statistics activity={activity} onBack={home} onRecords={() => setModal('scores')} /> : <Home onExtraStart={startExtra} includeTerritories={includeTerritories} setIncludeTerritories={setIncludeTerritories} saves={activity.saves} onResume={resume} onStatistics={statistics} difficulty={difficulty} setDifficulty={setDifficulty} mapView={mapView} setMapView={setMapView} scores={scores} onStart={start} />}
     {!config && !extra && <footer className="site-footer"><span><KiwiMark size={14} /> GeoKiwi <b>© 2026</b></span><button onClick={() => setModal('about')}>DADOS & CRÉDITOS <Icon name="northeast" size={12} /></button></footer>}

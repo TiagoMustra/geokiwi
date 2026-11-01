@@ -72,3 +72,16 @@
   .island-home .category-icon{width:48px;height:48px}
   .island-home .category-heading{padding:10px 12px}
 }
+
+/* The same scene also surrounds statistics, dialogs and completed runs. */
+.app.scenic-app{position:relative;isolation:isolate;background:transparent;min-height:100svh}
+.scenic-app .site-header{background:#17251ee8;border-bottom-color:#8b9a6b40}
+:root[data-theme="light"] .scenic-app .site-header{background:#fff9e9eb;border-bottom-color:#b9b99c80}
+.scenic-app .site-footer{background:#17251eed;border-color:var(--line)}
+:root[data-theme="light"] .scenic-app .site-footer{background:#fff9e9eb}
+.scenic-app .stats-page{margin:28px auto 38px;width:min(1280px,calc(100% - 48px));padding:26px 28px;background:var(--progress-panel);border:1px solid var(--line)}
+.scenic-app.is-playing:has(.clean-results){height:auto;overflow:visible;min-height:100svh}
+.scenic-app .clean-results.results-page{background:none;min-height:100svh}
+.scenic-app .results-shell{padding:24px;background:var(--progress-panel);border:1px solid var(--line)}
+.scenic-app .modal::backdrop{background:#15251ca3}
+@media(max-width:680px){.scenic-app .stats-page{width:calc(100% - 28px);padding:20px 15px;margin:16px auto 24px}.scenic-app .results-shell{padding:18px 14px}.scenic-app .clean-results.results-page{padding:18px 14px}}

@@ -19,6 +19,7 @@ export const REGION_FRAMES = {
 export const regionRotation = region => region === 'oceania' ? [-150, 0, 0] : region === 'americas' ? [80, 0, 0] : [0, 0, 0];
 
 export function getRegionTransform(region, projection, width, height) {
+  if (region === 'mundo') return zoomIdentity.translate(width / 2, height / 2).scale(1.1).translate(-width / 2, -height / 2);
   const frame = REGION_FRAMES[region];
   if (!frame) return zoomIdentity;
   const [west, south, east, north] = frame;

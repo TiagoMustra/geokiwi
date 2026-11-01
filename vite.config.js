@@ -1,7 +1,7 @@
 import { defineConfig } from 'vite';
 
 export default defineConfig({
-  esbuild: { jsx: 'automatic' },
+  esbuild: { jsx: 'automatic', jsxImportSource: '/src/i18n' },
   build: {
     target: 'es2022',
     rollupOptions: { output: { manualChunks(id) {

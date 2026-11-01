@@ -1,0 +1,4 @@
+.kiwi-textured-map{--kiwi-flesh:#a7cb64;--kiwi-flesh-light:#d1e9a4;--kiwi-core:#f0edbf;--kiwi-seed:#344023;--kiwi-rind:#ba905a}
+:root[data-theme="light"] .kiwi-textured-map{--kiwi-flesh:#bad787;--kiwi-flesh-light:#e0ebba;--kiwi-core:#faf0c9;--kiwi-seed:#47522f;--kiwi-rind:#8f663d}
+.kiwi-textured-map .country.correct:not(.wrong):not(.reveal-answer),.kiwi-textured-map .country.correct:not(.wrong):not(.reveal-answer):hover{fill:var(--kiwi-country-fill,var(--map-correct))!important;stroke:var(--kiwi-rind)!important;stroke-width:1.35;paint-order:stroke fill}
+.kiwi-textured-map .micro-country.correct:not(.wrong){stroke-width:1.5}

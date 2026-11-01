@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
 import { geoPath, geoArea, select, zoom, zoomIdentity, zoomTransform, pointer } from 'd3';
 import { regionIncludes } from '../lib/regions.js';
 import { features, byId } from '../data/index.js';
@@ -7,11 +7,13 @@ import { focusGeometry, getRegionTransform, createFlatProjection, getWorldCopies
 import { mapPoliticalFeature } from '../lib/catalog.js';
 import { loadDetailedWorld } from '../lib/flat-detail.js';
 import CapitalPin from './CapitalPin.jsx';
+import KiwiMapTexture from './KiwiMapTexture.jsx';
 import MapAnswerLabel from './MapAnswerLabel.jsx';
 
 /** React owns country paths; D3 moves their parent. Each horizontal copy uses
  * the same country IDs and game state, so wrapping cannot create new answers. */
 export default function WorldMap({ decorative = false, region = 'mundo', target, typed = false, showCapitalPin = false, keepCorrect = true, solved = [], flash, onCountryClick, disabled = false, reveal = null, queue = null, wrong = [], onPointClick = null, guessPoint = null }) {
+  const textureId = `kiwi-flat-${useId().replace(/[^a-zA-Z0-9_-]/g, '')}`;
   const boxRef = useRef(null);
   const svgRef = useRef(null);
   const groupRef = useRef(null);
@@ -119,7 +121,7 @@ export default function WorldMap({ decorative = false, region = 'mundo', target,
     });
   }, [view.primary, view.first, view.last, detail, disabled, typed, region]);
 
-  return <div ref={boxRef} className={`map-container mercator-map ${decorative ? 'decorative-map' : ''}`}>
+  return <div ref={boxRef} className={`map-container mercator-map kiwi-textured-map ${decorative ? 'decorative-map' : ''}`} style={{ '--kiwi-country-fill': `url(#${textureId})` }}>
     <svg ref={svgRef} onClick={event => {
       if (!onPointClick || disabled || event.defaultPrevented) return;
       const coords = flatClickCoordinate(pointer(event, svgRef.current), zoomTransform(svgRef.current), projection);
@@ -129,6 +131,7 @@ export default function WorldMap({ decorative = false, region = 'mundo', target,
         onPointClick(coords, countryId);
       }
     }} viewBox={`0 0 ${width} ${height}`} aria-label={decorative ? 'Mapa do mundo' : 'Mapa interativo com deslocamento horizontal contínuo. Arraste para mover e use a rolagem ou os botões para ampliar.'} role={decorative ? 'img' : 'group'}>
+      <KiwiMapTexture id={textureId} scale={scale} />
       <rect width={width} height={height} className="mercator-ocean" />
       <g ref={groupRef}>
         {copies.map(copy => <g key={copy} data-world-copy={copy} transform={`translate(${copy * period},0)`} aria-hidden={!decorative && copy !== view.primary ? true : undefined}>

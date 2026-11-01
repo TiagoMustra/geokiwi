@@ -1,12 +1,13 @@
+import { capitalName } from '../i18n/locale.js';
 import { normalizeAnswer } from './game.js';
 
 /** Prefix completion only: never inspect the target or prioritize its answer. */
-export function getNameSuggestions(pool, mode, query, limit = 6) {
+export function getNameSuggestions(pool, mode, query, limit = 6, locale = 'pt') {
   const prefix = normalizeAnswer(query.trim());
   if (!prefix || ![2, 4].includes(mode)) return [];
   const found = new Map();
   for (const country of pool) {
-    const names = mode === 4 ? [country.capital, ...country.capitais_aceitas] : [country.nome_pt, country.nome_en];
+    const names = mode === 4 ? [capitalName(country, locale), country.capital, ...country.capitais_aceitas] : locale === 'en' ? [country.nome_en, country.nome_pt] : [country.nome_pt, country.nome_en];
     for (let index = 0; index < names.length; index++) {
       const name = names[index];
       if (!name || !normalizeAnswer(name).startsWith(prefix)) continue;
@@ -17,7 +18,7 @@ export function getNameSuggestions(pool, mode, query, limit = 6) {
       if (mode === 2) break;
     }
   }
-  return [...found.values()].sort((a, b) => a.priority - b.priority || a.label.localeCompare(b.label, 'pt', { sensitivity: 'base' }))
+  return [...found.values()].sort((a, b) => a.priority - b.priority || a.label.localeCompare(b.label, locale, { sensitivity: 'base' }))
     .slice(0, limit).map(({ priority, ...item }) => item);
 }
 
