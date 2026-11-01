@@ -11,6 +11,8 @@ import { scoreKey } from '../lib/game.js';
 import { Icon } from './Icon.jsx';
 import KeepCorrectControl from './KeepCorrectControl.jsx';
 import MapViewControl from './MapViewControl.jsx';
+import WorldMap from './WorldMap.jsx';
+import GlobeMap from './GlobeMap.jsx';
 import ModePreview, { CARD_TITLES } from './ModePreview.jsx';
 
 export default function Home({ difficulty, setDifficulty, mapView = 'flat', setMapView, scores, onStart, saves = {}, onResume, onStatistics, includeTerritories = false, setIncludeTerritories = () => {}, onExtraStart = () => {}, initialCategory = null }) {
@@ -24,9 +26,16 @@ export default function Home({ difficulty, setDifficulty, mapView = 'flat', setM
   const shownCategory = selectedCategory || lastCategory;
   const activeCategory = GAME_CATEGORIES.find(category => category.id === shownCategory);
   return <main className="home-shell">
+    <section className="hero restored-hero" aria-labelledby="hero-title">
+      <div className="hero-copy">
+        <h1 id="hero-title" aria-label="O mundo é teu para explorar."><span className="hero-type-line hero-type-first" aria-hidden="true">O MUNDO É TEU</span><span className="hero-type-line hero-type-second" aria-hidden="true">PARA EXPLORAR.<i className="pixel-cursor" /></span></h1>
+        <a className="hero-link" href="#jogos">ESCOLHER JOGO <Icon name="arrow" size={17}/></a>
+      </div>
+      <div className="hero-art" aria-hidden="true">{mapView === 'globe' ? <GlobeMap decorative/> : <WorldMap decorative/>}<span className="corner top-left"/><span className="corner bottom-right"/></div>
+    </section>
     <section className="games-section" id="jogos" aria-labelledby="games-title">
       <div className="section-heading">
-        <h1 id="games-title">Escolhe o teu jogo</h1>
+        <h2 id="games-title">Escolhe o teu jogo</h2>
       </div>
 
       <p className="save-explainer"><Icon name="save" size={16} /><span>Progresso guardado automaticamente neste navegador.</span><button onClick={onStatistics}>VER ESTATÍSTICAS <Icon name="chart" size={15} /></button></p>
