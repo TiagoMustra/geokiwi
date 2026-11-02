@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { geoPath, geoArea, select, zoom, zoomIdentity, zoomTransform, pointer } from 'd3';
+import { geoPath, select, zoom, zoomIdentity, zoomTransform, pointer } from 'd3';
 import { regionIncludes } from '../lib/regions.js';
 import { features, byId } from '../data/index.js';
 import { Icon } from './Icon.jsx';
-import { focusGeometry, getRegionTransform, createFlatProjection, getWorldCopies, createFlatGraticule, flatClickCoordinate } from '../lib/map.js';
+import { focusGeometry, getRegionTransform, createFlatProjection, getWorldCopies, createFlatGraticule, flatClickCoordinate, microCountryFeatures } from '../lib/map.js';
 import { mapPoliticalFeature } from '../lib/catalog.js';
 import { loadDetailedWorld } from '../lib/flat-detail.js';
 import CapitalPin from './CapitalPin.jsx';
@@ -47,7 +47,7 @@ export default function WorldMap({ decorative = false, region = 'mundo', target,
   const geographicPosition = geographicPoint ? projection(geographicPoint) : null;
   const playableIds = useMemo(() => queue ? new Set(queue.map(c => c.id)) : null, [queue]);
   const eligible = useMemo(() => features.filter(f => byId[f.id] && (!playableIds || playableIds.has(f.id)) && regionIncludes(region, byId[f.id].continente)), [region, playableIds]);
-  const targets = useMemo(() => eligible.filter(f => geoArea(f) < 0.000012).map(feature => ({ feature, center: projection(byId[feature.id].coordenadas_centro) })), [eligible, projection]);
+  const targets = useMemo(() => microCountryFeatures(eligible).map(feature => ({ feature, center: projection(byId[feature.id].coordenadas_centro) })), [eligible, projection]);
   const revealPosition = reveal ? projection(reveal.showCapital ? reveal.country.coordenadas_capital : reveal.country.coordenadas_centro) : null;
   const guessPosition = guessPoint ? projection(guessPoint) : null;
   const capitalPosition = showCapitalPin && target?.coordenadas_capital ? projection(target.coordenadas_capital) : null;

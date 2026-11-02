@@ -1,5 +1,16 @@
 import { geoArea, geoContains, geoMercator, geoGraticule, zoomIdentity } from 'd3';
 
+/** Count every land part belonging to a country before adding its small-country marker. */
+export function microCountryFeatures(features, maximumArea = 0.000012) {
+  const groups = new Map();
+  for (const feature of features) {
+    const previous = groups.get(feature.id);
+    if (previous) previous.area += geoArea(feature);
+    else groups.set(feature.id, { feature, area: geoArea(feature) });
+  }
+  return [...groups.values()].filter(group => group.area < maximumArea).map(group => group.feature);
+}
+
 /** Zoom to the main landmass; overseas islands must not force a global view. */
 export function focusGeometry(features, center) {
   const polygons = features.flatMap(feature => feature.geometry.type === 'MultiPolygon'

@@ -3,7 +3,18 @@ import assert from 'node:assert/strict';
 import { geoPath, zoom, zoomIdentity } from 'd3';
 import { feature } from 'topojson-client';
 import { readFileSync } from 'node:fs';
-import { createFlatProjection, getWorldCopies } from '../src/lib/map.js';
+import { createFlatProjection, getWorldCopies, microCountryFeatures } from '../src/lib/map.js';
+import { mapPoliticalFeature } from '../src/lib/catalog.js';
+
+test('small-country markers do not add a second marker for a large parent country', () => {
+  const topology = JSON.parse(readFileSync(new URL('../src/data/world.json', import.meta.url)));
+  const extra = JSON.parse(readFileSync(new URL('../src/data/extra-geometries.json', import.meta.url)));
+  const land = [...feature(topology, topology.objects.countries).features, ...extra].map((item,index) => mapPoliticalFeature({...item,id:item.id?String(item.id).padStart(3,'0'):`unmapped-${index}`}));
+  const ids = microCountryFeatures(land).map(item => item.id);
+  assert.equal(new Set(ids).size,ids.length);
+  assert.ok(!ids.includes('036'), 'Australian island parts must not add a marker in central Australia');
+  for (const id of ['336','492','674','798']) assert.ok(ids.includes(id), id);
+});
 
 const close = (a, b) => assert.ok(Math.abs(a - b) < 0.00001, `${a} should equal ${b}`);
 

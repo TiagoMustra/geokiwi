@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
-import { geoArea, geoGraticule10, geoPath } from 'd3';
+import { geoGraticule10, geoPath } from 'd3';
+import { microCountryFeatures } from '../lib/map.js';
 import { regionIncludes } from '../lib/regions.js';
 import { features, byId } from '../data/index.js';
 import { clampGlobeZoom, createGlobeProjection, getGlobeCamera, globePointVisible, globeRadius, rotateGlobe, simplifyGlobeFeatures } from '../lib/globe.js';
@@ -78,7 +79,7 @@ export default function GlobeMap({ decorative = false, region = 'mundo', target,
   const geometries = useMemo(() => (moving ? movingFeatures : features).map(feature => ({ feature, d: path(feature) })), [moving, path]);
   const grid = useMemo(() => path(graticule), [path]);
   const playableIds = useMemo(() => queue ? new Set(queue.map(c => c.id)) : null, [queue]);
-  const microCountries = useMemo(() => features.filter(f => byId[f.id] && (!playableIds || playableIds.has(f.id)) && geoArea(f) < 0.000012 && regionIncludes(region, byId[f.id].continente)), [region, playableIds]);
+  const microCountries = useMemo(() => microCountryFeatures(features.filter(f => byId[f.id] && (!playableIds || playableIds.has(f.id)) && regionIncludes(region, byId[f.id].continente))), [region, playableIds]);
   const capitalPosition = showCapitalPin && globePointVisible(target?.coordenadas_capital, projection) ? projection(target.coordenadas_capital) : null;
 
   function pointerDown(event) {
