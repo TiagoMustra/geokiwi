@@ -1,3 +1,4 @@
+import { userKiwiFacts } from './kiwi-facts-user.js';
 /** Short, independently sourced facts. No live price/ranking or health claims. */
 const sources = {
   history: { title: 'NZ History', url: 'https://nzhistory.govt.nz/chinese-gooseberry-becomes-kiwifruit' },
@@ -132,5 +133,7 @@ const rows = [
   ["no-nectar", "fruit", "pollination", "As flores do kiwi fornecem pólen aos insetos, mas não produzem néctar.", "Kiwifruit flowers provide pollen to insects but do not produce nectar."],
 ];
 
-export const kiwiFacts = rows.map(([id, category, source, pt, en]) => ({ id, category, pt, en, source: sources[source] }));
+const originalFacts = rows.map(([id, category, source, pt, en]) => ({ id, category, pt, en, source: sources[source] }));
+// Spread the new collection through the rotation, keeping all original facts.
+export const kiwiFacts = originalFacts.flatMap((fact,index)=>[fact,...(index%3===2&&userKiwiFacts[Math.floor(index/3)]?[userKiwiFacts[Math.floor(index/3)]]:[])]);
 export default kiwiFacts;

@@ -20,3 +20,14 @@ test('kiwi facts are about the fruit, never the kiwi bird', () => {
     assert.doesNotMatch(`${fact.pt} ${fact.en}`, /kiwi-ave|kiwis-ave|kiwi birds?|kiwi bird species/i, fact.id);
   }
 });
+
+test('the user collection adds sourced, bilingual entries with original-file provenance and dated figures',async()=>{
+ const {userKiwiFacts}=await import('../src/data/kiwi-facts-user.js');
+ assert.ok(userKiwiFacts.length>=25);
+ for(const fact of userKiwiFacts){
+  assert.ok(kiwiFacts.some(item=>item.id===fact.id));
+  assert.equal(fact.fromUserFile.name,'geokiwi_funfactos_kiwi.txt');
+  assert.ok(Number.isInteger(fact.fromUserFile.number)&&fact.fromUserFile.number>=1&&fact.fromUserFile.number<=171);
+  if(fact.period){assert.ok(fact.pt.includes(fact.period));assert.ok(fact.en.includes(fact.period));}
+ }
+});
