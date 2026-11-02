@@ -5,7 +5,6 @@ import { features, byId } from '../data/index.js';
 import { clampGlobeZoom, createGlobeProjection, getGlobeCamera, globePointVisible, globeRadius, rotateGlobe, simplifyGlobeFeatures } from '../lib/globe.js';
 import { Icon } from './Icon.jsx';
 import CapitalPin from './CapitalPin.jsx';
-import KiwiMapTexture from './KiwiMapTexture.jsx';
 import MapAnswerLabel from './MapAnswerLabel.jsx';
 
 const movingFeatures = simplifyGlobeFeatures(features);
@@ -13,7 +12,6 @@ const graticule = geoGraticule10();
 const distance = (a, b) => Math.hypot(a[0] - b[0], a[1] - b[1]);
 
 export default function GlobeMap({ decorative = false, region = 'mundo', target, typed = false, showCapitalPin = false, keepCorrect = true, solved = [], flash, onCountryClick, disabled = false, reveal = null, queue = null, wrong = [] }) {
-  const textureId = `kiwi-globe-${useId().replace(/[^a-zA-Z0-9_-]/g, '')}`;
   const boxRef = useRef(null);
   const svgRef = useRef(null);
   const frameRef = useRef(null);
@@ -159,11 +157,10 @@ export default function GlobeMap({ decorative = false, region = 'mundo', target,
     }
   }
 
-  return <div ref={boxRef} style={{ '--kiwi-country-fill': `url(#${textureId})` }} className={`map-container globe-container kiwi-textured-map ${moving ? 'is-navigating' : ''} ${decorative ? 'decorative-map' : ''}`} data-map-view="globe">
+  return <div ref={boxRef} className={`map-container globe-container ${moving ? 'is-navigating' : ''} ${decorative ? 'decorative-map' : ''}`} data-map-view="globe">
     <svg ref={svgRef} viewBox={`0 0 ${width} ${height}`} role={decorative ? 'img' : 'group'} tabIndex={decorative ? undefined : 0} aria-label={decorative ? 'Globo terrestre' : 'Globo terrestre interativo. Arraste ou use as setas para rodar. Use scroll, pinch ou os botões para ampliar.'}
       onPointerDown={pointerDown} onPointerMove={pointerMove} onPointerUp={pointerUp} onPointerCancel={pointerUp} onLostPointerCapture={event => { if (event.target === svgRef.current) pointerUp(event); }} onKeyDown={keyDown}
       onClickCapture={event => { if (ignoreClick.current) { event.preventDefault(); event.stopPropagation(); ignoreClick.current = false; } }}>
-      <KiwiMapTexture id={textureId} />
       <defs>
         <pattern id={`${gradientId}-dots`} width="22" height="22" patternUnits="userSpaceOnUse"><rect width="1" height="1" fill="#456778" opacity="0.35" /></pattern>
         <radialGradient id={`${gradientId}-ocean`} cx="35%" cy="28%" r="80%"><stop stopColor="var(--ocean-near)" /><stop offset="0.64" stopColor="var(--ocean-mid)" /><stop offset="1" stopColor="var(--ocean-far)" /></radialGradient>
@@ -180,7 +177,7 @@ export default function GlobeMap({ decorative = false, region = 'mundo', target,
       <circle className="globe-light" cx={width / 2} cy={height / 2} r={radius * camera.zoom} fill={`url(#${gradientId}-light)`} />
       {!decorative && microCountries.filter(feature => globePointVisible(byId[feature.id].coordenadas_centro, projection)).map(feature => {
         const position = projection(byId[feature.id].coordenadas_centro);
-        return <circle key={feature.key} data-hit-country={feature.id} cx={position[0]} cy={position[1]} r="4" className={`micro-country ${classes(feature)}`} vectorEffect="non-scaling-stroke" onClick={event => choose(event, feature)} />;
+        return <circle key={feature.key} data-hit-country={feature.id} cx={position[0]} cy={position[1]} r="6" className={`micro-country ${classes(feature)}`} vectorEffect="non-scaling-stroke" onClick={event => choose(event, feature)} />;
       })}
       {!decorative && capitalPosition && !reveal && <CapitalPin position={capitalPosition} countryId={target.id} />}
       {!decorative && revealPosition && <MapAnswerLabel position={revealPosition} {...reveal} />}

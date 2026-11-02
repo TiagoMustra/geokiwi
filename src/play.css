@@ -121,3 +121,10 @@
 .simple-game-card .region-heading>span{font:10px/1.3 Space,sans-serif;color:var(--progress-soft);text-transform:none;letter-spacing:0}
 @keyframes scope-total-in{from{opacity:.4;transform:translateY(3px)}to{opacity:1;transform:translateY(0)}}
 @media(prefers-reduced-motion:reduce){.territories-control .territories-total b{animation:none}}
+
+.geographic-feature-overlay{fill:#e8c75a33;stroke:#e5c762;stroke-width:2.5;pointer-events:none;stroke-linejoin:round;paint-order:stroke fill}
+.geographic-feature-overlay.is-line{fill:none;stroke-width:4}
+.geographic-feature-overlay.is-correct{fill:#68b37c33;stroke:var(--map-correct-border)}
+.geographic-feature-overlay.is-wrong{fill:#db6a7733;stroke:var(--map-wrong-border)}
+.geographic-point-overlay{fill:var(--accent);stroke:var(--progress-panel);stroke-width:2;pointer-events:none}
+.micro-country{stroke-width:1.3}

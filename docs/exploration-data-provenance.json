@@ -1,0 +1,41 @@
+{
+  "naturalEarthVersion": "v5.1.2",
+  "naturalEarthSources": [
+    "https://github.com/nvkelso/natural-earth-vector/blob/v5.1.2/geojson/ne_10m_populated_places_simple.geojson",
+    "https://github.com/nvkelso/natural-earth-vector/blob/v5.1.2/geojson/ne_10m_lakes.geojson",
+    "https://github.com/nvkelso/natural-earth-vector/blob/v5.1.2/geojson/ne_10m_geography_marine_polys.geojson",
+    "https://github.com/nvkelso/natural-earth-vector/blob/v5.1.2/geojson/ne_10m_geography_regions_polys.geojson",
+    "https://github.com/nvkelso/natural-earth-vector/blob/v5.1.2/geojson/ne_10m_rivers_lake_centerlines.geojson"
+  ],
+  "naturalEarthSha256": {
+    "ne_10m_populated_places_simple.geojson": "fd3fa867a320cbd5c5b6bb5bc550afeec2939fb2cef688e508007282a55ac42f",
+    "ne_10m_lakes.geojson": "2d036f53dedec578001c5c30c2959ee7d4eebc1306900fa4367c49929ec8f2d9",
+    "ne_10m_geography_marine_polys.geojson": "53f865e8ffa966cdd402145c82c5cd14ee7ce974cd0eb9a3f59f03a4cfd2d66c",
+    "ne_10m_geography_regions_polys.geojson": "b7b26e50ea917d3696aec87f932def2bf5f890f5770e441d59c162c6f4c92a77",
+    "ne_10m_rivers_lake_centerlines.geojson": "bb854a900ecbd3b408df46d5e16e3e0f974ba55993f9d8b5c26e855273c0905a"
+  },
+  "wikidataEntities": [
+    "Q513",
+    "Q43512",
+    "Q7296",
+    "Q583",
+    "Q130018",
+    "Q39739",
+    "Q39231",
+    "Q1374",
+    "Q43105",
+    "Q5059",
+    "Q243",
+    "Q9141",
+    "Q10285",
+    "Q676203",
+    "Q37200",
+    "Q39671",
+    "Q9202",
+    "Q45178",
+    "Q79961",
+    "Q43473"
+  ],
+  "roundingDecimalPlaces": 5,
+  "targetCount": 100
+}

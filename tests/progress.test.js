@@ -137,8 +137,8 @@ test('European framing fills the map without Russia or overseas France forcing a
 
 test('automatic feedback is brief for successes, readable for errors and pauses are a UI choice', () => {
   assert.equal(feedbackDuration({ correct: true }), 850);
-  assert.equal(feedbackDuration({ correct: false }), 2300);
-  assert.equal(feedbackDuration({ correct: false, skipped: true }), 2300);
+  assert.equal(feedbackDuration({ correct: false }), 3500);
+  assert.equal(feedbackDuration({ correct: false, skipped: true }), 3500);
   const game = respond(make());
   assert.equal(gameReducer(game, { type: 'NEXT' }).index, 1);
   assert.equal(gameReducer(gameReducer(game, { type: 'NEXT' }), { type: 'NEXT' }).index, 1, 'a repeated timer cannot skip an unanswered question');

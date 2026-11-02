@@ -14,8 +14,11 @@ import MapViewControl from './MapViewControl.jsx';
 import ModePreview, { CARD_TITLES } from './ModePreview.jsx';
 import { useLocale } from '../i18n/LocaleContext.jsx';
 import KiwiFacts from './KiwiFacts.jsx';
+import ChallengeCards from './ChallengeCards.jsx';
+import { readExplorerSave } from '../lib/explorer-game.js';
+import { readCountryClueSave } from '../lib/country-clues-game.js';
 
-export default function Home({ difficulty, setDifficulty, mapView = 'flat', setMapView, scores, onStart, saves = {}, onResume, onStatistics, includeTerritories = false, setIncludeTerritories = () => {}, onExtraStart = () => {}, initialCategory = null }) {
+export default function Home({ difficulty, setDifficulty, mapView = 'flat', setMapView, scores, onStart, saves = {}, onResume, onStatistics, includeTerritories = false, setIncludeTerritories = () => {}, onExtraStart = () => {}, initialCategory = null, onChallengeStart = () => {} }) {
   const {locale,t}=useLocale();
   const [regions, setRegions] = useState(() => Object.fromEntries(MODES.map(mode => [mode.id, Object.values(saves).filter(save => save.mode === mode.id).sort((a, b) => b.updatedAt - a.updatedAt)[0]?.region || 'mundo'])));
   const [capitalRegion, setCapitalRegion] = useState('mundo');
@@ -42,7 +45,7 @@ export default function Home({ difficulty, setDifficulty, mapView = 'flat', setM
       <p className="save-explainer"><Icon name="save" size={16} /><span>Progresso guardado automaticamente neste navegador.</span><button onClick={onStatistics}>VER ESTATÍSTICAS <Icon name="chart" size={15} /></button></p>
       <div className="category-grid" aria-label="Categorias de jogos">{GAME_CATEGORIES.map(category => {
         const open = selectedCategory === category.id;
-        const hasSave = Object.values(saves).some(save => categoryHasGame(category, save.mode));
+        const hasSave = Object.values(saves).some(save => categoryHasGame(category, save.mode)) || (category.id === 'desafios' && [10,20,30].some(rounds => readExplorerSave(rounds) || readCountryClueSave(rounds)));
         return <button type="button" key={category.id} className={`category-card accent-${category.color} ${open ? 'is-open' : ''}`} aria-expanded={open} aria-controls="category-games" onClick={() => { setLastCategory(category.id); setSelectedCategory(open ? null : category.id); }}>
           <span className="category-icon"><Icon name={category.icon} size={48}/></span>
           <span className="category-copy"><strong>{category.name}</strong><small>{category.description}</small><span>{category.games.length} JOGOS{hasSave ? ' · PARTIDA GUARDADA' : ''}</span></span>
@@ -52,7 +55,8 @@ export default function Home({ difficulty, setDifficulty, mapView = 'flat', setM
       <div id="category-games" className={`category-expansion ${selectedCategory ? 'is-open' : ''}`} aria-hidden={!selectedCategory} inert={!selectedCategory}>
         <div className="category-expansion-inner">{activeCategory && <section className="category-content" key={activeCategory.id} aria-label={`Jogos de ${activeCategory.name}`}>
           <div className="category-heading"><span>{activeCategory.name}</span><small>ESCOLHE UM JOGO</small></div>
-      <div className="home-map-settings"><MapViewControl value={mapView} onChange={setMapView} /><button type="button" className={`territories-control ${includeTerritories ? 'is-on' : ''}`} role="switch" aria-checked={includeTerritories} onClick={() => setIncludeTerritories(!includeTerritories)}><span><strong>Incluir territórios</strong><small>{countryTotal} países{includeTerritories ? ` + ${worldTotal - countryTotal} territórios` : ''}</small></span><span className="territories-total" aria-live="polite" aria-atomic="true"><b key={worldTotal}>{worldTotal}</b><small>TOTAL · {includeTerritories ? 'LIGADO' : 'DESLIGADO'}</small></span></button><KeepCorrectControl checked={difficulty === 'normal'} onChange={value => setDifficulty(value ? 'normal' : 'dificil')} /></div>
+      {activeCategory.id !== 'desafios' && <div className="home-map-settings"><MapViewControl value={mapView} onChange={setMapView} /><button type="button" className={`territories-control ${includeTerritories ? 'is-on' : ''}`} role="switch" aria-checked={includeTerritories} onClick={() => setIncludeTerritories(!includeTerritories)}><span><strong>Incluir territórios</strong><small>{countryTotal} países{includeTerritories ? ` + ${worldTotal - countryTotal} territórios` : ''}</small></span><span className="territories-total" aria-live="polite" aria-atomic="true"><b key={worldTotal}>{worldTotal}</b><small>TOTAL · {includeTerritories ? 'LIGADO' : 'DESLIGADO'}</small></span></button><KeepCorrectControl checked={difficulty === 'normal'} onChange={value => setDifficulty(value ? 'normal' : 'dificil')} /></div>}
+          {activeCategory.id === 'desafios' && <ChallengeCards onStart={onChallengeStart} />}
           <div className="games-grid category-games-grid">
         {MODES.filter(mode => categoryHasGame(activeCategory, mode.id)).map(mode => {
           const region = regions[mode.id];

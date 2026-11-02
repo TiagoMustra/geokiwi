@@ -1,0 +1,17 @@
+Exploration catalogue
+
+Natural Earth vector geographic data, version v5.1.2.
+Public domain. https://www.naturalearthdata.com/about/terms-of-use/
+Made with Natural Earth. https://www.naturalearthdata.com/
+
+Wikidata structured coordinate data (P625).
+CC0 / public domain. https://www.wikidata.org/wiki/Wikidata:Licensing
+Each used entity is linked from its catalogue item and listed in
+  docs/exploration-data-provenance.json
+
+Geographic polygons and river lines are generalized cartographic representations,
+not legal, cadastral or navigation boundaries. All selected source vertices and
+holes are retained, with coordinates rounded to 5 decimal places.
+
+Names translated and brief descriptions written for GeoKiwi. No third-party
+photographs, map tiles or other media are included in this dataset.

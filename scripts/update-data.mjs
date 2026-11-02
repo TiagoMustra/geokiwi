@@ -23,7 +23,7 @@ for (const map of [topology, detailed]) map.objects.countries.geometries.forEach
 const available = new Set(topology.objects.countries.geometries.map(geometry => geometry.id).filter(Boolean));
 const countries = raw.filter(country => (available.has(country.ccn3) || ['UNK', 'TUV'].includes(country.cca3)) && country.capital?.length && regionIds[country.region]).map(country => {
   const code = country.cca3;
-  const nome_pt = country.translations.por?.common || country.name.common;
+  const nome_pt = overrides.countryNames?.[code] || country.translations.por?.common || country.name.common;
   const capital = overrides.capitals[code] || country.capital[0];
   if (!capitals[code]?.coordinates) throw new Error(`Missing verified capital coordinates for ${code}. Update capital-coordinates.json first.`);
   return {

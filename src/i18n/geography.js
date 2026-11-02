@@ -112,6 +112,7 @@ export const countryTranslations = {
   "Nigéria": "Nigeria",
   "Nicarágua": "Nicaragua",
   "Holanda": "Netherlands",
+  "Países Baixos": "Netherlands",
   "Noruega": "Norway",
   "Nova Zelândia": "New Zealand",
   "Omã": "Oman",

@@ -1,5 +1,5 @@
 import { feature } from 'topojson-client';
-import countries from './countries.json';
+import countries from './countries.json' with { type: 'json' };
 import topology from './world.json';
 import extra from './extra-geometries.json';
 import { regionIncludes } from '../lib/regions.js';

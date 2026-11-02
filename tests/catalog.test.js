@@ -34,3 +34,9 @@ test('scope-specific runs and records coexist with the original saved run', () =
   const scores=saveScore({}, {...normal,score:100},storage).scores;
   assert.equal(scores[scoreKey(1,'europa',normal.difficulty,false)],100);
 });
+
+test('the Netherlands display as Países Baixos while older accepted names remain valid', () => {
+ const country=countries.find(item=>item.iso3==='NLD');
+ assert.equal(country.nome_pt,'Países Baixos');
+ for(const name of ['Países Baixos','Holanda','Netherlands']) assert.ok(country.aliases.includes(name));
+});

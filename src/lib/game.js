@@ -114,7 +114,7 @@ export function saveTheme(value, storage) {
 }
 
 // Enough time to read errors; successful answers keep the game moving.
-export const feedbackDuration = result => result.correct ? 850 : 2300;
+export const feedbackDuration = result => result.correct ? 850 : 3500;
 
 export function readSuggestions(storage) {
   try { return readPreferences(storage).suggestions !== false; }

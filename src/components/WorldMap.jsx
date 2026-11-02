@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { geoPath, geoArea, select, zoom, zoomIdentity, zoomTransform, pointer } from 'd3';
 import { regionIncludes } from '../lib/regions.js';
 import { features, byId } from '../data/index.js';
@@ -7,13 +7,11 @@ import { focusGeometry, getRegionTransform, createFlatProjection, getWorldCopies
 import { mapPoliticalFeature } from '../lib/catalog.js';
 import { loadDetailedWorld } from '../lib/flat-detail.js';
 import CapitalPin from './CapitalPin.jsx';
-import KiwiMapTexture from './KiwiMapTexture.jsx';
 import MapAnswerLabel from './MapAnswerLabel.jsx';
 
 /** React owns country paths; D3 moves their parent. Each horizontal copy uses
  * the same country IDs and game state, so wrapping cannot create new answers. */
-export default function WorldMap({ decorative = false, region = 'mundo', target, typed = false, showCapitalPin = false, keepCorrect = true, solved = [], flash, onCountryClick, disabled = false, reveal = null, queue = null, wrong = [], onPointClick = null, guessPoint = null }) {
-  const textureId = `kiwi-flat-${useId().replace(/[^a-zA-Z0-9_-]/g, '')}`;
+export default function WorldMap({ decorative = false, region = 'mundo', target, typed = false, showCapitalPin = false, keepCorrect = true, solved = [], flash, onCountryClick, disabled = false, reveal = null, queue = null, wrong = [], onPointClick = null, guessPoint = null, geographicFeature = null, geographicFeatureStatus = 'reveal', geographicPoint = null, focusReveal = false }) {
   const boxRef = useRef(null);
   const svgRef = useRef(null);
   const groupRef = useRef(null);
@@ -44,6 +42,9 @@ export default function WorldMap({ decorative = false, region = 'mundo', target,
   const period = 2 * Math.PI * projection.scale();
   const geometries = useMemo(() => (detail || features).map(mapPoliticalFeature).map(feature => ({ feature, d: path(feature) })), [path, detail]);
   const graticule = useMemo(() => path(createFlatGraticule()), [path]);
+  const geographicPath = useMemo(() => geographicFeature ? path(geographicFeature) : null, [geographicFeature, path]);
+  const lineFeature = geographicFeature && /LineString/.test(geographicFeature.geometry?.type || geographicFeature.type);
+  const geographicPosition = geographicPoint ? projection(geographicPoint) : null;
   const playableIds = useMemo(() => queue ? new Set(queue.map(c => c.id)) : null, [queue]);
   const eligible = useMemo(() => features.filter(f => byId[f.id] && (!playableIds || playableIds.has(f.id)) && regionIncludes(region, byId[f.id].continente)), [region, playableIds]);
   const targets = useMemo(() => eligible.filter(f => geoArea(f) < 0.000012).map(feature => ({ feature, center: projection(byId[feature.id].coordenadas_centro) })), [eligible, projection]);
@@ -90,6 +91,22 @@ export default function WorldMap({ decorative = false, region = 'mundo', target,
     select(svgRef.current).interrupt().transition().duration(reduced ? 0 : 650).call(zoomRef.current.transform, transform);
   }, [decorative, focusId, region, typed, showCapitalPin, width, height, path, projection]);
 
+  useEffect(() => {
+    if (!focusReveal || decorative || typed || !zoomRef.current) return;
+    const element = select(svgRef.current);
+    if (!reveal) {
+      element.interrupt().transition().duration(250).call(zoomRef.current.transform, getRegionTransform(region, projection, width, height));
+      return;
+    }
+    const geometry = geographicFeature || { type: 'Point', coordinates: reveal.country.coordenadas_centro };
+    const [[x0, y0], [x1, y1]] = path.bounds(geometry);
+    if (![x0, y0, x1, y1].every(Number.isFinite)) return;
+    const k = Math.max(0.8, Math.min(12, 0.62 / Math.max((x1 - x0) / width, (y1 - y0) / height)));
+    const next = zoomIdentity.translate(width / 2, height / 2).scale(k).translate(-(x0 + x1) / 2, -(y0 + y1) / 2);
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    element.interrupt().transition().duration(reduced ? 0 : 550).call(zoomRef.current.transform, next);
+  }, [focusReveal, decorative, typed, reveal?.country.id, geographicFeature, region, projection, path, width, height]);
+
   const countryClass = useCallback(f => {
     if (decorative) return `country decoration ${['076', '124', '250', '356', '036', '710', '392'].includes(f.id) ? 'featured' : ''}`;
     const inRegion = byId[f.id] && (!playableIds || playableIds.has(f.id)) && regionIncludes(region, byId[f.id].continente);
@@ -121,7 +138,7 @@ export default function WorldMap({ decorative = false, region = 'mundo', target,
     });
   }, [view.primary, view.first, view.last, detail, disabled, typed, region]);
 
-  return <div ref={boxRef} className={`map-container mercator-map kiwi-textured-map ${decorative ? 'decorative-map' : ''}`} style={{ '--kiwi-country-fill': `url(#${textureId})` }}>
+  return <div ref={boxRef} className={`map-container mercator-map ${decorative ? 'decorative-map' : ''}`}>
     <svg ref={svgRef} onClick={event => {
       if (!onPointClick || disabled || event.defaultPrevented) return;
       const coords = flatClickCoordinate(pointer(event, svgRef.current), zoomTransform(svgRef.current), projection);
@@ -131,13 +148,14 @@ export default function WorldMap({ decorative = false, region = 'mundo', target,
         onPointClick(coords, countryId);
       }
     }} viewBox={`0 0 ${width} ${height}`} aria-label={decorative ? 'Mapa do mundo' : 'Mapa interativo com deslocamento horizontal contínuo. Arraste para mover e use a rolagem ou os botões para ampliar.'} role={decorative ? 'img' : 'group'}>
-      <KiwiMapTexture id={textureId} scale={scale} />
       <rect width={width} height={height} className="mercator-ocean" />
       <g ref={groupRef}>
         {copies.map(copy => <g key={copy} data-world-copy={copy} transform={`translate(${copy * period},0)`} aria-hidden={!decorative && copy !== view.primary ? true : undefined}>
           <path d={graticule} className="graticule" vectorEffect="non-scaling-stroke" />
           {countryPaths}
-          {!decorative && targets.map(({ feature: f, center }) => center && <circle key={`hit-${f.key}`} data-hit-country={f.id} cx={center[0]} cy={center[1]} r={4 / scale} className={`micro-country ${countryClass(f)}`} vectorEffect="non-scaling-stroke" onClick={event => choose(event, f)} />)}
+          {geographicPath && <path d={geographicPath} className={`geographic-feature-overlay is-${geographicFeatureStatus} ${lineFeature ? 'is-line' : ''}`} vectorEffect="non-scaling-stroke" pointerEvents="none" />}
+          {geographicPosition && <circle cx={geographicPosition[0]} cy={geographicPosition[1]} r={7 / scale} className="geographic-point-overlay" vectorEffect="non-scaling-stroke" pointerEvents="none" />}
+          {!decorative && targets.map(({ feature: f, center }) => center && <circle key={`hit-${f.key}`} data-hit-country={f.id} cx={center[0]} cy={center[1]} r={6 / scale} className={`micro-country ${countryClass(f)}`} vectorEffect="non-scaling-stroke" onClick={event => choose(event, f)} />)}
           {!decorative && guessPosition && <circle cx={guessPosition[0]} cy={guessPosition[1]} r={7 / scale} fill="var(--accent)" stroke="var(--progress-panel)" strokeWidth={2 / scale} pointerEvents="none" />}
           {!decorative && capitalPosition && !reveal && <CapitalPin position={capitalPosition} countryId={target.id} scale={scale} />}
           {!decorative && revealPosition && <MapAnswerLabel position={revealPosition} {...reveal} scale={scale} />}

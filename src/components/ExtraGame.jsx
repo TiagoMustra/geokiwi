@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import municipalities from '../data/municipios-index.json';
 import { districts as districtNames } from '../data/districts.js';
 import { features, getPool } from '../data/index.js';
-import { makeQueue } from '../lib/game.js';
+import { makeQueue, feedbackDuration } from '../lib/game.js';
 import { capitalDistance, scoreCapitalGuess, migrateCapitalGame, readExtra, writeExtra, removeExtra, saveExtraRecord, extraScope, extraQueueIds } from '../lib/extra-game.js';
 import { Icon, KiwiMark } from './Icon.jsx';
 import KeepCorrectControl from './KeepCorrectControl.jsx';
@@ -48,7 +48,7 @@ export default function ExtraGame({ config, onExit, keepCorrectInitial = true })
   const targetName = kind === 'municipios' && target ? municipalities.find(item => item.id === String(target.id))?.label || target.properties.name : target?.properties?.name;
   useEffect(() => {
     if (!result || confirm || game.finished) return;
-    const timer=setTimeout(() => setGame(g => g.index + 1 >= g.queue.length ? {...g,finished:true} : {...g,index:g.index+1}), isCapital ? 2600 : result.correct ? 850 : 2300);
+    const timer=setTimeout(() => setGame(g => g.index + 1 >= g.queue.length ? {...g,finished:true} : {...g,index:g.index+1}), isCapital ? (result.correct ? 2600 : feedbackDuration(result)) : feedbackDuration(result));
     return () => clearTimeout(timer);
   }, [result, confirm, isCapital, game?.finished]);
   if (error) return <main className="results-page"><p>{error}</p><button className="secondary-button" onClick={onExit}>VOLTAR AO MENU</button></main>;
