@@ -33,3 +33,7 @@ Initial world framing is only slightly closer: 1.1× on the flat map and 1.08× 
 ## Visibility resume and timing correction
 
 A reproduced live bug left the canvas loop stopped after a tab was hidden and shown: the visibility listener read the previous React `hidden` prop before that state update completed. The canvas now reads `document.hidden` directly. Visibility, page-show, focus and browser-resume events synchronize one shared loop without duplicating it. The clock now uses actual elapsed time between frames; its former 100 ms cap made clouds and waves run slowly on low-frame-rate renderers. Hidden time remains excluded, and reduced-motion/active-game pauses are preserved. Regression tests cover immediate resume, repeated events, low-frame-rate speed and cleanup.
+
+## Continuous cloud stream
+
+Clouds now have a separate transparent texture extracted from the existing artwork. A static parchment-sky sample clears the original high cloud layer; the mountains, low mist and globe remain fixed. Cloud sampling wraps horizontally at a constant 2.1 source pixels per second, preserving the former doubled peak speed without easing, stopping or reversing. Transparent texture borders prevent a visible seam as the pattern repeats. The same source artwork supplies desktop and mobile clouds, with no new download. Tests cover constant direction/speed, wrap continuity, transparent sky/tile edges and globe protection.

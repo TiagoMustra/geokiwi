@@ -1,4 +1,5 @@
 import { buildSceneryMasks } from './scenery-masks.js';
+import { buildCloudLayer, cloudScrollOffset } from './cloud-stream.js';
 // A small, dependency-free effect over the existing artwork. All distances are
 // source-image pixels so the pixel texture and the islands remain stationary.
 const vertex = `
@@ -9,6 +10,8 @@ const fragment = `
 precision highp float;
 uniform sampler2D artwork;
 uniform sampler2D sceneryMasks;
+uniform sampler2D cloudLayer;
+uniform float cloudOffset;
 uniform vec2 imageSize;
 uniform vec2 viewport;
 uniform float bottomAligned;
@@ -25,7 +28,7 @@ void main(){
   vec2 globe=mix(vec2(.905,.29),vec2(.9,.325),portrait);
   vec2 globeRadius=mix(vec2(.07,.09),vec2(.11,.075),portrait);
   float outsideGlobe=smoothstep(.95,1.18,length((uv-globe)/globeRadius));
-  float sky=(1.-smoothstep(mix(.265,.305,portrait),mix(.31,.35,portrait),uv.y))*outsideGlobe;
+  float sky=(1.-smoothstep(mix(.265,.285,portrait),mix(.295,.31,portrait),uv.y))*outsideGlobe;
   vec2 fruit=mix(vec2(.14,.83),vec2(.245,.855),portrait);
   vec2 fruitRadius=mix(vec2(.085,.067),vec2(.13,.062),portrait);
   float outsideFruit=smoothstep(.95,1.10,length((uv-fruit)/fruitRadius));
@@ -44,7 +47,6 @@ void main(){
   reflection*=smoothstep(horizon,horizon+.03,uv.y)*(1.-smoothstep(.66,.74,uv.y));
   reflection*=1.-smoothstep(.10,.19,abs(uv.x-.51));
   vec2 displacement=vec2(0.);
-  displacement.x+=sky*sin(time*.19+uv.y*3.)*11.;
   displacement.x+=green*sin(time*1.05+uv.x*31.+uv.y*19.)*3.8;
   displacement.y+=green*sin(time*.8+uv.x*24.)*1.15;
   displacement.x+=max(water,reflection)*sin(uv.y*250.-time*.8)*1.5;
@@ -64,6 +66,11 @@ void main(){
   color=mix(color,vec3(.88,.92,.80),crest*envelope*shore*.48);
   float wash=(.5+.5*sin(time*1.5-uv.x*50.-uv.y*24.))*exp(-coastDistance*.26);
   color=mix(color,vec3(.84,.90,.79),wash*shore*.24);
+  // Scroll the transparent cloud tile with wrapped coordinates; neither the
+  // sky nor the protected landscape is translated or clamped at the edges.
+  vec4 cloud=texture2D(cloudLayer,vec2(fract(uv.x-cloudOffset),uv.y));
+  vec3 clearSky=texture2D(artwork,vec2(.4+uv.x*.2,uv.y*.4)).rgb;
+  color=mix(color,mix(clearSky,cloud.rgb,cloud.a),sky);
   gl_FragColor=vec4(clamp(color,0.,1.),1.);
 }`;
 
@@ -86,8 +93,14 @@ export function createSceneryRenderer(canvas, image) {
     const masks=gl.createTexture();textures.push(masks);gl.activeTexture(gl.TEXTURE1);gl.bindTexture(gl.TEXTURE_2D,masks);
     gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.LINEAR);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.LINEAR);
     gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,maskCanvas.width,maskCanvas.height,0,gl.RGBA,gl.UNSIGNED_BYTE,maskData);gl.activeTexture(gl.TEXTURE0);
-    const uniform=name=>gl.getUniformLocation(program,name);gl.uniform1i(uniform('sceneryMasks'),1);
-    const clock=uniform('time'),viewport=uniform('viewport'),alignment=uniform('bottomAligned');
+    const cloudCanvas=document.createElement('canvas');cloudCanvas.width=image.naturalWidth;cloudCanvas.height=image.naturalHeight;
+    const cloudCtx=cloudCanvas.getContext('2d',{willReadFrequently:true});if(!cloudCtx)throw Error('Cloud layer unavailable');
+    cloudCtx.drawImage(image,0,0);const cloudPixels=buildCloudLayer(cloudCtx.getImageData(0,0,cloudCanvas.width,cloudCanvas.height).data,cloudCanvas.width,cloudCanvas.height,image.naturalHeight>image.naturalWidth);
+    const clouds=gl.createTexture();textures.push(clouds);gl.activeTexture(gl.TEXTURE2);gl.bindTexture(gl.TEXTURE_2D,clouds);
+    gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_S,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_WRAP_T,gl.CLAMP_TO_EDGE);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MIN_FILTER,gl.NEAREST);gl.texParameteri(gl.TEXTURE_2D,gl.TEXTURE_MAG_FILTER,gl.NEAREST);
+    gl.texImage2D(gl.TEXTURE_2D,0,gl.RGBA,cloudCanvas.width,cloudCanvas.height,0,gl.RGBA,gl.UNSIGNED_BYTE,cloudPixels);gl.activeTexture(gl.TEXTURE0);
+    const uniform=name=>gl.getUniformLocation(program,name);gl.uniform1i(uniform('sceneryMasks'),1);gl.uniform1i(uniform('cloudLayer'),2);
+    const clock=uniform('time'),cloudPhase=uniform('cloudOffset'),viewport=uniform('viewport'),alignment=uniform('bottomAligned');
     gl.uniform1i(uniform('artwork'),0);gl.uniform2f(uniform('imageSize'),image.naturalWidth,image.naturalHeight);gl.uniform1f(uniform('portrait'),image.naturalHeight>image.naturalWidth?1:0);
     return {destroy,render(time){
       // The art is pixelated: a bounded drawing buffer keeps this inexpensive on phones.
@@ -95,7 +108,7 @@ export function createSceneryRenderer(canvas, image) {
       const ratio=Math.min(window.devicePixelRatio||1,1.25,1800/width,1400/height);
       const w=Math.max(1,Math.round(width*ratio)),h=Math.max(1,Math.round(height*ratio));
       if(canvas.width!==w||canvas.height!==h){canvas.width=w;canvas.height=h;}
-      gl.viewport(0,0,w,h);gl.uniform2f(viewport,width,height);gl.uniform1f(alignment,width<=680?1:0);gl.uniform1f(clock,time);gl.drawArrays(gl.TRIANGLES,0,6);
+      gl.viewport(0,0,w,h);gl.uniform2f(viewport,width,height);gl.uniform1f(alignment,width<=680?1:0);gl.uniform1f(clock,time);gl.uniform1f(cloudPhase,cloudScrollOffset(time,image.naturalWidth));gl.drawArrays(gl.TRIANGLES,0,6);
     }};
   }catch{destroy();return null;}
 }
