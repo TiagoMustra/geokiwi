@@ -1,4 +1,6 @@
-/* One light animated layer, entirely separate from the game map SVG. */
+/* Decorative motion stays separate from all game maps. */
+.scene-artwork-motion{position:absolute;inset:0;width:100%;height:100%;display:block;opacity:0;pointer-events:none}
+.scene-artwork-motion[data-ready="true"]{opacity:1}
 .scene-motion{position:absolute;inset:0;overflow:hidden;pointer-events:none}
 .scene-boat-route{position:absolute;left:74%;top:76%;width:82px;height:92px;animation:sail-route 95s ease-in-out infinite alternate;will-change:transform}
 .scene-sailboat{display:block;width:100%;height:100%}
@@ -26,4 +28,4 @@
 @keyframes fern-sway{0%,100%{rotate:-3deg}45%{rotate:4deg}70%{rotate:1deg}}
 @keyframes frond-breeze{0%,100%{transform:rotate(-2deg)}45%{transform:rotate(3.5deg)}70%{transform:rotate(.5deg)}}
 @media(max-width:680px){.scene-boat-route{left:53%;top:63%;width:51px;height:59px}.scene-fern{width:72px;height:72px}.scene-birds{width:48px;top:24%}@keyframes sail-route{from{transform:translate(0,0)}to{transform:translate(19vw,-2vh)}}}
-@media(prefers-reduced-motion:reduce){.scene-motion *{animation:none!important;will-change:auto!important}.scene-wing-down{display:none}}
+@media(prefers-reduced-motion:reduce){.scene-artwork-motion{display:none}.scene-motion *{animation:none!important;will-change:auto!important}.scene-wing-down{display:none}}

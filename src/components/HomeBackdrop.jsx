@@ -1,5 +1,6 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import '../scenery-motion.css';
+import AnimatedScenery from './AnimatedScenery.jsx';
 
 function Sailboat() {
   return <svg className="scene-sailboat" viewBox="0 0 80 90" shapeRendering="crispEdges">
@@ -25,6 +26,7 @@ function Fern({ right = false }) {
 /** Decorative layers never handle pointer events or cover the game map. */
 export default function HomeBackdrop() {
   const [hidden, setHidden] = useState(false);
+  const imageRef=useRef(null);
   useEffect(() => {
     const update = () => setHidden(document.hidden);
     update(); document.addEventListener('visibilitychange', update);
@@ -33,8 +35,9 @@ export default function HomeBackdrop() {
   return <div className="home-scenery" aria-hidden="true" data-paused={hidden ? 'true' : 'false'}>
     <picture>
       <source media="(max-width: 680px)" srcSet="/art/kiwi-islands-mobile-v2.png" />
-      <img src="/art/kiwi-islands-v2.png" width="1536" height="1024" alt="" fetchPriority="high" />
+      <img ref={imageRef} src="/art/kiwi-islands-v2.png" width="1536" height="1024" alt="" fetchPriority="high" />
     </picture>
+    <AnimatedScenery imageRef={imageRef} hidden={hidden}/>
     <div className="scene-motion">
       <div className="scene-boat-route"><div className="scene-boat-bob"><Sailboat /></div><i className="scene-boat-wake" /></div>
       <svg className="scene-waves" viewBox="0 0 1000 700" preserveAspectRatio="none"><g fill="#c9dcd0">

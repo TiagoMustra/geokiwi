@@ -8,6 +8,8 @@ The islands scene now surrounds the home page, statistics, dialogs and final res
 - `public/art/kiwi-islands-mobile-v2.png`: matching phone composition.
 - `HomeBackdrop.jsx` and `scenery-motion.css`: editable pixel SVG sailboat, gentle waves, flying seabirds and swaying ferns. Fern branches move independently with offset phases for a gentle breeze. The walking kiwi bird was removed; the kiwi fruit remains the brand and logo.
 
+`AnimatedScenery.jsx` animates the existing PNG artwork with a small local WebGL effect: slow cloud drift, 1–2 pixel foliage movement, moving water ripples and shimmer in the existing pale reflections. The globe, kiwi fruit, islands and buildings stay anchored. Desktop and mobile use their own artwork coordinates. It draws at 20 fps with a bounded buffer, stops behind active maps/in hidden tabs, respects reduced motion and falls back to the original image if WebGL is unavailable. No new assets or services are requested.
+
 Both raster edits used the built-in image generation tool. Final edit prompt (applied separately to the desktop and mobile originals):
 
 > Use case: precise-object-edit. Edit target: the approved GeoKiwi background. Change ONLY the small cream sailing boat on the sea at the right: remove the entire boat, sails and its immediate wake and fill that small region with matching calm pixel-art sea and existing wave colors. We will draw an animated boat in real HTML/SVG at runtime. Keep everything else unchanged: original framing and aspect ratio, cream sky, globe, all mountains/islands/lighthouse/grass/kiwi fruit/map/hat, same low-saturation palette, same crisp pixel texture. Do not add text, UI, birds or other objects. Return only this same background with that little boat removed.
