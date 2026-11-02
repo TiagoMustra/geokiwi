@@ -105,4 +105,11 @@ export const english = {
   'Mapa do mundo': 'World map', 'Aumentar zoom': 'Zoom in', 'Diminuir zoom': 'Zoom out', 'Recentrar região': 'Recenter region', 'Recentrar globo': 'Recenter globe',
   'MAPA INTERATIVO': 'INTERACTIVE MAP', 'GLOBO INTERATIVO': 'INTERACTIVE GLOBE', 'ARRASTE SEM LIMITES LATERAIS': 'DRAG WITHOUT SIDE LIMITS', 'SCROLL PARA ZOOM': 'SCROLL TO ZOOM',
   'LIMITE DE DISTRITO': 'DISTRICT BORDER', 'ARRASTE PARA RODAR': 'DRAG TO ROTATE', 'Faça sua escolha: clique no país certo.': 'Make your choice: click the correct country.',
+  'GeoKiwi usa React, D3.js, TopoJSON e MapLibre GL.': 'GeoKiwi uses React, D3.js, TopoJSON and MapLibre GL.',
+  'Mapa físico dos modos de aproximação · dados ODbL': 'Physical map for proximity games · ODbL data',
+  'Relevo e atribuição das fontes de elevação': 'Terrain and elevation source attribution',
+  'Mapa físico:': 'Physical map:',
+  'nos modos de aproximação, explora o relevo, rios e lagos sem nomes nem destaque de países ao passar o rato. Arrasta e amplia para colocar o pin.': 'In proximity games, explore terrain, rivers and lakes without labels or country highlighting on hover. Drag and zoom to place your pin.',
+  'Desafios:': 'Challenges:',
+  'Escolhe 10, 20 ou 30 rondas. Em Explora o mundo, coloca o pin perto do lugar; rios e áreas contam em todo o seu traçado ou superfície. Em Fun facts, escreve a resposta à pista e lê a explicação. Ambos guardam o progresso e permitem praticar os erros.': 'Choose 10, 20 or 30 rounds. In Explore the world, place a pin near the place; rivers and areas count along their whole course or surface. In Fun facts, type your answer to the clue and read the explanation. Both save your progress and let you practise mistakes.',
 };

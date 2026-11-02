@@ -6,9 +6,9 @@ The menu has nine games in four categories. “Desafios / Challenges” contains
 
 100 locally bundled targets: cities, summits, historical sites, lakes, seas, bays/gulfs, deserts, mountain ranges and rivers. Natural features use Natural Earth geometry; exact points use Natural Earth or Wikidata coordinates. See exploration-data.md and the public attribution file.
 
-Score follows the capital game: `round(100 * exp(-distanceKm / 500))`, capped at 25 for point targets clicked outside their associated country/countries. Natural cross-border features have no arbitrary country penalty. Distance is the spherical distance to the feature: any point inside an area counts; rivers use their full course. Small tolerances account for city extent and generalized cartography. A correct outline and marker appear after the answer, and the map focuses the revealed place. The next question starts with a world overview.
+Score follows the capital game: `round(100 * exp(-distanceKm / 500))`, capped at 25 for point targets clicked outside their associated country/countries. Natural cross-border features have no arbitrary country penalty. Distance is the spherical distance to the feature: any point inside an area counts; rivers use their full course. Small tolerances account for city extent and generalized cartography. A correct outline and marker appear after the answer, and the map focuses the revealed place. The camera remains where the player left it between questions; recenter restores the world view. Both proximity games use the dedicated physical map described in physical-map.md.
 
-## Guess the country
+## Fun facts
 
 105 bilingual clues: history, flags, geography and heritage. Each has accepted country IDs, a short PT/EN explanation and an individual primary-source link. Shared features explicitly accept any associated country. Normal runs balance subjects and avoid repeated answer sets. Autocomplete selection submits immediately; skip reveals the answer. Feedback lasts 3 seconds for a correct answer and 5 seconds for a mistake and can be paused. The explanation occupies at most two visible lines; full explanations and source links remain in the result review.
 

@@ -5,6 +5,7 @@ export default defineConfig({
   build: {
     target: 'es2022',
     rollupOptions: { output: { manualChunks(id) {
+      if (id.includes('/maplibre-gl/')) return 'physical-map';
       if (id.endsWith('/data/world.json')) return 'world-atlas';
       if (id.includes('/node_modules/')) return 'vendor';
     } } },

@@ -21,15 +21,14 @@ export default function ChallengeCards({ onStart }) {
   return <div className="challenge-games-grid">{games.map(game=>{
     const count=rounds[game.kind]; const saved=game.readSave(count); const record=game.readRecord(count);
     const explorer=game.kind==='explorer';
-    const title=explorer?(en?'Explore the world':'Explora o mundo'):(en?'Guess the country':'Adivinha o país');
+    const title=explorer?(en?'Explore the world':'Explora o mundo'):'Fun facts';
     return <article key={game.kind} className={`game-card simple-game-card challenge-card accent-${explorer?'cyan':'orange'}`}>
-      <div className="simple-card-header"><span className="card-action"><Icon name={game.icon} size={17}/>{explorer?(en?'PLACE A PIN':'COLOCAR UM PIN'):(en?'TYPE THE COUNTRY':'ESCREVER O PAÍS')}</span><span className="card-number">0{game.id}</span></div>
-      <h3>{title}</h3>
-      <div className="mode-preview challenge-demo" aria-label={explorer?(en?'Find Mount Everest on the map':'Encontra o Evereste no mapa'):(en?'A clue leads to a country name':'Uma pista leva ao nome de um país')}>
-        <span className="challenge-demo-clue"><Icon name={explorer?'pin':'help'} size={27}/><strong>{explorer?(en?'Mount Everest':'Monte Evereste'):(en?'Divided the world with Spain':'Dividiu o mundo com Espanha')}</strong></span><Icon name="arrow" size={19}/>
-        {explorer?<span className="challenge-demo-map"><Icon name="map" size={58}/><Icon name="pin" size={18}/></span>:<span className="challenge-demo-input">Portugal <Icon name="enter" size={13}/></span>}
+      <div className="challenge-heading">
+        <span className="challenge-symbol" aria-hidden="true"><Icon name={explorer?'map':'help'} size={42}/></span>
+        <div><span className="challenge-action">{explorer?(en?'PLACE A PIN':'COLOCAR UM PIN'):(en?'TYPE THE COUNTRY':'ESCREVER O PAÍS')}</span><h3>{title}</h3></div>
+        <span className="card-number">0{game.id}</span>
       </div>
-      <p className="challenge-description">{explorer?(en?'Cities, rivers, seas and remarkable places. Closer pins earn up to 100 points.':'Cidades, rios, mares e lugares marcantes. Quanto mais perto, mais pontos: até 100.'):(en?'Surprising clues about countries. Answer and discover the explanation.':'Pistas surpreendentes sobre países. Responde e descobre a explicação.')}</p>
+      {explorer && <p className="challenge-description">{en?'Cities, landscapes and places around the world.':'Cidades, paisagens e lugares pelo mundo.'}</p>}
       <div className="region-heading">{en?'ROUNDS':'RONDAS'}</div>
       <div className="challenge-rounds" role="group" aria-label={en?`Rounds for ${title}`:`Rondas de ${title}`}>{options.map(value=><button type="button" key={value} aria-pressed={value===count} className={value===count?'selected':''} onClick={()=>setRounds(previous=>({...previous,[game.kind]:value}))}>{value}</button>)}</div>
       <div className="card-score"><span><Icon name="trophy" size={14}/>{en?'BEST':'RECORDE'} · {count} {en?'ROUNDS':'RONDAS'}</span><strong>{String(record||0).padStart(4,'0')}</strong></div>

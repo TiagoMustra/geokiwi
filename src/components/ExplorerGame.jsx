@@ -1,10 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
-import { countries } from '../data/index.js';
 import { explorationPlaces } from '../data/exploration-places.js';
 import { useLocale } from '../i18n/LocaleContext.jsx';
 import { advanceExplorerGame, answerExplorerGame, clearExplorerSave, createExplorerGame, normalizeExplorerGeometry, normalizeExplorerRounds, readExplorerRecord, readExplorerSave, restoreExplorerGame, saveExplorerRecord, skipExplorerGame, writeExplorerSave } from '../lib/explorer-game.js';
 import { Icon, KiwiMark } from './Icon.jsx';
-import WorldMap from './WorldMap.jsx';
+import ProximityMap from './ProximityMap.jsx';
 import ResultsScreen from './ResultsScreen.jsx';
 import RestartButton from './RestartButton.jsx';
 import LanguageControl from './LanguageControl.jsx';
@@ -77,7 +76,7 @@ export default function ExplorerGame({ rounds = 10, resume = false, onExit }) {
   const shownPlace = game.finished ? lookup[shownAnswer?.id] || target : target;
   const overlay = useMemo(() => revealedGeometry(shownPlace, shownAnswer), [shownPlace, shownAnswer]);
   if (!target) return <main className="results-page clean-results"><div className="results-shell"><h1>{say('Não foi possível preparar os lugares.', 'The places could not be prepared.')}</h1><button className="primary-button" onClick={onExit}>{say('Voltar ao menu', 'Back to menu')}</button></div></main>;
-  const map = <WorldMap region="mundo" queue={countries} keepCorrect={false} solved={[]}
+  const map = <ProximityMap region="mundo"
     disabled={Boolean(result) || game.finished || confirm || paused}
     onPointClick={(guess, countryId) => setGame(current => answerExplorerGame(current, guess, countryId, explorationPlaces))}
     guessPoint={shownAnswer?.guess || null}
