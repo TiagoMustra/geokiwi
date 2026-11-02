@@ -37,7 +37,7 @@ export default function HomeBackdrop() {
       <source media="(max-width: 680px)" srcSet="/art/kiwi-islands-mobile-v2.png" />
       <img ref={imageRef} src="/art/kiwi-islands-v2.png" width="1536" height="1024" alt="" fetchPriority="high" />
     </picture>
-    <AnimatedScenery imageRef={imageRef} hidden={hidden}/>
+    <AnimatedScenery imageRef={imageRef}/>
     <div className="scene-motion">
       <div className="scene-boat-route"><div className="scene-boat-bob"><Sailboat /></div><i className="scene-boat-wake" /></div>
       <svg className="scene-waves" viewBox="0 0 1000 700" preserveAspectRatio="none"><g fill="#c9dcd0">

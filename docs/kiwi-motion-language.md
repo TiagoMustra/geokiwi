@@ -29,3 +29,7 @@ Initial world framing is only slightly closer: 1.1× on the flat map and 1.08× 
 ## Shore wash and foreground leaves
 
 `scenery-masks.js` derives a small coastline-distance texture from the actual desktop/portrait artwork. Broad land patches seed the distance field; thin bright reflection streaks surrounded by water do not become islands. Animated foam crests approach the shoreline and fade/recede along its contours. Warm olive foliage is now included, and the motion mask expands slightly beyond leaf silhouettes. The protected fruit/map area is narrower so it does not freeze the surrounding foreground plants. Fruit, map, lighthouse and rock details remain anchored. The existing reduced-motion, hidden-tab and active-game pauses still apply.
+
+## Visibility resume and timing correction
+
+A reproduced live bug left the canvas loop stopped after a tab was hidden and shown: the visibility listener read the previous React `hidden` prop before that state update completed. The canvas now reads `document.hidden` directly. Visibility, page-show, focus and browser-resume events synchronize one shared loop without duplicating it. The clock now uses actual elapsed time between frames; its former 100 ms cap made clouds and waves run slowly on low-frame-rate renderers. Hidden time remains excluded, and reduced-motion/active-game pauses are preserved. Regression tests cover immediate resume, repeated events, low-frame-rate speed and cleanup.
