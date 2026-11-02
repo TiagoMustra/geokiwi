@@ -82,4 +82,4 @@ export function saveCountryClueRecord(game,storage) {
  records[safeRounds(game.rounds)]=Math.max(readCountryClueRecord(game.rounds,storage),game.score);
  return storageWrite(COUNTRY_CLUE_RECORD_KEY,records,storage);
 }
-export const clueFeedbackDuration = answer => answer.correct?3000:5000;
+export const clueFeedbackDuration = answer => answer.correct?1000:2000;

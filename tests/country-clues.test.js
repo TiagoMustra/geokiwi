@@ -34,7 +34,8 @@ test('a single locked answer or skip scores once, reveals the answer and complet
   game=nextCountryClue(game);assert.equal(before.queue,game.queue);
  }
  assert.equal(game.finished,true);assert.equal(game.score,900);assert.equal(nextCountryClue(game),game);
- assert.ok(clueFeedbackDuration({correct:false})>=5000);
+ assert.ok(clueFeedbackDuration({correct:false})<=2000);
+ assert.ok(clueFeedbackDuration({correct:true})<clueFeedbackDuration({correct:false}));
 });
 test('saved runs resume identical questions and verified scores; rounds and practice records stay separate',()=>{
  const storage=memory();let game=createCountryClueGame({rounds:10});const clue=countryClueById[game.queue[0]];

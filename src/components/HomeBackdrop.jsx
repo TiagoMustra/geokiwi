@@ -14,19 +14,11 @@ function Sailboat() {
     <path fill="#9cb5b4" d="M16 82h48v2H16Z" opacity=".6" />
   </svg>;
 }
-function KiwiBird() {
-  return <svg viewBox="0 0 68 46" shapeRendering="crispEdges" className="scene-kiwi-bird">
-    <g className="kiwi-walk-legs" fill="#745b3c"><path d="M22 32h3v9h8v2H20v-5h2Zm14 0h3v8h8v2H34v-6h2Z" /></g>
-    <path fill="#71543a" d="M8 18h4v-5h7v-4h16v3h5V7h5V4h9v3h4v5h-2v7h-6v5h-6v6h-6v5H20v-3h-7v-5H8Z" />
-    <path fill="#9c7850" d="M13 18h7v-4h15v4h6v7h-5v6H21v-3h-5v-5h-3Zm31-9h9v8h-9Z" />
-    <path fill="#b79565" d="M21 16h10v3h-10Zm-3 8h8v3h-8Zm25-15h6v2h-6Z" />
-    <path fill="#ded0a2" d="M54 11h8v2h6v2H56Z" /><path fill="#292c23" d="M50 8h2v2h-2Z" />
-  </svg>;
-}
 function Fern({ right = false }) {
   return <svg className={`scene-fern ${right ? 'scene-fern-right' : ''}`} viewBox="0 0 90 90" shapeRendering="crispEdges">
     <path fill="#536947" d="M40 89h4V55h4V39h4V25h4V9h-4v16h-4v14h-4v16h-4Z" />
-    <g className="fern-fronds" fill="#7f9757"><path d="M42 68H27v-4H14v-5H5v-5h12v4h13v5h12Zm3-13H32v-6H20v-5H10v-6h13v5h12v6h10Zm4-16H37v-6H26v-5h-8v-6h12v6h12v6h7Zm-4 26h15v-5h15v-5h12v6H76v5H63v5H45Zm4-17h14v-5h12v-5h10v6H75v5H63v5H49Zm4-16h12v-6h11v-5h7v6h-8v5H64v5H53Z" /></g>
+    <g className="fern-fronds fern-fronds-left" fill="#7f9757"><path d="M42 68H27v-4H14v-5H5v-5h12v4h13v5h12Zm3-13H32v-6H20v-5H10v-6h13v5h12v6h10Zm4-16H37v-6H26v-5h-8v-6h12v6h12v6h7Z" /></g>
+    <g className="fern-fronds fern-fronds-right" fill="#7f9757"><path d="M45 65h15v-5h15v-5h12v6H76v5H63v5H45Zm4-17h14v-5h12v-5h10v6H75v5H63v5H49Zm4-16h12v-6h11v-5h7v6h-8v5H64v5H53Z" /></g>
   </svg>;
 }
 
@@ -51,7 +43,6 @@ export default function HomeBackdrop() {
         <path className="wave-shimmer wave-three" d="M640 350h24v2h-24Zm36 2h17v2h-17ZM590 570h32v2h-32Zm44-2h18v2h-18ZM290 460h20v2h-20Z" />
       </g></svg>
       <div className="scene-birds"><svg viewBox="0 0 80 25" shapeRendering="crispEdges"><g className="scene-wing-up" fill="#777d68"><path d="M1 4h5v3h5v3h4v3h4v-3h4V7h5V4h5v4h-5v3h-5v3h-4v3h-4v-3h-4v-3H6V8H1Zm45 8h4v3h4v3h4v-3h4v-3h4v3h-4v3h-4v3h-4v-3h-4v-3h-4Z" /></g><g className="scene-wing-down" fill="#777d68"><path d="M1 14h5v-3h5V8h4V5h4v3h4v3h5v3h5v4h-5v-3h-5v-3h-4V9h-4v3h-4v3H6v3H1Zm45 5h4v-3h4v-3h4v3h4v3h4v3h-4v-3h-4v-3h-4v3h-4v3h-4Z" /></g></svg></div>
-      <div className="scene-kiwi-walk"><KiwiBird /></div>
       <Fern /><Fern right />
     </div>
   </div>;

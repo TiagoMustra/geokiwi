@@ -10,7 +10,7 @@ Score follows the capital game: `round(100 * exp(-distanceKm / 500))`, capped at
 
 ## Fun facts
 
-105 bilingual clues: history, flags, geography and heritage. Each has accepted country IDs, a short PT/EN explanation and an individual primary-source link. Shared features explicitly accept any associated country. Normal runs balance subjects and avoid repeated answer sets. Autocomplete selection submits immediately; skip reveals the answer. Feedback lasts 3 seconds for a correct answer and 5 seconds for a mistake and can be paused. The explanation occupies at most two visible lines; full explanations and source links remain in the result review.
+105 bilingual clues: history, flags, geography and heritage. Each has accepted country IDs, a short PT/EN explanation and an individual primary-source link. Shared features explicitly accept any associated country. Normal runs balance subjects and avoid repeated answer sets. Autocomplete selection submits immediately; skip reveals the answer. Both challenge modes advance after 1 second for a correct answer and 2 seconds for a mistake or skip. Explicit pause remains available; hovering over Explorer feedback no longer delays the next round. The explanation occupies at most two visible lines; full explanations and source links remain in the result review.
 
 Clues use dated historical facts and precise definitions rather than unsourced rankings. Canonical country IDs and existing answer aliases are unchanged.
 

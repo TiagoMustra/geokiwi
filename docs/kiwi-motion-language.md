@@ -6,7 +6,7 @@ The islands scene now surrounds the home page, statistics, dialogs and final res
 
 - `public/art/kiwi-islands-v2.png`: desktop background with the static boat removed.
 - `public/art/kiwi-islands-mobile-v2.png`: matching phone composition.
-- `HomeBackdrop.jsx` and `scenery-motion.css`: editable pixel SVG sailboat, gentle waves, flying seabirds, walking kiwi bird and swaying ferns. The fruit remains the brand and logo.
+- `HomeBackdrop.jsx` and `scenery-motion.css`: editable pixel SVG sailboat, gentle waves, flying seabirds and swaying ferns. Fern branches move independently with offset phases for a gentle breeze. The walking kiwi bird was removed; the kiwi fruit remains the brand and logo.
 
 Both raster edits used the built-in image generation tool. Final edit prompt (applied separately to the desktop and mobile originals):
 
