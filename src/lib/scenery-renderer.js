@@ -44,7 +44,7 @@ void main(){
   reflection*=smoothstep(horizon,horizon+.03,uv.y)*(1.-smoothstep(.66,.74,uv.y));
   reflection*=1.-smoothstep(.10,.19,abs(uv.x-.51));
   vec2 displacement=vec2(0.);
-  displacement.x+=sky*sin(time*.095+uv.y*3.)*11.;
+  displacement.x+=sky*sin(time*.19+uv.y*3.)*11.;
   displacement.x+=green*sin(time*1.05+uv.x*31.+uv.y*19.)*3.8;
   displacement.y+=green*sin(time*.8+uv.x*24.)*1.15;
   displacement.x+=max(water,reflection)*sin(uv.y*250.-time*.8)*1.5;
