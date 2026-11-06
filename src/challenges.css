@@ -1,20 +1,8 @@
 .island-home .category-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
-.challenge-games-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;align-items:start}
-.challenge-games-grid .challenge-card{display:flex;flex-direction:column;min-height:0;padding:22px;background:var(--progress-panel)}
-.challenge-card .challenge-heading{display:flex;align-items:center;gap:14px;margin:0 0 22px;min-width:0}
-.challenge-card .challenge-symbol{display:grid;place-items:center;flex:none;width:52px;height:52px;background:var(--tint);color:var(--accent)}
-.challenge-card .challenge-heading>div{flex:1;min-width:0}
-.challenge-card .challenge-heading h3{display:block;min-height:0;margin:5px 0 0;font:600 24px/1.25 Space,sans-serif;letter-spacing:-.6px}
-.challenge-card .challenge-action{font:8px/1.5 var(--mono);letter-spacing:.5px;color:var(--accent)}
-.challenge-card .card-number{align-self:flex-start}
-.challenge-card .challenge-description{margin:-7px 0 20px;font:13px/1.5 Space,sans-serif;color:var(--progress-soft)}
 .challenge-rounds{display:flex;gap:7px;margin-bottom:0}
 .challenge-rounds button{flex:1;min-height:39px;border:1px solid var(--line);background:var(--progress-panel);color:var(--progress-soft);font:13px var(--mono)}
 .challenge-rounds button.selected{border-color:var(--accent);background:var(--tint);color:var(--accent);box-shadow:inset 0 -2px 0 var(--accent)}
-.challenge-card .card-score{margin-top:20px;padding:15px 0}
-.challenge-card .compact-saved-run{margin-top:4px}
-.challenge-card .start-button{min-height:44px;margin-top:8px}
 .mode-loading{min-height:100svh;display:grid;place-items:center;padding:24px;color:var(--progress-ink);font:15px Space,sans-serif}
 .challenge-difficulty{margin-top:15px}.challenge-difficulty .challenge-rounds button{font-size:11px}.challenge-difficulty>p{font:11px/1.4 Space,sans-serif;color:var(--progress-soft);margin:7px 0 0}
-@media(max-width:960px){.island-home .category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.challenge-card .challenge-heading h3{font-size:22px}.challenge-card .challenge-action{font-size:7px}}
-@media(max-width:680px){.island-home .category-grid{grid-template-columns:1fr}.challenge-games-grid{grid-template-columns:1fr}.challenge-games-grid .challenge-card{padding:18px}.challenge-card .challenge-heading{margin-bottom:20px}.challenge-card .challenge-heading h3{font-size:22px}}
+@media(max-width:960px){.island-home .category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:680px){.island-home .category-grid{grid-template-columns:1fr}}

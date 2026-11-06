@@ -1,17 +1,27 @@
-# Banco Fun facts / GeoGuru — 6 de novembro de 2026
+# Banco Conhecimento geral — 6 de novembro de 2026
 
-O banco disponibiliza **382 perguntas por idioma** (414 registos: o núcleo de 338, 12 perguntas novas de bandeiras e 32 critérios de nomes/letras com variantes separadas PT/EN). As variantes linguísticas não são somadas ao contador da interface. A causa da repetição anterior era a composição: 106 perguntas de texto, dois exemplares de cada um de quatro tipos e apenas um pin e uma distância. A seleção tentava incluir todos os tipos em cada run, repetindo necessariamente os grupos pequenos.
+O banco disponibiliza **476 perguntas por idioma** (508 registos: o núcleo de 338, 42 perguntas novas de bandeiras, 32 critérios de nomes/letras com variantes separadas PT/EN, 32 variantes continentais e 32 variantes de números, datas, pins e distâncias). As variantes linguísticas não são somadas ao contador da interface. A causa da repetição anterior era a composição: 106 perguntas de texto, dois exemplares de cada um de quatro tipos e apenas um pin e uma distância. A seleção tentava incluir todos os tipos em cada run, repetindo necessariamente os grupos pequenos.
 
 | Tipo | Antes | Agora |
 | --- | ---: | ---: |
-| `TEXT_SINGLE` | 106 | 110 |
-| `TRUE_FALSE` | 2 | 42 |
-| `NUMBER_EXACT` (aproximação) | 2 | 35 |
-| `TEXT_MULTIPLE` | 2 | 72 |
-| `SLIDER_TIMELINE` | 2 | 32 |
-| `SLIDER_DISTANCE` | 1 | 41 |
-| `MAP_PINPOINT` | 1 | 50 |
-| **Total** | **116** | **382** |
+| `TEXT_SINGLE` | 106 | 126 |
+| `TRUE_FALSE` | 2 | 53 |
+| `NUMBER_EXACT` (aproximação) | 2 | 50 |
+| `TEXT_MULTIPLE` | 2 | 100 |
+| `SLIDER_TIMELINE` | 2 | 40 |
+| `SLIDER_DISTANCE` | 1 | 49 |
+| `MAP_PINPOINT` | 1 | 58 |
+| **Total** | **116** | **476** |
+
+## Expansão por continentes e variantes
+
+Foram acrescentadas **94 perguntas** nesta atualização, sem alterar os IDs antigos:
+
+- **30 de bandeiras:** cores e símbolos por continente, Cruzeiro do Sul, animais e brasões, bandeiras com desenhos distintos, estrelas/raios/faixas e pormenores de hasteamento. [Fontes e conjuntos completos](quiz-flag-variants-provenance.md).
+- **32 continentais:** Equador (terra, incluindo ilhas), trópicos, países sem litoral, ilhas e lagos partilhados, Benelux, Bálticos e Ásia Central. Não se confundem águas territoriais com terra nem bacias hidrográficas com margens de lagos. [Proveniência](quiz-continental-provenance.md).
+- **32 de outros formatos:** oito números, oito datas, oito pins de cidades e oito distâncias escolhidas. Os percursos incluem oceanos e quase antípodas; os números incluem canais, túneis, lagos, recifes e cataratas. [Proveniência](quiz-world-variants-provenance.md).
+
+A lista integral é gerada em `public/downloads/conhecimento-geral.md` e `.json`, com PT/EN, respostas, explicações e fontes. `npm run build` regenera os dois ficheiros.
 
 ## Bandeiras e nomes/letras
 
@@ -50,4 +60,4 @@ O histórico é local, partilhado entre dificuldades e rondas, e cresce até ao 
 
 ## Verificação
 
-Os testes validam os 414 registos e os bancos elegíveis de 382 perguntas por idioma, as sete coberturas de input, unicidade dos IDs e prompts nas duas línguas, países válidos, fontes, diferenças de definição, pares de cidades, conjuntos de fronteiras e a seleção de partidas sucessivas de 10 perguntas sem repetir nenhum ID enquanto houver perguntas inéditas. O ciclo seguinte inclui todas as inéditas restantes antes de reciclar. Há também regressão específica para o antigo caso de um único pin esgotado, migração de histórico, armazenamento bloqueado e formulação de Berlim.
+Os testes validam os 508 registos e os bancos elegíveis de 476 perguntas por idioma, as sete coberturas de input, unicidade dos IDs e prompts nas duas línguas, países válidos, fontes, diferenças de definição, pares de cidades, conjuntos de fronteiras e a seleção de partidas sucessivas de 10 perguntas sem repetir nenhum ID enquanto houver perguntas inéditas. O ciclo seguinte inclui todas as inéditas restantes antes de reciclar. Há também regressão específica para o antigo caso de um único pin esgotado, migração de histórico, armazenamento bloqueado e formulação de Berlim.

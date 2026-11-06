@@ -8,5 +8,6 @@ import './progress.css';
 import './kiwi.css';
 import './play.css';
 import './islands.css';
+import './game-cards.css';
 
 createRoot(document.getElementById('root')).render(<React.StrictMode><LocaleProvider><App /></LocaleProvider></React.StrictMode>);

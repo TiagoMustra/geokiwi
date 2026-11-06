@@ -227,3 +227,7 @@ Os créditos também estão acessíveis no rodapé do site. As fronteiras são c
 O modo Fun facts foi refatorado para um quiz dinâmico de sete tipos com dificuldade Easy/Medium/Hard. Contratos TypeScript, componentes, regras numéricas, exemplos e persistência estão descritos em [docs/geoguru.md](docs/geoguru.md).
 
 Preparação pronta em `wrangler.toml`, com os comandos `cloudflare:login`, `cloudflare:create`, `cloudflare:deploy` e `cloudflare:package`. O script de embalagem gera um ZIP só com os ficheiros estáticos. O guia [docs/PUBLICAR-CLOUDFLARE.md](docs/PUBLICAR-CLOUDFLARE.md) explica o upload, o domínio e onde os dados são guardados. A publicação numa conta Cloudflare requer o login do proprietário; preparar o código não cria a conta nem regista o domínio.
+
+## Banco de Conhecimento geral
+
+`npm run quiz:export` gera a lista completa em `public/downloads/conhecimento-geral.md` e o contrato integral em `public/downloads/conhecimento-geral.json`, com PT/EN, soluções e fontes. `npm run build` atualiza automaticamente estes ficheiros. As variantes linguísticas de perguntas de nomes/letras são registos separados; o contador da interface mostra apenas as elegíveis no idioma escolhido. As chaves antigas de saves/recordes GeoGuru mantêm-se para preservar o progresso.

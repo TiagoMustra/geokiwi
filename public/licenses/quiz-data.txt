@@ -1,4 +1,4 @@
-GeoKiwi Fun facts / GeoGuru — data attribution (2026-11-06)
+GeoKiwi Conhecimento geral / General knowledge — data attribution (2026-11-06)
 
 Original Portuguese/English question text accompanies individually linked sources.
 
@@ -33,3 +33,8 @@ Verification: docs/quiz-flags-provenance.md.
 
 Monument photography: individual creators and Creative Commons licenses.
 Full photo credits: /licenses/landmark-photos.txt
+
+Continental, flag and world variants: verification notes in
+docs/quiz-continental-provenance.md, docs/quiz-flag-variants-provenance.md and
+docs/quiz-world-variants-provenance.md. Sources are attached to every question
+and redistributed in /downloads/conhecimento-geral.md and .json.

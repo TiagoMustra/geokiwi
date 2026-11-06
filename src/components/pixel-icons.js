@@ -6,6 +6,14 @@ export const pixelPalette = {
 };
 
 export const pixelArtwork = {
+  book: [
+    ['edge', 'M1 1h5v1h4V1h5v13h-5v1H6v-1H1Z'],
+    ['shade', 'M2 2h4v1h4V2h4v11h-4v1H6v-1H2Z'],
+    ['paper', 'M2 2h4v1h2v10H6v-1H2Zm8 1V2h4v10h-4v1H9V3Z'],
+    ['light', 'M3 3h3v1H3Zm7 0h3v1h-3Z'],
+    ['green', 'M3 5h3v1H3Zm0 3h3v1H3Zm7-3h3v1h-3Zm0 3h3v1h-3Z'],
+    ['clay', 'M7 2h2v12H7Z'],
+  ],
   globe: [
     ['edge', 'M5 0h6v1h2v1h1v2h1v2h1v5h-1v2h-1v1h-2v1H5v-1H3v-1H2v-2H1V6h1V4h1V2h2Z'],
     ['sea', 'M5 1h6v1h2v2h1v2h1v5h-1v2h-2v1H5v-1H3v-2H2V6h1V4h1V2h1Z'],

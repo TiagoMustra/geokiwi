@@ -8,6 +8,9 @@ import { numberExpansion } from './number-expansion.js';
 import { booleanExpansion } from './boolean-expansion.js';
 import { flagExpansion } from './flag-expansion.js';
 import { nameExpansion } from './name-expansion.js';
+import { worldVariants } from './world-variants.js';
+import { continentalVariants } from './continental-variants.js';
+import { flagVariants } from './flag-variants.js';
 
 const countryById=Object.fromEntries(countries.map(c=>[c.id,c]));
 export const countryEntity=id=>{
@@ -49,7 +52,7 @@ export const starterQuestions=[
   {...common('pinpoint-everest','geography',text('Coloca o pin no cume do Evereste.','Place the pin on the summit of Everest.'),text('O cume situa-se na fronteira entre o Nepal e a China, na cordilheira dos Himalaias.','The summit lies on the Nepal–China border in the Himalayas.'),everest.source,['524','156']),inputType:'MAP_PINPOINT',placeType:'peak',answer:{point:{lat:everest.coordinates[1],lng:everest.coordinates[0]},toleranceKm:25,decayKm:500}},
   {...common('text-city-eiffel','cities',text('Em que cidade fica a Torre Eiffel?','Which city is home to the Eiffel Tower?'),text('A Torre Eiffel fica em Paris, junto ao Sena.','The Eiffel Tower stands in Paris, beside the Seine.'),eiffel,['250']),inputType:'TEXT_SINGLE',suggestionDomain:'cities',answer:{accepted:[{id:'city-paris',label:text('Paris','Paris'),aliases:[]}]}},
 ];
-export const dynamicQuestions=[...starterQuestions,...geographyExpansion,...historyExpansion,...numberExpansion,...booleanExpansion,...flagExpansion,...nameExpansion];
+export const dynamicQuestions=[...starterQuestions,...geographyExpansion,...historyExpansion,...numberExpansion,...booleanExpansion,...flagExpansion,...nameExpansion,...worldVariants,...continentalVariants,...flagVariants];
 /** @type {import('./types').QuizQuestion[]} */
 export const quizQuestions=[...legacyQuestions,...dynamicQuestions];
 export const quizQuestionById=Object.fromEntries(quizQuestions.map(q=>[q.id,q]));
