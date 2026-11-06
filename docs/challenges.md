@@ -10,7 +10,7 @@ Score follows the capital game: `round(100 * exp(-distanceKm / 500))`, capped at
 
 ## Fun facts
 
-The dynamic GeoGuru engine supports seven interactions: true/false, single text, multiple text, exact numbers with units, map pins, timeline sliders and distance sliders. The 105 original country clues are adapted to the new schema, alongside 11 sourced launch questions. Easy/Medium/Hard control list quotas (one/half rounded up/all). See [geoguru.md](geoguru.md) for the contracts, component structure, parser rules and save migration.
+The dynamic GeoGuru engine supports seven interactions: true/false, single text, multiple text, numeric approximations with units, map pins, timeline sliders and distance sliders. It now contains 338 questions: the original 116 plus 222 additions. New runs prefer unseen questions across all types rather than repeating an exhausted small pool; displayed-question history persists in this browser. Easy/Medium/Hard control list quotas (one/half rounded up/all). See [geoguru.md](geoguru.md) and [quiz-bank.md](quiz-bank.md) for contracts, source criteria and selection rules.
 
 Autocomplete selection submits immediately; skip reveals the answer. Explore the world advances after 1 second for a correct answer and 2 seconds for a mistake or skip. Fun facts allows 3 seconds for a correct answer and 4.5 seconds for partial answers, mistakes or skips. Its numeric questions score by proximity and its map is visible only for pins; its results omit review/practice. Explicit pause remains available; hovering over Explorer feedback no longer delays the next round. The explanation occupies at most two visible lines; sources remain available during feedback; Explore the world keeps its result review.
 

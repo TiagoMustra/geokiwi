@@ -18,9 +18,11 @@ export interface NumericScoring { fullCreditError?: number; zeroCreditError?: nu
 export interface BaseQuestion {
   schemaVersion: 1;
   id: string;
-  /** Increment when the solution or wording changes; incompatible saves are rejected. */
+  /** Increment when the solution/meaning changes; editorial corrections keep saves valid. */
   revision: number;
   category: string;
+  /** Shared by different formats about the same fact to avoid repetition in a run. */
+  topicId?: string;
   prompt: LocalizedText;
   explanation: LocalizedText;
   sources: Source[];

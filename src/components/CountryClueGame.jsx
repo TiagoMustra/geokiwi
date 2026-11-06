@@ -1,7 +1,7 @@
 import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { quizQuestions, quizQuestionById } from '../quiz/questions.js';
-import { createQuiz, fromLngLat, nextQuiz, submitQuiz, toLngLat, quizFeedbackDuration } from '../quiz/engine.js';
-import { checkpointQuiz, readQuizSave, readQuizRecord, saveQuizRecord } from '../quiz/storage.js';
+import { fromLngLat, nextQuiz, submitQuiz, toLngLat, quizFeedbackDuration } from '../quiz/engine.js';
+import { checkpointQuiz, readQuizSave, readQuizRecord, saveQuizRecord, createNewQuiz, rememberQuizQuestion } from '../quiz/storage.js';
 import { difficultyLabel, inputLabel, noticeLabel, solutionLabel } from '../quiz/presentation.js';
 import { useLocale } from '../i18n/LocaleContext.jsx';
 import { Icon, KiwiMark } from './Icon.jsx';
@@ -17,7 +17,7 @@ const ProximityMap=lazy(()=>import('./ProximityMap.jsx'));
 
 export default function CountryClueGame({rounds=10,difficulty='EASY',resume=false,onExit}) {
   const {locale}=useLocale(),en=locale==='en';
-  const [game,setGame]=useState(()=>resume&&readQuizSave(rounds,difficulty)||createQuiz({bank:quizQuestions,rounds,difficulty}));
+  const [game,setGame]=useState(()=>resume&&readQuizSave(rounds,difficulty)||createNewQuiz({rounds,difficulty}));
   const [point,setPoint]=useState(null),[paused,setPaused]=useState(false),[hidden,setHidden]=useState(false),[confirm,setConfirm]=useState(false),[storageOK,setStorageOK]=useState(true),[suggestions,setSuggestions]=useState(true);
   const recordRef=useRef(readQuizRecord(rounds,difficulty)),finishedRef=useRef(false);
   const question=quizQuestionById[game.queue[game.index]],result=game.answers[game.index];
@@ -29,9 +29,10 @@ export default function CountryClueGame({rounds=10,difficulty='EASY',resume=fals
   useEffect(()=>{setStorageOK(checkpointQuiz(game));if(game.finished&&!finishedRef.current){finishedRef.current=true;saveQuizRecord(game);}},[game]);
   useEffect(()=>{const sync=()=>setHidden(document.hidden);sync();document.addEventListener('visibilitychange',sync);return()=>document.removeEventListener('visibilitychange',sync);},[]);
   useEffect(()=>{setPoint(null);setPaused(false);},[game.id,game.index]);
+  useEffect(()=>{rememberQuizQuestion(game.queue[game.index]);},[game.id,game.index]);
   useEffect(()=>{if(!result||game.finished||paused||hidden||confirm)return;const timer=setTimeout(()=>setGame(nextQuiz),quizFeedbackDuration(result));return()=>clearTimeout(timer);},[result,game.finished,paused,hidden,confirm]);
   function answer(value,skipped=false){setGame(old=>submitQuiz(old,quizQuestionById,value,{skipped,locale}));}
-  function start(bank=quizQuestions,practice=false){finishedRef.current=false;recordRef.current=readQuizRecord(rounds,game.difficulty);setConfirm(false);setGame(createQuiz({rounds,difficulty:game.difficulty,bank,practice}));}
+  function start(bank=quizQuestions,practice=false){finishedRef.current=false;recordRef.current=readQuizRecord(rounds,game.difficulty);setConfirm(false);setGame(createNewQuiz({rounds,difficulty:game.difficulty,bank,practice}));}
   function exit(){checkpointQuiz(game);onExit();}
 
   if(game.finished)return <ResultsScreen title="Fun facts" context={`${difficultyLabel(game.difficulty,locale)} · ${game.queue.length} ${en?'questions':'perguntas'}`} score={game.score} correct={correctCount} total={game.queue.length} mistakes={missed.length} newRecord={!game.practice&&game.score>recordRef.current} onReplay={()=>start()} onExit={onExit} allowReview={false} prominentScore/>;

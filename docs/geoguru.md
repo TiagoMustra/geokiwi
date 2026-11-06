@@ -7,7 +7,10 @@ O modo Fun facts usa agora uma união discriminada por `inputType`. Os dados sã
 | Ficheiro | Responsabilidade |
 | --- | --- |
 | `src/quiz/types.ts` | Interfaces TypeScript: perguntas, entidades, unidades, coordenadas, respostas, eventos e contrato dos componentes |
-| `src/quiz/questions.js` | Banco de perguntas e adaptação das 105 pistas anteriores; 11 novas perguntas de arranque cobrem os sete tipos |
+| `src/quiz/questions.js` | Índice do banco: 338 perguntas, incluindo as 105 pistas anteriores e os sete tipos de input |
+| `src/quiz/geography-expansion.js` | 30 listas de fronteiras, 40 distâncias e 49 novos pins com coordenadas verificadas |
+| `src/quiz/history-expansion.js`, `number-expansion.js`, `boolean-expansion.js` | Novas perguntas bilingues com fontes e critérios documentados |
+| `src/quiz/selection.js` | Prioridade a perguntas inéditas, variedade de tipos e reciclagem das vistas há mais tempo |
 | `src/quiz/engine.js` | Parser numérico, quotas, limites, validação, avaliação e evolução imutável da partida |
 | `src/quiz/storage.js` | Saves e recordes por rondas/dificuldade; reconstrução das respostas e migração da versão anterior |
 | `src/quiz/presentation.js` | Nomes localizados dos tipos, soluções, dificuldade e erros |
@@ -71,6 +74,8 @@ O feedback dura 3 segundos em acertos e 4,5 segundos em aproximações, erros ou
 ## Persistência e compatibilidade
 
 `localStorage` continua a guardar tudo neste navegador. Não foi acrescentado servidor, base de dados ou conta. Chaves: `geokiwi.geoguru.saves.v2` e `geokiwi.geoguru.records.v2`, com slots `10:EASY`, `20:MEDIUM`, etc. `scoringVersion: 3` identifica a pontuação por aproximação. O progresso e a pontuação são reconstruídos a partir dos eventos; partidas anteriores conservam a ordem e os palpites e recebem a nova pontuação ao retomar. Os recordes existentes mantêm-se. IDs desconhecidos, revisões incompatíveis e eventos impossíveis não são retomados.
+
+O histórico `geokiwi.geoguru.history.v1` guarda apenas IDs de perguntas efetivamente apresentadas, por ordem de visualização, sem reservar o resto da fila. É partilhado entre dificuldades e quantidades de rondas neste navegador. `createNewQuiz` evita repetir perguntas vistas enquanto existirem inéditas suficientes; se restarem poucas, usa todas antes de reciclar antigas. Um tipo esgotado não força a repetição das suas perguntas. Formatos diferentes sobre o mesmo facto usam `topicId` para evitar a mesma matéria duas vezes numa partida quando há alternativas. Retomar continua a conservar a fila guardada; reiniciar ou jogar de novo usa a nova seleção. Ver [quiz-bank.md](quiz-bank.md) para contagens e proveniência.
 
 As partidas antigas de texto são adaptadas como Easy, com a mesma ordem e respostas. O save antigo só é removido depois de o novo checkpoint ter sido guardado com sucesso. Os recordes antigos continuam na sua chave original; não são misturados com o novo banco de quizzes mistos.
 

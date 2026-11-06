@@ -4,11 +4,34 @@ import { readCountryClueSave, clearCountryClueSave } from '../lib/country-clues-
 
 export const QUIZ_SAVE_KEY='geokiwi.geoguru.saves.v2';
 export const QUIZ_RECORD_KEY='geokiwi.geoguru.records.v2';
+export const QUIZ_HISTORY_KEY='geokiwi.geoguru.history.v1';
 const object=v=>v&&typeof v==='object'&&!Array.isArray(v);
 const safeRounds=n=>[10,20,30].includes(n)?n:10;
 const slot=(rounds,difficulty)=>`${safeRounds(rounds)}:${validDifficulty(difficulty)}`;
 function read(key,storage){try{const v=JSON.parse((storage??globalThis.localStorage).getItem(key)||'{}');return object(v)?v:{};}catch{return {};}}
 function write(key,value,storage){try{(storage??globalThis.localStorage).setItem(key,JSON.stringify(value));return true;}catch{return false;}}
+
+export function readQuizHistory(storage){
+  const value=read(QUIZ_HISTORY_KEY,storage);
+  let ids=value.version===1&&Array.isArray(value.questionIds)?value.questionIds:[];
+  if(!ids.length){
+    // Preserve knowledge of displayed questions when upgrading pre-history saves.
+    ids=Object.values(read(QUIZ_SAVE_KEY,storage)).flatMap(saved=>Array.isArray(saved?.queue)&&Number.isInteger(saved.index)
+      ?saved.queue.slice(0,Math.max(0,Math.min(saved.index+1,saved.queue.length))):[]);
+  }
+  return [...new Set(ids.filter(id=>typeof id==='string'&&Object.hasOwn(quizQuestionById,id)))].slice(-quizQuestions.length);
+}
+export function rememberQuizQuestion(id,storage){
+  if(!Object.hasOwn(quizQuestionById,id))return false;
+  const questionIds=[...readQuizHistory(storage).filter(old=>old!==id),id].slice(-quizQuestions.length);
+  return write(QUIZ_HISTORY_KEY,{version:1,questionIds},storage);
+}
+export function createNewQuiz(options={},storage){
+  const recentQuestionIds=readQuizHistory(storage);
+  // Preserve imported pre-history knowledge before a fresh run replaces its old save.
+  if(recentQuestionIds.length)write(QUIZ_HISTORY_KEY,{version:1,questionIds:recentQuestionIds},storage);
+  return createQuiz({bank:quizQuestions,...options,recentQuestionIds});
+}
 
 /** Replay accepted submissions against trusted answers; persisted scores are never trusted. */
 export function restoreQuiz(saved,bank=quizQuestionById){

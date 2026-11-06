@@ -1,0 +1,270 @@
+{
+  "checkedAt": "2026-11-06",
+  "source": {
+    "title": "Mledoze / Countries · land borders",
+    "url": "https://raw.githubusercontent.com/mledoze/countries/master/countries.json"
+  },
+  "sourceSha256": "0d92fb23b43ae080bd439f5dc5d61a8845395fdd0af1479b433c59fe079bd6fd",
+  "countries": [
+    {
+      "iso3": "PRT",
+      "borders": [
+        "ESP"
+      ]
+    },
+    {
+      "iso3": "PAN",
+      "borders": [
+        "COL",
+        "CRI"
+      ]
+    },
+    {
+      "iso3": "DEU",
+      "borders": [
+        "AUT",
+        "BEL",
+        "CZE",
+        "DNK",
+        "FRA",
+        "LUX",
+        "NLD",
+        "POL",
+        "CHE"
+      ]
+    },
+    {
+      "iso3": "AUT",
+      "borders": [
+        "CZE",
+        "DEU",
+        "HUN",
+        "ITA",
+        "LIE",
+        "SVK",
+        "SVN",
+        "CHE"
+      ]
+    },
+    {
+      "iso3": "CHE",
+      "borders": [
+        "AUT",
+        "FRA",
+        "ITA",
+        "LIE",
+        "DEU"
+      ]
+    },
+    {
+      "iso3": "BEL",
+      "borders": [
+        "FRA",
+        "DEU",
+        "LUX",
+        "NLD"
+      ]
+    },
+    {
+      "iso3": "LUX",
+      "borders": [
+        "BEL",
+        "FRA",
+        "DEU"
+      ]
+    },
+    {
+      "iso3": "POL",
+      "borders": [
+        "BLR",
+        "CZE",
+        "DEU",
+        "LTU",
+        "RUS",
+        "SVK",
+        "UKR"
+      ]
+    },
+    {
+      "iso3": "CZE",
+      "borders": [
+        "AUT",
+        "DEU",
+        "POL",
+        "SVK"
+      ]
+    },
+    {
+      "iso3": "SVK",
+      "borders": [
+        "AUT",
+        "CZE",
+        "HUN",
+        "POL",
+        "UKR"
+      ]
+    },
+    {
+      "iso3": "HUN",
+      "borders": [
+        "AUT",
+        "HRV",
+        "ROU",
+        "SRB",
+        "SVK",
+        "SVN",
+        "UKR"
+      ]
+    },
+    {
+      "iso3": "SVN",
+      "borders": [
+        "AUT",
+        "HRV",
+        "ITA",
+        "HUN"
+      ]
+    },
+    {
+      "iso3": "CHL",
+      "borders": [
+        "ARG",
+        "BOL",
+        "PER"
+      ]
+    },
+    {
+      "iso3": "PER",
+      "borders": [
+        "BOL",
+        "BRA",
+        "CHL",
+        "COL",
+        "ECU"
+      ]
+    },
+    {
+      "iso3": "ARG",
+      "borders": [
+        "BOL",
+        "BRA",
+        "CHL",
+        "PRY",
+        "URY"
+      ]
+    },
+    {
+      "iso3": "URY",
+      "borders": [
+        "ARG",
+        "BRA"
+      ]
+    },
+    {
+      "iso3": "PRY",
+      "borders": [
+        "ARG",
+        "BOL",
+        "BRA"
+      ]
+    },
+    {
+      "iso3": "BOL",
+      "borders": [
+        "ARG",
+        "BRA",
+        "CHL",
+        "PRY",
+        "PER"
+      ]
+    },
+    {
+      "iso3": "ECU",
+      "borders": [
+        "COL",
+        "PER"
+      ]
+    },
+    {
+      "iso3": "COL",
+      "borders": [
+        "BRA",
+        "ECU",
+        "PAN",
+        "PER",
+        "VEN"
+      ]
+    },
+    {
+      "iso3": "CRI",
+      "borders": [
+        "NIC",
+        "PAN"
+      ]
+    },
+    {
+      "iso3": "GTM",
+      "borders": [
+        "BLZ",
+        "SLV",
+        "HND",
+        "MEX"
+      ]
+    },
+    {
+      "iso3": "MEX",
+      "borders": [
+        "BLZ",
+        "GTM",
+        "USA"
+      ]
+    },
+    {
+      "iso3": "USA",
+      "borders": [
+        "CAN",
+        "MEX"
+      ]
+    },
+    {
+      "iso3": "MNG",
+      "borders": [
+        "CHN",
+        "RUS"
+      ]
+    },
+    {
+      "iso3": "NPL",
+      "borders": [
+        "CHN",
+        "IND"
+      ]
+    },
+    {
+      "iso3": "BTN",
+      "borders": [
+        "CHN",
+        "IND"
+      ]
+    },
+    {
+      "iso3": "SWZ",
+      "borders": [
+        "MOZ",
+        "ZAF"
+      ]
+    },
+    {
+      "iso3": "HTI",
+      "borders": [
+        "DOM"
+      ]
+    },
+    {
+      "iso3": "TLS",
+      "borders": [
+        "IDN"
+      ]
+    }
+  ]
+}

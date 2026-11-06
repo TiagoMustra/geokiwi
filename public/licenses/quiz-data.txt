@@ -1,0 +1,27 @@
+GeoKiwi Fun facts / GeoGuru — data attribution (2026-11-06)
+
+Original Portuguese/English question text accompanies individually linked sources.
+
+Land-border snapshot and inland/coastal status:
+Mledoze / Countries, ODbL 1.0
+https://github.com/mledoze/countries
+https://github.com/mledoze/countries/blob/master/LICENSE
+Snapshot details: src/quiz/borders-snapshot.json and docs/quiz-bank.md.
+
+City coordinates:
+Natural Earth v5.1.2, public domain
+https://www.naturalearthdata.com/about/terms-of-use/
+https://github.com/nvkelso/natural-earth-vector/tree/v5.1.2
+Monument and summit coordinates: Wikidata, CC0
+https://www.wikidata.org/wiki/Wikidata:Licensing
+
+Population/surface-area observations:
+World Bank World Development Indicators, with indicator/source definitions and
+reference years linked in each question. Canada total area uses Statistics Canada.
+https://data.worldbank.org/summary-terms-of-use
+
+History, heights, distances and island counts cite the responsible institutional
+sources individually. Full verification notes are in docs/quiz-history-provenance.md,
+docs/quiz-numbers-provenance.md and docs/quiz-boolean-provenance.md.
+
+All answers are bundled snapshots. No statistics are fetched at game time.

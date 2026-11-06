@@ -1,4 +1,5 @@
-import { makeQueue, normalizeAnswer } from '../lib/game.js';
+import { normalizeAnswer } from '../lib/game.js';
+import { selectQuizQuestions } from './selection.js';
 
 export const DIFFICULTIES = ['EASY', 'MEDIUM', 'HARD'];
 export const INPUT_TYPES = ['TRUE_FALSE','TEXT_SINGLE','TEXT_MULTIPLE','NUMBER_EXACT','MAP_PINPOINT','SLIDER_TIMELINE','SLIDER_DISTANCE'];
@@ -122,17 +123,13 @@ export function evaluateSubmission(question,value,{difficulty='EASY',foundIds=[]
   return {answer:{...base,correct,points:correct?100:0,...extra},foundIds:extra.foundIds??foundIds,notice:null};
 }
 
-/** Alternate interaction types before returning to the large legacy text bank. */
-export function createQuiz({bank,rounds=10,difficulty='EASY',practice=false,random=Math.random}) {
+/** Balance available types without forcing repeats from an exhausted small pool. */
+export function createQuiz({bank,rounds=10,difficulty='EASY',practice=false,random=Math.random,recentQuestionIds=[]}) {
   const size=[10,20,30].includes(rounds)?rounds:10;
   const unique=[...new Map(bank.map(question=>[question.id,question])).values()];
   if(!unique.length)throw new RangeError('Quiz bank is empty');
   for(const question of unique){const errors=validateQuestion(question);if(errors.length)throw new TypeError(`Invalid question ${question.id}: ${errors.join(', ')}`);}
-  const groups=makeQueue(INPUT_TYPES,1,random).map(type=>makeQueue(unique.filter(q=>q.inputType===type),1,random));
-  const selected=[];
-  while(selected.length<(practice?unique.length:Math.min(size,unique.length))) {
-    for(const group of groups) {if(group.length&&selected.length<(practice?unique.length:Math.min(size,unique.length)))selected.push(group.shift());}
-  }
+  const selected=selectQuizQuestions(unique,{limit:practice?unique.length:Math.min(size,unique.length),random,recentQuestionIds});
   return {version:2,scoringVersion:QUIZ_SCORING_VERSION,id:globalThis.crypto.randomUUID(),startedAt:Date.now(),rounds:size,difficulty:validDifficulty(difficulty),practice,
     queue:selected.map(q=>q.id),revisions:Object.fromEntries(selected.map(q=>[q.id,q.revision])),index:0,events:[],answers:[],foundIds:[],notice:null,score:0,finished:false};
 }
@@ -158,6 +155,7 @@ export function validateQuestion(q,year=currentYear()) {
   const errors=[];
   if(!q||typeof q!=='object'||Array.isArray(q))return ['question'];
   if(q.schemaVersion!==1||!q.id||!Number.isInteger(q.revision)||q.revision<1)errors.push('identity');
+  if(q.topicId!==undefined&&(typeof q.topicId!=='string'||!q.topicId.trim()||q.topicId.length>150))errors.push('topicId');
   if(!INPUT_TYPES.includes(q.inputType))errors.push('inputType');
   if(!['prompt','explanation'].every(field=>['pt','en'].every(l=>typeof q[field]?.[l]==='string'&&q[field][l].trim())))errors.push('translations');
   if(!q.sources?.length||!q.sources.every(s=>s.title&&/^https:\/\//.test(s.url))||!/^\d{4}-\d{2}-\d{2}$/.test(q.checkedAt))errors.push('provenance');
