@@ -3,6 +3,7 @@ import assert from 'node:assert/strict';
 import { createQuiz, evaluateSubmission, requiredAnswers, parseSmartNumber, inputBounds, MAX_DISTANCE_KM, distanceKm, fromLngLat, toLngLat, submitQuiz, nextQuiz, validateQuestion, INPUT_TYPES, numericScoring, scoreNumericAnswer, sliderSolutionPosition, quizFeedbackDuration } from '../src/quiz/engine.js';
 import { dynamicQuestions, quizQuestions, quizQuestionById as bank } from '../src/quiz/questions.js';
 import { restoreQuiz, checkpointQuiz, readQuizSave, readQuizRecord, saveQuizRecord, QUIZ_SAVE_KEY } from '../src/quiz/storage.js';
+import { quizRetirements } from '../src/quiz/editorial-review.js';
 import { createCountryClueGame, answerCountryClue, writeCountryClueSave, readCountryClueSave } from '../src/lib/country-clues-game.js';
 const memory=()=>{const map=new Map();return {getItem:key=>map.get(key)||null,setItem:(key,v)=>map.set(key,v)};};
 const list=bank['multiple-caspian'];
@@ -178,7 +179,7 @@ test('difficulty saves and records are separate; practice never changes a record
 test('old text-only games migrate without losing their queue or progress',()=>{
   const storage=memory();let legacy=createCountryClueGame({rounds:10});
   legacy=answerCountryClue(legacy,'',{skipped:true});writeCountryClueSave(legacy,storage);
-  const migrated=readQuizSave(10,'EASY',storage);assert.deepEqual(migrated.queue,legacy.queue);assert.equal(migrated.answers[0].skipped,true);assert.equal(migrated.index,legacy.index);
+  const migrated=readQuizSave(10,'EASY',storage);assert.deepEqual(migrated.queue,legacy.queue.map((id,index)=>index<legacy.answers.length?id:quizRetirements[id]?.replacementId||id));assert.equal(migrated.answers[0].skipped,true);assert.equal(migrated.index,legacy.index);
   assert.ok(readCountryClueSave(10,storage));checkpointQuiz(migrated,storage);assert.equal(readCountryClueSave(10,storage),null);assert.equal(readQuizSave(10,'EASY',storage).id,legacy.id);
 });
 test('corrupt, impossible, revised and blocked saves fail safely',()=>{

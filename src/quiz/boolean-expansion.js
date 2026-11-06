@@ -51,7 +51,9 @@ const cityComparison=(slug,firstId,secondId,direction)=>{
   return question(`tf-latitude-${slug}`,`latitude:${slug}`,'cities',prompt,explanation,sources,countryIds,value);
 };
 
-/** Forty bilingual assertions: 20 clue adaptations, 10 inland countries, 10 latitude comparisons.
+/** Historical authored bank; editorial-review.js selects only suitable active formats.
+ * Retained objects validate completed save events and never bypass the active index.
+ * Forty bilingual assertions: 20 clue adaptations, 10 inland countries, 10 latitude comparisons.
  * Every helper returns a complete serializable QuizQuestion; latitude answers use the source data.
  * @type {import('./types').QuizQuestion[]}
  */

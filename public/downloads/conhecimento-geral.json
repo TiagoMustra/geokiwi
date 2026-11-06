@@ -5,10 +5,10 @@
     "en": "General knowledge"
   },
   "eligibleCounts": {
-    "pt": 476,
-    "en": 476
+    "pt": 436,
+    "en": 436
   },
-  "storedQuestionCount": 508,
+  "storedQuestionCount": 468,
   "checkedThrough": "2026-11-06",
   "notes": {
     "pt": "Inclui perguntas, soluções e fontes. Variantes de nomes PT/EN são registos separados; a partida seleciona a língua escolhida. A dificuldade só altera a quota de respostas das listas. Números, datas, distâncias e pins dão pontos por proximidade.",
@@ -4643,65 +4643,6 @@
     },
     {
       "schemaVersion": 1,
-      "id": "duplamente-encravado",
-      "revision": 1,
-      "inputType": "TEXT_SINGLE",
-      "category": "geography",
-      "topicId": "clue:duplamente-encravado",
-      "prompt": {
-        "pt": "Diz um dos dois países sem litoral cujos vizinhos também não têm acesso direto ao oceano.",
-        "en": "Name either of the two landlocked countries whose neighbours are also landlocked."
-      },
-      "explanation": {
-        "pt": "O Usbequistão e o Listenstaine são duplamente encravados: para chegar ao oceano é preciso atravessar pelo menos dois países.",
-        "en": "Uzbekistan and Liechtenstein are doubly landlocked: reaching the ocean requires crossing at least two countries."
-      },
-      "sources": [
-        {
-          "title": "UNDP · Landlocked countries",
-          "url": "https://hdr.undp.org/system/files/documents/landlockedcountries2003.pdf"
-        }
-      ],
-      "checkedAt": "2026-11-02",
-      "countryIds": [
-        "860",
-        "438"
-      ],
-      "suggestionDomain": "countries",
-      "answer": {
-        "accepted": [
-          {
-            "id": "860",
-            "label": {
-              "pt": "Uzbequistão",
-              "en": "Uzbekistan"
-            },
-            "aliases": [
-              "Uzbequistão",
-              "Uzbekistan",
-              "Republic of Uzbekistan",
-              "UZ",
-              "O‘zbekiston Respublikasi"
-            ]
-          },
-          {
-            "id": "438",
-            "label": {
-              "pt": "Liechtenstein",
-              "en": "Liechtenstein"
-            },
-            "aliases": [
-              "Liechtenstein",
-              "Principality of Liechtenstein",
-              "LI",
-              "Fürstentum Liechtenstein"
-            ]
-          }
-        ]
-      }
-    },
-    {
-      "schemaVersion": 1,
       "id": "ilha-dentro-lago",
       "revision": 1,
       "inputType": "TEXT_SINGLE",
@@ -4751,8 +4692,8 @@
       "category": "geography",
       "topicId": "clue:quatro-hemisferios",
       "prompt": {
-        "pt": "Que país do Pacífico, com capital em Tarawa, tem ilhas nos quatro hemisférios?",
-        "en": "Which Pacific country, with its capital at Tarawa, has islands in all four hemispheres?"
+        "pt": "Que país insular do Pacífico tem ilhas nos hemisférios Norte, Sul, Oriental e Ocidental?",
+        "en": "Which Pacific island country has islands in the Northern, Southern, Eastern and Western Hemispheres?"
       },
       "explanation": {
         "pt": "As ilhas de Kiribati espalham-se a norte e sul do equador e a leste e oeste do meridiano de 180°.",
@@ -4760,8 +4701,8 @@
       },
       "sources": [
         {
-          "title": "UNCTAD · Kiribati country profile",
-          "url": "https://dgff2021.unctad.org/kiribati/index.html"
+          "title": "UNDP Climate · The ocean is our store keeper",
+          "url": "https://undp-climate.exposure.co/the-ocean-is-our-store-keeper"
         }
       ],
       "checkedAt": "2026-11-02",
@@ -4882,64 +4823,6 @@
             ]
           }
         ]
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-eiffel-century",
-      "revision": 1,
-      "category": "history",
-      "prompt": {
-        "pt": "A Torre Eiffel foi inaugurada no século XIX.",
-        "en": "The Eiffel Tower was inaugurated in the 19th century."
-      },
-      "explanation": {
-        "pt": "Verdadeiro: foi inaugurada em 31 de março de 1889.",
-        "en": "True: it was inaugurated on 31 March 1889."
-      },
-      "sources": [
-        {
-          "title": "Société d’Exploitation de la Tour Eiffel · History",
-          "url": "https://www.toureiffel.paris/en/the-monument/history"
-        }
-      ],
-      "countryIds": [
-        "250"
-      ],
-      "checkedAt": "2026-11-06",
-      "inputType": "TRUE_FALSE",
-      "topicId": "eiffel:inauguration",
-      "answer": {
-        "value": true
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-berlin-1991",
-      "revision": 1,
-      "category": "history",
-      "prompt": {
-        "pt": "O Muro de Berlim caiu em 1991.",
-        "en": "The Berlin Wall fell in 1991."
-      },
-      "explanation": {
-        "pt": "Falso: a queda do Muro de Berlim é assinalada a 9 de novembro de 1989.",
-        "en": "False: the fall of the Berlin Wall is marked on 9 November 1989."
-      },
-      "sources": [
-        {
-          "title": "Berlin.de · Opening and fall of the Berlin Wall",
-          "url": "https://www.berlin.de/en/history/8482274-8619314-opening-and-fall-of-the-berlin-wall.en.html"
-        }
-      ],
-      "countryIds": [
-        "276"
-      ],
-      "checkedAt": "2026-11-06",
-      "inputType": "TRUE_FALSE",
-      "topicId": "berlin-wall:fall",
-      "answer": {
-        "value": false
       }
     },
     {
@@ -13404,441 +13287,6 @@
     },
     {
       "schemaVersion": 1,
-      "id": "tf-nepal-rectangle",
-      "topicId": "clue:bandeira-nepal",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "flags",
-      "prompt": {
-        "pt": "A bandeira nacional do Nepal é retangular.",
-        "en": "Nepal’s national flag is rectangular."
-      },
-      "explanation": {
-        "pt": "A bandeira do Nepal é formada por dois galhardetes triangulares, com contorno azul.",
-        "en": "Nepal’s flag consists of two triangular pennants with blue borders."
-      },
-      "sources": [
-        {
-          "title": "Nepal Tourism Board · National flag",
-          "url": "https://trade.ntb.gov.np/downloads/nepal-logo-with-flag-on-nepal/"
-        }
-      ],
-      "countryIds": [
-        "524"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": false
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-bhutan-swan",
-      "topicId": "clue:dragao-branco",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "flags",
-      "prompt": {
-        "pt": "A bandeira do Butão mostra um cisne branco.",
-        "en": "Bhutan’s flag shows a white swan."
-      },
-      "explanation": {
-        "pt": "A figura branca é um dragão, sobre as metades amarela e laranja da bandeira.",
-        "en": "The white figure is a dragon, across the flag’s yellow and orange halves."
-      },
-      "sources": [
-        {
-          "title": "Ministry of Foreign Affairs of Bhutan · National symbols",
-          "url": "https://www.mfa.gov.bt/wp-content/uploads/2022/12/window-on-Bhutan-2022.pdf"
-        }
-      ],
-      "countryIds": [
-        "064"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": false
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-new-zealand-blue-stars",
-      "topicId": "clue:quatro-estrelas-vermelhas",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "flags",
-      "prompt": {
-        "pt": "As quatro estrelas da bandeira da Nova Zelândia são azuis com contorno branco.",
-        "en": "The four stars on New Zealand’s flag are blue with white borders."
-      },
-      "explanation": {
-        "pt": "As estrelas são vermelhas com contorno branco e representam o Cruzeiro do Sul.",
-        "en": "The stars are red with white borders and represent the Southern Cross."
-      },
-      "sources": [
-        {
-          "title": "Manatū Taonga · New Zealand flag",
-          "url": "https://www.mch.govt.nz/our-work/flags-anthems-and-emblems/new-zealand-flag"
-        }
-      ],
-      "countryIds": [
-        "554"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": false
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-swiss-square-flag",
-      "topicId": "clue:bandeira-quadrada-suica",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "flags",
-      "prompt": {
-        "pt": "A bandeira nacional suíça é quadrada.",
-        "en": "Switzerland’s national flag is square."
-      },
-      "explanation": {
-        "pt": "A bandeira nacional tem formato quadrado; a versão marítima é retangular.",
-        "en": "The national flag is square; its maritime version is rectangular."
-      },
-      "sources": [
-        {
-          "title": "Swiss Federal Chancellery · The Confederation: a brief guide",
-          "url": "https://www.bk.admin.ch/dam/bk/en/dokumente/komm-ue/buku2023/bund-kurz-erklaert-2023.pdf.download.pdf/BUKU%202023_EN.pdf"
-        }
-      ],
-      "countryIds": [
-        "756"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": true
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-canada-maple-points",
-      "topicId": "clue:folha-onze-pontas",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "flags",
-      "prompt": {
-        "pt": "A folha de ácer na bandeira do Canadá tem onze pontas.",
-        "en": "The maple leaf on Canada’s flag has eleven points."
-      },
-      "explanation": {
-        "pt": "A bandeira usa uma folha vermelha estilizada de onze pontas, reconhecível mesmo à distância.",
-        "en": "The flag uses a stylised red eleven-point leaf that remains recognisable at a distance."
-      },
-      "sources": [
-        {
-          "title": "Government of Canada · National flag",
-          "url": "https://www.canada.ca/en/canadian-heritage/services/flag-canada-description.html"
-        }
-      ],
-      "countryIds": [
-        "124"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": true
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-grand-canyon-mississippi",
-      "topicId": "clue:grand-canyon",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "geography",
-      "prompt": {
-        "pt": "Foi o rio Mississippi que escavou o Grand Canyon, no Arizona.",
-        "en": "The Mississippi River carved the Grand Canyon in Arizona."
-      },
-      "explanation": {
-        "pt": "O rio que escavou o Grand Canyon é o Colorado; as suas paredes expõem uma longa história geológica.",
-        "en": "The Colorado River carved the Grand Canyon; its walls expose a long geological record."
-      },
-      "sources": [
-        {
-          "title": "UNESCO · Grand Canyon",
-          "url": "https://whc.unesco.org/en/list/75/"
-        }
-      ],
-      "countryIds": [
-        "840"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": false
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-galapagos-ecuador",
-      "topicId": "clue:galapagos",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "geography",
-      "prompt": {
-        "pt": "As ilhas Galápagos pertencem ao Equador.",
-        "en": "The Galápagos Islands belong to Ecuador."
-      },
-      "explanation": {
-        "pt": "O arquipélago equatoriano abriga espécies singulares, como tartarugas gigantes e iguanas.",
-        "en": "The Ecuadorian archipelago supports distinctive species such as giant tortoises and iguanas."
-      },
-      "sources": [
-        {
-          "title": "UNESCO · Galápagos Islands",
-          "url": "https://whc.unesco.org/en/list/1/"
-        }
-      ],
-      "countryIds": [
-        "218"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": true
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-uluru-new-zealand",
-      "topicId": "clue:uluru",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "geography",
-      "prompt": {
-        "pt": "Uluru fica na Nova Zelândia.",
-        "en": "Uluru is in New Zealand."
-      },
-      "explanation": {
-        "pt": "Uluru fica no centro da Austrália, numa paisagem de planícies arenosas vermelhas.",
-        "en": "Uluru stands in central Australia, in a landscape of red sandy plains."
-      },
-      "sources": [
-        {
-          "title": "UNESCO · Uluru-Kata Tjuta",
-          "url": "https://whc.unesco.org/en/list/447/"
-        }
-      ],
-      "countryIds": [
-        "036"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": false
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-rapa-nui-chile",
-      "topicId": "clue:moai",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "history",
-      "prompt": {
-        "pt": "Rapa Nui, conhecida pelos moai, faz parte do Chile.",
-        "en": "Rapa Nui, known for its moai, is part of Chile."
-      },
-      "explanation": {
-        "pt": "A ilha chilena, também chamada Ilha da Páscoa, conserva uma paisagem cultural de origem polinésia.",
-        "en": "The Chilean island, also called Easter Island, preserves a cultural landscape of Polynesian origin."
-      },
-      "sources": [
-        {
-          "title": "UNESCO · Rapa Nui",
-          "url": "https://whc.unesco.org/en/list/715/"
-        }
-      ],
-      "countryIds": [
-        "152"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": true
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-machu-picchu-mexico",
-      "topicId": "clue:machu-picchu",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "heritage",
-      "prompt": {
-        "pt": "Machu Picchu fica no México.",
-        "en": "Machu Picchu is in Mexico."
-      },
-      "explanation": {
-        "pt": "A cidade inca fica no Peru, nos Andes, a cerca de 2 430 metros de altitude.",
-        "en": "The Inca city is in Peru’s Andes, around 2,430 metres above sea level."
-      },
-      "sources": [
-        {
-          "title": "UNESCO · Machu Picchu",
-          "url": "https://whc.unesco.org/en/list/274/"
-        }
-      ],
-      "countryIds": [
-        "604"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": false
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-petra-jordan",
-      "topicId": "clue:petra",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "heritage",
-      "prompt": {
-        "pt": "Petra, a cidade nabateia parcialmente esculpida na rocha, fica na Jordânia.",
-        "en": "Petra, the Nabataean city partly carved into rock, is in Jordan."
-      },
-      "explanation": {
-        "pt": "O sítio jordano foi um centro de caravanas entre o mar Vermelho e o mar Morto.",
-        "en": "The Jordanian site was a caravan centre between the Red Sea and the Dead Sea."
-      },
-      "sources": [
-        {
-          "title": "UNESCO · Petra",
-          "url": "https://whc.unesco.org/en/list/326/"
-        }
-      ],
-      "countryIds": [
-        "400"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": true
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-angkor-cambodia",
-      "topicId": "clue:angkor",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "heritage",
-      "prompt": {
-        "pt": "Angkor Wat fica no Camboja.",
-        "en": "Angkor Wat is in Cambodia."
-      },
-      "explanation": {
-        "pt": "Angkor, no Camboja, reúne templos e antigas cidades do Império Khmer.",
-        "en": "Angkor in Cambodia includes temples and former cities of the Khmer Empire."
-      },
-      "sources": [
-        {
-          "title": "UNESCO · Angkor",
-          "url": "https://whc.unesco.org/en/list/668/"
-        }
-      ],
-      "countryIds": [
-        "116"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": true
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-serengeti-kenya",
-      "topicId": "clue:serengeti",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "geography",
-      "prompt": {
-        "pt": "O Parque Nacional do Serengeti fica no Quénia.",
-        "en": "Serengeti National Park is in Kenya."
-      },
-      "explanation": {
-        "pt": "O parque nacional fica na Tanzânia e é conhecido pelas migrações de grandes manadas.",
-        "en": "The national park is in Tanzania and is known for migrations of large herds."
-      },
-      "sources": [
-        {
-          "title": "UNESCO · Serengeti",
-          "url": "https://whc.unesco.org/en/list/156/"
-        }
-      ],
-      "countryIds": [
-        "834"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": false
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-lesotho-altitude",
-      "topicId": "clue:lesoto-altitude",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "geography",
-      "prompt": {
-        "pt": "Todo o território do Lesoto fica acima dos mil metros de altitude.",
-        "en": "All of Lesotho’s territory lies above one thousand metres in elevation."
-      },
-      "explanation": {
-        "pt": "Até o ponto mais baixo deste reino montanhoso fica a cerca de 1 400 metros de altitude.",
-        "en": "Even the lowest point of this mountainous kingdom is around 1,400 metres above sea level."
-      },
-      "sources": [
-        {
-          "title": "Lesotho Vulnerability Assessment Committee · National context",
-          "url": "https://lvac.gov.ls/data/nationalContext"
-        }
-      ],
-      "countryIds": [
-        "426"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": true
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-kiribati-hemispheres",
-      "topicId": "clue:quatro-hemisferios",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "geography",
-      "prompt": {
-        "pt": "Kiribati tem ilhas nos quatro hemisférios.",
-        "en": "Kiribati has islands in all four hemispheres."
-      },
-      "explanation": {
-        "pt": "As ilhas distribuem-se a norte e sul do equador e a leste e oeste do meridiano de 180°.",
-        "en": "The islands lie north and south of the equator and east and west of the 180° meridian."
-      },
-      "sources": [
-        {
-          "title": "UNCTAD · Kiribati country profile",
-          "url": "https://dgff2021.unctad.org/kiribati/index.html"
-        }
-      ],
-      "countryIds": [
-        "296"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": true
-      }
-    },
-    {
-      "schemaVersion": 1,
       "id": "tf-namib-fog",
       "topicId": "clue:deserto-nevoeiro",
       "revision": 1,
@@ -13868,422 +13316,14 @@
     },
     {
       "schemaVersion": 1,
-      "id": "tf-liechtenstein-doubly-landlocked",
-      "topicId": "clue:duplamente-encravado",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "geography",
-      "prompt": {
-        "pt": "O Listenstaine é um país sem litoral cujos vizinhos também não têm acesso direto ao oceano.",
-        "en": "Liechtenstein is landlocked and all its neighbours are also landlocked."
-      },
-      "explanation": {
-        "pt": "É um país duplamente encravado: para chegar ao oceano é preciso atravessar pelo menos dois países.",
-        "en": "It is doubly landlocked: reaching the ocean requires crossing at least two countries."
-      },
-      "sources": [
-        {
-          "title": "UNDP · Landlocked countries",
-          "url": "https://hdr.undp.org/system/files/documents/landlockedcountries2003.pdf"
-        }
-      ],
-      "countryIds": [
-        "860",
-        "438"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": true
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-panama-indian-ocean",
-      "topicId": "clue:canal-dois-oceanos",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "geography",
-      "prompt": {
-        "pt": "O Canal do Panamá liga o oceano Atlântico ao oceano Índico.",
-        "en": "The Panama Canal links the Atlantic Ocean to the Indian Ocean."
-      },
-      "explanation": {
-        "pt": "O canal permite a passagem entre o Atlântico e o Pacífico, usando eclusas para elevar os navios.",
-        "en": "The canal connects the Atlantic and Pacific, using locks to raise ships."
-      },
-      "sources": [
-        {
-          "title": "Panama Canal Authority · Canal history",
-          "url": "https://pancanal.com/en/history-of-the-panama-canal/"
-        }
-      ],
-      "countryIds": [
-        "591"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": false
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-everest-only-nepal",
-      "topicId": "clue:everest-partilhado",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "geography",
-      "prompt": {
-        "pt": "O cume do Evereste fica inteiramente no Nepal, sem tocar uma fronteira internacional.",
-        "en": "Everest’s summit lies entirely within Nepal, without touching an international border."
-      },
-      "explanation": {
-        "pt": "A fronteira entre o Nepal e a China passa pelo Evereste.",
-        "en": "The Nepal–China border passes through Everest."
-      },
-      "sources": [
-        {
-          "title": "NASA · An Astronaut’s View of the Himalayas",
-          "url": "https://eol.jsc.nasa.gov/Collections/EarthObservatory/articles/AnAstronautsViewoftheHimalayas.htm"
-        }
-      ],
-      "countryIds": [
-        "524",
-        "156"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": false
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-union-flag-1901",
-      "topicId": "clue:tres-cruzes",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "flags",
-      "prompt": {
-        "pt": "O desenho atual da Union Flag britânica data de 1901.",
-        "en": "The current design of Britain’s Union Flag dates from 1901."
-      },
-      "explanation": {
-        "pt": "A versão atual data de 1801 e combina as cruzes de São Jorge, Santo André e São Patrício.",
-        "en": "The current version dates from 1801 and combines the crosses of St George, St Andrew and St Patrick."
-      },
-      "sources": [
-        {
-          "title": "The Royal Family · Union Jack",
-          "url": "https://www.royal.uk/union-jack"
-        }
-      ],
-      "countryIds": [
-        "826"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": false
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-landlocked-bol",
-      "topicId": "landlocked:BOL",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "geography",
-      "prompt": {
-        "pt": "A Bolívia é um país sem litoral marítimo.",
-        "en": "Bolivia is a landlocked country."
-      },
-      "explanation": {
-        "pt": "A Bolívia não tem costa marítima.",
-        "en": "Bolivia has no maritime coastline."
-      },
-      "sources": [
-        {
-          "title": "Mledoze · Countries dataset (landlocked field)",
-          "url": "https://raw.githubusercontent.com/mledoze/countries/master/countries.json"
-        }
-      ],
-      "countryIds": [
-        "068"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": true
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-landlocked-pry",
-      "topicId": "landlocked:PRY",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "geography",
-      "prompt": {
-        "pt": "O Paraguai tem uma costa marítima.",
-        "en": "Paraguay has a maritime coastline."
-      },
-      "explanation": {
-        "pt": "O Paraguai é um país sem litoral marítimo.",
-        "en": "Paraguay is landlocked and has no maritime coastline."
-      },
-      "sources": [
-        {
-          "title": "Mledoze · Countries dataset (landlocked field)",
-          "url": "https://raw.githubusercontent.com/mledoze/countries/master/countries.json"
-        }
-      ],
-      "countryIds": [
-        "600"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": false
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-landlocked-che",
-      "topicId": "landlocked:CHE",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "geography",
-      "prompt": {
-        "pt": "A Suíça não tem litoral marítimo.",
-        "en": "Switzerland has no maritime coastline."
-      },
-      "explanation": {
-        "pt": "A Suíça é um país sem litoral marítimo.",
-        "en": "Switzerland is a landlocked country."
-      },
-      "sources": [
-        {
-          "title": "Mledoze · Countries dataset (landlocked field)",
-          "url": "https://raw.githubusercontent.com/mledoze/countries/master/countries.json"
-        }
-      ],
-      "countryIds": [
-        "756"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": true
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-landlocked-aut",
-      "topicId": "landlocked:AUT",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "geography",
-      "prompt": {
-        "pt": "A Áustria tem uma costa marítima.",
-        "en": "Austria has a maritime coastline."
-      },
-      "explanation": {
-        "pt": "A Áustria é um país sem litoral marítimo.",
-        "en": "Austria is landlocked and has no maritime coastline."
-      },
-      "sources": [
-        {
-          "title": "Mledoze · Countries dataset (landlocked field)",
-          "url": "https://raw.githubusercontent.com/mledoze/countries/master/countries.json"
-        }
-      ],
-      "countryIds": [
-        "040"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": false
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-landlocked-mng",
-      "topicId": "landlocked:MNG",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "geography",
-      "prompt": {
-        "pt": "A Mongólia é um país sem litoral marítimo.",
-        "en": "Mongolia is a landlocked country."
-      },
-      "explanation": {
-        "pt": "A Mongólia não tem costa marítima.",
-        "en": "Mongolia has no maritime coastline."
-      },
-      "sources": [
-        {
-          "title": "Mledoze · Countries dataset (landlocked field)",
-          "url": "https://raw.githubusercontent.com/mledoze/countries/master/countries.json"
-        }
-      ],
-      "countryIds": [
-        "496"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": true
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-landlocked-npl",
-      "topicId": "landlocked:NPL",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "geography",
-      "prompt": {
-        "pt": "O Nepal tem uma costa marítima.",
-        "en": "Nepal has a maritime coastline."
-      },
-      "explanation": {
-        "pt": "O Nepal é um país sem litoral marítimo.",
-        "en": "Nepal is landlocked and has no maritime coastline."
-      },
-      "sources": [
-        {
-          "title": "Mledoze · Countries dataset (landlocked field)",
-          "url": "https://raw.githubusercontent.com/mledoze/countries/master/countries.json"
-        }
-      ],
-      "countryIds": [
-        "524"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": false
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-landlocked-lso",
-      "topicId": "landlocked:LSO",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "geography",
-      "prompt": {
-        "pt": "O Lesoto não tem litoral marítimo.",
-        "en": "Lesotho has no maritime coastline."
-      },
-      "explanation": {
-        "pt": "O Lesoto é um país sem litoral marítimo.",
-        "en": "Lesotho is a landlocked country."
-      },
-      "sources": [
-        {
-          "title": "Mledoze · Countries dataset (landlocked field)",
-          "url": "https://raw.githubusercontent.com/mledoze/countries/master/countries.json"
-        }
-      ],
-      "countryIds": [
-        "426"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": true
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-landlocked-uzb",
-      "topicId": "landlocked:UZB",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "geography",
-      "prompt": {
-        "pt": "O Usbequistão tem uma costa marítima.",
-        "en": "Uzbekistan has a maritime coastline."
-      },
-      "explanation": {
-        "pt": "O Usbequistão é um país sem litoral marítimo.",
-        "en": "Uzbekistan is landlocked and has no maritime coastline."
-      },
-      "sources": [
-        {
-          "title": "Mledoze · Countries dataset (landlocked field)",
-          "url": "https://raw.githubusercontent.com/mledoze/countries/master/countries.json"
-        }
-      ],
-      "countryIds": [
-        "860"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": false
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-landlocked-lie",
-      "topicId": "landlocked:LIE",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "geography",
-      "prompt": {
-        "pt": "O Listenstaine é um país sem litoral marítimo.",
-        "en": "Liechtenstein is a landlocked country."
-      },
-      "explanation": {
-        "pt": "O Listenstaine não tem costa marítima.",
-        "en": "Liechtenstein has no maritime coastline."
-      },
-      "sources": [
-        {
-          "title": "Mledoze · Countries dataset (landlocked field)",
-          "url": "https://raw.githubusercontent.com/mledoze/countries/master/countries.json"
-        }
-      ],
-      "countryIds": [
-        "438"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": true
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-landlocked-ner",
-      "topicId": "landlocked:NER",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "geography",
-      "prompt": {
-        "pt": "O Níger tem uma costa marítima.",
-        "en": "Niger has a maritime coastline."
-      },
-      "explanation": {
-        "pt": "O Níger é um país sem litoral marítimo.",
-        "en": "Niger is landlocked and has no maritime coastline."
-      },
-      "sources": [
-        {
-          "title": "Mledoze · Countries dataset (landlocked field)",
-          "url": "https://raw.githubusercontent.com/mledoze/countries/master/countries.json"
-        }
-      ],
-      "countryIds": [
-        "562"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": false
-      }
-    },
-    {
-      "schemaVersion": 1,
       "id": "tf-latitude-new-york-south-rome",
       "topicId": "latitude:new-york-south-rome",
       "revision": 1,
       "inputType": "TRUE_FALSE",
       "category": "cities",
       "prompt": {
-        "pt": "O ponto de referência de Nova Iorque no mapa fica mais a sul do que o de Roma.",
-        "en": "The map reference point for New York lies farther south than the one for Rome."
+        "pt": "Comparando os centros das cidades, Nova Iorque fica mais a sul do que Roma.",
+        "en": "Comparing the city centres, New York lies farther south than Rome."
       },
       "explanation": {
         "pt": "Nova Iorque: 40,722° N; Roma: 41,898° N. O primeiro ponto fica mais a sul.",
@@ -14312,8 +13352,8 @@
       "inputType": "TRUE_FALSE",
       "category": "cities",
       "prompt": {
-        "pt": "O ponto de referência de Londres no mapa fica mais a norte do que o de Vancouver.",
-        "en": "The map reference point for London lies farther north than the one for Vancouver."
+        "pt": "Comparando os centros das cidades, Londres fica mais a norte do que Vancouver.",
+        "en": "Comparing the city centres, London lies farther north than Vancouver."
       },
       "explanation": {
         "pt": "Londres: 51,502° N; Vancouver: 49,275° N. O primeiro ponto fica mais a norte.",
@@ -14332,244 +13372,6 @@
       "checkedAt": "2026-11-06",
       "answer": {
         "value": true
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-latitude-tokyo-north-paris",
-      "topicId": "latitude:tokyo-north-paris",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "cities",
-      "prompt": {
-        "pt": "O ponto de referência de Tóquio no mapa fica mais a norte do que o de Paris.",
-        "en": "The map reference point for Tokyo lies farther north than the one for Paris."
-      },
-      "explanation": {
-        "pt": "Tóquio: 35,687° N; Paris: 48,858° N. O primeiro ponto fica mais a sul.",
-        "en": "Tokyo: 35.687° N; Paris: 48.858° N. The first point lies farther south."
-      },
-      "sources": [
-        {
-          "title": "Natural Earth v5.1.2",
-          "url": "https://github.com/nvkelso/natural-earth-vector/blob/v5.1.2/geojson/ne_10m_populated_places_simple.geojson"
-        }
-      ],
-      "countryIds": [
-        "392",
-        "250"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": false
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-latitude-cairo-north-dubai",
-      "topicId": "latitude:cairo-north-dubai",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "cities",
-      "prompt": {
-        "pt": "O ponto de referência do Cairo no mapa fica mais a norte do que o de Dubai.",
-        "en": "The map reference point for Cairo lies farther north than the one for Dubai."
-      },
-      "explanation": {
-        "pt": "Cairo: 30,052° N; Dubai: 25,215° N. O primeiro ponto fica mais a norte.",
-        "en": "Cairo: 30.052° N; Dubai: 25.215° N. The first point lies farther north."
-      },
-      "sources": [
-        {
-          "title": "Natural Earth v5.1.2",
-          "url": "https://github.com/nvkelso/natural-earth-vector/blob/v5.1.2/geojson/ne_10m_populated_places_simple.geojson"
-        }
-      ],
-      "countryIds": [
-        "818",
-        "784"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": true
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-latitude-singapore-south-equator",
-      "topicId": "latitude:singapore-south-equator",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "cities",
-      "prompt": {
-        "pt": "O ponto de referência de Singapura no mapa fica a sul do equador.",
-        "en": "The map reference point for Singapore lies south of the equator."
-      },
-      "explanation": {
-        "pt": "A latitude do ponto de Singapura é 1,295° N, a norte do equador.",
-        "en": "The latitude of the Singapore point is 1.295° N, north of the equator."
-      },
-      "sources": [
-        {
-          "title": "Natural Earth v5.1.2",
-          "url": "https://github.com/nvkelso/natural-earth-vector/blob/v5.1.2/geojson/ne_10m_populated_places_simple.geojson"
-        }
-      ],
-      "countryIds": [
-        "702"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": false
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-latitude-nairobi-south-equator",
-      "topicId": "latitude:nairobi-south-equator",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "cities",
-      "prompt": {
-        "pt": "O ponto de referência de Nairobi no mapa fica a sul do equador.",
-        "en": "The map reference point for Nairobi lies south of the equator."
-      },
-      "explanation": {
-        "pt": "A latitude do ponto de Nairobi é 1,281° S, a sul do equador.",
-        "en": "The latitude of the Nairobi point is 1.281° S, south of the equator."
-      },
-      "sources": [
-        {
-          "title": "Natural Earth v5.1.2",
-          "url": "https://github.com/nvkelso/natural-earth-vector/blob/v5.1.2/geojson/ne_10m_populated_places_simple.geojson"
-        }
-      ],
-      "countryIds": [
-        "404"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": true
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-latitude-cape-town-south-sydney",
-      "topicId": "latitude:cape-town-south-sydney",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "cities",
-      "prompt": {
-        "pt": "O ponto de referência da Cidade do Cabo no mapa fica mais a sul do que o de Sydney.",
-        "en": "The map reference point for Cape Town lies farther south than the one for Sydney."
-      },
-      "explanation": {
-        "pt": "Cidade do Cabo: 33,918° S; Sydney: 33,871° S. O primeiro ponto fica mais a sul.",
-        "en": "Cape Town: 33.918° S; Sydney: 33.871° S. The first point lies farther south."
-      },
-      "sources": [
-        {
-          "title": "Natural Earth v5.1.2",
-          "url": "https://github.com/nvkelso/natural-earth-vector/blob/v5.1.2/geojson/ne_10m_populated_places_simple.geojson"
-        }
-      ],
-      "countryIds": [
-        "710",
-        "036"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": true
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-latitude-buenos-aires-north-cape-town",
-      "topicId": "latitude:buenos-aires-north-cape-town",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "cities",
-      "prompt": {
-        "pt": "O ponto de referência de Buenos Aires no mapa fica mais a norte do que o da Cidade do Cabo.",
-        "en": "The map reference point for Buenos Aires lies farther north than the one for Cape Town."
-      },
-      "explanation": {
-        "pt": "Buenos Aires: 34,611° S; Cidade do Cabo: 33,918° S. O primeiro ponto fica mais a sul.",
-        "en": "Buenos Aires: 34.611° S; Cape Town: 33.918° S. The first point lies farther south."
-      },
-      "sources": [
-        {
-          "title": "Natural Earth v5.1.2",
-          "url": "https://github.com/nvkelso/natural-earth-vector/blob/v5.1.2/geojson/ne_10m_populated_places_simple.geojson"
-        }
-      ],
-      "countryIds": [
-        "032",
-        "710"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": false
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-latitude-mumbai-north-shanghai",
-      "topicId": "latitude:mumbai-north-shanghai",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "cities",
-      "prompt": {
-        "pt": "O ponto de referência de Mumbai no mapa fica mais a norte do que o de Xangai.",
-        "en": "The map reference point for Mumbai lies farther north than the one for Shanghai."
-      },
-      "explanation": {
-        "pt": "Mumbai: 19,068° N; Xangai: 31,218° N. O primeiro ponto fica mais a sul.",
-        "en": "Mumbai: 19.068° N; Shanghai: 31.218° N. The first point lies farther south."
-      },
-      "sources": [
-        {
-          "title": "Natural Earth v5.1.2",
-          "url": "https://github.com/nvkelso/natural-earth-vector/blob/v5.1.2/geojson/ne_10m_populated_places_simple.geojson"
-        }
-      ],
-      "countryIds": [
-        "356",
-        "156"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": false
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "tf-latitude-marrakesh-north-london",
-      "topicId": "latitude:marrakesh-north-london",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "cities",
-      "prompt": {
-        "pt": "O ponto de referência de Marraquexe no mapa fica mais a norte do que o de Londres.",
-        "en": "The map reference point for Marrakesh lies farther north than the one for London."
-      },
-      "explanation": {
-        "pt": "Marraquexe: 31,632° N; Londres: 51,502° N. O primeiro ponto fica mais a sul.",
-        "en": "Marrakesh: 31.632° N; London: 51.502° N. The first point lies farther south."
-      },
-      "sources": [
-        {
-          "title": "Natural Earth v5.1.2",
-          "url": "https://github.com/nvkelso/natural-earth-vector/blob/v5.1.2/geojson/ne_10m_populated_places_simple.geojson"
-        }
-      ],
-      "countryIds": [
-        "504",
-        "826"
-      ],
-      "checkedAt": "2026-11-06",
-      "answer": {
-        "value": false
       }
     },
     {
@@ -32586,132 +31388,6 @@
     },
     {
       "schemaVersion": 1,
-      "id": "continental-australia-capricorn",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "geography",
-      "topicId": "latitude:capricorn-australia",
-      "prompt": {
-        "pt": "O trópico de Capricórnio atravessa o território continental da Austrália.",
-        "en": "The Tropic of Capricorn crosses mainland Australia."
-      },
-      "explanation": {
-        "pt": "Verdadeiro. O paralelo situado a cerca de 23,4° S atravessa a Austrália de oeste para leste.",
-        "en": "True. The parallel at about 23.4° S crosses Australia from west to east."
-      },
-      "sources": [
-        {
-          "title": "Natural Earth v5.1.2 · Admin 0 countries (latitude intersections)",
-          "url": "https://github.com/nvkelso/natural-earth-vector/tree/v5.1.2/geojson"
-        },
-        {
-          "title": "NOAA · What is latitude?",
-          "url": "https://oceanservice.noaa.gov/facts/latitude.html"
-        }
-      ],
-      "checkedAt": "2026-11-06",
-      "countryIds": [
-        "036"
-      ],
-      "answer": {
-        "value": true
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "continental-borneo-three-countries",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "geography",
-      "topicId": "island:borneo",
-      "prompt": {
-        "pt": "A ilha do Bornéu é partilhada por três países.",
-        "en": "The island of Borneo is shared by three countries."
-      },
-      "explanation": {
-        "pt": "Verdadeiro: Brunei, Malásia e Indonésia têm território nesta grande ilha asiática.",
-        "en": "True: Brunei, Malaysia, and Indonesia have territory on this large Asian island."
-      },
-      "sources": [
-        {
-          "title": "NASA Marshall Space Flight Center · Borneo from space",
-          "url": "https://www.flickr.com/photos/nasamarshall/14556034397"
-        }
-      ],
-      "checkedAt": "2026-11-06",
-      "countryIds": [
-        "096",
-        "458",
-        "360"
-      ],
-      "answer": {
-        "value": true
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "continental-malawi-ocean-coast",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "geography",
-      "topicId": "landlocked:malawi",
-      "prompt": {
-        "pt": "O Malawi tem litoral oceânico, porque o lago com o seu nome se liga ao mar por rios.",
-        "en": "Malawi has an ocean coastline because the lake bearing its name connects to the sea through rivers."
-      },
-      "explanation": {
-        "pt": "Falso. O Malawi não tem litoral oceânico. Uma ligação fluvial até ao mar não transforma a margem de um lago em costa marítima.",
-        "en": "False. Malawi is landlocked. A river connection to the sea does not turn a lakeshore into an ocean coastline."
-      },
-      "sources": [
-        {
-          "title": "Mledoze / Countries · landlocked field",
-          "url": "https://raw.githubusercontent.com/mledoze/countries/master/countries.json"
-        }
-      ],
-      "checkedAt": "2026-11-06",
-      "countryIds": [
-        "454"
-      ],
-      "answer": {
-        "value": false
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "continental-india-cancer",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "geography",
-      "topicId": "latitude:cancer-asia",
-      "prompt": {
-        "pt": "O trópico de Câncer atravessa a Índia.",
-        "en": "The Tropic of Cancer crosses India."
-      },
-      "explanation": {
-        "pt": "Verdadeiro. Este paralelo do hemisfério norte atravessa a Índia a cerca de 23,4° N.",
-        "en": "True. This Northern Hemisphere parallel crosses India at about 23.4° N."
-      },
-      "sources": [
-        {
-          "title": "Natural Earth v5.1.2 · Admin 0 countries (latitude intersections)",
-          "url": "https://github.com/nvkelso/natural-earth-vector/tree/v5.1.2/geojson"
-        },
-        {
-          "title": "NOAA · What is latitude?",
-          "url": "https://oceanservice.noaa.gov/facts/latitude.html"
-        }
-      ],
-      "checkedAt": "2026-11-06",
-      "countryIds": [
-        "356"
-      ],
-      "answer": {
-        "value": true
-      }
-    },
-    {
-      "schemaVersion": 1,
       "id": "continental-equator-land-count",
       "revision": 1,
       "inputType": "NUMBER_EXACT",
@@ -34265,151 +32941,6 @@
     },
     {
       "schemaVersion": 1,
-      "id": "flagsv-bangladesh-disc-centred",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "flags",
-      "topicId": "flags:bangladesh-disc-centred",
-      "prompt": {
-        "pt": "Na bandeira do Bangladesh, o disco vermelho está perfeitamente centrado tanto na horizontal como na vertical.",
-        "en": "On Bangladesh’s flag, the red disc is perfectly centred both horizontally and vertically."
-      },
-      "explanation": {
-        "pt": "Falso: o disco está centrado na vertical, mas deslocado para a haste na horizontal. O seu centro fica a 9/20 do comprimento a partir da haste.",
-        "en": "False: the disc is vertically centred but shifted towards the flagpole horizontally. Its centre is 9/20 of the length from the flagpole."
-      },
-      "sources": [
-        {
-          "title": "Bangladesh Ministry of Foreign Affairs · National Flag Rules",
-          "url": "https://file.mofa.gov.bd/uploads/17a82527-2d2c-43fa-a913-76a534396210/667/28a/b0a/66728ab0a55a7907618245.pdf"
-        }
-      ],
-      "checkedAt": "2026-11-06",
-      "countryIds": [
-        "050"
-      ],
-      "answer": {
-        "value": false
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "flagsv-jamaica-red-colour",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "flags",
-      "topicId": "flags:jamaica-red-colour",
-      "prompt": {
-        "pt": "A bandeira nacional da Jamaica inclui a cor vermelha.",
-        "en": "Jamaica’s national flag includes the colour red."
-      },
-      "explanation": {
-        "pt": "Falso: as cores são preto, verde e dourado. A cruz diagonal dourada separa os triângulos verdes e pretos.",
-        "en": "False: its colours are black, green and gold. The gold diagonal cross separates the green and black triangles."
-      },
-      "sources": [
-        {
-          "title": "Prime Minister of Jamaica · National Flag",
-          "url": "https://opm.gov.jm/symbols/national-flag/"
-        }
-      ],
-      "checkedAt": "2026-11-06",
-      "countryIds": [
-        "388"
-      ],
-      "answer": {
-        "value": false
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "flagsv-philippines-peacetime-order",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "flags",
-      "topicId": "flags:philippines-peacetime-order",
-      "prompt": {
-        "pt": "Quando é hasteada na horizontal em tempo de paz, a bandeira das Filipinas tem a faixa vermelha acima da azul.",
-        "en": "When flown horizontally from a flagpole in peacetime, the Philippine flag has the red band above the blue band."
-      },
-      "explanation": {
-        "pt": "Falso: em tempo de paz, a faixa azul fica por cima. A faixa vermelha por cima assinala tempo de guerra.",
-        "en": "False: in peacetime the blue band is on top. Flying the red band on top denotes wartime."
-      },
-      "sources": [
-        {
-          "title": "Philippines Supreme Court E-Library · Flag Code implementing rules, Section 15",
-          "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/10/40780"
-        }
-      ],
-      "checkedAt": "2026-11-06",
-      "countryIds": [
-        "608"
-      ],
-      "answer": {
-        "value": false
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "flagsv-paraguay-two-sides",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "flags",
-      "topicId": "flags:paraguay-two-sides",
-      "prompt": {
-        "pt": "A bandeira nacional do Paraguai apresenta selos diferentes na frente e no verso.",
-        "en": "Paraguay’s national flag displays different seals on its front and reverse."
-      },
-      "explanation": {
-        "pt": "Verdadeiro: a frente tem o selo com uma estrela e a inscrição «República del Paraguay». O verso mostra um leão e a inscrição «Paz y Justicia».",
-        "en": "True: the front has the seal with a star and the words “República del Paraguay”. The reverse shows a lion and the words “Paz y Justicia”."
-      },
-      "sources": [
-        {
-          "title": "Paraguay Ministry of Foreign Affairs · National flag and seals",
-          "url": "https://www2.mre.gov.py/embapar-ecuador/index.php/el-paraguay/datos-generales"
-        }
-      ],
-      "checkedAt": "2026-11-06",
-      "countryIds": [
-        "600"
-      ],
-      "answer": {
-        "value": true
-      }
-    },
-    {
-      "schemaVersion": 1,
-      "id": "flagsv-lesotho-mokorotlo",
-      "revision": 1,
-      "inputType": "TRUE_FALSE",
-      "category": "flags",
-      "topicId": "flags:lesotho-mokorotlo",
-      "prompt": {
-        "pt": "A figura preta no centro da bandeira do Lesoto representa um chapéu tradicional basotho.",
-        "en": "The black figure at the centre of Lesotho’s flag represents a traditional Basotho hat."
-      },
-      "explanation": {
-        "pt": "Verdadeiro: é um mokorotlo, o chapéu tradicional basotho. Surge na faixa branca entre as faixas azul e verde.",
-        "en": "True: it is a mokorotlo, the traditional Basotho hat. It appears on the white band between the blue and green bands."
-      },
-      "sources": [
-        {
-          "title": "Southern African Development Community · Corporate Identity Manual, Lesotho flag, p. 62",
-          "url": "https://www.sadc.int/sites/default/files/2021-07/SADC_CORPORATE_IDENTITY_MANUAL.pdf"
-        }
-      ],
-      "checkedAt": "2026-11-06",
-      "countryIds": [
-        "426"
-      ],
-      "answer": {
-        "value": true
-      }
-    },
-    {
-      "schemaVersion": 1,
       "id": "flagsv-usa-star-count",
       "revision": 1,
       "inputType": "NUMBER_EXACT",
@@ -34636,6 +33167,639 @@
         "value": 5,
         "absoluteTolerance": 0
       }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "timeline-union-flag",
+      "topicId": "union-flag:current-design",
+      "revision": 1,
+      "inputType": "SLIDER_TIMELINE",
+      "category": "flags",
+      "prompt": {
+        "pt": "Em que ano foi adotado o desenho atual da Union Flag do Reino Unido, com a inclusão da cruz de São Patrício?",
+        "en": "In which year was the current design of the United Kingdom’s Union Flag adopted, with the addition of St Patrick’s cross?"
+      },
+      "explanation": {
+        "pt": "A versão atual data de 1801 e combina as cruzes de São Jorge, Santo André e São Patrício.",
+        "en": "The current version dates from 1801 and combines the crosses of St George, St Andrew and St Patrick."
+      },
+      "sources": [
+        {
+          "title": "The Royal Family · Union Jack",
+          "url": "https://www.royal.uk/union-jack"
+        }
+      ],
+      "countryIds": [
+        "826"
+      ],
+      "checkedAt": "2026-11-06",
+      "answer": {
+        "year": 1801,
+        "toleranceYears": 0
+      },
+      "range": {
+        "min": 1600,
+        "max": "CURRENT_YEAR",
+        "step": 1
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "multiple-doubly-landlocked",
+      "revision": 1,
+      "inputType": "TEXT_MULTIPLE",
+      "category": "geography",
+      "topicId": "clue:duplamente-encravado",
+      "prompt": {
+        "pt": "Nomeia os países sem litoral cujos vizinhos também não têm acesso direto ao oceano.",
+        "en": "Name the landlocked countries whose neighbours also have no direct access to the ocean."
+      },
+      "explanation": {
+        "pt": "O Usbequistão e o Listenstaine são duplamente encravados: para chegar ao oceano é preciso atravessar pelo menos dois países.",
+        "en": "Uzbekistan and Liechtenstein are doubly landlocked: reaching the ocean requires crossing at least two countries."
+      },
+      "sources": [
+        {
+          "title": "UNDP · Landlocked countries",
+          "url": "https://hdr.undp.org/system/files/documents/landlockedcountries2003.pdf"
+        }
+      ],
+      "checkedAt": "2026-11-02",
+      "countryIds": [
+        "860",
+        "438"
+      ],
+      "suggestionDomain": "countries",
+      "answer": {
+        "accepted": [
+          {
+            "id": "860",
+            "label": {
+              "pt": "Uzbequistão",
+              "en": "Uzbekistan"
+            },
+            "aliases": [
+              "Uzbequistão",
+              "Uzbekistan",
+              "Republic of Uzbekistan",
+              "UZ",
+              "O‘zbekiston Respublikasi"
+            ]
+          },
+          {
+            "id": "438",
+            "label": {
+              "pt": "Liechtenstein",
+              "en": "Liechtenstein"
+            },
+            "aliases": [
+              "Liechtenstein",
+              "Principality of Liechtenstein",
+              "LI",
+              "Fürstentum Liechtenstein"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "continental-landlocked-europe",
+      "revision": 1,
+      "inputType": "TEXT_MULTIPLE",
+      "category": "geography",
+      "topicId": "landlocked:europe",
+      "prompt": {
+        "pt": "Nomeia países da Europa, segundo a divisão do jogo, que não têm costa marítima.",
+        "en": "Name countries in the game’s European region that have no maritime coastline."
+      },
+      "explanation": {
+        "pt": "São quinze no catálogo principal, incluindo os pequenos Estados e o Kosovo. Ter margem num lago ou ligação fluvial ao oceano não equivale a ter costa marítima.",
+        "en": "There are fifteen in the main catalogue, including the small states and Kosovo. A lakeshore or river connection to the ocean is not a maritime coastline."
+      },
+      "sources": [
+        {
+          "title": "Mledoze / Countries · landlocked field",
+          "url": "https://raw.githubusercontent.com/mledoze/countries/master/countries.json"
+        }
+      ],
+      "checkedAt": "2026-11-06",
+      "countryIds": [
+        "020",
+        "040",
+        "112",
+        "756",
+        "203",
+        "348",
+        "383",
+        "438",
+        "442",
+        "498",
+        "807",
+        "674",
+        "688",
+        "703",
+        "336"
+      ],
+      "suggestionDomain": "countries",
+      "answer": {
+        "accepted": [
+          {
+            "id": "020",
+            "label": {
+              "pt": "Andorra",
+              "en": "Andorra"
+            },
+            "aliases": [
+              "Andorra",
+              "Principality of Andorra",
+              "AD",
+              "Principat d'Andorra"
+            ]
+          },
+          {
+            "id": "040",
+            "label": {
+              "pt": "Áustria",
+              "en": "Austria"
+            },
+            "aliases": [
+              "Áustria",
+              "Austria",
+              "Republic of Austria",
+              "AT",
+              "Osterreich",
+              "Oesterreich"
+            ]
+          },
+          {
+            "id": "112",
+            "label": {
+              "pt": "Bielorússia",
+              "en": "Belarus"
+            },
+            "aliases": [
+              "Bielorússia",
+              "Belarus",
+              "Republic of Belarus",
+              "BY",
+              "Bielaruś"
+            ]
+          },
+          {
+            "id": "756",
+            "label": {
+              "pt": "Suíça",
+              "en": "Switzerland"
+            },
+            "aliases": [
+              "Suíça",
+              "Switzerland",
+              "Swiss Confederation",
+              "CH",
+              "Schweiz",
+              "Suisse",
+              "Svizzera",
+              "Svizra"
+            ]
+          },
+          {
+            "id": "203",
+            "label": {
+              "pt": "Chéquia",
+              "en": "Czechia"
+            },
+            "aliases": [
+              "Chéquia",
+              "Czechia",
+              "Czech Republic",
+              "CZ",
+              "Česká republika",
+              "Česko",
+              "Tchéquia",
+              "Chequia",
+              "República Tcheca"
+            ]
+          },
+          {
+            "id": "348",
+            "label": {
+              "pt": "Hungria",
+              "en": "Hungary"
+            },
+            "aliases": [
+              "Hungria",
+              "Hungary",
+              "HU"
+            ]
+          },
+          {
+            "id": "383",
+            "label": {
+              "pt": "Kosovo",
+              "en": "Kosovo"
+            },
+            "aliases": [
+              "Kosovo",
+              "Kosova",
+              "República do Kosovo",
+              "XK"
+            ]
+          },
+          {
+            "id": "438",
+            "label": {
+              "pt": "Liechtenstein",
+              "en": "Liechtenstein"
+            },
+            "aliases": [
+              "Liechtenstein",
+              "Principality of Liechtenstein",
+              "LI",
+              "Fürstentum Liechtenstein"
+            ]
+          },
+          {
+            "id": "442",
+            "label": {
+              "pt": "Luxemburgo",
+              "en": "Luxembourg"
+            },
+            "aliases": [
+              "Luxemburgo",
+              "Luxembourg",
+              "Grand Duchy of Luxembourg",
+              "LU",
+              "Grand-Duché de Luxembourg",
+              "Großherzogtum Luxemburg",
+              "Groussherzogtum Lëtzebuerg"
+            ]
+          },
+          {
+            "id": "498",
+            "label": {
+              "pt": "Moldávia",
+              "en": "Moldova"
+            },
+            "aliases": [
+              "Moldávia",
+              "Moldova",
+              "Republic of Moldova",
+              "MD",
+              "Moldova, Republic of",
+              "Republica Moldova"
+            ]
+          },
+          {
+            "id": "807",
+            "label": {
+              "pt": "Macedónia do Norte",
+              "en": "North Macedonia"
+            },
+            "aliases": [
+              "Macedónia do Norte",
+              "North Macedonia",
+              "Republic of North Macedonia",
+              "MK",
+              "The former Yugoslav Republic of Macedonia",
+              "Macedonia, The Former Yugoslav Republic of",
+              "Macedonia",
+              "Macedônia",
+              "Macedônia do Norte"
+            ]
+          },
+          {
+            "id": "674",
+            "label": {
+              "pt": "San Marino",
+              "en": "San Marino"
+            },
+            "aliases": [
+              "San Marino",
+              "Most Serene Republic of San Marino",
+              "SM",
+              "Republic of San Marino",
+              "Repubblica di San Marino"
+            ]
+          },
+          {
+            "id": "688",
+            "label": {
+              "pt": "Sérvia",
+              "en": "Serbia"
+            },
+            "aliases": [
+              "Sérvia",
+              "Serbia",
+              "Republic of Serbia",
+              "RS",
+              "Srbija",
+              "Republika Srbija"
+            ]
+          },
+          {
+            "id": "703",
+            "label": {
+              "pt": "Eslováquia",
+              "en": "Slovakia"
+            },
+            "aliases": [
+              "Eslováquia",
+              "Slovakia",
+              "Slovak Republic",
+              "SK",
+              "Slovenská republika"
+            ]
+          },
+          {
+            "id": "336",
+            "label": {
+              "pt": "Cidade do Vaticano",
+              "en": "Vatican City"
+            },
+            "aliases": [
+              "Cidade do Vaticano",
+              "Vatican City",
+              "Vatican City State",
+              "VA",
+              "Holy See (Vatican City State)",
+              "Vatican",
+              "Stato della Città del Vaticano",
+              "Vaticano"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "country-capricorn-oceania",
+      "revision": 1,
+      "inputType": "TEXT_SINGLE",
+      "category": "geography",
+      "topicId": "latitude:capricorn-australia",
+      "prompt": {
+        "pt": "Que país da Oceânia tem terra atravessada pelo trópico de Capricórnio?",
+        "en": "Which country in Oceania has land crossed by the Tropic of Capricorn?"
+      },
+      "explanation": {
+        "pt": "O paralelo situado a cerca de 23,4° S atravessa a Austrália de oeste para leste.",
+        "en": "The parallel at about 23.4° S crosses Australia from west to east."
+      },
+      "sources": [
+        {
+          "title": "Natural Earth v5.1.2 · Admin 0 countries (latitude intersections)",
+          "url": "https://github.com/nvkelso/natural-earth-vector/tree/v5.1.2/geojson"
+        },
+        {
+          "title": "NOAA · What is latitude?",
+          "url": "https://oceanservice.noaa.gov/facts/latitude.html"
+        }
+      ],
+      "checkedAt": "2026-11-06",
+      "countryIds": [
+        "036"
+      ],
+      "answer": {
+        "accepted": [
+          {
+            "id": "036",
+            "label": {
+              "pt": "Austrália",
+              "en": "Australia"
+            },
+            "aliases": [
+              "Austrália",
+              "Australia",
+              "Commonwealth of Australia",
+              "AU"
+            ]
+          }
+        ]
+      },
+      "suggestionDomain": "countries"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "country-flag-bangladesh",
+      "revision": 1,
+      "inputType": "TEXT_SINGLE",
+      "category": "flags",
+      "topicId": "flags:bangladesh-disc-centred",
+      "prompt": {
+        "pt": "Que país asiático tem um disco vermelho deslocado para a haste sobre o fundo verde da sua bandeira?",
+        "en": "Which Asian country has a red disc shifted towards the hoist on the green field of its flag?"
+      },
+      "explanation": {
+        "pt": "O disco está centrado na vertical, mas deslocado para a haste na horizontal. O seu centro fica a 9/20 do comprimento a partir da haste.",
+        "en": "The disc is vertically centred but shifted towards the flagpole horizontally. Its centre is 9/20 of the length from the flagpole."
+      },
+      "sources": [
+        {
+          "title": "Bangladesh Ministry of Foreign Affairs · National Flag Rules",
+          "url": "https://file.mofa.gov.bd/uploads/17a82527-2d2c-43fa-a913-76a534396210/667/28a/b0a/66728ab0a55a7907618245.pdf"
+        }
+      ],
+      "checkedAt": "2026-11-06",
+      "countryIds": [
+        "050"
+      ],
+      "answer": {
+        "accepted": [
+          {
+            "id": "050",
+            "label": {
+              "pt": "Bangladesh",
+              "en": "Bangladesh"
+            },
+            "aliases": [
+              "Bangladesh",
+              "People's Republic of Bangladesh",
+              "BD",
+              "Gônôprôjatôntri Bangladesh"
+            ]
+          }
+        ]
+      },
+      "suggestionDomain": "countries"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "country-flag-jamaica",
+      "revision": 1,
+      "inputType": "TEXT_SINGLE",
+      "category": "flags",
+      "topicId": "flags:jamaica-red-colour",
+      "prompt": {
+        "pt": "Que país das Caraíbas tem uma bandeira preta, verde e dourada, sem vermelho, branco nem azul?",
+        "en": "Which Caribbean country has a black, green and gold flag, with no red, white or blue?"
+      },
+      "explanation": {
+        "pt": "As cores são preto, verde e dourado. A cruz diagonal dourada separa os triângulos verdes e pretos.",
+        "en": "Its colours are black, green and gold. The gold diagonal cross separates the green and black triangles."
+      },
+      "sources": [
+        {
+          "title": "Prime Minister of Jamaica · National Flag",
+          "url": "https://opm.gov.jm/symbols/national-flag/"
+        }
+      ],
+      "checkedAt": "2026-11-06",
+      "countryIds": [
+        "388"
+      ],
+      "answer": {
+        "accepted": [
+          {
+            "id": "388",
+            "label": {
+              "pt": "Jamaica",
+              "en": "Jamaica"
+            },
+            "aliases": [
+              "Jamaica",
+              "JM"
+            ]
+          }
+        ]
+      },
+      "suggestionDomain": "countries"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "country-flag-philippines",
+      "revision": 1,
+      "inputType": "TEXT_SINGLE",
+      "category": "flags",
+      "topicId": "flags:philippines-peacetime-order",
+      "prompt": {
+        "pt": "Que país assinala tempo de guerra hasteando a sua bandeira horizontal com a faixa vermelha por cima da azul?",
+        "en": "Which country signals wartime by flying its flag horizontally with the red stripe above the blue stripe?"
+      },
+      "explanation": {
+        "pt": "Em tempo de paz, a faixa azul fica por cima. A faixa vermelha por cima assinala tempo de guerra.",
+        "en": "In peacetime the blue band is on top. Flying the red band on top denotes wartime."
+      },
+      "sources": [
+        {
+          "title": "Philippines Supreme Court E-Library · Flag Code implementing rules, Section 15",
+          "url": "https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/10/40780"
+        }
+      ],
+      "checkedAt": "2026-11-06",
+      "countryIds": [
+        "608"
+      ],
+      "answer": {
+        "accepted": [
+          {
+            "id": "608",
+            "label": {
+              "pt": "Filipinas",
+              "en": "Philippines"
+            },
+            "aliases": [
+              "Filipinas",
+              "Philippines",
+              "Republic of the Philippines",
+              "PH",
+              "Repúblika ng Pilipinas"
+            ]
+          }
+        ]
+      },
+      "suggestionDomain": "countries"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "country-flag-paraguay",
+      "revision": 1,
+      "inputType": "TEXT_SINGLE",
+      "category": "flags",
+      "topicId": "flags:paraguay-two-sides",
+      "prompt": {
+        "pt": "Que país sul-americano tem selos diferentes na frente e no verso da sua bandeira: uma estrela de um lado e um leão do outro?",
+        "en": "Which South American country has different seals on the front and back of its flag: a star on one side and a lion on the other?"
+      },
+      "explanation": {
+        "pt": "A frente tem o selo com uma estrela e a inscrição «República del Paraguay». O verso mostra um leão e a inscrição «Paz y Justicia».",
+        "en": "The front has the seal with a star and the words “República del Paraguay”. The reverse shows a lion and the words “Paz y Justicia”."
+      },
+      "sources": [
+        {
+          "title": "Paraguay Ministry of Foreign Affairs · National flag and seals",
+          "url": "https://www2.mre.gov.py/embapar-ecuador/index.php/el-paraguay/datos-generales"
+        }
+      ],
+      "checkedAt": "2026-11-06",
+      "countryIds": [
+        "600"
+      ],
+      "answer": {
+        "accepted": [
+          {
+            "id": "600",
+            "label": {
+              "pt": "Paraguai",
+              "en": "Paraguay"
+            },
+            "aliases": [
+              "Paraguai",
+              "Paraguay",
+              "Republic of Paraguay",
+              "PY",
+              "República del Paraguay",
+              "Tetã Paraguái"
+            ]
+          }
+        ]
+      },
+      "suggestionDomain": "countries"
+    },
+    {
+      "schemaVersion": 1,
+      "id": "country-flag-lesotho",
+      "revision": 1,
+      "inputType": "TEXT_SINGLE",
+      "category": "flags",
+      "topicId": "flags:lesotho-mokorotlo",
+      "prompt": {
+        "pt": "Que país africano tem um chapéu tradicional basotho no centro da sua bandeira azul, branca e verde?",
+        "en": "Which African country has a traditional Basotho hat at the centre of its blue, white and green flag?"
+      },
+      "explanation": {
+        "pt": "É um mokorotlo, o chapéu tradicional basotho. Surge na faixa branca entre as faixas azul e verde.",
+        "en": "It is a mokorotlo, the traditional Basotho hat. It appears on the white band between the blue and green bands."
+      },
+      "sources": [
+        {
+          "title": "Southern African Development Community · Corporate Identity Manual, Lesotho flag, p. 62",
+          "url": "https://www.sadc.int/sites/default/files/2021-07/SADC_CORPORATE_IDENTITY_MANUAL.pdf"
+        }
+      ],
+      "checkedAt": "2026-11-06",
+      "countryIds": [
+        "426"
+      ],
+      "answer": {
+        "accepted": [
+          {
+            "id": "426",
+            "label": {
+              "pt": "Lesoto",
+              "en": "Lesotho"
+            },
+            "aliases": [
+              "Lesoto",
+              "Lesotho",
+              "Kingdom of Lesotho",
+              "LS",
+              "Muso oa Lesotho"
+            ]
+          }
+        ]
+      },
+      "suggestionDomain": "countries"
     }
   ]
 }

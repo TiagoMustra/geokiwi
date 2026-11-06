@@ -16,7 +16,7 @@ test('the expanded bank has substantial coverage of every interaction, original 
   assert.equal(new Set(quizQuestions.map(q=>q.id)).size,quizQuestions.length);
   assert.equal(new Set(quizQuestions.map(q=>q.prompt.pt)).size,quizQuestions.length);
   assert.equal(new Set(quizQuestions.map(q=>q.prompt.en)).size,quizQuestions.length);
-  for(const type of ['TRUE_FALSE','NUMBER_EXACT','TEXT_MULTIPLE','SLIDER_TIMELINE','SLIDER_DISTANCE','MAP_PINPOINT'])assert.ok(quizQuestions.filter(q=>q.inputType===type).length>=30,type);
+  for(const type of ['NUMBER_EXACT','TEXT_MULTIPLE','SLIDER_TIMELINE','SLIDER_DISTANCE','MAP_PINPOINT'])assert.ok(quizQuestions.filter(q=>q.inputType===type).length>=30,type);
   const known=new Set(countries.filter(c=>c.isCountry).map(c=>c.id));
   for(const q of quizQuestions){assert.deepEqual(validateQuestion(q),[],q.id);assert.ok((q.countryIds||[]).every(id=>known.has(id)),q.id);}
 });
@@ -24,8 +24,8 @@ test('Berlin asks about the fall, preserving existing question IDs and 1989 answ
   assert.match(bank['timeline-berlin'].prompt.pt,/caiu o Muro de Berlim/);
   assert.match(bank['timeline-berlin'].prompt.en,/Berlin Wall fall/);
   assert.equal(bank['timeline-berlin'].answer.year,1989);
-  assert.match(bank['tf-berlin-1991'].prompt.pt,/caiu em 1991/);
-  assert.equal(bank['tf-berlin-1991'].answer.value,false);
+  assert.ok(!quizQuestions.some(q=>q.id==='tf-berlin-1991'));
+  assert.ok(quizQuestions.some(q=>q.id==='tf-namib-fog'));
 });
 test('a small exhausted pin pool never forces a repeat while new text questions remain',()=>{
   const pin=bank['pinpoint-everest'];
@@ -50,7 +50,7 @@ test('new runs avoid every displayed question until new questions are exhausted,
   assert.deepEqual(new Set(recycled.map(q=>q.id)),new Set(singleType.slice(0,10).map(q=>q.id)));
 });
 test('different input formats do not ask the same underlying fact twice in a run when alternatives exist',()=>{
-  const candidates=quizQuestions.filter(q=>q.inputType==='TRUE_FALSE').slice(0,15);
+  const candidates=[...quizQuestions.filter(q=>q.inputType==='TRUE_FALSE'),...quizQuestions.filter(q=>q.inputType==='TEXT_SINGLE').slice(0,15)];
   const duplicate={...candidates[0],id:'duplicate-in-another-format',inputType:'TEXT_SINGLE',suggestionDomain:'none',answer:{accepted:[{id:'yes',label:{pt:'Sim',en:'Yes'},aliases:[]}]}};
   const selected=selectQuizQuestions([...candidates,duplicate],{limit:10,random:seeded(5)});
   const topics=selected.map(q=>q.topicId||q.id);assert.equal(new Set(topics).size,topics.length);

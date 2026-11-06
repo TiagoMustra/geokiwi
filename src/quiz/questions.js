@@ -11,6 +11,7 @@ import { nameExpansion } from './name-expansion.js';
 import { worldVariants } from './world-variants.js';
 import { continentalVariants } from './continental-variants.js';
 import { flagVariants } from './flag-variants.js';
+import { curateQuizQuestions } from './editorial-review.js';
 
 const countryById=Object.fromEntries(countries.map(c=>[c.id,c]));
 export const countryEntity=id=>{
@@ -52,10 +53,13 @@ export const starterQuestions=[
   {...common('pinpoint-everest','geography',text('Coloca o pin no cume do Evereste.','Place the pin on the summit of Everest.'),text('O cume situa-se na fronteira entre o Nepal e a China, na cordilheira dos Himalaias.','The summit lies on the Nepal–China border in the Himalayas.'),everest.source,['524','156']),inputType:'MAP_PINPOINT',placeType:'peak',answer:{point:{lat:everest.coordinates[1],lng:everest.coordinates[0]},toleranceKm:25,decayKm:500}},
   {...common('text-city-eiffel','cities',text('Em que cidade fica a Torre Eiffel?','Which city is home to the Eiffel Tower?'),text('A Torre Eiffel fica em Paris, junto ao Sena.','The Eiffel Tower stands in Paris, beside the Seine.'),eiffel,['250']),inputType:'TEXT_SINGLE',suggestionDomain:'cities',answer:{accepted:[{id:'city-paris',label:text('Paris','Paris'),aliases:[]}]}},
 ];
-export const dynamicQuestions=[...starterQuestions,...geographyExpansion,...historyExpansion,...numberExpansion,...booleanExpansion,...flagExpansion,...nameExpansion,...worldVariants,...continentalVariants,...flagVariants];
+const authoredDynamicQuestions=[...starterQuestions,...geographyExpansion,...historyExpansion,...numberExpansion,...booleanExpansion,...flagExpansion,...nameExpansion,...worldVariants,...continentalVariants,...flagVariants];
 /** @type {import('./types').QuizQuestion[]} */
-export const quizQuestions=[...legacyQuestions,...dynamicQuestions];
-export const quizQuestionById=Object.fromEntries(quizQuestions.map(q=>[q.id,q]));
+const authoredQuestions=[...legacyQuestions,...authoredDynamicQuestions];
+export const quizQuestions=curateQuizQuestions(authoredQuestions);
+export const dynamicQuestions=quizQuestions.filter(q=>!legacyQuestions.some(legacy=>legacy.id===q.id));
+// Historical objects are never selected/exported, but still validate completed saved events.
+export const quizQuestionById=Object.fromEntries([...authoredQuestions,...quizQuestions].map(q=>[q.id,q]));
 export const getQuizPool=(locale='pt')=>quizQuestions.filter(q=>!q.nameLanguage||q.nameLanguage===(locale==='en'?'en':'pt'));
 
 // Suggestions use the complete entity domain, never the hidden answer list.

@@ -1,6 +1,6 @@
 # Conhecimento geral — banco completo de perguntas
 
-**476 perguntas elegíveis em PT · 476 em EN · 508 registos no ficheiro.**
+**436 perguntas elegíveis em PT · 436 em EN · 468 registos no ficheiro.**
 
 Inclui perguntas, soluções e fontes. Variantes de nomes PT/EN são registos separados; a partida seleciona a língua escolhida. A dificuldade só altera a quota de respostas das listas. Números, datas, distâncias e pins dão pontos por proximidade.
 
@@ -8,321 +8,15 @@ Cada pergunta inclui a tradução inglesa, a solução, a explicação e as font
 
 ## Índice por tipo
 
-- Verdadeiro ou falso (TRUE_FALSE): 53 elegíveis em PT
-- Escreve a resposta (TEXT_SINGLE): 126 elegíveis em PT
-- Várias respostas (TEXT_MULTIPLE): 100 elegíveis em PT
+- Verdadeiro ou falso (TRUE_FALSE): 5 elegíveis em PT
+- Escreve a resposta (TEXT_SINGLE): 131 elegíveis em PT
+- Várias respostas (TEXT_MULTIPLE): 102 elegíveis em PT
 - Quantos? (NUMBER_EXACT): 50 elegíveis em PT
 - Coloca o pin (MAP_PINPOINT): 58 elegíveis em PT
-- Em que ano? (SLIDER_TIMELINE): 40 elegíveis em PT
+- Em que ano? (SLIDER_TIMELINE): 41 elegíveis em PT
 - Qual é a distância? (SLIDER_DISTANCE): 49 elegíveis em PT
 
 ## Verdadeiro ou falso — TRUE_FALSE
-
-### tf-eiffel-century
-
-**PT:** A Torre Eiffel foi inaugurada no século XIX.
-
-**EN:** The Eiffel Tower was inaugurated in the 19th century.
-
-**Resposta:** Verdadeiro
-
-**Explicação PT:** Verdadeiro: foi inaugurada em 31 de março de 1889.
-
-**Explanation EN:** True: it was inaugurated on 31 March 1889.
-
-**Categoria:** history · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Société d’Exploitation de la Tour Eiffel · History](https://www.toureiffel.paris/en/the-monument/history)
-
-### tf-berlin-1991
-
-**PT:** O Muro de Berlim caiu em 1991.
-
-**EN:** The Berlin Wall fell in 1991.
-
-**Resposta:** Falso
-
-**Explicação PT:** Falso: a queda do Muro de Berlim é assinalada a 9 de novembro de 1989.
-
-**Explanation EN:** False: the fall of the Berlin Wall is marked on 9 November 1989.
-
-**Categoria:** history · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Berlin.de · Opening and fall of the Berlin Wall](https://www.berlin.de/en/history/8482274-8619314-opening-and-fall-of-the-berlin-wall.en.html)
-
-### tf-nepal-rectangle
-
-**PT:** A bandeira nacional do Nepal é retangular.
-
-**EN:** Nepal’s national flag is rectangular.
-
-**Resposta:** Falso
-
-**Explicação PT:** A bandeira do Nepal é formada por dois galhardetes triangulares, com contorno azul.
-
-**Explanation EN:** Nepal’s flag consists of two triangular pennants with blue borders.
-
-**Categoria:** flags · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Nepal Tourism Board · National flag](https://trade.ntb.gov.np/downloads/nepal-logo-with-flag-on-nepal/)
-
-### tf-bhutan-swan
-
-**PT:** A bandeira do Butão mostra um cisne branco.
-
-**EN:** Bhutan’s flag shows a white swan.
-
-**Resposta:** Falso
-
-**Explicação PT:** A figura branca é um dragão, sobre as metades amarela e laranja da bandeira.
-
-**Explanation EN:** The white figure is a dragon, across the flag’s yellow and orange halves.
-
-**Categoria:** flags · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Ministry of Foreign Affairs of Bhutan · National symbols](https://www.mfa.gov.bt/wp-content/uploads/2022/12/window-on-Bhutan-2022.pdf)
-
-### tf-new-zealand-blue-stars
-
-**PT:** As quatro estrelas da bandeira da Nova Zelândia são azuis com contorno branco.
-
-**EN:** The four stars on New Zealand’s flag are blue with white borders.
-
-**Resposta:** Falso
-
-**Explicação PT:** As estrelas são vermelhas com contorno branco e representam o Cruzeiro do Sul.
-
-**Explanation EN:** The stars are red with white borders and represent the Southern Cross.
-
-**Categoria:** flags · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Manatū Taonga · New Zealand flag](https://www.mch.govt.nz/our-work/flags-anthems-and-emblems/new-zealand-flag)
-
-### tf-swiss-square-flag
-
-**PT:** A bandeira nacional suíça é quadrada.
-
-**EN:** Switzerland’s national flag is square.
-
-**Resposta:** Verdadeiro
-
-**Explicação PT:** A bandeira nacional tem formato quadrado; a versão marítima é retangular.
-
-**Explanation EN:** The national flag is square; its maritime version is rectangular.
-
-**Categoria:** flags · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Swiss Federal Chancellery · The Confederation: a brief guide](https://www.bk.admin.ch/dam/bk/en/dokumente/komm-ue/buku2023/bund-kurz-erklaert-2023.pdf.download.pdf/BUKU%202023_EN.pdf)
-
-### tf-canada-maple-points
-
-**PT:** A folha de ácer na bandeira do Canadá tem onze pontas.
-
-**EN:** The maple leaf on Canada’s flag has eleven points.
-
-**Resposta:** Verdadeiro
-
-**Explicação PT:** A bandeira usa uma folha vermelha estilizada de onze pontas, reconhecível mesmo à distância.
-
-**Explanation EN:** The flag uses a stylised red eleven-point leaf that remains recognisable at a distance.
-
-**Categoria:** flags · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Government of Canada · National flag](https://www.canada.ca/en/canadian-heritage/services/flag-canada-description.html)
-
-### tf-grand-canyon-mississippi
-
-**PT:** Foi o rio Mississippi que escavou o Grand Canyon, no Arizona.
-
-**EN:** The Mississippi River carved the Grand Canyon in Arizona.
-
-**Resposta:** Falso
-
-**Explicação PT:** O rio que escavou o Grand Canyon é o Colorado; as suas paredes expõem uma longa história geológica.
-
-**Explanation EN:** The Colorado River carved the Grand Canyon; its walls expose a long geological record.
-
-**Categoria:** geography · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [UNESCO · Grand Canyon](https://whc.unesco.org/en/list/75/)
-
-### tf-galapagos-ecuador
-
-**PT:** As ilhas Galápagos pertencem ao Equador.
-
-**EN:** The Galápagos Islands belong to Ecuador.
-
-**Resposta:** Verdadeiro
-
-**Explicação PT:** O arquipélago equatoriano abriga espécies singulares, como tartarugas gigantes e iguanas.
-
-**Explanation EN:** The Ecuadorian archipelago supports distinctive species such as giant tortoises and iguanas.
-
-**Categoria:** geography · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [UNESCO · Galápagos Islands](https://whc.unesco.org/en/list/1/)
-
-### tf-uluru-new-zealand
-
-**PT:** Uluru fica na Nova Zelândia.
-
-**EN:** Uluru is in New Zealand.
-
-**Resposta:** Falso
-
-**Explicação PT:** Uluru fica no centro da Austrália, numa paisagem de planícies arenosas vermelhas.
-
-**Explanation EN:** Uluru stands in central Australia, in a landscape of red sandy plains.
-
-**Categoria:** geography · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [UNESCO · Uluru-Kata Tjuta](https://whc.unesco.org/en/list/447/)
-
-### tf-rapa-nui-chile
-
-**PT:** Rapa Nui, conhecida pelos moai, faz parte do Chile.
-
-**EN:** Rapa Nui, known for its moai, is part of Chile.
-
-**Resposta:** Verdadeiro
-
-**Explicação PT:** A ilha chilena, também chamada Ilha da Páscoa, conserva uma paisagem cultural de origem polinésia.
-
-**Explanation EN:** The Chilean island, also called Easter Island, preserves a cultural landscape of Polynesian origin.
-
-**Categoria:** history · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [UNESCO · Rapa Nui](https://whc.unesco.org/en/list/715/)
-
-### tf-machu-picchu-mexico
-
-**PT:** Machu Picchu fica no México.
-
-**EN:** Machu Picchu is in Mexico.
-
-**Resposta:** Falso
-
-**Explicação PT:** A cidade inca fica no Peru, nos Andes, a cerca de 2 430 metros de altitude.
-
-**Explanation EN:** The Inca city is in Peru’s Andes, around 2,430 metres above sea level.
-
-**Categoria:** heritage · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [UNESCO · Machu Picchu](https://whc.unesco.org/en/list/274/)
-
-### tf-petra-jordan
-
-**PT:** Petra, a cidade nabateia parcialmente esculpida na rocha, fica na Jordânia.
-
-**EN:** Petra, the Nabataean city partly carved into rock, is in Jordan.
-
-**Resposta:** Verdadeiro
-
-**Explicação PT:** O sítio jordano foi um centro de caravanas entre o mar Vermelho e o mar Morto.
-
-**Explanation EN:** The Jordanian site was a caravan centre between the Red Sea and the Dead Sea.
-
-**Categoria:** heritage · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [UNESCO · Petra](https://whc.unesco.org/en/list/326/)
-
-### tf-angkor-cambodia
-
-**PT:** Angkor Wat fica no Camboja.
-
-**EN:** Angkor Wat is in Cambodia.
-
-**Resposta:** Verdadeiro
-
-**Explicação PT:** Angkor, no Camboja, reúne templos e antigas cidades do Império Khmer.
-
-**Explanation EN:** Angkor in Cambodia includes temples and former cities of the Khmer Empire.
-
-**Categoria:** heritage · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [UNESCO · Angkor](https://whc.unesco.org/en/list/668/)
-
-### tf-serengeti-kenya
-
-**PT:** O Parque Nacional do Serengeti fica no Quénia.
-
-**EN:** Serengeti National Park is in Kenya.
-
-**Resposta:** Falso
-
-**Explicação PT:** O parque nacional fica na Tanzânia e é conhecido pelas migrações de grandes manadas.
-
-**Explanation EN:** The national park is in Tanzania and is known for migrations of large herds.
-
-**Categoria:** geography · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [UNESCO · Serengeti](https://whc.unesco.org/en/list/156/)
-
-### tf-lesotho-altitude
-
-**PT:** Todo o território do Lesoto fica acima dos mil metros de altitude.
-
-**EN:** All of Lesotho’s territory lies above one thousand metres in elevation.
-
-**Resposta:** Verdadeiro
-
-**Explicação PT:** Até o ponto mais baixo deste reino montanhoso fica a cerca de 1 400 metros de altitude.
-
-**Explanation EN:** Even the lowest point of this mountainous kingdom is around 1,400 metres above sea level.
-
-**Categoria:** geography · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Lesotho Vulnerability Assessment Committee · National context](https://lvac.gov.ls/data/nationalContext)
-
-### tf-kiribati-hemispheres
-
-**PT:** Kiribati tem ilhas nos quatro hemisférios.
-
-**EN:** Kiribati has islands in all four hemispheres.
-
-**Resposta:** Verdadeiro
-
-**Explicação PT:** As ilhas distribuem-se a norte e sul do equador e a leste e oeste do meridiano de 180°.
-
-**Explanation EN:** The islands lie north and south of the equator and east and west of the 180° meridian.
-
-**Categoria:** geography · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [UNCTAD · Kiribati country profile](https://dgff2021.unctad.org/kiribati/index.html)
 
 ### tf-namib-fog
 
@@ -342,263 +36,11 @@ Cada pergunta inclui a tradução inglesa, a solução, a explicação e as font
 
 - [UNESCO · Namib Sand Sea](https://whc.unesco.org/en/list/1430/)
 
-### tf-liechtenstein-doubly-landlocked
-
-**PT:** O Listenstaine é um país sem litoral cujos vizinhos também não têm acesso direto ao oceano.
-
-**EN:** Liechtenstein is landlocked and all its neighbours are also landlocked.
-
-**Resposta:** Verdadeiro
-
-**Explicação PT:** É um país duplamente encravado: para chegar ao oceano é preciso atravessar pelo menos dois países.
-
-**Explanation EN:** It is doubly landlocked: reaching the ocean requires crossing at least two countries.
-
-**Categoria:** geography · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [UNDP · Landlocked countries](https://hdr.undp.org/system/files/documents/landlockedcountries2003.pdf)
-
-### tf-panama-indian-ocean
-
-**PT:** O Canal do Panamá liga o oceano Atlântico ao oceano Índico.
-
-**EN:** The Panama Canal links the Atlantic Ocean to the Indian Ocean.
-
-**Resposta:** Falso
-
-**Explicação PT:** O canal permite a passagem entre o Atlântico e o Pacífico, usando eclusas para elevar os navios.
-
-**Explanation EN:** The canal connects the Atlantic and Pacific, using locks to raise ships.
-
-**Categoria:** geography · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Panama Canal Authority · Canal history](https://pancanal.com/en/history-of-the-panama-canal/)
-
-### tf-everest-only-nepal
-
-**PT:** O cume do Evereste fica inteiramente no Nepal, sem tocar uma fronteira internacional.
-
-**EN:** Everest’s summit lies entirely within Nepal, without touching an international border.
-
-**Resposta:** Falso
-
-**Explicação PT:** A fronteira entre o Nepal e a China passa pelo Evereste.
-
-**Explanation EN:** The Nepal–China border passes through Everest.
-
-**Categoria:** geography · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [NASA · An Astronaut’s View of the Himalayas](https://eol.jsc.nasa.gov/Collections/EarthObservatory/articles/AnAstronautsViewoftheHimalayas.htm)
-
-### tf-union-flag-1901
-
-**PT:** O desenho atual da Union Flag britânica data de 1901.
-
-**EN:** The current design of Britain’s Union Flag dates from 1901.
-
-**Resposta:** Falso
-
-**Explicação PT:** A versão atual data de 1801 e combina as cruzes de São Jorge, Santo André e São Patrício.
-
-**Explanation EN:** The current version dates from 1801 and combines the crosses of St George, St Andrew and St Patrick.
-
-**Categoria:** flags · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [The Royal Family · Union Jack](https://www.royal.uk/union-jack)
-
-### tf-landlocked-bol
-
-**PT:** A Bolívia é um país sem litoral marítimo.
-
-**EN:** Bolivia is a landlocked country.
-
-**Resposta:** Verdadeiro
-
-**Explicação PT:** A Bolívia não tem costa marítima.
-
-**Explanation EN:** Bolivia has no maritime coastline.
-
-**Categoria:** geography · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Mledoze · Countries dataset (landlocked field)](https://raw.githubusercontent.com/mledoze/countries/master/countries.json)
-
-### tf-landlocked-pry
-
-**PT:** O Paraguai tem uma costa marítima.
-
-**EN:** Paraguay has a maritime coastline.
-
-**Resposta:** Falso
-
-**Explicação PT:** O Paraguai é um país sem litoral marítimo.
-
-**Explanation EN:** Paraguay is landlocked and has no maritime coastline.
-
-**Categoria:** geography · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Mledoze · Countries dataset (landlocked field)](https://raw.githubusercontent.com/mledoze/countries/master/countries.json)
-
-### tf-landlocked-che
-
-**PT:** A Suíça não tem litoral marítimo.
-
-**EN:** Switzerland has no maritime coastline.
-
-**Resposta:** Verdadeiro
-
-**Explicação PT:** A Suíça é um país sem litoral marítimo.
-
-**Explanation EN:** Switzerland is a landlocked country.
-
-**Categoria:** geography · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Mledoze · Countries dataset (landlocked field)](https://raw.githubusercontent.com/mledoze/countries/master/countries.json)
-
-### tf-landlocked-aut
-
-**PT:** A Áustria tem uma costa marítima.
-
-**EN:** Austria has a maritime coastline.
-
-**Resposta:** Falso
-
-**Explicação PT:** A Áustria é um país sem litoral marítimo.
-
-**Explanation EN:** Austria is landlocked and has no maritime coastline.
-
-**Categoria:** geography · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Mledoze · Countries dataset (landlocked field)](https://raw.githubusercontent.com/mledoze/countries/master/countries.json)
-
-### tf-landlocked-mng
-
-**PT:** A Mongólia é um país sem litoral marítimo.
-
-**EN:** Mongolia is a landlocked country.
-
-**Resposta:** Verdadeiro
-
-**Explicação PT:** A Mongólia não tem costa marítima.
-
-**Explanation EN:** Mongolia has no maritime coastline.
-
-**Categoria:** geography · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Mledoze · Countries dataset (landlocked field)](https://raw.githubusercontent.com/mledoze/countries/master/countries.json)
-
-### tf-landlocked-npl
-
-**PT:** O Nepal tem uma costa marítima.
-
-**EN:** Nepal has a maritime coastline.
-
-**Resposta:** Falso
-
-**Explicação PT:** O Nepal é um país sem litoral marítimo.
-
-**Explanation EN:** Nepal is landlocked and has no maritime coastline.
-
-**Categoria:** geography · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Mledoze · Countries dataset (landlocked field)](https://raw.githubusercontent.com/mledoze/countries/master/countries.json)
-
-### tf-landlocked-lso
-
-**PT:** O Lesoto não tem litoral marítimo.
-
-**EN:** Lesotho has no maritime coastline.
-
-**Resposta:** Verdadeiro
-
-**Explicação PT:** O Lesoto é um país sem litoral marítimo.
-
-**Explanation EN:** Lesotho is a landlocked country.
-
-**Categoria:** geography · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Mledoze · Countries dataset (landlocked field)](https://raw.githubusercontent.com/mledoze/countries/master/countries.json)
-
-### tf-landlocked-uzb
-
-**PT:** O Usbequistão tem uma costa marítima.
-
-**EN:** Uzbekistan has a maritime coastline.
-
-**Resposta:** Falso
-
-**Explicação PT:** O Usbequistão é um país sem litoral marítimo.
-
-**Explanation EN:** Uzbekistan is landlocked and has no maritime coastline.
-
-**Categoria:** geography · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Mledoze · Countries dataset (landlocked field)](https://raw.githubusercontent.com/mledoze/countries/master/countries.json)
-
-### tf-landlocked-lie
-
-**PT:** O Listenstaine é um país sem litoral marítimo.
-
-**EN:** Liechtenstein is a landlocked country.
-
-**Resposta:** Verdadeiro
-
-**Explicação PT:** O Listenstaine não tem costa marítima.
-
-**Explanation EN:** Liechtenstein has no maritime coastline.
-
-**Categoria:** geography · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Mledoze · Countries dataset (landlocked field)](https://raw.githubusercontent.com/mledoze/countries/master/countries.json)
-
-### tf-landlocked-ner
-
-**PT:** O Níger tem uma costa marítima.
-
-**EN:** Niger has a maritime coastline.
-
-**Resposta:** Falso
-
-**Explicação PT:** O Níger é um país sem litoral marítimo.
-
-**Explanation EN:** Niger is landlocked and has no maritime coastline.
-
-**Categoria:** geography · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Mledoze · Countries dataset (landlocked field)](https://raw.githubusercontent.com/mledoze/countries/master/countries.json)
-
 ### tf-latitude-new-york-south-rome
 
-**PT:** O ponto de referência de Nova Iorque no mapa fica mais a sul do que o de Roma.
+**PT:** Comparando os centros das cidades, Nova Iorque fica mais a sul do que Roma.
 
-**EN:** The map reference point for New York lies farther south than the one for Rome.
+**EN:** Comparing the city centres, New York lies farther south than Rome.
 
 **Resposta:** Verdadeiro
 
@@ -614,159 +56,15 @@ Cada pergunta inclui a tradução inglesa, a solução, a explicação e as font
 
 ### tf-latitude-london-north-vancouver
 
-**PT:** O ponto de referência de Londres no mapa fica mais a norte do que o de Vancouver.
+**PT:** Comparando os centros das cidades, Londres fica mais a norte do que Vancouver.
 
-**EN:** The map reference point for London lies farther north than the one for Vancouver.
+**EN:** Comparing the city centres, London lies farther north than Vancouver.
 
 **Resposta:** Verdadeiro
 
 **Explicação PT:** Londres: 51,502° N; Vancouver: 49,275° N. O primeiro ponto fica mais a norte.
 
 **Explanation EN:** London: 51.502° N; Vancouver: 49.275° N. The first point lies farther north.
-
-**Categoria:** cities · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Natural Earth v5.1.2](https://github.com/nvkelso/natural-earth-vector/blob/v5.1.2/geojson/ne_10m_populated_places_simple.geojson)
-
-### tf-latitude-tokyo-north-paris
-
-**PT:** O ponto de referência de Tóquio no mapa fica mais a norte do que o de Paris.
-
-**EN:** The map reference point for Tokyo lies farther north than the one for Paris.
-
-**Resposta:** Falso
-
-**Explicação PT:** Tóquio: 35,687° N; Paris: 48,858° N. O primeiro ponto fica mais a sul.
-
-**Explanation EN:** Tokyo: 35.687° N; Paris: 48.858° N. The first point lies farther south.
-
-**Categoria:** cities · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Natural Earth v5.1.2](https://github.com/nvkelso/natural-earth-vector/blob/v5.1.2/geojson/ne_10m_populated_places_simple.geojson)
-
-### tf-latitude-cairo-north-dubai
-
-**PT:** O ponto de referência do Cairo no mapa fica mais a norte do que o de Dubai.
-
-**EN:** The map reference point for Cairo lies farther north than the one for Dubai.
-
-**Resposta:** Verdadeiro
-
-**Explicação PT:** Cairo: 30,052° N; Dubai: 25,215° N. O primeiro ponto fica mais a norte.
-
-**Explanation EN:** Cairo: 30.052° N; Dubai: 25.215° N. The first point lies farther north.
-
-**Categoria:** cities · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Natural Earth v5.1.2](https://github.com/nvkelso/natural-earth-vector/blob/v5.1.2/geojson/ne_10m_populated_places_simple.geojson)
-
-### tf-latitude-singapore-south-equator
-
-**PT:** O ponto de referência de Singapura no mapa fica a sul do equador.
-
-**EN:** The map reference point for Singapore lies south of the equator.
-
-**Resposta:** Falso
-
-**Explicação PT:** A latitude do ponto de Singapura é 1,295° N, a norte do equador.
-
-**Explanation EN:** The latitude of the Singapore point is 1.295° N, north of the equator.
-
-**Categoria:** cities · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Natural Earth v5.1.2](https://github.com/nvkelso/natural-earth-vector/blob/v5.1.2/geojson/ne_10m_populated_places_simple.geojson)
-
-### tf-latitude-nairobi-south-equator
-
-**PT:** O ponto de referência de Nairobi no mapa fica a sul do equador.
-
-**EN:** The map reference point for Nairobi lies south of the equator.
-
-**Resposta:** Verdadeiro
-
-**Explicação PT:** A latitude do ponto de Nairobi é 1,281° S, a sul do equador.
-
-**Explanation EN:** The latitude of the Nairobi point is 1.281° S, south of the equator.
-
-**Categoria:** cities · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Natural Earth v5.1.2](https://github.com/nvkelso/natural-earth-vector/blob/v5.1.2/geojson/ne_10m_populated_places_simple.geojson)
-
-### tf-latitude-cape-town-south-sydney
-
-**PT:** O ponto de referência da Cidade do Cabo no mapa fica mais a sul do que o de Sydney.
-
-**EN:** The map reference point for Cape Town lies farther south than the one for Sydney.
-
-**Resposta:** Verdadeiro
-
-**Explicação PT:** Cidade do Cabo: 33,918° S; Sydney: 33,871° S. O primeiro ponto fica mais a sul.
-
-**Explanation EN:** Cape Town: 33.918° S; Sydney: 33.871° S. The first point lies farther south.
-
-**Categoria:** cities · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Natural Earth v5.1.2](https://github.com/nvkelso/natural-earth-vector/blob/v5.1.2/geojson/ne_10m_populated_places_simple.geojson)
-
-### tf-latitude-buenos-aires-north-cape-town
-
-**PT:** O ponto de referência de Buenos Aires no mapa fica mais a norte do que o da Cidade do Cabo.
-
-**EN:** The map reference point for Buenos Aires lies farther north than the one for Cape Town.
-
-**Resposta:** Falso
-
-**Explicação PT:** Buenos Aires: 34,611° S; Cidade do Cabo: 33,918° S. O primeiro ponto fica mais a sul.
-
-**Explanation EN:** Buenos Aires: 34.611° S; Cape Town: 33.918° S. The first point lies farther south.
-
-**Categoria:** cities · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Natural Earth v5.1.2](https://github.com/nvkelso/natural-earth-vector/blob/v5.1.2/geojson/ne_10m_populated_places_simple.geojson)
-
-### tf-latitude-mumbai-north-shanghai
-
-**PT:** O ponto de referência de Mumbai no mapa fica mais a norte do que o de Xangai.
-
-**EN:** The map reference point for Mumbai lies farther north than the one for Shanghai.
-
-**Resposta:** Falso
-
-**Explicação PT:** Mumbai: 19,068° N; Xangai: 31,218° N. O primeiro ponto fica mais a sul.
-
-**Explanation EN:** Mumbai: 19.068° N; Shanghai: 31.218° N. The first point lies farther south.
-
-**Categoria:** cities · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Natural Earth v5.1.2](https://github.com/nvkelso/natural-earth-vector/blob/v5.1.2/geojson/ne_10m_populated_places_simple.geojson)
-
-### tf-latitude-marrakesh-north-london
-
-**PT:** O ponto de referência de Marraquexe no mapa fica mais a norte do que o de Londres.
-
-**EN:** The map reference point for Marrakesh lies farther north than the one for London.
-
-**Resposta:** Falso
-
-**Explicação PT:** Marraquexe: 31,632° N; Londres: 51,502° N. O primeiro ponto fica mais a sul.
-
-**Explanation EN:** Marrakesh: 31.632° N; London: 51.502° N. The first point lies farther south.
 
 **Categoria:** cities · Verificado: 2026-11-06
 
@@ -811,170 +109,6 @@ Cada pergunta inclui a tradução inglesa, a solução, a explicação e as font
 
 - [Natural Earth v5.1.2 · Admin 0 countries (latitude intersections)](https://github.com/nvkelso/natural-earth-vector/tree/v5.1.2/geojson)
 - [NOAA · What is latitude?](https://oceanservice.noaa.gov/facts/latitude.html)
-
-### continental-australia-capricorn
-
-**PT:** O trópico de Capricórnio atravessa o território continental da Austrália.
-
-**EN:** The Tropic of Capricorn crosses mainland Australia.
-
-**Resposta:** Verdadeiro
-
-**Explicação PT:** Verdadeiro. O paralelo situado a cerca de 23,4° S atravessa a Austrália de oeste para leste.
-
-**Explanation EN:** True. The parallel at about 23.4° S crosses Australia from west to east.
-
-**Categoria:** geography · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Natural Earth v5.1.2 · Admin 0 countries (latitude intersections)](https://github.com/nvkelso/natural-earth-vector/tree/v5.1.2/geojson)
-- [NOAA · What is latitude?](https://oceanservice.noaa.gov/facts/latitude.html)
-
-### continental-borneo-three-countries
-
-**PT:** A ilha do Bornéu é partilhada por três países.
-
-**EN:** The island of Borneo is shared by three countries.
-
-**Resposta:** Verdadeiro
-
-**Explicação PT:** Verdadeiro: Brunei, Malásia e Indonésia têm território nesta grande ilha asiática.
-
-**Explanation EN:** True: Brunei, Malaysia, and Indonesia have territory on this large Asian island.
-
-**Categoria:** geography · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [NASA Marshall Space Flight Center · Borneo from space](https://www.flickr.com/photos/nasamarshall/14556034397)
-
-### continental-malawi-ocean-coast
-
-**PT:** O Malawi tem litoral oceânico, porque o lago com o seu nome se liga ao mar por rios.
-
-**EN:** Malawi has an ocean coastline because the lake bearing its name connects to the sea through rivers.
-
-**Resposta:** Falso
-
-**Explicação PT:** Falso. O Malawi não tem litoral oceânico. Uma ligação fluvial até ao mar não transforma a margem de um lago em costa marítima.
-
-**Explanation EN:** False. Malawi is landlocked. A river connection to the sea does not turn a lakeshore into an ocean coastline.
-
-**Categoria:** geography · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Mledoze / Countries · landlocked field](https://raw.githubusercontent.com/mledoze/countries/master/countries.json)
-
-### continental-india-cancer
-
-**PT:** O trópico de Câncer atravessa a Índia.
-
-**EN:** The Tropic of Cancer crosses India.
-
-**Resposta:** Verdadeiro
-
-**Explicação PT:** Verdadeiro. Este paralelo do hemisfério norte atravessa a Índia a cerca de 23,4° N.
-
-**Explanation EN:** True. This Northern Hemisphere parallel crosses India at about 23.4° N.
-
-**Categoria:** geography · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Natural Earth v5.1.2 · Admin 0 countries (latitude intersections)](https://github.com/nvkelso/natural-earth-vector/tree/v5.1.2/geojson)
-- [NOAA · What is latitude?](https://oceanservice.noaa.gov/facts/latitude.html)
-
-### flagsv-bangladesh-disc-centred
-
-**PT:** Na bandeira do Bangladesh, o disco vermelho está perfeitamente centrado tanto na horizontal como na vertical.
-
-**EN:** On Bangladesh’s flag, the red disc is perfectly centred both horizontally and vertically.
-
-**Resposta:** Falso
-
-**Explicação PT:** Falso: o disco está centrado na vertical, mas deslocado para a haste na horizontal. O seu centro fica a 9/20 do comprimento a partir da haste.
-
-**Explanation EN:** False: the disc is vertically centred but shifted towards the flagpole horizontally. Its centre is 9/20 of the length from the flagpole.
-
-**Categoria:** flags · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Bangladesh Ministry of Foreign Affairs · National Flag Rules](https://file.mofa.gov.bd/uploads/17a82527-2d2c-43fa-a913-76a534396210/667/28a/b0a/66728ab0a55a7907618245.pdf)
-
-### flagsv-jamaica-red-colour
-
-**PT:** A bandeira nacional da Jamaica inclui a cor vermelha.
-
-**EN:** Jamaica’s national flag includes the colour red.
-
-**Resposta:** Falso
-
-**Explicação PT:** Falso: as cores são preto, verde e dourado. A cruz diagonal dourada separa os triângulos verdes e pretos.
-
-**Explanation EN:** False: its colours are black, green and gold. The gold diagonal cross separates the green and black triangles.
-
-**Categoria:** flags · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Prime Minister of Jamaica · National Flag](https://opm.gov.jm/symbols/national-flag/)
-
-### flagsv-philippines-peacetime-order
-
-**PT:** Quando é hasteada na horizontal em tempo de paz, a bandeira das Filipinas tem a faixa vermelha acima da azul.
-
-**EN:** When flown horizontally from a flagpole in peacetime, the Philippine flag has the red band above the blue band.
-
-**Resposta:** Falso
-
-**Explicação PT:** Falso: em tempo de paz, a faixa azul fica por cima. A faixa vermelha por cima assinala tempo de guerra.
-
-**Explanation EN:** False: in peacetime the blue band is on top. Flying the red band on top denotes wartime.
-
-**Categoria:** flags · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Philippines Supreme Court E-Library · Flag Code implementing rules, Section 15](https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/10/40780)
-
-### flagsv-paraguay-two-sides
-
-**PT:** A bandeira nacional do Paraguai apresenta selos diferentes na frente e no verso.
-
-**EN:** Paraguay’s national flag displays different seals on its front and reverse.
-
-**Resposta:** Verdadeiro
-
-**Explicação PT:** Verdadeiro: a frente tem o selo com uma estrela e a inscrição «República del Paraguay». O verso mostra um leão e a inscrição «Paz y Justicia».
-
-**Explanation EN:** True: the front has the seal with a star and the words “República del Paraguay”. The reverse shows a lion and the words “Paz y Justicia”.
-
-**Categoria:** flags · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Paraguay Ministry of Foreign Affairs · National flag and seals](https://www2.mre.gov.py/embapar-ecuador/index.php/el-paraguay/datos-generales)
-
-### flagsv-lesotho-mokorotlo
-
-**PT:** A figura preta no centro da bandeira do Lesoto representa um chapéu tradicional basotho.
-
-**EN:** The black figure at the centre of Lesotho’s flag represents a traditional Basotho hat.
-
-**Resposta:** Verdadeiro
-
-**Explicação PT:** Verdadeiro: é um mokorotlo, o chapéu tradicional basotho. Surge na faixa branca entre as faixas azul e verde.
-
-**Explanation EN:** True: it is a mokorotlo, the traditional Basotho hat. It appears on the white band between the blue and green bands.
-
-**Categoria:** flags · Verificado: 2026-11-06
-
-**Fontes:**
-
-- [Southern African Development Community · Corporate Identity Manual, Lesotho flag, p. 62](https://www.sadc.int/sites/default/files/2021-07/SADC_CORPORATE_IDENTITY_MANUAL.pdf)
 
 ## Escreve a resposta — TEXT_SINGLE
 
@@ -2978,26 +2112,6 @@ Cada pergunta inclui a tradução inglesa, a solução, a explicação e as font
 
 - [Visit Oman · Musandam](https://booknow.visitoman.om/en/destination/msd-93)
 
-### duplamente-encravado
-
-**PT:** Diz um dos dois países sem litoral cujos vizinhos também não têm acesso direto ao oceano.
-
-**EN:** Name either of the two landlocked countries whose neighbours are also landlocked.
-
-**Resposta:** Uzbequistão / Liechtenstein
-
-**Respostas em inglês:** Uzbekistan · Liechtenstein
-
-**Explicação PT:** O Usbequistão e o Listenstaine são duplamente encravados: para chegar ao oceano é preciso atravessar pelo menos dois países.
-
-**Explanation EN:** Uzbekistan and Liechtenstein are doubly landlocked: reaching the ocean requires crossing at least two countries.
-
-**Categoria:** geography · Verificado: 2026-11-02
-
-**Fontes:**
-
-- [UNDP · Landlocked countries](https://hdr.undp.org/system/files/documents/landlockedcountries2003.pdf)
-
 ### ilha-dentro-lago
 
 **PT:** Que país tem Manitoulin, a maior ilha do mundo situada num lago de água doce?
@@ -3020,9 +2134,9 @@ Cada pergunta inclui a tradução inglesa, a solução, a explicação e as font
 
 ### quatro-hemisferios
 
-**PT:** Que país do Pacífico, com capital em Tarawa, tem ilhas nos quatro hemisférios?
+**PT:** Que país insular do Pacífico tem ilhas nos hemisférios Norte, Sul, Oriental e Ocidental?
 
-**EN:** Which Pacific country, with its capital at Tarawa, has islands in all four hemispheres?
+**EN:** Which Pacific island country has islands in the Northern, Southern, Eastern and Western Hemispheres?
 
 **Resposta:** Kiribati
 
@@ -3036,7 +2150,7 @@ Cada pergunta inclui a tradução inglesa, a solução, a explicação e as font
 
 **Fontes:**
 
-- [UNCTAD · Kiribati country profile](https://dgff2021.unctad.org/kiribati/index.html)
+- [UNDP Climate · The ocean is our store keeper](https://undp-climate.exposure.co/the-ocean-is-our-store-keeper)
 
 ### sucre-la-paz
 
@@ -3512,6 +2626,127 @@ Cada pergunta inclui a tradução inglesa, a solução, a explicação e as font
 
 - [Government of Palau · Flag of Palau](https://www.palaugov.pw/about-palau/flag/)
 - [flag-icons · National flag SVGs (publisher collection)](https://github.com/lipis/flag-icons/tree/main/flags/4x3)
+
+### country-capricorn-oceania
+
+**PT:** Que país da Oceânia tem terra atravessada pelo trópico de Capricórnio?
+
+**EN:** Which country in Oceania has land crossed by the Tropic of Capricorn?
+
+**Resposta:** Austrália
+
+**Respostas em inglês:** Australia
+
+**Explicação PT:** O paralelo situado a cerca de 23,4° S atravessa a Austrália de oeste para leste.
+
+**Explanation EN:** The parallel at about 23.4° S crosses Australia from west to east.
+
+**Categoria:** geography · Verificado: 2026-11-06
+
+**Fontes:**
+
+- [Natural Earth v5.1.2 · Admin 0 countries (latitude intersections)](https://github.com/nvkelso/natural-earth-vector/tree/v5.1.2/geojson)
+- [NOAA · What is latitude?](https://oceanservice.noaa.gov/facts/latitude.html)
+
+### country-flag-bangladesh
+
+**PT:** Que país asiático tem um disco vermelho deslocado para a haste sobre o fundo verde da sua bandeira?
+
+**EN:** Which Asian country has a red disc shifted towards the hoist on the green field of its flag?
+
+**Resposta:** Bangladesh
+
+**Respostas em inglês:** Bangladesh
+
+**Explicação PT:** O disco está centrado na vertical, mas deslocado para a haste na horizontal. O seu centro fica a 9/20 do comprimento a partir da haste.
+
+**Explanation EN:** The disc is vertically centred but shifted towards the flagpole horizontally. Its centre is 9/20 of the length from the flagpole.
+
+**Categoria:** flags · Verificado: 2026-11-06
+
+**Fontes:**
+
+- [Bangladesh Ministry of Foreign Affairs · National Flag Rules](https://file.mofa.gov.bd/uploads/17a82527-2d2c-43fa-a913-76a534396210/667/28a/b0a/66728ab0a55a7907618245.pdf)
+
+### country-flag-jamaica
+
+**PT:** Que país das Caraíbas tem uma bandeira preta, verde e dourada, sem vermelho, branco nem azul?
+
+**EN:** Which Caribbean country has a black, green and gold flag, with no red, white or blue?
+
+**Resposta:** Jamaica
+
+**Respostas em inglês:** Jamaica
+
+**Explicação PT:** As cores são preto, verde e dourado. A cruz diagonal dourada separa os triângulos verdes e pretos.
+
+**Explanation EN:** Its colours are black, green and gold. The gold diagonal cross separates the green and black triangles.
+
+**Categoria:** flags · Verificado: 2026-11-06
+
+**Fontes:**
+
+- [Prime Minister of Jamaica · National Flag](https://opm.gov.jm/symbols/national-flag/)
+
+### country-flag-philippines
+
+**PT:** Que país assinala tempo de guerra hasteando a sua bandeira horizontal com a faixa vermelha por cima da azul?
+
+**EN:** Which country signals wartime by flying its flag horizontally with the red stripe above the blue stripe?
+
+**Resposta:** Filipinas
+
+**Respostas em inglês:** Philippines
+
+**Explicação PT:** Em tempo de paz, a faixa azul fica por cima. A faixa vermelha por cima assinala tempo de guerra.
+
+**Explanation EN:** In peacetime the blue band is on top. Flying the red band on top denotes wartime.
+
+**Categoria:** flags · Verificado: 2026-11-06
+
+**Fontes:**
+
+- [Philippines Supreme Court E-Library · Flag Code implementing rules, Section 15](https://elibrary.judiciary.gov.ph/thebookshelf/showdocs/10/40780)
+
+### country-flag-paraguay
+
+**PT:** Que país sul-americano tem selos diferentes na frente e no verso da sua bandeira: uma estrela de um lado e um leão do outro?
+
+**EN:** Which South American country has different seals on the front and back of its flag: a star on one side and a lion on the other?
+
+**Resposta:** Paraguai
+
+**Respostas em inglês:** Paraguay
+
+**Explicação PT:** A frente tem o selo com uma estrela e a inscrição «República del Paraguay». O verso mostra um leão e a inscrição «Paz y Justicia».
+
+**Explanation EN:** The front has the seal with a star and the words “República del Paraguay”. The reverse shows a lion and the words “Paz y Justicia”.
+
+**Categoria:** flags · Verificado: 2026-11-06
+
+**Fontes:**
+
+- [Paraguay Ministry of Foreign Affairs · National flag and seals](https://www2.mre.gov.py/embapar-ecuador/index.php/el-paraguay/datos-generales)
+
+### country-flag-lesotho
+
+**PT:** Que país africano tem um chapéu tradicional basotho no centro da sua bandeira azul, branca e verde?
+
+**EN:** Which African country has a traditional Basotho hat at the centre of its blue, white and green flag?
+
+**Resposta:** Lesoto
+
+**Respostas em inglês:** Lesotho
+
+**Explicação PT:** É um mokorotlo, o chapéu tradicional basotho. Surge na faixa branca entre as faixas azul e verde.
+
+**Explanation EN:** It is a mokorotlo, the traditional Basotho hat. It appears on the white band between the blue and green bands.
+
+**Categoria:** flags · Verificado: 2026-11-06
+
+**Fontes:**
+
+- [Southern African Development Community · Corporate Identity Manual, Lesotho flag, p. 62](https://www.sadc.int/sites/default/files/2021-07/SADC_CORPORATE_IDENTITY_MANUAL.pdf)
 
 ## Várias respostas — TEXT_MULTIPLE
 
@@ -6468,6 +5703,50 @@ Cada pergunta inclui a tradução inglesa, a solução, a explicação e as font
 - [Government of Sri Lanka · National Flag](https://www.gov.lk/sri-lanka/country-overview)
 - [flag-icons · National flag SVGs (publisher collection)](https://github.com/lipis/flag-icons/tree/main/flags/4x3)
 
+### multiple-doubly-landlocked
+
+**PT:** Nomeia os países sem litoral cujos vizinhos também não têm acesso direto ao oceano.
+
+**EN:** Name the landlocked countries whose neighbours also have no direct access to the ocean.
+
+**Resposta:** Uzbequistão · Liechtenstein
+
+**Respostas em inglês:** Uzbekistan · Liechtenstein
+
+**Quota de dificuldade:** Fácil 1 · Médio 1 · Difícil 2
+
+**Explicação PT:** O Usbequistão e o Listenstaine são duplamente encravados: para chegar ao oceano é preciso atravessar pelo menos dois países.
+
+**Explanation EN:** Uzbekistan and Liechtenstein are doubly landlocked: reaching the ocean requires crossing at least two countries.
+
+**Categoria:** geography · Verificado: 2026-11-02
+
+**Fontes:**
+
+- [UNDP · Landlocked countries](https://hdr.undp.org/system/files/documents/landlockedcountries2003.pdf)
+
+### continental-landlocked-europe
+
+**PT:** Nomeia países da Europa, segundo a divisão do jogo, que não têm costa marítima.
+
+**EN:** Name countries in the game’s European region that have no maritime coastline.
+
+**Resposta:** Andorra · Áustria · Bielorússia · Suíça · Chéquia · Hungria · Kosovo · Liechtenstein · Luxemburgo · Moldávia · Macedónia do Norte · San Marino · Sérvia · Eslováquia · Cidade do Vaticano
+
+**Respostas em inglês:** Andorra · Austria · Belarus · Switzerland · Czechia · Hungary · Kosovo · Liechtenstein · Luxembourg · Moldova · North Macedonia · San Marino · Serbia · Slovakia · Vatican City
+
+**Quota de dificuldade:** Fácil 1 · Médio 8 · Difícil 15
+
+**Explicação PT:** São quinze no catálogo principal, incluindo os pequenos Estados e o Kosovo. Ter margem num lago ou ligação fluvial ao oceano não equivale a ter costa marítima.
+
+**Explanation EN:** There are fifteen in the main catalogue, including the small states and Kosovo. A lakeshore or river connection to the ocean is not a maritime coastline.
+
+**Categoria:** geography · Verificado: 2026-11-06
+
+**Fontes:**
+
+- [Mledoze / Countries · landlocked field](https://raw.githubusercontent.com/mledoze/countries/master/countries.json)
+
 ## Quantos? — NUMBER_EXACT
 
 ### number-swedish-islands
@@ -9180,6 +8459,24 @@ Cada pergunta inclui a tradução inglesa, a solução, a explicação e as font
 **Fontes:**
 
 - [Marinha Portuguesa · Dia da Marinha](https://www.marinha.pt/pt/a-marinha/simbolos-tradicoes/Paginas/dia-da-marinha.aspx)
+
+### timeline-union-flag
+
+**PT:** Em que ano foi adotado o desenho atual da Union Flag do Reino Unido, com a inclusão da cruz de São Patrício?
+
+**EN:** In which year was the current design of the United Kingdom’s Union Flag adopted, with the addition of St Patrick’s cross?
+
+**Resposta:** 1801
+
+**Explicação PT:** A versão atual data de 1801 e combina as cruzes de São Jorge, Santo André e São Patrício.
+
+**Explanation EN:** The current version dates from 1801 and combines the crosses of St George, St Andrew and St Patrick.
+
+**Categoria:** flags · Verificado: 2026-11-06
+
+**Fontes:**
+
+- [The Royal Family · Union Jack](https://www.royal.uk/union-jack)
 
 ## Qual é a distância? — SLIDER_DISTANCE
 

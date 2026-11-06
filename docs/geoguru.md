@@ -7,13 +7,14 @@ O modo Conhecimento geral usa agora uma união discriminada por `inputType`. Os 
 | Ficheiro | Responsabilidade |
 | --- | --- |
 | `src/quiz/types.ts` | Interfaces TypeScript: perguntas, entidades, unidades, coordenadas, respostas, eventos e contrato dos componentes |
-| `src/quiz/questions.js` | Índice do banco: 476 perguntas elegíveis por idioma (508 registos, com variantes linguísticas de 32 perguntas de nomes), incluindo os sete tipos de input |
+| `src/quiz/questions.js` | Índice do banco: 436 perguntas elegíveis por idioma (468 registos, com variantes linguísticas de 32 perguntas de nomes), incluindo os sete tipos de input |
 | `src/quiz/geography-expansion.js` | 30 listas de fronteiras, 40 distâncias e 49 novos pins com coordenadas verificadas |
 | `src/quiz/history-expansion.js`, `number-expansion.js`, `boolean-expansion.js` | Novas perguntas bilingues com fontes e critérios documentados |
 | `src/quiz/flag-expansion.js`, `name-expansion.js` | 12 perguntas de bandeiras e 32 critérios de iniciais/comprimento de nomes por idioma |
 | `src/quiz/landmark-photos.js`, `src/components/quiz/QuestionPhoto.jsx` | 10 fotografias locais com autoria/licença e visualização ampliada |
 | `src/quiz/flag-variants.js`, `continental-variants.js`, `world-variants.js` | Mais 94 perguntas: 30 de bandeiras, 32 continentais e 32 de números, datas, cidades e distâncias |
 | `scripts/export-quiz.mjs` | Exporta o banco integral em Markdown/JSON durante o build, com soluções, explicações e fontes |
+| `src/quiz/editorial-review.js` | Política de formatos, perguntas canónicas e atualização de slots guardados ainda sem resposta |
 | `src/quiz/selection.js` | Prioridade a perguntas inéditas, variedade de tipos e reciclagem das vistas há mais tempo |
 | `src/quiz/engine.js` | Parser numérico, quotas, limites, validação, avaliação e evolução imutável da partida |
 | `src/quiz/storage.js` | Saves e recordes por rondas/dificuldade; reconstrução das respostas e migração da versão anterior |
@@ -124,6 +125,10 @@ O banco de arranque não pretende converter todos os exemplos de negócio em per
 
 ## Exportar e encontrar o modo
 
-`npm run quiz:export` gera `public/downloads/conhecimento-geral.md` e `.json`. O build atualiza ambos para evitar exportações desatualizadas. A versão Markdown é descarregável no cartão. Inclui todos os 508 registos e explicita que só 476 são elegíveis por idioma. Não muda os saves/recordes existentes.
+`npm run quiz:export` gera `public/downloads/conhecimento-geral.md` e `.json`. O build atualiza ambos para evitar exportações desatualizadas. A versão Markdown é descarregável no cartão. Inclui todos os 468 registos ativos e explicita que só 436 são elegíveis por idioma. Não muda os saves/recordes existentes.
 
 O cartão chama-se «Conhecimento geral» / «General knowledge» e mantém-se em Desafios. «Explora o mundo» passou para Outros modos, com os concelhos e estados. Os nove cartões usam `GameCardHeading` e o mesmo sistema pixel art/tamanho/tipografia; os botões de regiões, rondas e dificuldades mantêm as suas funções.
+
+## Curadoria de formatos
+
+A revisão dos 53 V/F mantém cinco relações/equívocos com interesse próprio, converte sete e retira 41 repetidos ou fracos. A pergunta científica do Namibe continua V/F; Kiribati é identificação de país e Berlim fica só na timeline. O contador e as exportações usam apenas perguntas ativas. `quizQuestionById` mantém objetos arquivados para reconstruir eventos antigos. A atualização de uma partida substitui só perguntas retiradas ainda sem resposta, sem alterar pontos/respostas e sem criar IDs repetidos. O histórico converte os IDs antigos para a versão canónica. Ver `quiz-editorial-review.md`.
