@@ -12,7 +12,7 @@ export default function ResultsScreen({ title, context, score, correct, total, m
       <button type="button" className="result-action" onClick={onReplay}><Icon name="play" size={20}/><span><strong>Jogar de novo</strong><small>Repetir esta seleção do início</small></span></button>
       <button type="button" className="result-action result-action-menu" onClick={onExit}><Icon name="back" size={20}/><span><strong>Voltar ao menu</strong><small>Escolher outro jogo</small></span></button>
     </nav>
-    <section className="result-review" aria-label="Rever o mapa"><div className="result-review-heading"><h2>O teu mapa</h2><p>{mapNote}</p></div><div className="result-review-map">{map}</div></section>
+    {map && <section className="result-review" aria-label="Rever o mapa"><div className="result-review-heading"><h2>O teu mapa</h2><p>{mapNote}</p></div><div className="result-review-map">{map}</div></section>}
     {children}
   </div></main>;
 }

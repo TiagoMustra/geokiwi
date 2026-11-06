@@ -15,5 +15,6 @@
 .challenge-card .compact-saved-run{margin-top:4px}
 .challenge-card .start-button{min-height:44px;margin-top:8px}
 .mode-loading{min-height:100svh;display:grid;place-items:center;padding:24px;color:var(--progress-ink);font:15px Space,sans-serif}
+.challenge-difficulty{margin-top:15px}.challenge-difficulty .challenge-rounds button{font-size:11px}.challenge-difficulty>p{font:11px/1.4 Space,sans-serif;color:var(--progress-soft);margin:7px 0 0}
 @media(max-width:960px){.island-home .category-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.challenge-card .challenge-heading h3{font-size:22px}.challenge-card .challenge-action{font-size:7px}}
 @media(max-width:680px){.island-home .category-grid{grid-template-columns:1fr}.challenge-games-grid{grid-template-columns:1fr}.challenge-games-grid .challenge-card{padding:18px}.challenge-card .challenge-heading{margin-bottom:20px}.challenge-card .challenge-heading h3{font-size:22px}}

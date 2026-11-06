@@ -224,4 +224,6 @@ Os créditos também estão acessíveis no rodapé do site. As fronteiras são c
 
 ## Cloudflare Pages e domínio geokiwi.pt
 
+O modo Fun facts foi refatorado para um quiz dinâmico de sete tipos com dificuldade Easy/Medium/Hard. Contratos TypeScript, componentes, regras numéricas, exemplos e persistência estão descritos em [docs/geoguru.md](docs/geoguru.md).
+
 Preparação pronta em `wrangler.toml`, com os comandos `cloudflare:login`, `cloudflare:create`, `cloudflare:deploy` e `cloudflare:package`. O script de embalagem gera um ZIP só com os ficheiros estáticos. O guia [docs/PUBLICAR-CLOUDFLARE.md](docs/PUBLICAR-CLOUDFLARE.md) explica o upload, o domínio e onde os dados são guardados. A publicação numa conta Cloudflare requer o login do proprietário; preparar o código não cria a conta nem regista o domínio.
