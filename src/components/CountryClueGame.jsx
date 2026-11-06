@@ -1,16 +1,13 @@
-import { lazy, Suspense, useEffect, useMemo, useRef, useState } from 'react';
-import { countries, byId } from '../data/index.js';
+import { lazy, Suspense, useEffect, useRef, useState } from 'react';
 import { quizQuestions, quizQuestionById } from '../quiz/questions.js';
-import { createQuiz, fromLngLat, nextQuiz, submitQuiz, toLngLat } from '../quiz/engine.js';
+import { createQuiz, fromLngLat, nextQuiz, submitQuiz, toLngLat, quizFeedbackDuration } from '../quiz/engine.js';
 import { checkpointQuiz, readQuizSave, readQuizRecord, saveQuizRecord } from '../quiz/storage.js';
 import { difficultyLabel, inputLabel, noticeLabel, solutionLabel } from '../quiz/presentation.js';
-import { clueFeedbackDuration } from '../lib/country-clues-game.js';
 import { useLocale } from '../i18n/LocaleContext.jsx';
 import { Icon, KiwiMark } from './Icon.jsx';
 import Modal from './Modal.jsx';
 import RestartButton from './RestartButton.jsx';
 import ResultsScreen from './ResultsScreen.jsx';
-import WorldMap from './WorldMap.jsx';
 import LanguageControl from './LanguageControl.jsx';
 import QuestionInput from './quiz/QuestionInput.jsx';
 import '../country-clues.css';
@@ -25,36 +22,31 @@ export default function CountryClueGame({rounds=10,difficulty='EASY',resume=fals
   const recordRef=useRef(readQuizRecord(rounds,difficulty)),finishedRef=useRef(false);
   const question=quizQuestionById[game.queue[game.index]],result=game.answers[game.index];
   const mapQuestion=question.inputType==='MAP_PINPOINT';
-  const pool=useMemo(()=>countries.filter(country=>country.isCountry),[]);
   const missed=game.answers.filter(a=>!a.correct).map(a=>quizQuestionById[a.questionId]);
-  const solvedIds=[...new Set(game.answers.filter(a=>a.correct).flatMap(a=>quizQuestionById[a.questionId].countryIds||[]))];
-  const wrongIds=[...new Set(missed.flatMap(q=>q.countryIds||[]))];
   const correctCount=game.answers.filter(a=>a.correct).length;
-  const countrySolution=result&&question.suggestionDomain==='countries'?byId[result.foundIds[0]||question.countryIds?.[0]]:null;
   const mapReveal=mapQuestion&&result?{country:{id:question.id,nome_pt:'Resposta',nome_en:'Answer',coordenadas_centro:toLngLat(question.answer.point)},correct:result.correct}:null;
 
   useEffect(()=>{setStorageOK(checkpointQuiz(game));if(game.finished&&!finishedRef.current){finishedRef.current=true;saveQuizRecord(game);}},[game]);
   useEffect(()=>{const sync=()=>setHidden(document.hidden);sync();document.addEventListener('visibilitychange',sync);return()=>document.removeEventListener('visibilitychange',sync);},[]);
   useEffect(()=>{setPoint(null);setPaused(false);},[game.id,game.index]);
-  useEffect(()=>{if(!result||game.finished||paused||hidden||confirm)return;const timer=setTimeout(()=>setGame(nextQuiz),clueFeedbackDuration(result));return()=>clearTimeout(timer);},[result,game.finished,paused,hidden,confirm]);
+  useEffect(()=>{if(!result||game.finished||paused||hidden||confirm)return;const timer=setTimeout(()=>setGame(nextQuiz),quizFeedbackDuration(result));return()=>clearTimeout(timer);},[result,game.finished,paused,hidden,confirm]);
   function answer(value,skipped=false){setGame(old=>submitQuiz(old,quizQuestionById,value,{skipped,locale}));}
   function start(bank=quizQuestions,practice=false){finishedRef.current=false;recordRef.current=readQuizRecord(rounds,game.difficulty);setConfirm(false);setGame(createQuiz({rounds,difficulty:game.difficulty,bank,practice}));}
   function exit(){checkpointQuiz(game);onExit();}
 
-  if(game.finished)return <ResultsScreen title="Fun facts" context={`${difficultyLabel(game.difficulty,locale)} · ${game.queue.length} ${en?'questions':'perguntas'}${game.practice?en?' · practice':' · treino':''}`} score={game.score} correct={correctCount} total={game.queue.length} mistakes={missed.length} newRecord={!game.practice&&game.score>recordRef.current} onRetry={()=>start(missed,true)} onReplay={()=>start()} onExit={onExit}
-    map={solvedIds.length+wrongIds.length>0?<WorldMap region="mundo" queue={pool} solved={solvedIds} wrong={wrongIds} disabled/>:null} mapNote={en?'Countries related to the questions · Red: review · Green: correct':'Países relacionados com as perguntas · Vermelho: a rever · Verde: acertos'}>
-    <details className="answer-review clue-review"><summary>{en?'Review the questions':'Rever as perguntas'} <span>+</span></summary>{game.answers.map(a=>{const q=quizQuestionById[a.questionId];return <article key={q.id}><Icon name={a.correct?'check':'close'} size={17}/><div><h3>{q.prompt[locale]}</h3><strong>{solutionLabel(q,locale)}</strong><p>{q.explanation[locale]}</p>{q.sources.map(source=><a key={source.url} href={source.url} target="_blank" rel="noreferrer">{en?'Source':'Fonte'}: {source.title} <Icon name="northeast" size={11}/></a>)}</div></article>;})}</details>
-  </ResultsScreen>;
-  return <main className={`game-screen play-screen clue-game geoguru-game accent-lime ${mapQuestion?'quiz-map-round':''}`}>
-    <div className="game-map-area">{mapQuestion?<Suspense fallback={<div className="mode-loading">{en?'Loading the map…':'A carregar o mapa…'}</div>}><ProximityMap onPointClick={coords=>setPoint(fromLngLat(coords))} disabled={Boolean(result)||confirm} guessPoint={result&&!result.skipped?toLngLat(result.value):point?toLngLat(point):null} reveal={mapReveal}/></Suspense>:<WorldMap region="mundo" queue={pool} target={countrySolution||undefined} typed={Boolean(countrySolution)} solved={countrySolution?[countrySolution.id]:[]} reveal={countrySolution?{country:countrySolution,correct:result.correct}:null} disabled/>}</div>
+  if(game.finished)return <ResultsScreen title="Fun facts" context={`${difficultyLabel(game.difficulty,locale)} · ${game.queue.length} ${en?'questions':'perguntas'}`} score={game.score} correct={correctCount} total={game.queue.length} mistakes={missed.length} newRecord={!game.practice&&game.score>recordRef.current} onReplay={()=>start()} onExit={onExit} allowReview={false} prominentScore/>;
+  return <main className={`game-screen play-screen clue-game geoguru-game accent-lime ${mapQuestion?'quiz-map-round':'quiz-no-map'}`}>
+    {mapQuestion&&<div className="game-map-area"><Suspense fallback={<div className="mode-loading">{en?'Loading the map…':'A carregar o mapa…'}</div>}><ProximityMap onPointClick={coords=>setPoint(fromLngLat(coords))} disabled={Boolean(result)||confirm} guessPoint={result&&!result.skipped?toLngLat(result.value):point?toLngLat(point):null} reveal={mapReveal}/></Suspense></div>}
     <div className="play-score-panel"><button className="play-exit" aria-label={en?'Save and exit':'Guardar e sair'} onClick={exit}><Icon name="back" size={18}/><KiwiMark size={23}/></button><div className="play-score"><span>{en?'POINTS':'PONTOS'}</span><strong>{game.score}</strong></div><div className="play-round"><span>{en?'ROUND':'RONDA'}</span><strong>{game.index+1}<small>/{game.queue.length}</small></strong></div></div>
+    <div className="quiz-round-content">
     <section className="play-question clue-question quiz-question" aria-label={en?'Fun facts question':'Pergunta Fun facts'}><div className="quiz-question-meta"><span className="play-instruction">{inputLabel(question.inputType,locale)}</span><span>{difficultyLabel(game.difficulty,locale)}</span></div><h1>{question.prompt[locale]}</h1>
-      <QuestionInput key={`${game.id}:${game.index}`} question={question} difficulty={game.difficulty} foundIds={game.foundIds} locale={locale} disabled={Boolean(result)||confirm} onSubmit={answer} point={point} suggestions={suggestions}/>
+      <QuestionInput key={`${game.id}:${game.index}`} question={question} difficulty={game.difficulty} foundIds={game.foundIds} locale={locale} disabled={Boolean(result)||confirm} onSubmit={answer} point={point} suggestions={suggestions} result={result}/>
       {game.notice&&<p className="quiz-notice" role="status">{noticeLabel(game.notice,question,locale)}</p>}
       <div className="quiz-question-footer">{question.referenceYear&&<span>{en?'Data':'Dados'}: {question.referenceYear}</span>}<button className="play-skip" type="button" onClick={()=>answer('',true)} disabled={Boolean(result)||confirm}>{en?'SKIP':'SALTAR'} <Icon name="arrow" size={12}/></button></div>
     </section>
+    {result&&<section className={`play-feedback clue-feedback ${result.correct?'is-correct':result.points>0?'is-close':'is-wrong'}`} role="status"><Icon name={result.correct?'check':result.points>0?'help':'close'} size={22}/><div className="clue-solution"><strong>+{result.points} {en?'POINTS':'PONTOS'}{result.skipped?en?' · SKIPPED':' · SALTADA':''}{typeof result.distanceKm==='number'?` · ${Math.round(result.distanceKm)} km`:''}</strong><h2>{solutionLabel(question,locale)}</h2><p title={question.explanation[locale]}>{question.explanation[locale]}</p>{question.sources.map(source=><a key={source.url} href={source.url} target="_blank" rel="noreferrer" onClick={()=>setPaused(true)}>{en?'Source':'Fonte'}: {source.title} <Icon name="northeast" size={11}/></a>)}</div><button aria-pressed={paused} aria-label={en?paused?'Continue':'Pause to read':paused?'Continuar':'Pausar para ler'} onClick={()=>setPaused(v=>!v)}><Icon name={paused?'play':'pause'} size={17}/><span>{en?paused?'CONTINUE':'PAUSE':paused?'CONTINUAR':'PAUSAR'}</span></button>{!paused&&!hidden&&!confirm&&<div className="play-countdown"><i key={`${game.id}-${game.index}-${paused}`} style={{animationDuration:`${quizFeedbackDuration(result)}ms`}}/></div>}</section>}
+    </div>
     <div className="play-controls clue-controls"><LanguageControl/><RestartButton onClick={()=>setConfirm(true)}/>{['TEXT_SINGLE','TEXT_MULTIPLE'].includes(question.inputType)&&<button type="button" className="quiz-suggestions-toggle" role="switch" aria-checked={suggestions} onClick={()=>setSuggestions(v=>!v)}>{en?'Suggestions':'Sugestões'}<span>{suggestions?'ON':'OFF'}</span></button>}<span className="clue-save-status">{storageOK?en?'Saved automatically':'Guardado automaticamente':en?'Saving is blocked in this browser':'A gravação está bloqueada neste navegador'}</span></div>
-    {result&&<section className={`play-feedback clue-feedback ${result.correct?'is-correct':'is-wrong'}`} role="status"><Icon name={result.correct?'check':'close'} size={22}/><div className="clue-solution"><strong>+{result.points} {en?'POINTS':'PONTOS'}{result.skipped?en?' · SKIPPED':' · SALTADA':''}{typeof result.distanceKm==='number'?` · ${Math.round(result.distanceKm)} km`:''}</strong><h2>{solutionLabel(question,locale)}</h2><p title={question.explanation[locale]}>{question.explanation[locale]}</p>{question.sources.map(source=><a key={source.url} href={source.url} target="_blank" rel="noreferrer" onClick={()=>setPaused(true)}>{en?'Source':'Fonte'}: {source.title} <Icon name="northeast" size={11}/></a>)}</div><button aria-pressed={paused} aria-label={en?paused?'Continue':'Pause to read':paused?'Continuar':'Pausar para ler'} onClick={()=>setPaused(v=>!v)}><Icon name={paused?'play':'pause'} size={17}/><span>{en?paused?'CONTINUE':'PAUSE':paused?'CONTINUAR':'PAUSAR'}</span></button>{!paused&&!hidden&&!confirm&&<div className="play-countdown"><i key={`${game.id}-${game.index}-${paused}`} style={{animationDuration:`${clueFeedbackDuration(result)}ms`}}/></div>}</section>}
     {confirm&&<Modal title={en?'Restart this game?':'Reiniciar esta partida?'} onClose={()=>setConfirm(false)}><p>{en?'This replaces the current run. Your records stay saved.':'Esta ação substitui a partida atual. Os recordes mantêm-se guardados.'}</p><div className="modal-actions"><button className="primary-button" onClick={()=>setConfirm(false)}>{en?'CONTINUE':'CONTINUAR'}</button><button className="secondary-button" onClick={()=>start(game.practice?game.queue.map(id=>quizQuestionById[id]):quizQuestions,game.practice)}>{en?'RESTART':'REINICIAR'}</button></div></Modal>}
   </main>;
 }

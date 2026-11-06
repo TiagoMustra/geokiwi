@@ -13,7 +13,8 @@ export function LocalizedElement({elementType,elementProps}) {
   if(hasText(props.children)) props.children=translatedChildren(props.children,locale);
   return (Array.isArray(props.children)?originalJsxs:originalJsx)(elementType,props);
 }
-export const needsLocalization=(type,props)=>typeof type==='string'&&props&&(hasText(props.children)||labelProps.some(name=>typeof props[name]==='string'));
+// A conditional preview must not change a form's React type and replace its inputs.
+export const needsLocalization=(type,props)=>typeof type==='string'&&props&&(type==='form'||hasText(props.children)||labelProps.some(name=>typeof props[name]==='string'));
 function render(factory,type,props,key) {
   if(needsLocalization(type,props))
     return originalJsx(LocalizedElement,{elementType:type,elementProps:props},key);

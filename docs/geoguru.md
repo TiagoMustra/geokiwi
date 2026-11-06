@@ -19,7 +19,7 @@ Fluxo: **dados → `QuestionInput` → submissão → `submitQuiz` → feedback/
 
 ## Contrato de uma pergunta
 
-Todas têm `schemaVersion`, `id` estável, `revision`, `category`, `prompt` e `explanation` em PT/EN, `sources`, `checkedAt` e, quando aplicável, `referenceYear` e `countryIds`. `referenceYear` identifica a data dos dados de um censo ou ranking; `checkedAt` identifica quando a fonte foi verificada. `countryIds` serve para contextualizar o mapa de resultados e não define a resposta.
+Todas têm `schemaVersion`, `id` estável, `revision`, `category`, `prompt` e `explanation` em PT/EN, `sources`, `checkedAt` e, quando aplicável, `referenceYear` e `countryIds`. `referenceYear` identifica a data dos dados de um censo ou ranking; `checkedAt` identifica quando a fonte foi verificada. `countryIds` é metadado geográfico e não define a resposta. O mapa só é apresentado nas perguntas de pin; os restantes formatos usam um fundo neutro para evitar pistas visuais.
 
 Cada variante exige a sua própria solução, impossibilitando, por exemplo, um `TRUE_FALSE` com uma solução de coordenadas:
 
@@ -51,7 +51,7 @@ A UI diz «Acertaste X de Y», em que Y é a quota atual, e mostra também o tot
 - `10k = 10 000`, `10M = 10 000 000`, `10b = 10 000 000 000`; B tem sempre o significado de mil milhões nas duas línguas.
 - Com sufixo, são aceites vírgula ou ponto decimal: `2,5M` e `2.5M`. Sem sufixo, respeita-se a separação de milhares da língua: `267.570` em PT e `267,570` em EN. Espaços de milhares corretamente agrupados funcionam em ambas.
 - Texto restante (`10km`, `12abc`), valores não finitos ou agrupamentos inválidos são rejeitados. A unidade aparece fora do input, sem exigir que o utilizador a escreva.
-- A tolerância é explícita e aparece na UI; zero significa exatidão. Alturas em metros usam `NUMBER_EXACT` com unidade metros. O slider de distância tem sempre km, evitando confundir escalas.
+- O identificador histórico `NUMBER_EXACT` mantém-se por compatibilidade, mas a pontuação é agora por proximidade, sem exigir números exatos. Alturas em metros usam este tipo com unidade metros. O slider de distância tem sempre km, evitando confundir escalas.
 - A distância máxima de 20 037 km corresponde aproximadamente a meia circunferência terrestre, a escala pedida para distâncias entre pontos da superfície.
 - O máximo temporal é `min(range.max, ano atual)`, ou diretamente o ano atual se `range.max = 'CURRENT_YEAR'`. Em 2026 o limite é 2026, avançando automaticamente no futuro. Ambos os inputs respeitam os mesmos limites, incluindo a escrita manual.
 - Os anos são inteiros: negativos significam a.C./BCE; o ano zero é excluído. Não se transforma uma entrada fora dos limites num valor silenciosamente corrigido.
@@ -60,11 +60,17 @@ A UI diz «Acertaste X de Y», em que Y é a quota atual, e mostra também o tot
 
 O pin usa o mapa físico existente, sem realce de países ao passar o rato, com rios, lagos, relevo e movimento/zoom. A coordenada de domínio é `{lat, lng}`; só o adaptador usa `[lng, lat]` de MapLibre/GeoJSON. A solução e a ligação ao palpite aparecem depois de confirmar ou saltar.
 
-Nomes, booleanos, listas, números e datas dão 100 pontos ao acertar e 0 ao falhar. O pin dá 100 dentro da tolerância configurada e, fora dela, `round(100 × exp(-distânciaKm / decayKm))`, limitado a 0–100. Esta escala usa distância geográfica; não existe penalização por país diferente nestas perguntas genéricas. A fórmula do jogo separado de capitais mantém as suas próprias regras. O feedback e a passagem automática conservam os tempos do desafio: 1 segundo em acertos, 2 segundos em erros; existe pausa para ler.
+Nomes, booleanos e listas dão 100 pontos ao acertar e 0 ao falhar. Números e sliders dão 0–100 por proximidade, usando o erro absoluto na unidade da pergunta. A curva é `round(100 × max(0, 1 − (erro − margem100) / (erroZero − margem100))²)`. Dentro da margem, recebe 100; fora dela, a pontuação fica limitada a 99 até cair a zero.
+
+Por defeito, contagens/alturas permitem 2% de erro para 100 pontos e dão zero a partir de um erro igual ao valor-alvo (mínimo de uma unidade). Para a CN Tower: 550 m → 100, 500 m → 85, 400 m → 54, 200 m → 14, 0 m → 0. `267k` é uma aproximação válida dos 267 570 do levantamento sueco e recebe 100. Nas datas, a escala é absoluta: ano correto → 100, desvio de um ano → 96, de dez anos → 64, de cinquenta anos → 0. Evita-se aplicar uma percentagem ao número do ano. Distâncias usam a tolerância em km da pergunta e uma escala zero de pelo menos 250 km. `scoring.fullCreditError/zeroCreditError` permite configurar as duas margens por pergunta, sempre em unidades absolutas.
+
+O pin conserva a fórmula: 100 dentro da tolerância e, fora dela, `round(100 × exp(-distânciaKm / decayKm))`, limitado a 0–100. Não existe penalização por país diferente nestas perguntas genéricas; o jogo separado de capitais mantém as suas regras. Nos sliders, o palpite mantém-se visível e a resposta correta aparece marcada na própria barra após responder ou saltar. Os botões de verdadeiro/falso são neutros antes de responder.
+
+O feedback dura 3 segundos em acertos e 4,5 segundos em aproximações, erros ou saltos. Continua a existir pausa para ler. O ecrã final dá destaque aos pontos e mostra a média por ronda; este modo só oferece jogar novamente ou voltar ao menu, sem revisão nem treino dos erros.
 
 ## Persistência e compatibilidade
 
-`localStorage` continua a guardar tudo neste navegador. Não foi acrescentado servidor, base de dados ou conta. Chaves novas: `geokiwi.geoguru.saves.v2` e `geokiwi.geoguru.records.v2`, com slots `10:EASY`, `20:MEDIUM`, etc. O progresso parcial das listas é reconstruído a partir dos eventos, tal como a pontuação. Dados calculados de um save nunca são aceites sem recalcular. IDs desconhecidos, revisões incompatíveis e eventos impossíveis não são retomados.
+`localStorage` continua a guardar tudo neste navegador. Não foi acrescentado servidor, base de dados ou conta. Chaves: `geokiwi.geoguru.saves.v2` e `geokiwi.geoguru.records.v2`, com slots `10:EASY`, `20:MEDIUM`, etc. `scoringVersion: 3` identifica a pontuação por aproximação. O progresso e a pontuação são reconstruídos a partir dos eventos; partidas anteriores conservam a ordem e os palpites e recebem a nova pontuação ao retomar. Os recordes existentes mantêm-se. IDs desconhecidos, revisões incompatíveis e eventos impossíveis não são retomados.
 
 As partidas antigas de texto são adaptadas como Easy, com a mesma ordem e respostas. O save antigo só é removido depois de o novo checkpoint ter sido guardado com sucesso. Os recordes antigos continuam na sua chave original; não são misturados com o novo banco de quizzes mistos.
 
@@ -99,4 +105,4 @@ O banco de arranque não pretende converter todos os exemplos de negócio em per
 
 ## Verificação
 
-`npm test` cobre os sete tipos, quotas ímpares, aliases repetidos, sufixos numéricos, limites manuais, coordenadas, pontuação única, migração e retoma parcial. `npm run build` compila a UI. `types.ts` é um contrato TypeScript sem dependências React; o resto do projeto continua em JavaScript/JSX.
+`npm test` cobre os sete tipos, quotas ímpares, aliases repetidos, sufixos numéricos, proximidade em diferentes escalas, anos, posição dos marcadores, limites manuais, coordenadas, pontuação única, migração e retoma parcial. A identidade do formulário localizado é estável quando a pré-visualização numérica aparece, evitando recriar o input e perder foco após o primeiro dígito. `npm run build` compila a UI. `types.ts` é um contrato TypeScript sem dependências React; o resto do projeto continua em JavaScript/JSX.

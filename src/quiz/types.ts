@@ -13,6 +13,8 @@ export interface TextEntity {
   aliases: string[];
 }
 export interface Unit { id: string; label: LocalizedText }
+/** Absolute errors in this question's unit; defaults are derived from its type. */
+export interface NumericScoring { fullCreditError?: number; zeroCreditError?: number }
 export interface BaseQuestion {
   schemaVersion: 1;
   id: string;
@@ -44,19 +46,23 @@ export interface TextMultipleQuestion extends BaseQuestion {
   answer: { accepted: TextEntity[] };
 }
 export interface NumberExactQuestion extends BaseQuestion {
+  /** Historical type ID retained for saved games; answers now score by proximity. */
   inputType: 'NUMBER_EXACT';
   unit: Unit;
   bounds?: { min?: number; max?: number };
+  scoring?: NumericScoring;
   answer: { value: number; absoluteTolerance: number };
 }
 export interface TimelineQuestion extends BaseQuestion {
   inputType: 'SLIDER_TIMELINE';
   range: { min: number; max: number | 'CURRENT_YEAR'; step: 1 };
+  scoring?: NumericScoring;
   /** Negative years are BCE; year zero is excluded. */
   answer: { year: number; toleranceYears: number };
 }
 export interface DistanceQuestion extends BaseQuestion {
   inputType: 'SLIDER_DISTANCE';
+  scoring?: NumericScoring;
   /** Always 0..20,037 km. Other units use NUMBER_EXACT, never this slider. */
   answer: { km: number; toleranceKm: number };
 }
@@ -76,6 +82,7 @@ export interface QuizAnswer {
   points: number;
   foundIds: string[];
   distanceKm?: number;
+  numericError?: number;
 }
 export interface SubmissionEvent {
   index: number;
@@ -85,6 +92,7 @@ export interface SubmissionEvent {
 }
 export interface QuizRun {
   version: 2;
+  scoringVersion: 3;
   id: string;
   startedAt: number;
   rounds: number;
@@ -109,5 +117,6 @@ export interface QuestionInputProps<Q extends QuizQuestion = QuizQuestion> {
   locale: Locale;
   point?: LatLng | null;
   suggestions?: boolean;
+  result?: QuizAnswer;
   onSubmit: (value: Submission) => void;
 }

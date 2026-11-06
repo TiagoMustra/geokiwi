@@ -9,6 +9,9 @@ test('React localizes visible text and accessible labels without changing input 
  try {
   const {LocaleContext}=await vite.ssrLoadModule('/src/i18n/LocaleContext.jsx');
   const {jsx,jsxs}=await vite.ssrLoadModule('/src/i18n/jsx-runtime.js');
+  const emptyForm=jsxs('form',{children:[jsx('input',{value:'',readOnly:true}), '']});
+  const populatedForm=jsxs('form',{children:[jsx('input',{value:'4',readOnly:true}),jsx('output',{children:'4 metros'})]});
+  assert.equal(emptyForm.type,populatedForm.type,'showing a numeric preview must preserve the form and focused input identity');
   const element=jsxs('div',{children:[jsx('h1',{children:'Lisboa · Portugal'}),jsx('input',{placeholder:'Nome da capital…',value:'Lisboa',readOnly:true,'data-country-id':'620'}),jsx('button',{'aria-label':'Reiniciar partida',children:'REINICIAR'})]});
   const en=renderToStaticMarkup(React.createElement(LocaleContext.Provider,{value:{locale:'en'}},element));
   assert.match(en,/Lisbon · Portugal/);assert.match(en,/placeholder="Capital name…"/);assert.match(en,/aria-label="Restart game"/);assert.match(en,/value="Lisboa"/);assert.match(en,/data-country-id="620"/);

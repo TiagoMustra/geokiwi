@@ -1,6 +1,6 @@
 # Exploration and country riddles
 
-The menu has nine games in four categories. “Desafios / Challenges” contains two first-class games with independent 10/20/30-round controls, saves and records. Their components load on demand. Starting a new run prompts before overwriting an existing save in that mode and round count. Completed runs offer replay and practice of missed rounds.
+The menu has nine games in four categories. “Desafios / Challenges” contains two first-class games with independent 10/20/30-round controls, saves and records. Their components load on demand. Starting a new run prompts before overwriting an existing save in that mode and round count. Completed runs offer replay; Explore the world also offers practice of missed rounds.
 
 ## Explore the world
 
@@ -12,7 +12,7 @@ Score follows the capital game: `round(100 * exp(-distanceKm / 500))`, capped at
 
 The dynamic GeoGuru engine supports seven interactions: true/false, single text, multiple text, exact numbers with units, map pins, timeline sliders and distance sliders. The 105 original country clues are adapted to the new schema, alongside 11 sourced launch questions. Easy/Medium/Hard control list quotas (one/half rounded up/all). See [geoguru.md](geoguru.md) for the contracts, component structure, parser rules and save migration.
 
-Autocomplete selection submits immediately; skip reveals the answer. Both challenge modes advance after 1 second for a correct answer and 2 seconds for a mistake or skip. Explicit pause remains available; hovering over Explorer feedback no longer delays the next round. The explanation occupies at most two visible lines; full explanations and source links remain in the result review.
+Autocomplete selection submits immediately; skip reveals the answer. Explore the world advances after 1 second for a correct answer and 2 seconds for a mistake or skip. Fun facts allows 3 seconds for a correct answer and 4.5 seconds for partial answers, mistakes or skips. Its numeric questions score by proximity and its map is visible only for pins; its results omit review/practice. Explicit pause remains available; hovering over Explorer feedback no longer delays the next round. The explanation occupies at most two visible lines; sources remain available during feedback; Explore the world keeps its result review.
 
 Clues use dated historical facts and precise definitions rather than unsourced rankings. Canonical country IDs and existing answer aliases are unchanged.
 

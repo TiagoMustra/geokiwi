@@ -10,12 +10,22 @@
 .quiz-submit:disabled,.quiz-boolean button:disabled{opacity:.45;cursor:default}
 .quiz-submit:focus-visible,.quiz-boolean button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 .quiz-boolean{display:flex;gap:10px;margin-top:14px}.quiz-boolean button{flex:1}
+.geoguru-game .quiz-boolean button{background:transparent;border-color:color-mix(in srgb,var(--progress-ink) 30%,transparent);color:var(--progress-ink)}
+.geoguru-game .quiz-boolean button:hover:not(:disabled){background:color-mix(in srgb,var(--progress-ink) 7%,transparent);border-color:var(--progress-soft)}
+.geoguru-game .quiz-boolean button:focus-visible{outline-color:var(--progress-ink)}
 .quiz-unit-field{display:flex;flex:1;min-width:0;border:1px solid var(--line);background:var(--progress-panel)}
 .quiz-unit-field input:not([type=range]){flex:1;border:0;width:0}
 .quiz-unit-field>span{display:flex;align-items:center;padding:0 11px;font:12px Space,sans-serif;color:var(--progress-soft);background:var(--tint)}
 .quiz-input-hint,.quiz-number-preview,.quiz-tolerance{display:block;color:var(--progress-soft);font:10px/1.5 Space,sans-serif;margin:7px 0 0}
 .quiz-number-preview{color:var(--accent);font-size:12px}.quiz-tolerance{margin-top:5px}
 .quiz-slider input[type=range]{display:block;width:100%;margin:18px 0 7px;accent-color:var(--accent);cursor:pointer;height:22px}
+.quiz-slider-track{position:relative;padding-top:6px}.quiz-slider-track input[type=range]{margin:10px 0 7px}
+.quiz-slider-track.is-revealed{padding-top:36px}
+.quiz-slider-solution{position:absolute;top:0;width:0;height:63px;color:var(--progress-ink);pointer-events:none}
+.quiz-slider-solution>span{position:absolute;top:0;white-space:nowrap;transform:translateX(var(--label-shift));padding:4px 7px;border:1px solid #c29b50;background:var(--progress-panel);font:600 12px/1.3 Space,sans-serif}
+.quiz-slider-solution>i{position:absolute;top:29px;bottom:0;left:-1px;border-left:2px solid #c29b50}
+.quiz-slider-legend{display:flex;gap:6px;align-items:center;font:10px Space,sans-serif;margin:8px 0 0;color:var(--progress-soft)}
+.quiz-slider-legend>i{height:10px;border-left:2px solid #c29b50}
 .quiz-range-limits{display:flex;justify-content:space-between;gap:12px;color:var(--progress-soft);font:10px var(--mono)}
 .quiz-slider .quiz-unit-field input{font-variant-numeric:tabular-nums}
 .quiz-progress-label{display:flex;justify-content:space-between;gap:10px;font:12px Space,sans-serif;color:var(--progress-ink)}
@@ -31,3 +41,17 @@
 @media(max-width:680px){.geoguru-game .quiz-question{top:142px;width:calc(100% - 24px);max-width:none;padding:12px 14px}.quiz-question>h1{margin-bottom:12px!important}.quiz-question-meta{font-size:8px}.quiz-question .quiz-submit{padding:8px 11px}.quiz-question-footer{margin-top:8px}.quiz-pin-input{flex-wrap:wrap}.quiz-input-hint{font-size:9px}.geoguru-game .clue-controls{width:145px}.geoguru-game .clue-feedback{bottom:12px}.quiz-unit-field>span{padding:0 7px;font-size:11px}}
 @media(max-width:680px){.geoguru-game .clue-save-status{display:none}}
 @media(max-height:600px) and (orientation:landscape){.geoguru-game .quiz-question{top:12px;width:calc(100% - 430px);min-width:240px;max-height:calc(100svh - 120px);overflow:auto}.geoguru-game .quiz-question h1{font-size:14px}.quiz-input-hint,.quiz-question-footer{margin-top:5px}.geoguru-game .clue-feedback{bottom:8px}}
+.quiz-round-content{display:contents}
+.play-screen.geoguru-game.quiz-no-map{background:var(--bg);background-image:radial-gradient(var(--line) .6px,transparent .6px);background-size:24px 24px}
+.quiz-no-map .quiz-round-content{display:flex;flex-direction:column;align-items:center;gap:20px;height:100%;padding:135px 20px 30px;overflow-y:auto;box-sizing:border-box;scrollbar-gutter:stable}
+.geoguru-game.quiz-no-map .quiz-question,.geoguru-game.quiz-no-map .clue-feedback{position:relative;left:auto;top:auto;bottom:auto;transform:none;width:min(620px,100%);min-width:0;max-width:none;flex-shrink:0}
+.geoguru-game.quiz-no-map .quiz-question{margin:auto 0}
+.geoguru-game.quiz-no-map .quiz-question:has(+.clue-feedback){margin-bottom:0}
+.geoguru-game.quiz-no-map .clue-feedback{margin-bottom:auto}
+.geoguru-game .clue-feedback.is-close{border-color:#c29b50;color:var(--progress-ink);background:var(--progress-panel)}
+.geoguru-game .clue-feedback.is-close>svg,.geoguru-game .clue-feedback.is-close .clue-solution>strong{color:#c29b50}
+.results-score-prominent .results-metrics{max-width:650px;align-items:center}
+.results-score-prominent .results-metrics>div:first-child{flex:1.35}
+.results-score-prominent .results-metrics>div:first-child>strong{font-size:clamp(36px,5vw,48px);color:var(--accent)}
+@media(max-width:680px){.quiz-no-map .quiz-round-content{padding:150px 12px 24px;gap:16px}.results-score-prominent .results-metrics{flex-wrap:wrap;gap:20px 0}.results-score-prominent .results-metrics>div:first-child{flex-basis:100%;border:0}.results-score-prominent .results-metrics>div:nth-child(2){padding-left:0}.results-score-prominent .results-metrics>div:first-child>strong{font-size:42px}}
+@media(max-height:600px) and (orientation:landscape){.quiz-no-map .quiz-round-content{padding-top:110px}.geoguru-game.quiz-no-map .quiz-question{max-height:none;overflow:visible}.quiz-no-map .quiz-question h1{font-size:17px}}

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { createQuiz, evaluateSubmission, requiredAnswers, parseSmartNumber, inputBounds, MAX_DISTANCE_KM, distanceKm, fromLngLat, toLngLat, submitQuiz, nextQuiz, validateQuestion, INPUT_TYPES } from '../src/quiz/engine.js';
+import { createQuiz, evaluateSubmission, requiredAnswers, parseSmartNumber, inputBounds, MAX_DISTANCE_KM, distanceKm, fromLngLat, toLngLat, submitQuiz, nextQuiz, validateQuestion, INPUT_TYPES, numericScoring, scoreNumericAnswer, sliderSolutionPosition, quizFeedbackDuration } from '../src/quiz/engine.js';
 import { dynamicQuestions, quizQuestions, quizQuestionById as bank } from '../src/quiz/questions.js';
 import { restoreQuiz, checkpointQuiz, readQuizSave, readQuizRecord, saveQuizRecord, QUIZ_SAVE_KEY } from '../src/quiz/storage.js';
 import { createCountryClueGame, answerCountryClue, writeCountryClueSave, readCountryClueSave } from '../src/lib/country-clues-game.js';
@@ -56,15 +56,53 @@ test('multiple answers accumulate, deduplicate translated aliases, and finish on
   }
   const wrong=submitQuiz(newRun(list,'HARD'),bank,'Portugal');assert.equal(wrong.notice,'not-found');assert.equal(wrong.answers.length,0);
 });
-test('exact numbers show strict or explicitly configured tolerance, and never accept trailing junk',()=>{
+test('numeric answers reward reasonable approximations and never accept trailing junk',()=>{
   assert.equal(evalQ('number-swedish-islands','267.57k').answer.correct,true);
-  assert.equal(evalQ('number-swedish-islands','267k').answer.correct,false);
+  assert.equal(evalQ('number-swedish-islands','267k').answer.points,100);
   assert.equal(evalQ('number-swedish-islands','267570 islands').notice,'invalid');
   assert.equal(evalQ('number-cn-tower','553,33').answer.correct,true);
   assert.equal(evalQ('number-cn-tower',-1).notice,'out-of-range');
   const q=bank['distance-lisbon-paris'];
   assert.equal(evaluateSubmission(q,q.answer.km+25).answer.correct,true);
   assert.equal(evaluateSubmission(q,q.answer.km+26).answer.correct,false);
+});
+test('proximity scores decrease smoothly with relative error, independent of number scale',()=>{
+  const q=bank['number-cn-tower'];
+  assert.equal(evaluateSubmission(q,400).answer.points,54);
+  const scores=[553.33,550,500,400,200,0].map(value=>scoreNumericAnswer(q,value).points);
+  assert.deepEqual(scores,[100,100,85,54,14,0]);
+  for(const factor of [.9,.75,.5,0,1.5,2]){
+    const small={...q,answer:{value:100,absoluteTolerance:0}};
+    const large={...q,answer:{value:1e8,absoluteTolerance:0}};
+    assert.equal(scoreNumericAnswer(small,100*factor).points,scoreNumericAnswer(large,1e8*factor).points);
+  }
+  const zero={...q,answer:{value:0,absoluteTolerance:0}};
+  assert.equal(scoreNumericAnswer(zero,0).points,100);assert.equal(scoreNumericAnswer(zero,1).points,0);
+  assert.equal(scoreNumericAnswer(q,1e8).points,0);
+});
+test('timeline scoring uses years rather than a percentage of the calendar year',()=>{
+  const q=bank['timeline-berlin'];
+  assert.equal(numericScoring(q).fullCreditError,0);
+  assert.equal(scoreNumericAnswer(q,1989).points,100);
+  assert.equal(scoreNumericAnswer(q,1988).points,96);
+  assert.equal(scoreNumericAnswer(q,1979).points,64);
+  assert.equal(scoreNumericAnswer(q,1939).points,0);
+  const custom={...q,scoring:{fullCreditError:5,zeroCreditError:100}};
+  assert.equal(scoreNumericAnswer(custom,1984).points,100);
+  assert.ok(validateQuestion({...q,scoring:{fullCreditError:10,zeroCreditError:5}}).includes('scoring'));
+});
+test('slider solutions use the same bounded scale as the thumb, including BCE and endpoints',()=>{
+  const timeline=bank['timeline-berlin'];
+  assert.ok(Math.abs(sliderSolutionPosition(timeline)-(1989-1900)/(new Date().getFullYear()-1900)*100)<1e-10);
+  const ancient={...timeline,range:{min:-3000,max:2026,step:1},answer:{year:-2500,toleranceYears:0}};
+  assert.ok(sliderSolutionPosition(ancient)>0&&sliderSolutionPosition(ancient)<10);
+  assert.equal(sliderSolutionPosition({...bank['distance-lisbon-paris'],answer:{km:0,toleranceKm:0}}),0);
+  assert.equal(sliderSolutionPosition({...bank['distance-lisbon-paris'],answer:{km:20037,toleranceKm:0}}),100);
+});
+test('both correct and incorrect quiz feedback allow time to read the answer',()=>{
+  assert.equal(quizFeedbackDuration({correct:true}),3000);
+  assert.equal(quizFeedbackDuration({correct:false,points:54}),4500);
+  assert.equal(quizFeedbackDuration({correct:false,skipped:true}),4500);
 });
 test('timeline and distance bounds apply equally to manual entry and sliders',()=>{
   const q={...bank['timeline-berlin'],range:{min:-3000,max:'CURRENT_YEAR',step:1}};
@@ -120,6 +158,14 @@ test('resuming works during feedback and between rounds without losing boolean f
   game=nextQuiz(game);checkpointQuiz(game,storage);assert.equal(readQuizSave(10,'EASY',storage).index,1);
   game=newRun(bank['tf-berlin-1991']);game=submitQuiz(game,bank,false);checkpointQuiz(game,storage);
   assert.equal(readQuizSave(10,'EASY',storage).score,100);
+});
+test('older numeric saves recalculate partial points while keeping guesses and round order',()=>{
+  const game=submitQuiz(newRun(bank['number-cn-tower']),bank,'400');
+  const old={...game,scoringVersion:2,score:0,answers:game.answers.map(a=>({...a,points:0}))};
+  const restored=restoreQuiz(old);
+  assert.equal(restored.scoringVersion,3);assert.equal(restored.score,54);
+  assert.equal(restored.answers[0].value,400);assert.deepEqual(restored.queue,old.queue);
+  assert.equal(submitQuiz(restored,bank,'553.33'),restored);
 });
 test('difficulty saves and records are separate; practice never changes a record',()=>{
   const storage=memory();

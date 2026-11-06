@@ -1,5 +1,5 @@
 import { quizQuestionById, quizQuestions } from './questions.js';
-import { createQuiz, submitQuiz, nextQuiz, validDifficulty, DIFFICULTIES } from './engine.js';
+import { createQuiz, submitQuiz, nextQuiz, validDifficulty, DIFFICULTIES, QUIZ_SCORING_VERSION } from './engine.js';
 import { readCountryClueSave, clearCountryClueSave } from '../lib/country-clues-game.js';
 
 export const QUIZ_SAVE_KEY='geokiwi.geoguru.saves.v2';
@@ -17,7 +17,7 @@ export function restoreQuiz(saved,bank=quizQuestionById){
     ||!Array.isArray(saved.queue)||!saved.queue.length||saved.queue.length>saved.rounds||new Set(saved.queue).size!==saved.queue.length
     ||!saved.queue.every(id=>typeof id==='string'&&Object.hasOwn(bank,id)&&Number.isInteger(saved.revisions?.[id])&&bank[id].revision===saved.revisions[id])
     ||!Array.isArray(saved.events)||saved.events.length>5000||!Number.isInteger(saved.index)||saved.index<0||saved.index>=saved.queue.length)return null;
-  let game={...saved,practice:saved.practice===true,index:0,score:0,answers:[],foundIds:[],events:[],notice:null,finished:false};
+  let game={...saved,scoringVersion:QUIZ_SCORING_VERSION,practice:saved.practice===true,index:0,score:0,answers:[],foundIds:[],events:[],notice:null,finished:false};
   for(const event of saved.events){
     if(!object(event)||!Number.isInteger(event.index)||!['pt','en'].includes(event.locale)||typeof event.skipped!=='boolean')return null;
     if(event.index===game.index+1&&game.answers[game.index])game=nextQuiz(game);
@@ -32,7 +32,7 @@ export function restoreQuiz(saved,bank=quizQuestionById){
 export function writeQuizSave(game,storage){
   const saves=read(QUIZ_SAVE_KEY,storage),key=slot(game.rounds,game.difficulty);
   if(game.finished){if(saves[key]?.id===game.id)delete saves[key];}
-  else saves[key]={version:2,id:game.id,startedAt:game.startedAt,updatedAt:Date.now(),rounds:game.rounds,difficulty:game.difficulty,practice:game.practice,queue:game.queue,revisions:game.revisions,index:game.index,events:game.events,finished:false};
+  else saves[key]={version:2,scoringVersion:QUIZ_SCORING_VERSION,id:game.id,startedAt:game.startedAt,updatedAt:Date.now(),rounds:game.rounds,difficulty:game.difficulty,practice:game.practice,queue:game.queue,revisions:game.revisions,index:game.index,events:game.events,finished:false};
   return write(QUIZ_SAVE_KEY,saves,storage);
 }
 export function readQuizSave(rounds=10,difficulty='EASY',storage){

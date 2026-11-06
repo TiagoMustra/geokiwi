@@ -3,6 +3,8 @@ import { makeQueue, normalizeAnswer } from '../lib/game.js';
 export const DIFFICULTIES = ['EASY', 'MEDIUM', 'HARD'];
 export const INPUT_TYPES = ['TRUE_FALSE','TEXT_SINGLE','TEXT_MULTIPLE','NUMBER_EXACT','MAP_PINPOINT','SLIDER_TIMELINE','SLIDER_DISTANCE'];
 export const MAX_DISTANCE_KM = 20037;
+export const QUIZ_SCORING_VERSION = 3;
+export const quizFeedbackDuration = answer => answer.correct ? 3000 : 4500;
 export const validDifficulty = value => DIFFICULTIES.includes(value) ? value : 'EASY';
 export const currentYear = () => new Date().getFullYear();
 export function requiredAnswers(total, difficulty) {
@@ -56,6 +58,26 @@ export function distanceKm(a,b) {
 const findEntity = (question,value) => typeof value === 'string' && value.length<=200 && normalizeAnswer(value)
   ? question.answer.accepted.find(entity => [...Object.values(entity.label),...entity.aliases].some(alias=>normalizeAnswer(alias)===normalizeAnswer(value))) : null;
 
+/** Errors use the question's own units. Counts/heights allow 2% for full credit;
+ * years use an absolute scale so modern dates never get a 40-year free pass. */
+export function numericScoring(question) {
+  const target=question.answer?.value??question.answer?.year??question.answer?.km;
+  const tolerance=question.answer?.absoluteTolerance??question.answer?.toleranceYears??question.answer?.toleranceKm??0;
+  const fullCreditError=question.scoring?.fullCreditError??Math.max(tolerance,question.inputType==='NUMBER_EXACT'?Math.abs(target)*.02:0);
+  const defaultZero=question.inputType==='SLIDER_TIMELINE'?50:question.inputType==='SLIDER_DISTANCE'?Math.max(250,Math.abs(target)):Math.max(1,Math.abs(target));
+  return {target,fullCreditError,zeroCreditError:question.scoring?.zeroCreditError??Math.max(defaultZero,fullCreditError+1)};
+}
+export function scoreNumericAnswer(question,value) {
+  const {target,fullCreditError,zeroCreditError}=numericScoring(question),error=Math.abs(value-target);
+  if(error<=fullCreditError+Number.EPSILON*Math.max(1,Math.abs(target)))return {correct:true,points:100,numericError:error};
+  const closeness=Math.max(0,1-(error-fullCreditError)/(zeroCreditError-fullCreditError));
+  return {correct:false,points:Math.min(99,Math.max(0,Math.round(100*closeness**2))),numericError:error};
+}
+export function sliderSolutionPosition(question) {
+  const {min,max}=inputBounds(question),value=question.answer.year??question.answer.km;
+  return max===min?50:Math.max(0,Math.min(100,(value-min)/(max-min)*100));
+}
+
 /** @param {import('./types').QuizQuestion} question */
 export function evaluateSubmission(question,value,{difficulty='EASY',foundIds=[],skipped=false,locale='pt',year=currentYear()}={}) {
   const base={questionId:question.id,value,skipped,foundIds:[...foundIds],points:0,correct:false};
@@ -85,10 +107,8 @@ export function evaluateSubmission(question,value,{difficulty='EASY',foundIds=[]
       if(number===null)return {notice:'invalid',foundIds};
       const {min,max}=inputBounds(question,year);
       if(number<min||number>max||question.inputType==='SLIDER_TIMELINE'&&(!Number.isInteger(number)||number===0))return {notice:'out-of-range',foundIds};
-      const target=question.answer.value??question.answer.year??question.answer.km;
-      const tolerance=question.answer.absoluteTolerance??question.answer.toleranceYears??question.answer.toleranceKm;
-      correct=Math.abs(number-target)<=tolerance+Number.EPSILON*Math.max(1,Math.abs(target));
-      extra.value=number;break;
+      const score=scoreNumericAnswer(question,number);correct=score.correct;
+      extra={...score,value:number};break;
     }
     case 'MAP_PINPOINT': {
       if(!validPoint(value))return {notice:'invalid',foundIds};
@@ -113,7 +133,7 @@ export function createQuiz({bank,rounds=10,difficulty='EASY',practice=false,rand
   while(selected.length<(practice?unique.length:Math.min(size,unique.length))) {
     for(const group of groups) {if(group.length&&selected.length<(practice?unique.length:Math.min(size,unique.length)))selected.push(group.shift());}
   }
-  return {version:2,id:globalThis.crypto.randomUUID(),startedAt:Date.now(),rounds:size,difficulty:validDifficulty(difficulty),practice,
+  return {version:2,scoringVersion:QUIZ_SCORING_VERSION,id:globalThis.crypto.randomUUID(),startedAt:Date.now(),rounds:size,difficulty:validDifficulty(difficulty),practice,
     queue:selected.map(q=>q.id),revisions:Object.fromEntries(selected.map(q=>[q.id,q.revision])),index:0,events:[],answers:[],foundIds:[],notice:null,score:0,finished:false};
 }
 export function submitQuiz(game,bankById,value,{skipped=false,locale='pt'}={}) {
@@ -165,6 +185,8 @@ export function validateQuestion(q,year=currentYear()) {
     if(!Number.isFinite(target)||!Number.isFinite(tolerance)||tolerance<0||!Number.isFinite(bounds.min)||!Number.isFinite(bounds.max)||target<bounds.min||target>bounds.max||bounds.min>bounds.max)errors.push('numeric');
     if(q.inputType==='NUMBER_EXACT'&&(!q.unit?.id||!q.unit?.label?.pt||!q.unit?.label?.en))errors.push('unit');
     if(q.inputType==='SLIDER_TIMELINE'&&(!validRange||!Number.isInteger(target)||target===0))errors.push('timeline');
+    const scoring=numericScoring(q);
+    if(!Number.isFinite(scoring.fullCreditError)||scoring.fullCreditError<0||!Number.isFinite(scoring.zeroCreditError)||scoring.zeroCreditError<=scoring.fullCreditError)errors.push('scoring');
   }
   return [...new Set(errors)];
 }
