@@ -1,4 +1,4 @@
-import { quizQuestionById, quizQuestions } from './questions.js';
+import { quizQuestionById, quizQuestions, getQuizPool } from './questions.js';
 import { createQuiz, submitQuiz, nextQuiz, validDifficulty, DIFFICULTIES, QUIZ_SCORING_VERSION } from './engine.js';
 import { readCountryClueSave, clearCountryClueSave } from '../lib/country-clues-game.js';
 
@@ -30,7 +30,7 @@ export function createNewQuiz(options={},storage){
   const recentQuestionIds=readQuizHistory(storage);
   // Preserve imported pre-history knowledge before a fresh run replaces its old save.
   if(recentQuestionIds.length)write(QUIZ_HISTORY_KEY,{version:1,questionIds:recentQuestionIds},storage);
-  return createQuiz({bank:quizQuestions,...options,recentQuestionIds});
+  return createQuiz({bank:getQuizPool(options.locale),...options,recentQuestionIds});
 }
 
 /** Replay accepted submissions against trusted answers; persisted scores are never trusted. */

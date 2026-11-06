@@ -6,6 +6,18 @@ export type InputType = 'TRUE_FALSE' | 'TEXT_SINGLE' | 'TEXT_MULTIPLE' | 'NUMBER
   | 'MAP_PINPOINT' | 'SLIDER_TIMELINE' | 'SLIDER_DISTANCE';
 export interface LatLng { lat: number; lng: number }
 export interface Source { title: string; url: string }
+export interface QuestionPhoto {
+  src: string;
+  width: number;
+  height: number;
+  alt: LocalizedText;
+  author: string;
+  license: string;
+  licenseUrl: string;
+  sourceUrl: string;
+  fileTitle: string;
+  flagsChecked: boolean;
+}
 export interface TextEntity {
   /** One ID per entity, shared by every translation and alias. */
   id: string;
@@ -44,6 +56,8 @@ export interface TextSingleQuestion extends BaseQuestion {
 export interface TextMultipleQuestion extends BaseQuestion {
   inputType: 'TEXT_MULTIPLE';
   suggestionDomain: 'countries' | 'cities' | 'none';
+  /** Name-based clues use this fixed language, independent of UI translation. */
+  nameLanguage?: Locale;
   /** Complete, finite and deduplicated answer set. Difficulty chooses the quota. */
   answer: { accepted: TextEntity[] };
 }
@@ -70,6 +84,8 @@ export interface DistanceQuestion extends BaseQuestion {
 }
 export interface MapPinpointQuestion extends BaseQuestion {
   inputType: 'MAP_PINPOINT';
+  placeType: 'city' | 'peak' | 'monument';
+  image?: QuestionPhoto;
   answer: { point: LatLng; toleranceKm: number; decayKm: number };
 }
 export type QuizQuestion = TrueFalseQuestion | TextSingleQuestion | TextMultipleQuestion

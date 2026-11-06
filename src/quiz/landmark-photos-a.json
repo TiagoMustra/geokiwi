@@ -1,0 +1,67 @@
+[
+  {
+    "id": "historic-taj-mahal",
+    "src": "/art/landmarks-v1/taj-mahal.jpg",
+    "width": 960,
+    "height": 664,
+    "alt": { "pt": "Taj Mahal", "en": "Taj Mahal" },
+    "author": "© Yann Forget / Wikimedia Commons; edits: King of Hearts, Jbarta",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Taj_Mahal,_Agra,_India_edit3.jpg",
+    "fileTitle": "File:Taj Mahal, Agra, India edit3.jpg",
+    "flagsChecked": true
+  },
+  {
+    "id": "historic-colosseum",
+    "src": "/art/landmarks-v1/colosseum.jpg",
+    "width": 960,
+    "height": 458,
+    "alt": { "pt": "Coliseu", "en": "Colosseum" },
+    "author": "AlexanderVanLoon",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Colosseum_exterior,_inner_and_outer_wall_AvL.jpg",
+    "fileTitle": "File:Colosseum exterior, inner and outer wall AvL.jpg",
+    "flagsChecked": true
+  },
+  {
+    "id": "historic-machu-picchu",
+    "src": "/art/landmarks-v1/machu-picchu.jpg",
+    "width": 960,
+    "height": 640,
+    "alt": { "pt": "Machu Picchu", "en": "Machu Picchu" },
+    "author": "Pedro Szekely",
+    "license": "CC BY-SA 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.0/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Machu_Picchu,_Peru.jpg",
+    "fileTitle": "File:Machu Picchu, Peru.jpg",
+    "flagsChecked": true
+  },
+  {
+    "id": "historic-great-pyramid",
+    "src": "/art/landmarks-v1/great-pyramid.jpg",
+    "width": 960,
+    "height": 540,
+    "alt": { "pt": "Grande Pirâmide", "en": "Great Pyramid" },
+    "author": "Douwe C. van der Zee",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Great_Pyramid_of_Giza_-_Pyramid_of_Khufu.jpg",
+    "fileTitle": "File:Great Pyramid of Giza - Pyramid of Khufu.jpg",
+    "flagsChecked": true
+  },
+  {
+    "id": "historic-stonehenge",
+    "src": "/art/landmarks-v1/stonehenge.jpg",
+    "width": 960,
+    "height": 720,
+    "alt": { "pt": "Stonehenge", "en": "Stonehenge" },
+    "author": "garethwiscombe",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Stonehenge2007_07_30.jpg",
+    "fileTitle": "File:Stonehenge2007 07 30.jpg",
+    "flagsChecked": true
+  }
+]

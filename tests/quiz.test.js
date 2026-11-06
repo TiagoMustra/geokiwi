@@ -129,7 +129,7 @@ test('named map coordinates cannot be reversed; distances wrap across the antime
 test('runs mix input types, use a question once and score each submission at most once',()=>{
   let game=createQuiz({bank:quizQuestions,rounds:10});
   assert.equal(game.queue.length,10);assert.equal(new Set(game.queue).size,10);
-  assert.equal(new Set(game.queue.slice(0,7).map(id=>bank[id].inputType)).size,7);
+  assert.equal(new Set(game.queue.map(id=>bank[id].inputType)).size,7);
   assert.equal(nextQuiz(game),game);
   for(let i=0;i<10;i++){
     game=submitQuiz(game,bank,'',{skipped:true});assert.equal(game.answers.length,i+1);

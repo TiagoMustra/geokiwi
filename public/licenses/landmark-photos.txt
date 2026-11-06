@@ -1,0 +1,63 @@
+GeoKiwi — monument photography / fotografias de monumentos
+Credits and license links also appear beside each image in the game.
+Images displayed in full, no crop or recolouring; provider-generated resized JPEGs.
+
+Taj Mahal
+Local file: /art/landmarks-v1/taj-mahal.jpg
+Creator / required attribution: © Yann Forget / Wikimedia Commons; edits: King of Hearts, Jbarta
+License: CC BY-SA 3.0 — https://creativecommons.org/licenses/by-sa/3.0/
+Original source and file history: https://commons.wikimedia.org/wiki/File:Taj_Mahal,_Agra,_India_edit3.jpg
+
+Colosseum
+Local file: /art/landmarks-v1/colosseum.jpg
+Creator / required attribution: AlexanderVanLoon
+License: CC BY-SA 3.0 — https://creativecommons.org/licenses/by-sa/3.0/
+Original source and file history: https://commons.wikimedia.org/wiki/File:Colosseum_exterior,_inner_and_outer_wall_AvL.jpg
+
+Machu Picchu
+Local file: /art/landmarks-v1/machu-picchu.jpg
+Creator / required attribution: Pedro Szekely
+License: CC BY-SA 2.0 — https://creativecommons.org/licenses/by-sa/2.0/
+Original source and file history: https://commons.wikimedia.org/wiki/File:Machu_Picchu,_Peru.jpg
+
+Great Pyramid
+Local file: /art/landmarks-v1/great-pyramid.jpg
+Creator / required attribution: Douwe C. van der Zee
+License: CC BY-SA 4.0 — https://creativecommons.org/licenses/by-sa/4.0/
+Original source and file history: https://commons.wikimedia.org/wiki/File:Great_Pyramid_of_Giza_-_Pyramid_of_Khufu.jpg
+
+Stonehenge
+Local file: /art/landmarks-v1/stonehenge.jpg
+Creator / required attribution: garethwiscombe
+License: CC BY 2.0 — https://creativecommons.org/licenses/by/2.0/
+Original source and file history: https://commons.wikimedia.org/wiki/File:Stonehenge2007_07_30.jpg
+
+Eiffel Tower
+Local file: /art/landmarks-v1/eiffel-tower.jpg
+Creator / required attribution: Joe deSousa
+License: CC0 1.0 — https://creativecommons.org/publicdomain/zero/1.0/
+Original source and file history: https://commons.wikimedia.org/wiki/File:The_Eiffel_Tower,_Paris_29_June_2015.jpg
+
+Statue of Liberty
+Local file: /art/landmarks-v1/statue-of-liberty.jpg
+Creator / required attribution: Elcobbola
+License: CC BY-SA 3.0 — https://creativecommons.org/licenses/by-sa/3.0/
+Original source and file history: https://commons.wikimedia.org/wiki/File:Statue_of_Liberty_7.jpg
+
+Opera House
+Local file: /art/landmarks-v1/opera-house.jpg
+Creator / required attribution: Thomas Schoch
+License: CC BY-SA 2.5 — https://creativecommons.org/licenses/by-sa/2.5/
+Original source and file history: https://commons.wikimedia.org/wiki/File:Sydney_Opera_House_Australia.jpg
+
+Christ the Redeemer
+Local file: /art/landmarks-v1/christ-redeemer.jpg
+Creator / required attribution: Nico Kaiser
+License: CC BY 2.0 — https://creativecommons.org/licenses/by/2.0/
+Original source and file history: https://commons.wikimedia.org/wiki/File:Cristo_Redentor_-_Rio_de_Janeiro,_Brasil.jpg
+
+Angkor Wat
+Local file: /art/landmarks-v1/angkor-wat.jpg
+Creator / required attribution: Radek Kucharski
+License: CC BY 2.0 — https://creativecommons.org/licenses/by/2.0/
+Original source and file history: https://commons.wikimedia.org/wiki/File:Angkor_Wat_Reflection_(46810498612).jpg

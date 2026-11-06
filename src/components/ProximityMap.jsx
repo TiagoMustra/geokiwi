@@ -92,7 +92,6 @@ export default function ProximityMap({region='mundo',disabled=false,onPointClick
 
   return <div className="proximity-map" data-map-view="physical">
     <div className="proximity-map-host" ref={host}/>
-    <div className="proximity-reticle" aria-hidden="true">+</div>
     {!ready&&!failed&&<div className="proximity-loading" role="status">{en?'Loading the physical map…':'A carregar o mapa físico…'}</div>}
     {failed&&<div className="proximity-map-error" role="status"><span>{en?'The map could not load.':'Não foi possível carregar o mapa.'}</span><button type="button" onClick={()=>setAttempt(value=>value+1)}>{en?'Try again':'Tentar novamente'}</button></div>}
     <div className="map-controls proximity-map-controls"><button type="button" aria-label={en?'Zoom in':'Aumentar zoom'} onClick={()=>mapRef.current?.zoomIn({duration:200})}><Icon name="plus"/></button><button type="button" aria-label={en?'Zoom out':'Diminuir zoom'} onClick={()=>mapRef.current?.zoomOut({duration:200})}><Icon name="minus"/></button><button type="button" aria-label={en?'Recenter map':'Recentrar mapa'} onClick={reset}><Icon name="crosshair"/></button></div>

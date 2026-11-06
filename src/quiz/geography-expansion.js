@@ -2,6 +2,7 @@ import countries from '../data/countries.json' with {type:'json'};
 import { explorationPlaces } from '../data/exploration-places.js';
 import borders from './borders-snapshot.json' with {type:'json'};
 import { distanceKm } from './engine.js';
+import { landmarkPhotoById } from './landmark-photos.js';
 
 const byIso=Object.fromEntries(countries.map(c=>[c.iso3,c]));
 const byId=Object.fromEntries(countries.map(c=>[c.id,c]));
@@ -59,10 +60,12 @@ export const pinpointQuestions=explorationPlaces.filter(p=>['city','peak','histo
   const countriesEn=place.countryIds.map(id=>byId[id].nome_en).join(' / ');
   return {
     ...base(`pin-${place.id}`,'MAP_PINPOINT',place.type,
-      text(`Coloca o pin: ${place.name_pt} (${countriesPt}).`,`Place the pin: ${place.name_en} (${countriesEn}).`),
+      text(`Coloca o pin: ${place.name_pt}${place.type==='historic'?'':` (${countriesPt})`}.`,`Place the pin: ${place.name_en}${place.type==='historic'?'':` (${countriesEn})`}.`),
       text(`Localização: ${place.name_pt} · ${countriesPt}. O alvo é ${place.type==='city'?'o centro da cidade':place.type==='peak'?'o cume':'o monumento'}.`,
         `Location: ${place.name_en} · ${countriesEn}. The target is ${place.type==='city'?'the city centre':place.type==='peak'?'the summit':'the monument'}.`),
       place.source,place.countryIds,`geo:${place.id}`),
+    placeType:place.type==='historic'?'monument':place.type,
+    ...(place.type==='historic'?{image:landmarkPhotoById[place.id]}:{}),
     answer:{point:{lat:place.coordinates[1],lng:place.coordinates[0]},toleranceKm:place.type==='city'?15:place.type==='peak'?10:5,decayKm:500},
   };
 });

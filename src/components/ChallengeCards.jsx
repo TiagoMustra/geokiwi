@@ -4,7 +4,7 @@ import { readExplorerSave, readExplorerRecord } from '../lib/explorer-game.js';
 import { readQuizSave, readQuizRecord } from '../quiz/storage.js';
 import { DIFFICULTIES } from '../quiz/engine.js';
 import { difficultyLabel } from '../quiz/presentation.js';
-import { quizQuestions } from '../quiz/questions.js';
+import { getQuizPool } from '../quiz/questions.js';
 import { Icon } from './Icon.jsx';
 import '../challenges.css';
 
@@ -39,7 +39,7 @@ export default function ChallengeCards({ onStart }) {
         <span className="card-number">0{game.id}</span>
       </div>
       {explorer && <p className="challenge-description">{en?'Cities, landscapes and places around the world.':'Cidades, paisagens e lugares pelo mundo.'}</p>}
-      {!explorer&&<p className="challenge-description quiz-bank-count">{quizQuestions.length} {en?'questions':'perguntas'}</p>}
+      {!explorer&&<p className="challenge-description quiz-bank-count">{getQuizPool(locale).length} {en?'questions':'perguntas'}</p>}
       <div className="region-heading">{en?'ROUNDS':'RONDAS'}</div>
       <div className="challenge-rounds" role="group" aria-label={en?`Rounds for ${title}`:`Rondas de ${title}`}>{options.map(value=><button type="button" key={value} aria-pressed={value===count} className={value===count?'selected':''} onClick={()=>setRounds(previous=>({...previous,[game.kind]:value}))}>{value}</button>)}</div>
       {!explorer&&<div className="challenge-difficulty"><div className="region-heading">{en?'DIFFICULTY':'DIFICULDADE'}</div><div className="challenge-rounds" role="group" aria-label={en?'Quiz difficulty':'Dificuldade do quiz'}>{DIFFICULTIES.map(level=><button type="button" key={level} className={difficulty===level?'selected':''} aria-pressed={difficulty===level} onClick={()=>setDifficulty(level)}>{difficultyLabel(level,locale)}</button>)}</div><p>{en?'Lists: 1 answer · half · all':'Listas: 1 resposta · metade · todas'}</p></div>}

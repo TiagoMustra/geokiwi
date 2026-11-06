@@ -6,6 +6,8 @@ import { geographyExpansion } from './geography-expansion.js';
 import { historyExpansion } from './history-expansion.js';
 import { numberExpansion } from './number-expansion.js';
 import { booleanExpansion } from './boolean-expansion.js';
+import { flagExpansion } from './flag-expansion.js';
+import { nameExpansion } from './name-expansion.js';
 
 const countryById=Object.fromEntries(countries.map(c=>[c.id,c]));
 export const countryEntity=id=>{
@@ -44,13 +46,14 @@ export const starterQuestions=[
   {...common('timeline-berlin','history',text('Em que ano caiu o Muro de Berlim?','In which year did the Berlin Wall fall?'),text('A queda do Muro de Berlim é assinalada a 9 de novembro de 1989; a reunificação alemã aconteceu em 1990.','The fall of the Berlin Wall is marked on 9 November 1989; German reunification followed in 1990.'),berlin,['276']),inputType:'SLIDER_TIMELINE',topicId:'berlin-wall:fall',range:{min:1900,max:'CURRENT_YEAR',step:1},answer:{year:1989,toleranceYears:0}},
   {...common('timeline-eiffel','history',text('Em que ano foi inaugurada a Torre Eiffel?','In which year was the Eiffel Tower inaugurated?'),text('Foi inaugurada em 1889, após uma construção iniciada em 1887.' ,'It was inaugurated in 1889, following construction that began in 1887.'),eiffel,['250']),inputType:'SLIDER_TIMELINE',topicId:'eiffel:inauguration',range:{min:1700,max:'CURRENT_YEAR',step:1},answer:{year:1889,toleranceYears:0}},
   {...common('distance-lisbon-paris','distance',text('Quantos quilómetros separam Lisboa de Paris, em linha reta?','How many kilometres separate Lisbon and Paris, as the crow flies?'),text(`A distância de grande círculo entre os centros é de cerca de ${cityDistance} km; não é a distância por estrada.`,`The great-circle distance between the city centres is about ${cityDistance} km; this is not the road distance.`),{title:'Natural Earth · Populated places (coordinates; great-circle calculation)',url:lisbon.source.url},['620','250']),inputType:'SLIDER_DISTANCE',answer:{km:cityDistance,toleranceKm:25}},
-  {...common('pinpoint-everest','geography',text('Coloca o pin no cume do Evereste.','Place the pin on the summit of Everest.'),text('O cume situa-se na fronteira entre o Nepal e a China, na cordilheira dos Himalaias.','The summit lies on the Nepal–China border in the Himalayas.'),everest.source,['524','156']),inputType:'MAP_PINPOINT',answer:{point:{lat:everest.coordinates[1],lng:everest.coordinates[0]},toleranceKm:25,decayKm:500}},
+  {...common('pinpoint-everest','geography',text('Coloca o pin no cume do Evereste.','Place the pin on the summit of Everest.'),text('O cume situa-se na fronteira entre o Nepal e a China, na cordilheira dos Himalaias.','The summit lies on the Nepal–China border in the Himalayas.'),everest.source,['524','156']),inputType:'MAP_PINPOINT',placeType:'peak',answer:{point:{lat:everest.coordinates[1],lng:everest.coordinates[0]},toleranceKm:25,decayKm:500}},
   {...common('text-city-eiffel','cities',text('Em que cidade fica a Torre Eiffel?','Which city is home to the Eiffel Tower?'),text('A Torre Eiffel fica em Paris, junto ao Sena.','The Eiffel Tower stands in Paris, beside the Seine.'),eiffel,['250']),inputType:'TEXT_SINGLE',suggestionDomain:'cities',answer:{accepted:[{id:'city-paris',label:text('Paris','Paris'),aliases:[]}]}},
 ];
-export const dynamicQuestions=[...starterQuestions,...geographyExpansion,...historyExpansion,...numberExpansion,...booleanExpansion];
+export const dynamicQuestions=[...starterQuestions,...geographyExpansion,...historyExpansion,...numberExpansion,...booleanExpansion,...flagExpansion,...nameExpansion];
 /** @type {import('./types').QuizQuestion[]} */
 export const quizQuestions=[...legacyQuestions,...dynamicQuestions];
 export const quizQuestionById=Object.fromEntries(quizQuestions.map(q=>[q.id,q]));
+export const getQuizPool=(locale='pt')=>quizQuestions.filter(q=>!q.nameLanguage||q.nameLanguage===(locale==='en'?'en':'pt'));
 
 // Suggestions use the complete entity domain, never the hidden answer list.
 export const suggestionEntities={

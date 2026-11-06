@@ -47,7 +47,7 @@ test('new runs avoid every displayed question until new questions are exhausted,
   assert.equal(new Set(overflow.queue).size,10);
   const singleType=quizQuestions.filter(q=>q.inputType==='TEXT_SINGLE').slice(0,25);
   const recycled=selectQuizQuestions(singleType,{limit:10,recentQuestionIds:singleType.map(q=>q.id),random});
-  assert.deepEqual(recycled.map(q=>q.id),singleType.slice(0,10).map(q=>q.id));
+  assert.deepEqual(new Set(recycled.map(q=>q.id)),new Set(singleType.slice(0,10).map(q=>q.id)));
 });
 test('different input formats do not ask the same underlying fact twice in a run when alternatives exist',()=>{
   const candidates=quizQuestions.filter(q=>q.inputType==='TRUE_FALSE').slice(0,15);

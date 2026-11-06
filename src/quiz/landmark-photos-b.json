@@ -1,0 +1,82 @@
+[
+  {
+    "id": "historic-eiffel",
+    "src": "/art/landmarks-v1/eiffel-tower.jpg",
+    "width": 960,
+    "height": 1438,
+    "alt": {
+      "pt": "Torre Eiffel",
+      "en": "Eiffel Tower"
+    },
+    "author": "Joe deSousa",
+    "license": "CC0 1.0",
+    "licenseUrl": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:The_Eiffel_Tower,_Paris_29_June_2015.jpg",
+    "fileTitle": "File:The Eiffel Tower, Paris 29 June 2015.jpg",
+    "flagsChecked": true
+  },
+  {
+    "id": "historic-liberty",
+    "src": "/art/landmarks-v1/statue-of-liberty.jpg",
+    "width": 960,
+    "height": 1326,
+    "alt": {
+      "pt": "Estátua da Liberdade",
+      "en": "Statue of Liberty"
+    },
+    "author": "Elcobbola",
+    "license": "CC BY-SA 3.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Statue_of_Liberty_7.jpg",
+    "fileTitle": "File:Statue of Liberty 7.jpg",
+    "flagsChecked": true
+  },
+  {
+    "id": "historic-sydney-opera",
+    "src": "/art/landmarks-v1/opera-house.jpg",
+    "width": 960,
+    "height": 680,
+    "alt": {
+      "pt": "Casa da Ópera",
+      "en": "Opera House"
+    },
+    "author": "Thomas Schoch",
+    "license": "CC BY-SA 2.5",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/2.5/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Sydney_Opera_House_Australia.jpg",
+    "fileTitle": "File:Sydney Opera House Australia.jpg",
+    "flagsChecked": true
+  },
+  {
+    "id": "historic-christ-redeemer",
+    "src": "/art/landmarks-v1/christ-redeemer.jpg",
+    "width": 960,
+    "height": 1440,
+    "alt": {
+      "pt": "Cristo Redentor",
+      "en": "Christ the Redeemer"
+    },
+    "author": "Nico Kaiser",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Cristo_Redentor_-_Rio_de_Janeiro,_Brasil.jpg",
+    "fileTitle": "File:Cristo Redentor - Rio de Janeiro, Brasil.jpg",
+    "flagsChecked": true
+  },
+  {
+    "id": "historic-angkor-wat",
+    "src": "/art/landmarks-v1/angkor-wat.jpg",
+    "width": 960,
+    "height": 540,
+    "alt": {
+      "pt": "Angkor Wat",
+      "en": "Angkor Wat"
+    },
+    "author": "Radek Kucharski",
+    "license": "CC BY 2.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0/",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Angkor_Wat_Reflection_(46810498612).jpg",
+    "fileTitle": "File:Angkor Wat Reflection (46810498612).jpg",
+    "flagsChecked": true
+  }
+]

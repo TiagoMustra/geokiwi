@@ -1,4 +1,5 @@
 import { inputBounds } from './engine.js';
+export const placeTypeLabel=(type,locale)=>({city:{pt:'Cidade',en:'City'},peak:{pt:'Cume',en:'Summit'},monument:{pt:'Monumento',en:'Monument'}}[type]?.[locale]||'');
 export const difficultyLabel=(difficulty,locale)=>({EASY:{pt:'Fácil',en:'Easy'},MEDIUM:{pt:'Médio',en:'Medium'},HARD:{pt:'Difícil',en:'Hard'}}[difficulty]?.[locale]||difficulty);
 export const inputLabel=(type,locale)=>({TRUE_FALSE:{pt:'Verdadeiro ou falso',en:'True or false'},TEXT_SINGLE:{pt:'Escreve a resposta',en:'Type the answer'},TEXT_MULTIPLE:{pt:'Várias respostas',en:'Multiple answers'},NUMBER_EXACT:{pt:'Quantos?',en:'How many?'},MAP_PINPOINT:{pt:'Coloca o pin',en:'Place the pin'},SLIDER_TIMELINE:{pt:'Em que ano?',en:'Which year?'},SLIDER_DISTANCE:{pt:'Qual é a distância?',en:'How far?'}}[type]?.[locale]||'');
 export function solutionLabel(question,locale){

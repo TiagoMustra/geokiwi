@@ -156,6 +156,7 @@ export function validateQuestion(q,year=currentYear()) {
   if(!q||typeof q!=='object'||Array.isArray(q))return ['question'];
   if(q.schemaVersion!==1||!q.id||!Number.isInteger(q.revision)||q.revision<1)errors.push('identity');
   if(q.topicId!==undefined&&(typeof q.topicId!=='string'||!q.topicId.trim()||q.topicId.length>150))errors.push('topicId');
+  if(q.nameLanguage!==undefined&&(!['pt','en'].includes(q.nameLanguage)||q.inputType!=='TEXT_MULTIPLE'||q.category!=='names'))errors.push('nameLanguage');
   if(!INPUT_TYPES.includes(q.inputType))errors.push('inputType');
   if(!['prompt','explanation'].every(field=>['pt','en'].every(l=>typeof q[field]?.[l]==='string'&&q[field][l].trim())))errors.push('translations');
   if(!q.sources?.length||!q.sources.every(s=>s.title&&/^https:\/\//.test(s.url))||!/^\d{4}-\d{2}-\d{2}$/.test(q.checkedAt))errors.push('provenance');
@@ -174,7 +175,12 @@ export function validateQuestion(q,year=currentYear()) {
     if(!['countries','cities','none'].includes(q.suggestionDomain))errors.push('suggestionDomain');
   } else if(q.inputType==='TRUE_FALSE') {if(typeof q.answer?.value!=='boolean')errors.push('boolean');}
   else if(q.inputType==='MAP_PINPOINT') {
+    if(!['city','peak','monument'].includes(q.placeType))errors.push('placeType');
     if(!validPoint(q.answer?.point)||!(q.answer?.decayKm>0)||!Number.isFinite(q.answer?.decayKm)||!(q.answer?.toleranceKm>=0)||!Number.isFinite(q.answer?.toleranceKm))errors.push('point');
+    if(q.image){
+      const photo=q.image;
+      if(!photo.src?.startsWith('/art/landmarks-v1/')||!Number.isInteger(photo.width)||!Number.isInteger(photo.height)||photo.width<1||photo.height<1||!photo.alt?.pt||!photo.alt?.en||!photo.author||!photo.license||![photo.sourceUrl,photo.licenseUrl].every(url=>typeof url==='string'&&url.startsWith('https://'))||photo.flagsChecked!==true)errors.push('image');
+    }
   } else if(INPUT_TYPES.includes(q.inputType)) {
     const target=q.answer?.value??q.answer?.year??q.answer?.km;
     const tolerance=q.answer?.absoluteTolerance??q.answer?.toleranceYears??q.answer?.toleranceKm;

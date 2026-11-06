@@ -1,6 +1,22 @@
 .geoguru-game .quiz-question{width:min(590px,calc(100% - 570px));min-width:300px;padding:15px 18px}
 .quiz-question-meta{display:flex;align-items:center;justify-content:space-between;gap:12px;color:var(--progress-soft);font:9px var(--mono)}
 .quiz-question-meta .play-instruction{text-transform:uppercase}
+.quiz-instruction-group{display:flex;align-items:center;flex-wrap:wrap;gap:8px}
+.quiz-place-type{font:9px Space,sans-serif;padding:3px 6px;border:1px solid var(--line);color:var(--progress-ink)}
+.quiz-name-rule{font:11px/1.4 Space,sans-serif;color:var(--progress-soft);margin:6px 0 12px}
+.quiz-photo-prompt{display:flex;align-items:flex-start;justify-content:space-between;gap:14px;margin:10px 0 12px}
+.clue-game .quiz-photo-prompt h1{flex:1;min-width:0;margin:2px 0 0}
+.quiz-photo-clue{width:140px;flex:none;margin:0}
+.quiz-photo-trigger{position:relative;display:block;width:100%;height:96px;background:color-mix(in srgb,var(--progress-ink) 5%,var(--progress-panel));border:1px solid var(--line);padding:0;cursor:zoom-in}
+.quiz-photo-trigger>img{display:block;width:100%;height:100%;object-fit:contain}
+.quiz-photo-trigger:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
+.quiz-photo-expand{position:absolute;right:3px;bottom:3px;background:var(--progress-panel);border:1px solid var(--line);padding:2px;color:var(--progress-ink)}
+.quiz-photo-clue figcaption{padding-top:4px;font:7px/1.35 Space,sans-serif;color:var(--progress-soft);overflow-wrap:anywhere}
+.quiz-photo-credit a{text-decoration:underline;text-underline-offset:2px}
+.quiz-photo-dialog{width:min(820px,calc(100vw - 24px));max-width:calc(100vw - 24px)}
+.quiz-photo-dialog h2{font-size:24px;margin-bottom:14px}
+.quiz-photo-large{display:block;max-width:100%;max-height:65svh;width:auto;height:auto;object-fit:contain;margin:auto}
+.quiz-photo-dialog-credit{margin:12px 0 0;font:11px/1.5 Space,sans-serif;color:var(--progress-soft)}
 .quiz-question>h1{margin-bottom:15px!important}
 .quiz-entry-row{display:flex;align-items:stretch;gap:0;min-width:0;margin-top:12px}
 .quiz-entry-row .answer-combobox{flex:1;min-width:0}
@@ -40,6 +56,7 @@
 @media(max-width:1050px){.geoguru-game .quiz-question{top:120px;width:min(590px,calc(100% - 36px));min-width:0}}
 @media(max-width:680px){.geoguru-game .quiz-question{top:142px;width:calc(100% - 24px);max-width:none;padding:12px 14px}.quiz-question>h1{margin-bottom:12px!important}.quiz-question-meta{font-size:8px}.quiz-question .quiz-submit{padding:8px 11px}.quiz-question-footer{margin-top:8px}.quiz-pin-input{flex-wrap:wrap}.quiz-input-hint{font-size:9px}.geoguru-game .clue-controls{width:145px}.geoguru-game .clue-feedback{bottom:12px}.quiz-unit-field>span{padding:0 7px;font-size:11px}}
 @media(max-width:680px){.geoguru-game .clue-save-status{display:none}}
+@media(max-width:680px){.quiz-photo-prompt{gap:10px}.quiz-photo-clue{width:105px}.quiz-photo-trigger{height:80px}.quiz-photo-dialog h2{font-size:21px}.quiz-photo-dialog{padding:16px}.quiz-photo-large{max-height:60svh}}
 @media(max-height:600px) and (orientation:landscape){.geoguru-game .quiz-question{top:12px;width:calc(100% - 430px);min-width:240px;max-height:calc(100svh - 120px);overflow:auto}.geoguru-game .quiz-question h1{font-size:14px}.quiz-input-hint,.quiz-question-footer{margin-top:5px}.geoguru-game .clue-feedback{bottom:8px}}
 .quiz-round-content{display:contents}
 .play-screen.geoguru-game.quiz-no-map{background:var(--bg);background-image:radial-gradient(var(--line) .6px,transparent .6px);background-size:24px 24px}

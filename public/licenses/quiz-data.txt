@@ -2,7 +2,7 @@ GeoKiwi Fun facts / GeoGuru — data attribution (2026-11-06)
 
 Original Portuguese/English question text accompanies individually linked sources.
 
-Land-border snapshot and inland/coastal status:
+Common country names, land-border snapshot and inland/coastal status:
 Mledoze / Countries, ODbL 1.0
 https://github.com/mledoze/countries
 https://github.com/mledoze/countries/blob/master/LICENSE
@@ -25,3 +25,11 @@ sources individually. Full verification notes are in docs/quiz-history-provenanc
 docs/quiz-numbers-provenance.md and docs/quiz-boolean-provenance.md.
 
 All answers are bundled snapshots. No statistics are fetched at game time.
+
+Flag-pattern questions: official national symbol descriptions linked in each question,
+with bounded sets checked against the bundled flag-icons collection (MIT).
+https://github.com/lipis/flag-icons
+Verification: docs/quiz-flags-provenance.md.
+
+Monument photography: individual creators and Creative Commons licenses.
+Full photo credits: /licenses/landmark-photos.txt
