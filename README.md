@@ -13,7 +13,7 @@ A ideia é juntar, num único sítio, vários minijogos de geografia inspirados 
 - **Conhecimento geral:** perguntas sobre bandeiras, lugares e curiosidades do mundo.
 - **Outros modos:** concelhos de Portugal, estados dos EUA e exploração de lugares pelo mundo.
 
-Podes escolher as regiões que queres treinar, ajustar a dificuldade e retomar uma partida mais tarde. Há mapas planos e um globo para explorar, temas claro e escuro e opção de jogar em português ou inglês — tudo com um toque de pixel art e kiwi.
+Podes escolher as regiões que queres treinar, ajustar a dificuldade e retomar uma partida mais tarde. Há mapas planos e um globo para explorar, temas claro e escuro e opção de jogar em português ou inglês — tudo com um toque a kiwi.
 
 ---
 
