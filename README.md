@@ -1,6 +1,10 @@
 # GeoKiwi
 
-Site de jogos de geografia em português, construído com **React + Vite + D3.js + TopoJSON**. Marca GeoKiwi com rodela de kiwi pixelada, verde kiwi, creme e castanho nos temas claro/escuro, fontes pixeladas locais, sete modos, seleção de vários continentes, partidas retomáveis e estatísticas no navegador.
+Site de jogos de geografia em português, construído com **React + Vite + D3.js + TopoJSON**. Marca GeoKiwi com rodela de kiwi pixelada, verde kiwi, creme e castanho nos temas claro/escuro, fontes pixeladas locais, nove modos, seleção de vários continentes, partidas retomáveis e estatísticas no navegador.
+
+## Histórico e atualizações
+
+O repositório GitHub preserva o histórico do projeto. Vê [docs/GITHUB.md](docs/GITHUB.md) para guardar alterações, comparar versões e publicar no Cloudflare.
 
 ## Executar
 
