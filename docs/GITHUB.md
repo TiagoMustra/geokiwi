@@ -12,7 +12,7 @@ pnpm install
 pnpm dev
 ```
 
-Requisitos de execução e comandos alternativos estão no README.
+Os requisitos de execução estão em [DESENVOLVIMENTO.md](DESENVOLVIMENTO.md).
 
 ## Guardar uma atualização
 
