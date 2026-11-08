@@ -5,11 +5,11 @@
     "en": "General knowledge"
   },
   "eligibleCounts": {
-    "pt": 436,
-    "en": 436
+    "pt": 462,
+    "en": 462
   },
-  "storedQuestionCount": 468,
-  "checkedThrough": "2026-11-06",
+  "storedQuestionCount": 494,
+  "checkedThrough": "2026-11-09",
   "notes": {
     "pt": "Inclui perguntas, soluções e fontes. Variantes de nomes PT/EN são registos separados; a partida seleciona a língua escolhida. A dificuldade só altera a quota de respostas das listas. Números, datas, distâncias e pins dão pontos por proximidade.",
     "en": "Includes questions, answers and sources. Portuguese/English name variants are separate records; a run selects its chosen language. Difficulty only changes multiple-answer quotas. Numbers, dates, distances and pins score by proximity."
@@ -33166,6 +33166,4123 @@
       "answer": {
         "value": 5,
         "absoluteTolerance": 0
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "flag-colors-europa-red-white-blue-contains",
+      "revision": 1,
+      "inputType": "TEXT_MULTIPLE",
+      "category": "flags",
+      "topicId": "flag-colors:europa:blue-red-white:contains",
+      "prompt": {
+        "pt": "Nomeia países da Europa cuja bandeira tem vermelho, branco e azul. Pode ter outras cores. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.",
+        "en": "Name countries in Europe whose flag has red, white and blue. Other colours are allowed. Ignore coats of arms, seals and fine outlines; include shades of the named colours."
+      },
+      "explanation": {
+        "pt": "Contam Chéquia, França, Reino Unido, Croácia, Islândia, Luxemburgo, Países Baixos, Noruega, Rússia, Sérvia, Eslováquia e Eslovénia. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.",
+        "en": "Accepted: Czechia, France, United Kingdom, Croatia, Iceland, Luxembourg, Netherlands, Norway, Russia, Serbia, Slovakia and Slovenia. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct."
+      },
+      "sources": [
+        {
+          "title": "UN Vienna Protocol · National flags supplied by Permanent Missions",
+          "url": "https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf"
+        },
+        {
+          "title": "flag-icons · National flag SVG collection",
+          "url": "https://github.com/lipis/flag-icons/tree/main/flags/4x3"
+        }
+      ],
+      "checkedAt": "2026-11-09",
+      "countryIds": [
+        "203",
+        "250",
+        "826",
+        "191",
+        "352",
+        "442",
+        "528",
+        "578",
+        "643",
+        "688",
+        "703",
+        "705"
+      ],
+      "suggestionDomain": "countries",
+      "answer": {
+        "accepted": [
+          {
+            "id": "203",
+            "label": {
+              "pt": "Chéquia",
+              "en": "Czechia"
+            },
+            "aliases": [
+              "Chéquia",
+              "Czechia",
+              "Czech Republic",
+              "CZ",
+              "Česká republika",
+              "Česko",
+              "Tchéquia",
+              "Chequia",
+              "República Tcheca"
+            ]
+          },
+          {
+            "id": "250",
+            "label": {
+              "pt": "França",
+              "en": "France"
+            },
+            "aliases": [
+              "França",
+              "France",
+              "French Republic",
+              "FR",
+              "République française"
+            ]
+          },
+          {
+            "id": "826",
+            "label": {
+              "pt": "Reino Unido",
+              "en": "United Kingdom"
+            },
+            "aliases": [
+              "Reino Unido",
+              "United Kingdom",
+              "United Kingdom of Great Britain and Northern Ireland",
+              "GB",
+              "UK",
+              "Great Britain",
+              "Grã-Bretanha"
+            ]
+          },
+          {
+            "id": "191",
+            "label": {
+              "pt": "Croácia",
+              "en": "Croatia"
+            },
+            "aliases": [
+              "Croácia",
+              "Croatia",
+              "Republic of Croatia",
+              "HR",
+              "Hrvatska",
+              "Republika Hrvatska"
+            ]
+          },
+          {
+            "id": "352",
+            "label": {
+              "pt": "Islândia",
+              "en": "Iceland"
+            },
+            "aliases": [
+              "Islândia",
+              "Iceland",
+              "IS",
+              "Island",
+              "Republic of Iceland",
+              "Lýðveldið Ísland"
+            ]
+          },
+          {
+            "id": "442",
+            "label": {
+              "pt": "Luxemburgo",
+              "en": "Luxembourg"
+            },
+            "aliases": [
+              "Luxemburgo",
+              "Luxembourg",
+              "Grand Duchy of Luxembourg",
+              "LU",
+              "Grand-Duché de Luxembourg",
+              "Großherzogtum Luxemburg",
+              "Groussherzogtum Lëtzebuerg"
+            ]
+          },
+          {
+            "id": "528",
+            "label": {
+              "pt": "Países Baixos",
+              "en": "Netherlands"
+            },
+            "aliases": [
+              "Holanda",
+              "Netherlands",
+              "Kingdom of the Netherlands",
+              "NL",
+              "Holland",
+              "Nederland",
+              "The Netherlands",
+              "Países Baixos"
+            ]
+          },
+          {
+            "id": "578",
+            "label": {
+              "pt": "Noruega",
+              "en": "Norway"
+            },
+            "aliases": [
+              "Noruega",
+              "Norway",
+              "Kingdom of Norway",
+              "NO",
+              "Norge",
+              "Noreg",
+              "Kongeriket Norge",
+              "Kongeriket Noreg"
+            ]
+          },
+          {
+            "id": "643",
+            "label": {
+              "pt": "Rússia",
+              "en": "Russia"
+            },
+            "aliases": [
+              "Rússia",
+              "Russia",
+              "Russian Federation",
+              "RU"
+            ]
+          },
+          {
+            "id": "688",
+            "label": {
+              "pt": "Sérvia",
+              "en": "Serbia"
+            },
+            "aliases": [
+              "Sérvia",
+              "Serbia",
+              "Republic of Serbia",
+              "RS",
+              "Srbija",
+              "Republika Srbija"
+            ]
+          },
+          {
+            "id": "703",
+            "label": {
+              "pt": "Eslováquia",
+              "en": "Slovakia"
+            },
+            "aliases": [
+              "Eslováquia",
+              "Slovakia",
+              "Slovak Republic",
+              "SK",
+              "Slovenská republika"
+            ]
+          },
+          {
+            "id": "705",
+            "label": {
+              "pt": "Eslovénia",
+              "en": "Slovenia"
+            },
+            "aliases": [
+              "Eslovénia",
+              "Slovenia",
+              "Republic of Slovenia",
+              "SI",
+              "Republika Slovenija"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "flag-colors-africa-green-yellow-red-contains",
+      "revision": 1,
+      "inputType": "TEXT_MULTIPLE",
+      "category": "flags",
+      "topicId": "flag-colors:africa:green-red-yellow:contains",
+      "prompt": {
+        "pt": "Nomeia países de África cuja bandeira tem verde, amarelo e vermelho. Pode ter outras cores. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.",
+        "en": "Name countries in Africa whose flag has green, yellow and red. Other colours are allowed. Ignore coats of arms, seals and fine outlines; include shades of the named colours."
+      },
+      "explanation": {
+        "pt": "Contam Benin, Burkina Faso, República Centro-Africana, Camarões, Congo, Comores, Eritreia, Etiópia, Gana, Guiné, Guiné-Bissau, Mali, Moçambique, Mauritânia, Maurício, Namíbia, Senegal, Sudão do Sul, São Tomé e Príncipe, Seicheles, Togo, África do Sul e Zimbabwe. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.",
+        "en": "Accepted: Benin, Burkina Faso, Central African Republic, Cameroon, Congo, Comoros, Eritrea, Ethiopia, Ghana, Guinea, Guinea-Bissau, Mali, Mozambique, Mauritania, Mauritius, Namibia, Senegal, South Sudan, São Tomé and Príncipe, Seychelles, Togo, South Africa and Zimbabwe. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct."
+      },
+      "sources": [
+        {
+          "title": "UN Vienna Protocol · National flags supplied by Permanent Missions",
+          "url": "https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf"
+        },
+        {
+          "title": "flag-icons · National flag SVG collection",
+          "url": "https://github.com/lipis/flag-icons/tree/main/flags/4x3"
+        }
+      ],
+      "checkedAt": "2026-11-09",
+      "countryIds": [
+        "204",
+        "854",
+        "140",
+        "120",
+        "178",
+        "174",
+        "232",
+        "231",
+        "288",
+        "324",
+        "624",
+        "466",
+        "508",
+        "478",
+        "480",
+        "516",
+        "686",
+        "728",
+        "678",
+        "690",
+        "768",
+        "710",
+        "716"
+      ],
+      "suggestionDomain": "countries",
+      "answer": {
+        "accepted": [
+          {
+            "id": "204",
+            "label": {
+              "pt": "Benin",
+              "en": "Benin"
+            },
+            "aliases": [
+              "Benin",
+              "Republic of Benin",
+              "BJ",
+              "République du Bénin"
+            ]
+          },
+          {
+            "id": "854",
+            "label": {
+              "pt": "Burkina Faso",
+              "en": "Burkina Faso"
+            },
+            "aliases": [
+              "Burkina Faso",
+              "BF"
+            ]
+          },
+          {
+            "id": "140",
+            "label": {
+              "pt": "República Centro-Africana",
+              "en": "Central African Republic"
+            },
+            "aliases": [
+              "República Centro-Africana",
+              "Central African Republic",
+              "CF",
+              "République centrafricaine"
+            ]
+          },
+          {
+            "id": "120",
+            "label": {
+              "pt": "Camarões",
+              "en": "Cameroon"
+            },
+            "aliases": [
+              "Camarões",
+              "Cameroon",
+              "Republic of Cameroon",
+              "CM",
+              "République du Cameroun"
+            ]
+          },
+          {
+            "id": "178",
+            "label": {
+              "pt": "Congo",
+              "en": "Congo"
+            },
+            "aliases": [
+              "Congo",
+              "Republic of the Congo",
+              "CG",
+              "Congo-Brazzaville",
+              "Congo Brazzaville"
+            ]
+          },
+          {
+            "id": "174",
+            "label": {
+              "pt": "Comores",
+              "en": "Comoros"
+            },
+            "aliases": [
+              "Comores",
+              "Comoros",
+              "Union of the Comoros",
+              "KM",
+              "Union des Comores",
+              "Udzima wa Komori",
+              "al-Ittiḥād al-Qumurī"
+            ]
+          },
+          {
+            "id": "232",
+            "label": {
+              "pt": "Eritreia",
+              "en": "Eritrea"
+            },
+            "aliases": [
+              "Eritreia",
+              "Eritrea",
+              "State of Eritrea",
+              "ER",
+              "Dawlat Iritriyá",
+              "ʾErtrā",
+              "Iritriyā"
+            ]
+          },
+          {
+            "id": "231",
+            "label": {
+              "pt": "Etiópia",
+              "en": "Ethiopia"
+            },
+            "aliases": [
+              "Etiópia",
+              "Ethiopia",
+              "Federal Democratic Republic of Ethiopia",
+              "ET",
+              "ʾĪtyōṗṗyā"
+            ]
+          },
+          {
+            "id": "288",
+            "label": {
+              "pt": "Gana",
+              "en": "Ghana"
+            },
+            "aliases": [
+              "Gana",
+              "Ghana",
+              "Republic of Ghana",
+              "GH"
+            ]
+          },
+          {
+            "id": "324",
+            "label": {
+              "pt": "Guiné",
+              "en": "Guinea"
+            },
+            "aliases": [
+              "Guiné",
+              "Guinea",
+              "Republic of Guinea",
+              "GN",
+              "République de Guinée"
+            ]
+          },
+          {
+            "id": "624",
+            "label": {
+              "pt": "Guiné-Bissau",
+              "en": "Guinea-Bissau"
+            },
+            "aliases": [
+              "Guiné-Bissau",
+              "Guinea-Bissau",
+              "Republic of Guinea-Bissau",
+              "GW",
+              "República da Guiné-Bissau"
+            ]
+          },
+          {
+            "id": "466",
+            "label": {
+              "pt": "Mali",
+              "en": "Mali"
+            },
+            "aliases": [
+              "Mali",
+              "Republic of Mali",
+              "ML",
+              "République du Mali"
+            ]
+          },
+          {
+            "id": "508",
+            "label": {
+              "pt": "Moçambique",
+              "en": "Mozambique"
+            },
+            "aliases": [
+              "Moçambique",
+              "Mozambique",
+              "Republic of Mozambique",
+              "MZ",
+              "República de Moçambique"
+            ]
+          },
+          {
+            "id": "478",
+            "label": {
+              "pt": "Mauritânia",
+              "en": "Mauritania"
+            },
+            "aliases": [
+              "Mauritânia",
+              "Mauritania",
+              "Islamic Republic of Mauritania",
+              "MR",
+              "al-Jumhūriyyah al-ʾIslāmiyyah al-Mūrītāniyyah"
+            ]
+          },
+          {
+            "id": "480",
+            "label": {
+              "pt": "Maurício",
+              "en": "Mauritius"
+            },
+            "aliases": [
+              "Maurício",
+              "Mauritius",
+              "Republic of Mauritius",
+              "MU",
+              "République de Maurice"
+            ]
+          },
+          {
+            "id": "516",
+            "label": {
+              "pt": "Namíbia",
+              "en": "Namibia"
+            },
+            "aliases": [
+              "Namíbia",
+              "Namibia",
+              "Republic of Namibia",
+              "NA",
+              "Namibië"
+            ]
+          },
+          {
+            "id": "686",
+            "label": {
+              "pt": "Senegal",
+              "en": "Senegal"
+            },
+            "aliases": [
+              "Senegal",
+              "Republic of Senegal",
+              "SN",
+              "République du Sénégal"
+            ]
+          },
+          {
+            "id": "728",
+            "label": {
+              "pt": "Sudão do Sul",
+              "en": "South Sudan"
+            },
+            "aliases": [
+              "Sudão do Sul",
+              "South Sudan",
+              "Republic of South Sudan",
+              "SS"
+            ]
+          },
+          {
+            "id": "678",
+            "label": {
+              "pt": "São Tomé e Príncipe",
+              "en": "São Tomé and Príncipe"
+            },
+            "aliases": [
+              "São Tomé e Príncipe",
+              "São Tomé and Príncipe",
+              "Democratic Republic of São Tomé and Príncipe",
+              "ST",
+              "Sao Tome and Principe",
+              "República Democrática de São Tomé e Príncipe"
+            ]
+          },
+          {
+            "id": "690",
+            "label": {
+              "pt": "Seicheles",
+              "en": "Seychelles"
+            },
+            "aliases": [
+              "Seicheles",
+              "Seychelles",
+              "Republic of Seychelles",
+              "SC",
+              "Repiblik Sesel",
+              "République des Seychelles"
+            ]
+          },
+          {
+            "id": "768",
+            "label": {
+              "pt": "Togo",
+              "en": "Togo"
+            },
+            "aliases": [
+              "Togo",
+              "Togolese Republic",
+              "TG",
+              "Togolese",
+              "République Togolaise"
+            ]
+          },
+          {
+            "id": "710",
+            "label": {
+              "pt": "África do Sul",
+              "en": "South Africa"
+            },
+            "aliases": [
+              "África do Sul",
+              "South Africa",
+              "Republic of South Africa",
+              "ZA",
+              "RSA",
+              "Suid-Afrika"
+            ]
+          },
+          {
+            "id": "716",
+            "label": {
+              "pt": "Zimbabwe",
+              "en": "Zimbabwe"
+            },
+            "aliases": [
+              "Zimbabwe",
+              "Republic of Zimbabwe",
+              "ZW"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "flag-colors-oceania-red-white-blue-contains",
+      "revision": 1,
+      "inputType": "TEXT_MULTIPLE",
+      "category": "flags",
+      "topicId": "flag-colors:oceania:blue-red-white:contains",
+      "prompt": {
+        "pt": "Nomeia países da Oceânia cuja bandeira tem vermelho, branco e azul. Pode ter outras cores. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.",
+        "en": "Name countries in Oceania whose flag has red, white and blue. Other colours are allowed. Ignore coats of arms, seals and fine outlines; include shades of the named colours."
+      },
+      "explanation": {
+        "pt": "Contam Austrália, Fiji, Kiribati, Nova Zelândia, Tuvalu e Samoa. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.",
+        "en": "Accepted: Australia, Fiji, Kiribati, New Zealand, Tuvalu and Samoa. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct."
+      },
+      "sources": [
+        {
+          "title": "UN Vienna Protocol · National flags supplied by Permanent Missions",
+          "url": "https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf"
+        },
+        {
+          "title": "flag-icons · National flag SVG collection",
+          "url": "https://github.com/lipis/flag-icons/tree/main/flags/4x3"
+        }
+      ],
+      "checkedAt": "2026-11-09",
+      "countryIds": [
+        "036",
+        "242",
+        "296",
+        "554",
+        "798",
+        "882"
+      ],
+      "suggestionDomain": "countries",
+      "answer": {
+        "accepted": [
+          {
+            "id": "036",
+            "label": {
+              "pt": "Austrália",
+              "en": "Australia"
+            },
+            "aliases": [
+              "Austrália",
+              "Australia",
+              "Commonwealth of Australia",
+              "AU"
+            ]
+          },
+          {
+            "id": "242",
+            "label": {
+              "pt": "Fiji",
+              "en": "Fiji"
+            },
+            "aliases": [
+              "Fiji",
+              "Republic of Fiji",
+              "FJ",
+              "Viti",
+              "Matanitu ko Viti",
+              "Fijī Gaṇarājya"
+            ]
+          },
+          {
+            "id": "296",
+            "label": {
+              "pt": "Kiribati",
+              "en": "Kiribati"
+            },
+            "aliases": [
+              "Kiribati",
+              "Independent and Sovereign Republic of Kiribati",
+              "KI",
+              "Republic of Kiribati",
+              "Ribaberiki Kiribati"
+            ]
+          },
+          {
+            "id": "554",
+            "label": {
+              "pt": "Nova Zelândia",
+              "en": "New Zealand"
+            },
+            "aliases": [
+              "Nova Zelândia",
+              "New Zealand",
+              "NZ",
+              "Aotearoa"
+            ]
+          },
+          {
+            "id": "798",
+            "label": {
+              "pt": "Tuvalu",
+              "en": "Tuvalu"
+            },
+            "aliases": [
+              "Tuvalu",
+              "TV"
+            ]
+          },
+          {
+            "id": "882",
+            "label": {
+              "pt": "Samoa",
+              "en": "Samoa"
+            },
+            "aliases": [
+              "Samoa",
+              "Independent State of Samoa",
+              "WS",
+              "Malo Saʻoloto Tutoʻatasi o Sāmoa"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "flag-colors-americas-red-white-blue-contains",
+      "revision": 1,
+      "inputType": "TEXT_MULTIPLE",
+      "category": "flags",
+      "topicId": "flag-colors:americas:blue-red-white:contains",
+      "prompt": {
+        "pt": "Nomeia países das Américas cuja bandeira tem vermelho, branco e azul. Pode ter outras cores. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.",
+        "en": "Name countries in the Americas whose flag has red, white and blue. Other colours are allowed. Ignore coats of arms, seals and fine outlines; include shades of the named colours."
+      },
+      "explanation": {
+        "pt": "Contam Antígua e Barbuda, Belize, Chile, Costa Rica, Cuba, República Dominicana, Haiti, Panamá, Paraguai, Estados Unidos e Venezuela. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.",
+        "en": "Accepted: Antigua and Barbuda, Belize, Chile, Costa Rica, Cuba, Dominican Republic, Haiti, Panama, Paraguay, United States and Venezuela. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct."
+      },
+      "sources": [
+        {
+          "title": "UN Vienna Protocol · National flags supplied by Permanent Missions",
+          "url": "https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf"
+        },
+        {
+          "title": "flag-icons · National flag SVG collection",
+          "url": "https://github.com/lipis/flag-icons/tree/main/flags/4x3"
+        }
+      ],
+      "checkedAt": "2026-11-09",
+      "countryIds": [
+        "028",
+        "084",
+        "152",
+        "188",
+        "192",
+        "214",
+        "332",
+        "591",
+        "600",
+        "840",
+        "862"
+      ],
+      "suggestionDomain": "countries",
+      "answer": {
+        "accepted": [
+          {
+            "id": "028",
+            "label": {
+              "pt": "Antígua e Barbuda",
+              "en": "Antigua and Barbuda"
+            },
+            "aliases": [
+              "Antígua e Barbuda",
+              "Antigua and Barbuda",
+              "AG"
+            ]
+          },
+          {
+            "id": "084",
+            "label": {
+              "pt": "Belize",
+              "en": "Belize"
+            },
+            "aliases": [
+              "Belize",
+              "BZ"
+            ]
+          },
+          {
+            "id": "152",
+            "label": {
+              "pt": "Chile",
+              "en": "Chile"
+            },
+            "aliases": [
+              "Chile",
+              "Republic of Chile",
+              "CL",
+              "República de Chile"
+            ]
+          },
+          {
+            "id": "188",
+            "label": {
+              "pt": "Costa Rica",
+              "en": "Costa Rica"
+            },
+            "aliases": [
+              "Costa Rica",
+              "Republic of Costa Rica",
+              "CR",
+              "República de Costa Rica"
+            ]
+          },
+          {
+            "id": "192",
+            "label": {
+              "pt": "Cuba",
+              "en": "Cuba"
+            },
+            "aliases": [
+              "Cuba",
+              "Republic of Cuba",
+              "CU",
+              "República de Cuba"
+            ]
+          },
+          {
+            "id": "214",
+            "label": {
+              "pt": "República Dominicana",
+              "en": "Dominican Republic"
+            },
+            "aliases": [
+              "República Dominicana",
+              "Dominican Republic",
+              "DO"
+            ]
+          },
+          {
+            "id": "332",
+            "label": {
+              "pt": "Haiti",
+              "en": "Haiti"
+            },
+            "aliases": [
+              "Haiti",
+              "Republic of Haiti",
+              "HT",
+              "République d'Haïti",
+              "Repiblik Ayiti"
+            ]
+          },
+          {
+            "id": "591",
+            "label": {
+              "pt": "Panamá",
+              "en": "Panama"
+            },
+            "aliases": [
+              "Panamá",
+              "Panama",
+              "Republic of Panama",
+              "PA",
+              "República de Panamá"
+            ]
+          },
+          {
+            "id": "600",
+            "label": {
+              "pt": "Paraguai",
+              "en": "Paraguay"
+            },
+            "aliases": [
+              "Paraguai",
+              "Paraguay",
+              "Republic of Paraguay",
+              "PY",
+              "República del Paraguay",
+              "Tetã Paraguái"
+            ]
+          },
+          {
+            "id": "840",
+            "label": {
+              "pt": "Estados Unidos",
+              "en": "United States"
+            },
+            "aliases": [
+              "Estados Unidos",
+              "United States",
+              "United States of America",
+              "US",
+              "USA",
+              "EUA",
+              "Estados Unidos da América"
+            ]
+          },
+          {
+            "id": "862",
+            "label": {
+              "pt": "Venezuela",
+              "en": "Venezuela"
+            },
+            "aliases": [
+              "Venezuela",
+              "Bolivarian Republic of Venezuela",
+              "VE",
+              "Venezuela, Bolivarian Republic of",
+              "República Bolivariana de Venezuela"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "flag-colors-asia-red-white-contains",
+      "revision": 1,
+      "inputType": "TEXT_MULTIPLE",
+      "category": "flags",
+      "topicId": "flag-colors:asia:red-white:contains",
+      "prompt": {
+        "pt": "Nomeia países da Ásia cuja bandeira tem vermelho e branco. Pode ter outras cores. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.",
+        "en": "Name countries in Asia whose flag has red and white. Other colours are allowed. Ignore coats of arms, seals and fine outlines; include shades of the named colours."
+      },
+      "explanation": {
+        "pt": "Contam Emirados Árabes Unidos, Azerbeijão, Bahrein, Geórgia, Indonésia, Irão, Iraque, Jordânia, Japão, Camboja, Coreia do Sul, Kuwait, Laos, Líbano, Maldivas, Myanmar, Malásia, Nepal, Omã, Filipinas, Coreia do Norte, Palestina, Catar, Singapura, Síria, Tailândia, Tajiquistão, Turquemenistão, Timor-Leste, Turquia, Ilha Formosa, Uzbequistão e Iémen. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.",
+        "en": "Accepted: United Arab Emirates, Azerbaijan, Bahrain, Georgia, Indonesia, Iran, Iraq, Jordan, Japan, Cambodia, South Korea, Kuwait, Laos, Lebanon, Maldives, Myanmar, Malaysia, Nepal, Oman, Philippines, North Korea, Palestine, Qatar, Singapore, Syria, Thailand, Tajikistan, Turkmenistan, Timor-Leste, Türkiye, Taiwan, Uzbekistan and Yemen. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct."
+      },
+      "sources": [
+        {
+          "title": "UN Vienna Protocol · National flags supplied by Permanent Missions",
+          "url": "https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf"
+        },
+        {
+          "title": "flag-icons · National flag SVG collection",
+          "url": "https://github.com/lipis/flag-icons/tree/main/flags/4x3"
+        },
+        {
+          "title": "Syrian Ministry of Culture · Current flag",
+          "url": "https://events.moc.gov.sy/en/about-flag"
+        },
+        {
+          "title": "Cambodian Embassy · Official flag colour specifications",
+          "url": "https://asean.org/wp-content/uploads/2020/10/flagspec_Cambodia-Flag-specifications.pdf"
+        },
+        {
+          "title": "Qatar Amiri Diwan · Flag colours",
+          "url": "https://www.diwan.gov.qa/en/about-qatar"
+        }
+      ],
+      "checkedAt": "2026-11-09",
+      "countryIds": [
+        "784",
+        "031",
+        "048",
+        "268",
+        "360",
+        "364",
+        "368",
+        "400",
+        "392",
+        "116",
+        "410",
+        "414",
+        "418",
+        "422",
+        "462",
+        "104",
+        "458",
+        "524",
+        "512",
+        "608",
+        "408",
+        "275",
+        "634",
+        "702",
+        "760",
+        "764",
+        "762",
+        "795",
+        "626",
+        "792",
+        "158",
+        "860",
+        "887"
+      ],
+      "suggestionDomain": "countries",
+      "answer": {
+        "accepted": [
+          {
+            "id": "784",
+            "label": {
+              "pt": "Emirados Árabes Unidos",
+              "en": "United Arab Emirates"
+            },
+            "aliases": [
+              "Emirados Árabes Unidos",
+              "United Arab Emirates",
+              "AE",
+              "UAE",
+              "Emirates"
+            ]
+          },
+          {
+            "id": "031",
+            "label": {
+              "pt": "Azerbeijão",
+              "en": "Azerbaijan"
+            },
+            "aliases": [
+              "Azerbeijão",
+              "Azerbaijan",
+              "Republic of Azerbaijan",
+              "AZ",
+              "Azərbaycan Respublikası"
+            ]
+          },
+          {
+            "id": "048",
+            "label": {
+              "pt": "Bahrein",
+              "en": "Bahrain"
+            },
+            "aliases": [
+              "Bahrein",
+              "Bahrain",
+              "Kingdom of Bahrain",
+              "BH",
+              "Mamlakat al-Baḥrayn"
+            ]
+          },
+          {
+            "id": "268",
+            "label": {
+              "pt": "Geórgia",
+              "en": "Georgia"
+            },
+            "aliases": [
+              "Geórgia",
+              "Georgia",
+              "GE",
+              "Sakartvelo"
+            ]
+          },
+          {
+            "id": "360",
+            "label": {
+              "pt": "Indonésia",
+              "en": "Indonesia"
+            },
+            "aliases": [
+              "Indonésia",
+              "Indonesia",
+              "Republic of Indonesia",
+              "ID",
+              "Republik Indonesia"
+            ]
+          },
+          {
+            "id": "364",
+            "label": {
+              "pt": "Irão",
+              "en": "Iran"
+            },
+            "aliases": [
+              "Irão",
+              "Iran",
+              "Islamic Republic of Iran",
+              "IR",
+              "Iran, Islamic Republic of",
+              "Jomhuri-ye Eslāmi-ye Irān"
+            ]
+          },
+          {
+            "id": "368",
+            "label": {
+              "pt": "Iraque",
+              "en": "Iraq"
+            },
+            "aliases": [
+              "Iraque",
+              "Iraq",
+              "Republic of Iraq",
+              "IQ",
+              "Jumhūriyyat al-‘Irāq"
+            ]
+          },
+          {
+            "id": "400",
+            "label": {
+              "pt": "Jordânia",
+              "en": "Jordan"
+            },
+            "aliases": [
+              "Jordânia",
+              "Jordan",
+              "Hashemite Kingdom of Jordan",
+              "JO",
+              "al-Mamlakah al-Urdunīyah al-Hāshimīyah"
+            ]
+          },
+          {
+            "id": "392",
+            "label": {
+              "pt": "Japão",
+              "en": "Japan"
+            },
+            "aliases": [
+              "Japão",
+              "Japan",
+              "JP",
+              "Nippon",
+              "Nihon"
+            ]
+          },
+          {
+            "id": "116",
+            "label": {
+              "pt": "Camboja",
+              "en": "Cambodia"
+            },
+            "aliases": [
+              "Camboja",
+              "Cambodia",
+              "Kingdom of Cambodia",
+              "KH"
+            ]
+          },
+          {
+            "id": "410",
+            "label": {
+              "pt": "Coreia do Sul",
+              "en": "South Korea"
+            },
+            "aliases": [
+              "Coreia do Sul",
+              "South Korea",
+              "Republic of Korea",
+              "KR",
+              "Korea, Republic of"
+            ]
+          },
+          {
+            "id": "414",
+            "label": {
+              "pt": "Kuwait",
+              "en": "Kuwait"
+            },
+            "aliases": [
+              "Kuwait",
+              "State of Kuwait",
+              "KW",
+              "Dawlat al-Kuwait"
+            ]
+          },
+          {
+            "id": "418",
+            "label": {
+              "pt": "Laos",
+              "en": "Laos"
+            },
+            "aliases": [
+              "Laos",
+              "Lao People's Democratic Republic",
+              "LA",
+              "Lao",
+              "Sathalanalat Paxathipatai Paxaxon Lao"
+            ]
+          },
+          {
+            "id": "422",
+            "label": {
+              "pt": "Líbano",
+              "en": "Lebanon"
+            },
+            "aliases": [
+              "Líbano",
+              "Lebanon",
+              "Lebanese Republic",
+              "LB",
+              "Al-Jumhūrīyah Al-Libnānīyah"
+            ]
+          },
+          {
+            "id": "462",
+            "label": {
+              "pt": "Maldivas",
+              "en": "Maldives"
+            },
+            "aliases": [
+              "Maldivas",
+              "Maldives",
+              "Republic of the Maldives",
+              "MV",
+              "Maldive Islands",
+              "Dhivehi Raajjeyge Jumhooriyya"
+            ]
+          },
+          {
+            "id": "104",
+            "label": {
+              "pt": "Myanmar",
+              "en": "Myanmar"
+            },
+            "aliases": [
+              "Myanmar",
+              "Republic of the Union of Myanmar",
+              "MM",
+              "Burma",
+              "Pyidaunzu Thanmăda Myăma Nainngandaw",
+              "Birmânia"
+            ]
+          },
+          {
+            "id": "458",
+            "label": {
+              "pt": "Malásia",
+              "en": "Malaysia"
+            },
+            "aliases": [
+              "Malásia",
+              "Malaysia",
+              "MY"
+            ]
+          },
+          {
+            "id": "524",
+            "label": {
+              "pt": "Nepal",
+              "en": "Nepal"
+            },
+            "aliases": [
+              "Nepal",
+              "Federal Democratic Republic of Nepal",
+              "NP",
+              "Loktāntrik Ganatantra Nepāl"
+            ]
+          },
+          {
+            "id": "512",
+            "label": {
+              "pt": "Omã",
+              "en": "Oman"
+            },
+            "aliases": [
+              "Omã",
+              "Oman",
+              "Sultanate of Oman",
+              "OM",
+              "Salṭanat ʻUmān"
+            ]
+          },
+          {
+            "id": "608",
+            "label": {
+              "pt": "Filipinas",
+              "en": "Philippines"
+            },
+            "aliases": [
+              "Filipinas",
+              "Philippines",
+              "Republic of the Philippines",
+              "PH",
+              "Repúblika ng Pilipinas"
+            ]
+          },
+          {
+            "id": "408",
+            "label": {
+              "pt": "Coreia do Norte",
+              "en": "North Korea"
+            },
+            "aliases": [
+              "Coreia do Norte",
+              "North Korea",
+              "Democratic People's Republic of Korea",
+              "KP",
+              "DPRK",
+              "Chosŏn Minjujuŭi Inmin Konghwaguk",
+              "Korea, Democratic People's Republic of"
+            ]
+          },
+          {
+            "id": "275",
+            "label": {
+              "pt": "Palestina",
+              "en": "Palestine"
+            },
+            "aliases": [
+              "Palestina",
+              "Palestine",
+              "State of Palestine",
+              "PS",
+              "Palestine, State of",
+              "Dawlat Filasṭin"
+            ]
+          },
+          {
+            "id": "634",
+            "label": {
+              "pt": "Catar",
+              "en": "Qatar"
+            },
+            "aliases": [
+              "Catar",
+              "Qatar",
+              "State of Qatar",
+              "QA",
+              "Dawlat Qaṭar"
+            ]
+          },
+          {
+            "id": "702",
+            "label": {
+              "pt": "Singapura",
+              "en": "Singapore"
+            },
+            "aliases": [
+              "Singapura",
+              "Singapore",
+              "Republic of Singapore",
+              "SG",
+              "Republik Singapura"
+            ]
+          },
+          {
+            "id": "760",
+            "label": {
+              "pt": "Síria",
+              "en": "Syria"
+            },
+            "aliases": [
+              "Síria",
+              "Syria",
+              "Syrian Arab Republic",
+              "SY",
+              "Al-Jumhūrīyah Al-ʻArabīyah As-Sūrīyah"
+            ]
+          },
+          {
+            "id": "764",
+            "label": {
+              "pt": "Tailândia",
+              "en": "Thailand"
+            },
+            "aliases": [
+              "Tailândia",
+              "Thailand",
+              "Kingdom of Thailand",
+              "TH",
+              "Prathet",
+              "Thai",
+              "Ratcha Anachak Thai"
+            ]
+          },
+          {
+            "id": "762",
+            "label": {
+              "pt": "Tajiquistão",
+              "en": "Tajikistan"
+            },
+            "aliases": [
+              "Tajiquistão",
+              "Tajikistan",
+              "Republic of Tajikistan",
+              "TJ",
+              "Toçikiston",
+              "Çumhuriyi Toçikiston"
+            ]
+          },
+          {
+            "id": "795",
+            "label": {
+              "pt": "Turquemenistão",
+              "en": "Turkmenistan"
+            },
+            "aliases": [
+              "Turquemenistão",
+              "Turkmenistan",
+              "TM"
+            ]
+          },
+          {
+            "id": "626",
+            "label": {
+              "pt": "Timor-Leste",
+              "en": "Timor-Leste"
+            },
+            "aliases": [
+              "Timor-Leste",
+              "Democratic Republic of Timor-Leste",
+              "TL",
+              "East Timor",
+              "Timor",
+              "República Democrática de Timor-Leste",
+              "Repúblika Demokrátika Timór-Leste",
+              "Timór Lorosa'e",
+              "Timor Lorosae",
+              "Timor Leste"
+            ]
+          },
+          {
+            "id": "792",
+            "label": {
+              "pt": "Turquia",
+              "en": "Türkiye"
+            },
+            "aliases": [
+              "Turquia",
+              "Türkiye",
+              "Republic of Türkiye",
+              "TR",
+              "Turkiye",
+              "Republic of Turkey",
+              "Türkiye Cumhuriyeti"
+            ]
+          },
+          {
+            "id": "158",
+            "label": {
+              "pt": "Ilha Formosa",
+              "en": "Taiwan"
+            },
+            "aliases": [
+              "Ilha Formosa",
+              "Taiwan",
+              "Republic of China (Taiwan)",
+              "TW",
+              "Táiwān",
+              "Republic of China",
+              "Zhōnghuá Mínguó",
+              "Chinese Taipei"
+            ]
+          },
+          {
+            "id": "860",
+            "label": {
+              "pt": "Uzbequistão",
+              "en": "Uzbekistan"
+            },
+            "aliases": [
+              "Uzbequistão",
+              "Uzbekistan",
+              "Republic of Uzbekistan",
+              "UZ",
+              "O‘zbekiston Respublikasi"
+            ]
+          },
+          {
+            "id": "887",
+            "label": {
+              "pt": "Iémen",
+              "en": "Yemen"
+            },
+            "aliases": [
+              "Iémen",
+              "Yemen",
+              "Republic of Yemen",
+              "YE",
+              "Yemeni Republic",
+              "al-Jumhūriyyah al-Yamaniyyah"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "flag-colors-asia-green-white-contains",
+      "revision": 1,
+      "inputType": "TEXT_MULTIPLE",
+      "category": "flags",
+      "topicId": "flag-colors:asia:green-white:contains",
+      "prompt": {
+        "pt": "Nomeia países da Ásia cuja bandeira tem verde e branco. Pode ter outras cores. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.",
+        "en": "Name countries in Asia whose flag has green and white. Other colours are allowed. Ignore coats of arms, seals and fine outlines; include shades of the named colours."
+      },
+      "explanation": {
+        "pt": "Contam Emirados Árabes Unidos, Azerbeijão, Índia, Irão, Iraque, Jordânia, Kuwait, Líbano, Maldivas, Myanmar, Omã, Paquistão, Palestina, Arábia Saudita, Síria, Tajiquistão, Turquemenistão e Uzbequistão. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.",
+        "en": "Accepted: United Arab Emirates, Azerbaijan, India, Iran, Iraq, Jordan, Kuwait, Lebanon, Maldives, Myanmar, Oman, Pakistan, Palestine, Saudi Arabia, Syria, Tajikistan, Turkmenistan and Uzbekistan. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct."
+      },
+      "sources": [
+        {
+          "title": "UN Vienna Protocol · National flags supplied by Permanent Missions",
+          "url": "https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf"
+        },
+        {
+          "title": "flag-icons · National flag SVG collection",
+          "url": "https://github.com/lipis/flag-icons/tree/main/flags/4x3"
+        },
+        {
+          "title": "Syrian Ministry of Culture · Current flag",
+          "url": "https://events.moc.gov.sy/en/about-flag"
+        }
+      ],
+      "checkedAt": "2026-11-09",
+      "countryIds": [
+        "784",
+        "031",
+        "356",
+        "364",
+        "368",
+        "400",
+        "414",
+        "422",
+        "462",
+        "104",
+        "512",
+        "586",
+        "275",
+        "682",
+        "760",
+        "762",
+        "795",
+        "860"
+      ],
+      "suggestionDomain": "countries",
+      "answer": {
+        "accepted": [
+          {
+            "id": "784",
+            "label": {
+              "pt": "Emirados Árabes Unidos",
+              "en": "United Arab Emirates"
+            },
+            "aliases": [
+              "Emirados Árabes Unidos",
+              "United Arab Emirates",
+              "AE",
+              "UAE",
+              "Emirates"
+            ]
+          },
+          {
+            "id": "031",
+            "label": {
+              "pt": "Azerbeijão",
+              "en": "Azerbaijan"
+            },
+            "aliases": [
+              "Azerbeijão",
+              "Azerbaijan",
+              "Republic of Azerbaijan",
+              "AZ",
+              "Azərbaycan Respublikası"
+            ]
+          },
+          {
+            "id": "356",
+            "label": {
+              "pt": "Índia",
+              "en": "India"
+            },
+            "aliases": [
+              "Índia",
+              "India",
+              "Republic of India",
+              "IN",
+              "Bhārat",
+              "Bharat Ganrajya"
+            ]
+          },
+          {
+            "id": "364",
+            "label": {
+              "pt": "Irão",
+              "en": "Iran"
+            },
+            "aliases": [
+              "Irão",
+              "Iran",
+              "Islamic Republic of Iran",
+              "IR",
+              "Iran, Islamic Republic of",
+              "Jomhuri-ye Eslāmi-ye Irān"
+            ]
+          },
+          {
+            "id": "368",
+            "label": {
+              "pt": "Iraque",
+              "en": "Iraq"
+            },
+            "aliases": [
+              "Iraque",
+              "Iraq",
+              "Republic of Iraq",
+              "IQ",
+              "Jumhūriyyat al-‘Irāq"
+            ]
+          },
+          {
+            "id": "400",
+            "label": {
+              "pt": "Jordânia",
+              "en": "Jordan"
+            },
+            "aliases": [
+              "Jordânia",
+              "Jordan",
+              "Hashemite Kingdom of Jordan",
+              "JO",
+              "al-Mamlakah al-Urdunīyah al-Hāshimīyah"
+            ]
+          },
+          {
+            "id": "414",
+            "label": {
+              "pt": "Kuwait",
+              "en": "Kuwait"
+            },
+            "aliases": [
+              "Kuwait",
+              "State of Kuwait",
+              "KW",
+              "Dawlat al-Kuwait"
+            ]
+          },
+          {
+            "id": "422",
+            "label": {
+              "pt": "Líbano",
+              "en": "Lebanon"
+            },
+            "aliases": [
+              "Líbano",
+              "Lebanon",
+              "Lebanese Republic",
+              "LB",
+              "Al-Jumhūrīyah Al-Libnānīyah"
+            ]
+          },
+          {
+            "id": "462",
+            "label": {
+              "pt": "Maldivas",
+              "en": "Maldives"
+            },
+            "aliases": [
+              "Maldivas",
+              "Maldives",
+              "Republic of the Maldives",
+              "MV",
+              "Maldive Islands",
+              "Dhivehi Raajjeyge Jumhooriyya"
+            ]
+          },
+          {
+            "id": "104",
+            "label": {
+              "pt": "Myanmar",
+              "en": "Myanmar"
+            },
+            "aliases": [
+              "Myanmar",
+              "Republic of the Union of Myanmar",
+              "MM",
+              "Burma",
+              "Pyidaunzu Thanmăda Myăma Nainngandaw",
+              "Birmânia"
+            ]
+          },
+          {
+            "id": "512",
+            "label": {
+              "pt": "Omã",
+              "en": "Oman"
+            },
+            "aliases": [
+              "Omã",
+              "Oman",
+              "Sultanate of Oman",
+              "OM",
+              "Salṭanat ʻUmān"
+            ]
+          },
+          {
+            "id": "586",
+            "label": {
+              "pt": "Paquistão",
+              "en": "Pakistan"
+            },
+            "aliases": [
+              "Paquistão",
+              "Pakistan",
+              "Islamic Republic of Pakistan",
+              "PK",
+              "Pākistān",
+              "Islāmī Jumhūriya'eh Pākistān"
+            ]
+          },
+          {
+            "id": "275",
+            "label": {
+              "pt": "Palestina",
+              "en": "Palestine"
+            },
+            "aliases": [
+              "Palestina",
+              "Palestine",
+              "State of Palestine",
+              "PS",
+              "Palestine, State of",
+              "Dawlat Filasṭin"
+            ]
+          },
+          {
+            "id": "682",
+            "label": {
+              "pt": "Arábia Saudita",
+              "en": "Saudi Arabia"
+            },
+            "aliases": [
+              "Arábia Saudita",
+              "Saudi Arabia",
+              "Kingdom of Saudi Arabia",
+              "Saudi",
+              "SA",
+              "Al-Mamlakah al-‘Arabiyyah as-Su‘ūdiyyah"
+            ]
+          },
+          {
+            "id": "760",
+            "label": {
+              "pt": "Síria",
+              "en": "Syria"
+            },
+            "aliases": [
+              "Síria",
+              "Syria",
+              "Syrian Arab Republic",
+              "SY",
+              "Al-Jumhūrīyah Al-ʻArabīyah As-Sūrīyah"
+            ]
+          },
+          {
+            "id": "762",
+            "label": {
+              "pt": "Tajiquistão",
+              "en": "Tajikistan"
+            },
+            "aliases": [
+              "Tajiquistão",
+              "Tajikistan",
+              "Republic of Tajikistan",
+              "TJ",
+              "Toçikiston",
+              "Çumhuriyi Toçikiston"
+            ]
+          },
+          {
+            "id": "795",
+            "label": {
+              "pt": "Turquemenistão",
+              "en": "Turkmenistan"
+            },
+            "aliases": [
+              "Turquemenistão",
+              "Turkmenistan",
+              "TM"
+            ]
+          },
+          {
+            "id": "860",
+            "label": {
+              "pt": "Uzbequistão",
+              "en": "Uzbekistan"
+            },
+            "aliases": [
+              "Uzbequistão",
+              "Uzbekistan",
+              "Republic of Uzbekistan",
+              "UZ",
+              "O‘zbekiston Respublikasi"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "flag-colors-africa-blue-white-contains",
+      "revision": 1,
+      "inputType": "TEXT_MULTIPLE",
+      "category": "flags",
+      "topicId": "flag-colors:africa:blue-white:contains",
+      "prompt": {
+        "pt": "Nomeia países de África cuja bandeira tem azul e branco. Pode ter outras cores. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.",
+        "en": "Name countries in Africa whose flag has blue and white. Other colours are allowed. Ignore coats of arms, seals and fine outlines; include shades of the named colours."
+      },
+      "explanation": {
+        "pt": "Contam Botswana, República Centro-Africana, Comores, Cabo Verde, Djibouti, Gâmbia, Guiné Equatorial, Libéria, Lesoto, Namíbia, Serra Leoa, Somália, Sudão do Sul, Essuatíni, Seicheles e África do Sul. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.",
+        "en": "Accepted: Botswana, Central African Republic, Comoros, Cape Verde, Djibouti, Gambia, Equatorial Guinea, Liberia, Lesotho, Namibia, Sierra Leone, Somalia, South Sudan, Eswatini, Seychelles and South Africa. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct."
+      },
+      "sources": [
+        {
+          "title": "UN Vienna Protocol · National flags supplied by Permanent Missions",
+          "url": "https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf"
+        },
+        {
+          "title": "flag-icons · National flag SVG collection",
+          "url": "https://github.com/lipis/flag-icons/tree/main/flags/4x3"
+        }
+      ],
+      "checkedAt": "2026-11-09",
+      "countryIds": [
+        "072",
+        "140",
+        "174",
+        "132",
+        "262",
+        "270",
+        "226",
+        "430",
+        "426",
+        "516",
+        "694",
+        "706",
+        "728",
+        "748",
+        "690",
+        "710"
+      ],
+      "suggestionDomain": "countries",
+      "answer": {
+        "accepted": [
+          {
+            "id": "072",
+            "label": {
+              "pt": "Botswana",
+              "en": "Botswana"
+            },
+            "aliases": [
+              "Botswana",
+              "Republic of Botswana",
+              "BW",
+              "Lefatshe la Botswana"
+            ]
+          },
+          {
+            "id": "140",
+            "label": {
+              "pt": "República Centro-Africana",
+              "en": "Central African Republic"
+            },
+            "aliases": [
+              "República Centro-Africana",
+              "Central African Republic",
+              "CF",
+              "République centrafricaine"
+            ]
+          },
+          {
+            "id": "174",
+            "label": {
+              "pt": "Comores",
+              "en": "Comoros"
+            },
+            "aliases": [
+              "Comores",
+              "Comoros",
+              "Union of the Comoros",
+              "KM",
+              "Union des Comores",
+              "Udzima wa Komori",
+              "al-Ittiḥād al-Qumurī"
+            ]
+          },
+          {
+            "id": "132",
+            "label": {
+              "pt": "Cabo Verde",
+              "en": "Cape Verde"
+            },
+            "aliases": [
+              "Cabo Verde",
+              "Cape Verde",
+              "Republic of Cabo Verde",
+              "CV",
+              "República de Cabo Verde"
+            ]
+          },
+          {
+            "id": "262",
+            "label": {
+              "pt": "Djibouti",
+              "en": "Djibouti"
+            },
+            "aliases": [
+              "Djibouti",
+              "Republic of Djibouti",
+              "DJ",
+              "Jabuuti",
+              "Gabuuti",
+              "République de Djibouti",
+              "Gabuutih Ummuuno",
+              "Jamhuuriyadda Jabuuti"
+            ]
+          },
+          {
+            "id": "270",
+            "label": {
+              "pt": "Gâmbia",
+              "en": "Gambia"
+            },
+            "aliases": [
+              "Gâmbia",
+              "Gambia",
+              "Republic of the Gambia",
+              "GM"
+            ]
+          },
+          {
+            "id": "226",
+            "label": {
+              "pt": "Guiné Equatorial",
+              "en": "Equatorial Guinea"
+            },
+            "aliases": [
+              "Guiné Equatorial",
+              "Equatorial Guinea",
+              "Republic of Equatorial Guinea",
+              "GQ",
+              "República de Guinea Ecuatorial",
+              "République de Guinée équatoriale",
+              "República da Guiné Equatorial"
+            ]
+          },
+          {
+            "id": "430",
+            "label": {
+              "pt": "Libéria",
+              "en": "Liberia"
+            },
+            "aliases": [
+              "Libéria",
+              "Liberia",
+              "Republic of Liberia",
+              "LR"
+            ]
+          },
+          {
+            "id": "426",
+            "label": {
+              "pt": "Lesoto",
+              "en": "Lesotho"
+            },
+            "aliases": [
+              "Lesoto",
+              "Lesotho",
+              "Kingdom of Lesotho",
+              "LS",
+              "Muso oa Lesotho"
+            ]
+          },
+          {
+            "id": "516",
+            "label": {
+              "pt": "Namíbia",
+              "en": "Namibia"
+            },
+            "aliases": [
+              "Namíbia",
+              "Namibia",
+              "Republic of Namibia",
+              "NA",
+              "Namibië"
+            ]
+          },
+          {
+            "id": "694",
+            "label": {
+              "pt": "Serra Leoa",
+              "en": "Sierra Leone"
+            },
+            "aliases": [
+              "Serra Leoa",
+              "Sierra Leone",
+              "Republic of Sierra Leone",
+              "SL"
+            ]
+          },
+          {
+            "id": "706",
+            "label": {
+              "pt": "Somália",
+              "en": "Somalia"
+            },
+            "aliases": [
+              "Somália",
+              "Somalia",
+              "Federal Republic of Somalia",
+              "SO",
+              "aṣ-Ṣūmāl",
+              "Jamhuuriyadda Federaalka Soomaaliya",
+              "Jumhūriyyat aṣ-Ṣūmāl al-Fiderāliyya"
+            ]
+          },
+          {
+            "id": "728",
+            "label": {
+              "pt": "Sudão do Sul",
+              "en": "South Sudan"
+            },
+            "aliases": [
+              "Sudão do Sul",
+              "South Sudan",
+              "Republic of South Sudan",
+              "SS"
+            ]
+          },
+          {
+            "id": "748",
+            "label": {
+              "pt": "Essuatíni",
+              "en": "Eswatini"
+            },
+            "aliases": [
+              "Essuatíni",
+              "Eswatini",
+              "Kingdom of Eswatini",
+              "SZ",
+              "Swaziland",
+              "weSwatini",
+              "Swatini",
+              "Ngwane",
+              "Umbuso weSwatini",
+              "Suazilândia"
+            ]
+          },
+          {
+            "id": "690",
+            "label": {
+              "pt": "Seicheles",
+              "en": "Seychelles"
+            },
+            "aliases": [
+              "Seicheles",
+              "Seychelles",
+              "Republic of Seychelles",
+              "SC",
+              "Repiblik Sesel",
+              "République des Seychelles"
+            ]
+          },
+          {
+            "id": "710",
+            "label": {
+              "pt": "África do Sul",
+              "en": "South Africa"
+            },
+            "aliases": [
+              "África do Sul",
+              "South Africa",
+              "Republic of South Africa",
+              "ZA",
+              "RSA",
+              "Suid-Afrika"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "flag-colors-africa-green-yellow-blue-contains",
+      "revision": 1,
+      "inputType": "TEXT_MULTIPLE",
+      "category": "flags",
+      "topicId": "flag-colors:africa:blue-green-yellow:contains",
+      "prompt": {
+        "pt": "Nomeia países de África cuja bandeira tem verde, amarelo e azul. Pode ter outras cores. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.",
+        "en": "Name countries in Africa whose flag has green, yellow and blue. Other colours are allowed. Ignore coats of arms, seals and fine outlines; include shades of the named colours."
+      },
+      "explanation": {
+        "pt": "Contam República Centro-Africana, Comores, Eritreia, Etiópia, Gabão, Maurício, Namíbia, Ruanda, Sudão do Sul, Seicheles, Tanzânia e África do Sul. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.",
+        "en": "Accepted: Central African Republic, Comoros, Eritrea, Ethiopia, Gabon, Mauritius, Namibia, Rwanda, South Sudan, Seychelles, Tanzania and South Africa. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct."
+      },
+      "sources": [
+        {
+          "title": "UN Vienna Protocol · National flags supplied by Permanent Missions",
+          "url": "https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf"
+        },
+        {
+          "title": "flag-icons · National flag SVG collection",
+          "url": "https://github.com/lipis/flag-icons/tree/main/flags/4x3"
+        }
+      ],
+      "checkedAt": "2026-11-09",
+      "countryIds": [
+        "140",
+        "174",
+        "232",
+        "231",
+        "266",
+        "480",
+        "516",
+        "646",
+        "728",
+        "690",
+        "834",
+        "710"
+      ],
+      "suggestionDomain": "countries",
+      "answer": {
+        "accepted": [
+          {
+            "id": "140",
+            "label": {
+              "pt": "República Centro-Africana",
+              "en": "Central African Republic"
+            },
+            "aliases": [
+              "República Centro-Africana",
+              "Central African Republic",
+              "CF",
+              "République centrafricaine"
+            ]
+          },
+          {
+            "id": "174",
+            "label": {
+              "pt": "Comores",
+              "en": "Comoros"
+            },
+            "aliases": [
+              "Comores",
+              "Comoros",
+              "Union of the Comoros",
+              "KM",
+              "Union des Comores",
+              "Udzima wa Komori",
+              "al-Ittiḥād al-Qumurī"
+            ]
+          },
+          {
+            "id": "232",
+            "label": {
+              "pt": "Eritreia",
+              "en": "Eritrea"
+            },
+            "aliases": [
+              "Eritreia",
+              "Eritrea",
+              "State of Eritrea",
+              "ER",
+              "Dawlat Iritriyá",
+              "ʾErtrā",
+              "Iritriyā"
+            ]
+          },
+          {
+            "id": "231",
+            "label": {
+              "pt": "Etiópia",
+              "en": "Ethiopia"
+            },
+            "aliases": [
+              "Etiópia",
+              "Ethiopia",
+              "Federal Democratic Republic of Ethiopia",
+              "ET",
+              "ʾĪtyōṗṗyā"
+            ]
+          },
+          {
+            "id": "266",
+            "label": {
+              "pt": "Gabão",
+              "en": "Gabon"
+            },
+            "aliases": [
+              "Gabão",
+              "Gabon",
+              "Gabonese Republic",
+              "GA",
+              "République Gabonaise"
+            ]
+          },
+          {
+            "id": "480",
+            "label": {
+              "pt": "Maurício",
+              "en": "Mauritius"
+            },
+            "aliases": [
+              "Maurício",
+              "Mauritius",
+              "Republic of Mauritius",
+              "MU",
+              "République de Maurice"
+            ]
+          },
+          {
+            "id": "516",
+            "label": {
+              "pt": "Namíbia",
+              "en": "Namibia"
+            },
+            "aliases": [
+              "Namíbia",
+              "Namibia",
+              "Republic of Namibia",
+              "NA",
+              "Namibië"
+            ]
+          },
+          {
+            "id": "646",
+            "label": {
+              "pt": "Ruanda",
+              "en": "Rwanda"
+            },
+            "aliases": [
+              "Ruanda",
+              "Rwanda",
+              "Republic of Rwanda",
+              "RW",
+              "Repubulika y'u Rwanda",
+              "République du Rwanda"
+            ]
+          },
+          {
+            "id": "728",
+            "label": {
+              "pt": "Sudão do Sul",
+              "en": "South Sudan"
+            },
+            "aliases": [
+              "Sudão do Sul",
+              "South Sudan",
+              "Republic of South Sudan",
+              "SS"
+            ]
+          },
+          {
+            "id": "690",
+            "label": {
+              "pt": "Seicheles",
+              "en": "Seychelles"
+            },
+            "aliases": [
+              "Seicheles",
+              "Seychelles",
+              "Republic of Seychelles",
+              "SC",
+              "Repiblik Sesel",
+              "République des Seychelles"
+            ]
+          },
+          {
+            "id": "834",
+            "label": {
+              "pt": "Tanzânia",
+              "en": "Tanzania"
+            },
+            "aliases": [
+              "Tanzânia",
+              "Tanzania",
+              "United Republic of Tanzania",
+              "TZ",
+              "Tanzania, United Republic of",
+              "Jamhuri ya Muungano wa Tanzania"
+            ]
+          },
+          {
+            "id": "710",
+            "label": {
+              "pt": "África do Sul",
+              "en": "South Africa"
+            },
+            "aliases": [
+              "África do Sul",
+              "South Africa",
+              "Republic of South Africa",
+              "ZA",
+              "RSA",
+              "Suid-Afrika"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "flag-colors-africa-red-black-white-contains",
+      "revision": 1,
+      "inputType": "TEXT_MULTIPLE",
+      "category": "flags",
+      "topicId": "flag-colors:africa:black-red-white:contains",
+      "prompt": {
+        "pt": "Nomeia países de África cuja bandeira tem vermelho, preto e branco. Pode ter outras cores. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.",
+        "en": "Name countries in Africa whose flag has red, black and white. Other colours are allowed. Ignore coats of arms, seals and fine outlines; include shades of the named colours."
+      },
+      "explanation": {
+        "pt": "Contam Egito, Quénia, Líbia, Moçambique, Sudão, Sudão do Sul, Essuatíni, Uganda, África do Sul e Zimbabwe. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.",
+        "en": "Accepted: Egypt, Kenya, Libya, Mozambique, Sudan, South Sudan, Eswatini, Uganda, South Africa and Zimbabwe. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct."
+      },
+      "sources": [
+        {
+          "title": "UN Vienna Protocol · National flags supplied by Permanent Missions",
+          "url": "https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf"
+        },
+        {
+          "title": "flag-icons · National flag SVG collection",
+          "url": "https://github.com/lipis/flag-icons/tree/main/flags/4x3"
+        }
+      ],
+      "checkedAt": "2026-11-09",
+      "countryIds": [
+        "818",
+        "404",
+        "434",
+        "508",
+        "729",
+        "728",
+        "748",
+        "800",
+        "710",
+        "716"
+      ],
+      "suggestionDomain": "countries",
+      "answer": {
+        "accepted": [
+          {
+            "id": "818",
+            "label": {
+              "pt": "Egito",
+              "en": "Egypt"
+            },
+            "aliases": [
+              "Egito",
+              "Egypt",
+              "Arab Republic of Egypt",
+              "EG"
+            ]
+          },
+          {
+            "id": "404",
+            "label": {
+              "pt": "Quénia",
+              "en": "Kenya"
+            },
+            "aliases": [
+              "Quénia",
+              "Kenya",
+              "Republic of Kenya",
+              "KE",
+              "Jamhuri ya Kenya"
+            ]
+          },
+          {
+            "id": "434",
+            "label": {
+              "pt": "Líbia",
+              "en": "Libya"
+            },
+            "aliases": [
+              "Líbia",
+              "Libya",
+              "State of Libya",
+              "LY",
+              "Dawlat Libya"
+            ]
+          },
+          {
+            "id": "508",
+            "label": {
+              "pt": "Moçambique",
+              "en": "Mozambique"
+            },
+            "aliases": [
+              "Moçambique",
+              "Mozambique",
+              "Republic of Mozambique",
+              "MZ",
+              "República de Moçambique"
+            ]
+          },
+          {
+            "id": "729",
+            "label": {
+              "pt": "Sudão",
+              "en": "Sudan"
+            },
+            "aliases": [
+              "Sudão",
+              "Sudan",
+              "Republic of the Sudan",
+              "SD",
+              "Jumhūrīyat as-Sūdān"
+            ]
+          },
+          {
+            "id": "728",
+            "label": {
+              "pt": "Sudão do Sul",
+              "en": "South Sudan"
+            },
+            "aliases": [
+              "Sudão do Sul",
+              "South Sudan",
+              "Republic of South Sudan",
+              "SS"
+            ]
+          },
+          {
+            "id": "748",
+            "label": {
+              "pt": "Essuatíni",
+              "en": "Eswatini"
+            },
+            "aliases": [
+              "Essuatíni",
+              "Eswatini",
+              "Kingdom of Eswatini",
+              "SZ",
+              "Swaziland",
+              "weSwatini",
+              "Swatini",
+              "Ngwane",
+              "Umbuso weSwatini",
+              "Suazilândia"
+            ]
+          },
+          {
+            "id": "800",
+            "label": {
+              "pt": "Uganda",
+              "en": "Uganda"
+            },
+            "aliases": [
+              "Uganda",
+              "Republic of Uganda",
+              "UG",
+              "Jamhuri ya Uganda"
+            ]
+          },
+          {
+            "id": "710",
+            "label": {
+              "pt": "África do Sul",
+              "en": "South Africa"
+            },
+            "aliases": [
+              "África do Sul",
+              "South Africa",
+              "Republic of South Africa",
+              "ZA",
+              "RSA",
+              "Suid-Afrika"
+            ]
+          },
+          {
+            "id": "716",
+            "label": {
+              "pt": "Zimbabwe",
+              "en": "Zimbabwe"
+            },
+            "aliases": [
+              "Zimbabwe",
+              "Republic of Zimbabwe",
+              "ZW"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "flag-colors-europa-blue-white-only",
+      "revision": 1,
+      "inputType": "TEXT_MULTIPLE",
+      "category": "flags",
+      "topicId": "flag-colors:europa:blue-white:only",
+      "prompt": {
+        "pt": "Nomeia países da Europa cuja bandeira tem apenas azul e branco. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.",
+        "en": "Name countries in Europe whose flag has only blue and white. Ignore coats of arms, seals and fine outlines; include shades of the named colours."
+      },
+      "explanation": {
+        "pt": "Contam Finlândia, Grécia e San Marino. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.",
+        "en": "Accepted: Finland, Greece and San Marino. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct."
+      },
+      "sources": [
+        {
+          "title": "UN Vienna Protocol · National flags supplied by Permanent Missions",
+          "url": "https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf"
+        },
+        {
+          "title": "flag-icons · National flag SVG collection",
+          "url": "https://github.com/lipis/flag-icons/tree/main/flags/4x3"
+        }
+      ],
+      "checkedAt": "2026-11-09",
+      "countryIds": [
+        "246",
+        "300",
+        "674"
+      ],
+      "suggestionDomain": "countries",
+      "answer": {
+        "accepted": [
+          {
+            "id": "246",
+            "label": {
+              "pt": "Finlândia",
+              "en": "Finland"
+            },
+            "aliases": [
+              "Finlândia",
+              "Finland",
+              "Republic of Finland",
+              "FI",
+              "Suomi",
+              "Suomen tasavalta",
+              "Republiken Finland"
+            ]
+          },
+          {
+            "id": "300",
+            "label": {
+              "pt": "Grécia",
+              "en": "Greece"
+            },
+            "aliases": [
+              "Grécia",
+              "Greece",
+              "Hellenic Republic",
+              "GR",
+              "Elláda"
+            ]
+          },
+          {
+            "id": "674",
+            "label": {
+              "pt": "San Marino",
+              "en": "San Marino"
+            },
+            "aliases": [
+              "San Marino",
+              "Most Serene Republic of San Marino",
+              "SM",
+              "Republic of San Marino",
+              "Repubblica di San Marino"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "flag-colors-europa-blue-yellow-only",
+      "revision": 1,
+      "inputType": "TEXT_MULTIPLE",
+      "category": "flags",
+      "topicId": "flag-colors:europa:blue-yellow:only",
+      "prompt": {
+        "pt": "Nomeia países da Europa cuja bandeira tem apenas azul e amarelo. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.",
+        "en": "Name countries in Europe whose flag has only blue and yellow. Ignore coats of arms, seals and fine outlines; include shades of the named colours."
+      },
+      "explanation": {
+        "pt": "Contam Suécia e Ucrânia. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.",
+        "en": "Accepted: Sweden and Ukraine. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct."
+      },
+      "sources": [
+        {
+          "title": "UN Vienna Protocol · National flags supplied by Permanent Missions",
+          "url": "https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf"
+        },
+        {
+          "title": "flag-icons · National flag SVG collection",
+          "url": "https://github.com/lipis/flag-icons/tree/main/flags/4x3"
+        }
+      ],
+      "checkedAt": "2026-11-09",
+      "countryIds": [
+        "752",
+        "804"
+      ],
+      "suggestionDomain": "countries",
+      "answer": {
+        "accepted": [
+          {
+            "id": "752",
+            "label": {
+              "pt": "Suécia",
+              "en": "Sweden"
+            },
+            "aliases": [
+              "Suécia",
+              "Sweden",
+              "Kingdom of Sweden",
+              "SE",
+              "Konungariket Sverige"
+            ]
+          },
+          {
+            "id": "804",
+            "label": {
+              "pt": "Ucrânia",
+              "en": "Ukraine"
+            },
+            "aliases": [
+              "Ucrânia",
+              "Ukraine",
+              "UA",
+              "Ukrayina"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "flag-colors-europa-black-red-yellow-only",
+      "revision": 1,
+      "inputType": "TEXT_MULTIPLE",
+      "category": "flags",
+      "topicId": "flag-colors:europa:black-red-yellow:only",
+      "prompt": {
+        "pt": "Nomeia países da Europa cuja bandeira tem apenas preto, vermelho e amarelo. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.",
+        "en": "Name countries in Europe whose flag has only black, red and yellow. Ignore coats of arms, seals and fine outlines; include shades of the named colours."
+      },
+      "explanation": {
+        "pt": "Contam Bélgica e Alemanha. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.",
+        "en": "Accepted: Belgium and Germany. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct."
+      },
+      "sources": [
+        {
+          "title": "UN Vienna Protocol · National flags supplied by Permanent Missions",
+          "url": "https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf"
+        },
+        {
+          "title": "flag-icons · National flag SVG collection",
+          "url": "https://github.com/lipis/flag-icons/tree/main/flags/4x3"
+        }
+      ],
+      "checkedAt": "2026-11-09",
+      "countryIds": [
+        "056",
+        "276"
+      ],
+      "suggestionDomain": "countries",
+      "answer": {
+        "accepted": [
+          {
+            "id": "056",
+            "label": {
+              "pt": "Bélgica",
+              "en": "Belgium"
+            },
+            "aliases": [
+              "Bélgica",
+              "Belgium",
+              "Kingdom of Belgium",
+              "BE",
+              "België",
+              "Belgie",
+              "Belgien",
+              "Belgique",
+              "Koninkrijk België",
+              "Royaume de Belgique",
+              "Königreich Belgien"
+            ]
+          },
+          {
+            "id": "276",
+            "label": {
+              "pt": "Alemanha",
+              "en": "Germany"
+            },
+            "aliases": [
+              "Alemanha",
+              "Germany",
+              "Federal Republic of Germany",
+              "DE",
+              "Bundesrepublik Deutschland"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "flag-colors-europa-red-yellow-only",
+      "revision": 1,
+      "inputType": "TEXT_MULTIPLE",
+      "category": "flags",
+      "topicId": "flag-colors:europa:red-yellow:only",
+      "prompt": {
+        "pt": "Nomeia países da Europa cuja bandeira tem apenas vermelho e amarelo. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.",
+        "en": "Name countries in Europe whose flag has only red and yellow. Ignore coats of arms, seals and fine outlines; include shades of the named colours."
+      },
+      "explanation": {
+        "pt": "Contam Espanha, Macedónia do Norte e Montenegro. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.",
+        "en": "Accepted: Spain, North Macedonia and Montenegro. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct."
+      },
+      "sources": [
+        {
+          "title": "UN Vienna Protocol · National flags supplied by Permanent Missions",
+          "url": "https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf"
+        },
+        {
+          "title": "flag-icons · National flag SVG collection",
+          "url": "https://github.com/lipis/flag-icons/tree/main/flags/4x3"
+        }
+      ],
+      "checkedAt": "2026-11-09",
+      "countryIds": [
+        "724",
+        "807",
+        "499"
+      ],
+      "suggestionDomain": "countries",
+      "answer": {
+        "accepted": [
+          {
+            "id": "724",
+            "label": {
+              "pt": "Espanha",
+              "en": "Spain"
+            },
+            "aliases": [
+              "Espanha",
+              "Spain",
+              "Kingdom of Spain",
+              "ES",
+              "Reino de España"
+            ]
+          },
+          {
+            "id": "807",
+            "label": {
+              "pt": "Macedónia do Norte",
+              "en": "North Macedonia"
+            },
+            "aliases": [
+              "Macedónia do Norte",
+              "North Macedonia",
+              "Republic of North Macedonia",
+              "MK",
+              "The former Yugoslav Republic of Macedonia",
+              "Macedonia, The Former Yugoslav Republic of",
+              "Macedonia",
+              "Macedônia",
+              "Macedônia do Norte"
+            ]
+          },
+          {
+            "id": "499",
+            "label": {
+              "pt": "Montenegro",
+              "en": "Montenegro"
+            },
+            "aliases": [
+              "Montenegro",
+              "ME",
+              "Crna Gora"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "flag-colors-europa-red-green-white-only",
+      "revision": 1,
+      "inputType": "TEXT_MULTIPLE",
+      "category": "flags",
+      "topicId": "flag-colors:europa:green-red-white:only",
+      "prompt": {
+        "pt": "Nomeia países da Europa cuja bandeira tem apenas vermelho, verde e branco. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.",
+        "en": "Name countries in Europe whose flag has only red, green and white. Ignore coats of arms, seals and fine outlines; include shades of the named colours."
+      },
+      "explanation": {
+        "pt": "Contam Bulgária, Bielorússia, Hungria e Itália. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.",
+        "en": "Accepted: Bulgaria, Belarus, Hungary and Italy. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct."
+      },
+      "sources": [
+        {
+          "title": "UN Vienna Protocol · National flags supplied by Permanent Missions",
+          "url": "https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf"
+        },
+        {
+          "title": "flag-icons · National flag SVG collection",
+          "url": "https://github.com/lipis/flag-icons/tree/main/flags/4x3"
+        }
+      ],
+      "checkedAt": "2026-11-09",
+      "countryIds": [
+        "100",
+        "112",
+        "348",
+        "380"
+      ],
+      "suggestionDomain": "countries",
+      "answer": {
+        "accepted": [
+          {
+            "id": "100",
+            "label": {
+              "pt": "Bulgária",
+              "en": "Bulgaria"
+            },
+            "aliases": [
+              "Bulgária",
+              "Bulgaria",
+              "Republic of Bulgaria",
+              "BG"
+            ]
+          },
+          {
+            "id": "112",
+            "label": {
+              "pt": "Bielorússia",
+              "en": "Belarus"
+            },
+            "aliases": [
+              "Bielorússia",
+              "Belarus",
+              "Republic of Belarus",
+              "BY",
+              "Bielaruś"
+            ]
+          },
+          {
+            "id": "348",
+            "label": {
+              "pt": "Hungria",
+              "en": "Hungary"
+            },
+            "aliases": [
+              "Hungria",
+              "Hungary",
+              "HU"
+            ]
+          },
+          {
+            "id": "380",
+            "label": {
+              "pt": "Itália",
+              "en": "Italy"
+            },
+            "aliases": [
+              "Itália",
+              "Italy",
+              "Italian Republic",
+              "IT",
+              "Repubblica italiana"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "flag-colors-europa-blue-yellow-red-only",
+      "revision": 1,
+      "inputType": "TEXT_MULTIPLE",
+      "category": "flags",
+      "topicId": "flag-colors:europa:blue-red-yellow:only",
+      "prompt": {
+        "pt": "Nomeia países da Europa cuja bandeira tem apenas azul, amarelo e vermelho. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.",
+        "en": "Name countries in Europe whose flag has only blue, yellow and red. Ignore coats of arms, seals and fine outlines; include shades of the named colours."
+      },
+      "explanation": {
+        "pt": "Contam Andorra, Liechtenstein, Moldávia e Roménia. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.",
+        "en": "Accepted: Andorra, Liechtenstein, Moldova and Romania. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct."
+      },
+      "sources": [
+        {
+          "title": "UN Vienna Protocol · National flags supplied by Permanent Missions",
+          "url": "https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf"
+        },
+        {
+          "title": "flag-icons · National flag SVG collection",
+          "url": "https://github.com/lipis/flag-icons/tree/main/flags/4x3"
+        }
+      ],
+      "checkedAt": "2026-11-09",
+      "countryIds": [
+        "020",
+        "438",
+        "498",
+        "642"
+      ],
+      "suggestionDomain": "countries",
+      "answer": {
+        "accepted": [
+          {
+            "id": "020",
+            "label": {
+              "pt": "Andorra",
+              "en": "Andorra"
+            },
+            "aliases": [
+              "Andorra",
+              "Principality of Andorra",
+              "AD",
+              "Principat d'Andorra"
+            ]
+          },
+          {
+            "id": "438",
+            "label": {
+              "pt": "Liechtenstein",
+              "en": "Liechtenstein"
+            },
+            "aliases": [
+              "Liechtenstein",
+              "Principality of Liechtenstein",
+              "LI",
+              "Fürstentum Liechtenstein"
+            ]
+          },
+          {
+            "id": "498",
+            "label": {
+              "pt": "Moldávia",
+              "en": "Moldova"
+            },
+            "aliases": [
+              "Moldávia",
+              "Moldova",
+              "Republic of Moldova",
+              "MD",
+              "Moldova, Republic of",
+              "Republica Moldova"
+            ]
+          },
+          {
+            "id": "642",
+            "label": {
+              "pt": "Roménia",
+              "en": "Romania"
+            },
+            "aliases": [
+              "Roménia",
+              "Romania",
+              "RO",
+              "Rumania",
+              "Roumania",
+              "România"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "flag-colors-asia-red-white-only",
+      "revision": 1,
+      "inputType": "TEXT_MULTIPLE",
+      "category": "flags",
+      "topicId": "flag-colors:asia:red-white:only",
+      "prompt": {
+        "pt": "Nomeia países da Ásia cuja bandeira tem apenas vermelho e branco. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.",
+        "en": "Name countries in Asia whose flag has only red and white. Ignore coats of arms, seals and fine outlines; include shades of the named colours."
+      },
+      "explanation": {
+        "pt": "Contam Bahrein, Geórgia, Indonésia, Japão, Catar, Singapura e Turquia. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.",
+        "en": "Accepted: Bahrain, Georgia, Indonesia, Japan, Qatar, Singapore and Türkiye. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct."
+      },
+      "sources": [
+        {
+          "title": "UN Vienna Protocol · National flags supplied by Permanent Missions",
+          "url": "https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf"
+        },
+        {
+          "title": "flag-icons · National flag SVG collection",
+          "url": "https://github.com/lipis/flag-icons/tree/main/flags/4x3"
+        },
+        {
+          "title": "Qatar Amiri Diwan · Flag colours",
+          "url": "https://www.diwan.gov.qa/en/about-qatar"
+        }
+      ],
+      "checkedAt": "2026-11-09",
+      "countryIds": [
+        "048",
+        "268",
+        "360",
+        "392",
+        "634",
+        "702",
+        "792"
+      ],
+      "suggestionDomain": "countries",
+      "answer": {
+        "accepted": [
+          {
+            "id": "048",
+            "label": {
+              "pt": "Bahrein",
+              "en": "Bahrain"
+            },
+            "aliases": [
+              "Bahrein",
+              "Bahrain",
+              "Kingdom of Bahrain",
+              "BH",
+              "Mamlakat al-Baḥrayn"
+            ]
+          },
+          {
+            "id": "268",
+            "label": {
+              "pt": "Geórgia",
+              "en": "Georgia"
+            },
+            "aliases": [
+              "Geórgia",
+              "Georgia",
+              "GE",
+              "Sakartvelo"
+            ]
+          },
+          {
+            "id": "360",
+            "label": {
+              "pt": "Indonésia",
+              "en": "Indonesia"
+            },
+            "aliases": [
+              "Indonésia",
+              "Indonesia",
+              "Republic of Indonesia",
+              "ID",
+              "Republik Indonesia"
+            ]
+          },
+          {
+            "id": "392",
+            "label": {
+              "pt": "Japão",
+              "en": "Japan"
+            },
+            "aliases": [
+              "Japão",
+              "Japan",
+              "JP",
+              "Nippon",
+              "Nihon"
+            ]
+          },
+          {
+            "id": "634",
+            "label": {
+              "pt": "Catar",
+              "en": "Qatar"
+            },
+            "aliases": [
+              "Catar",
+              "Qatar",
+              "State of Qatar",
+              "QA",
+              "Dawlat Qaṭar"
+            ]
+          },
+          {
+            "id": "702",
+            "label": {
+              "pt": "Singapura",
+              "en": "Singapore"
+            },
+            "aliases": [
+              "Singapura",
+              "Singapore",
+              "Republic of Singapore",
+              "SG",
+              "Republik Singapura"
+            ]
+          },
+          {
+            "id": "792",
+            "label": {
+              "pt": "Turquia",
+              "en": "Türkiye"
+            },
+            "aliases": [
+              "Turquia",
+              "Türkiye",
+              "Republic of Türkiye",
+              "TR",
+              "Turkiye",
+              "Republic of Turkey",
+              "Türkiye Cumhuriyeti"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "flag-colors-asia-red-white-blue-only",
+      "revision": 1,
+      "inputType": "TEXT_MULTIPLE",
+      "category": "flags",
+      "topicId": "flag-colors:asia:blue-red-white:only",
+      "prompt": {
+        "pt": "Nomeia países da Ásia cuja bandeira tem apenas vermelho, branco e azul. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.",
+        "en": "Name countries in Asia whose flag has only red, white and blue. Ignore coats of arms, seals and fine outlines; include shades of the named colours."
+      },
+      "explanation": {
+        "pt": "Contam Camboja, Laos, Nepal, Coreia do Norte, Tailândia e Ilha Formosa. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.",
+        "en": "Accepted: Cambodia, Laos, Nepal, North Korea, Thailand and Taiwan. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct."
+      },
+      "sources": [
+        {
+          "title": "UN Vienna Protocol · National flags supplied by Permanent Missions",
+          "url": "https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf"
+        },
+        {
+          "title": "flag-icons · National flag SVG collection",
+          "url": "https://github.com/lipis/flag-icons/tree/main/flags/4x3"
+        },
+        {
+          "title": "Cambodian Embassy · Official flag colour specifications",
+          "url": "https://asean.org/wp-content/uploads/2020/10/flagspec_Cambodia-Flag-specifications.pdf"
+        }
+      ],
+      "checkedAt": "2026-11-09",
+      "countryIds": [
+        "116",
+        "418",
+        "524",
+        "408",
+        "764",
+        "158"
+      ],
+      "suggestionDomain": "countries",
+      "answer": {
+        "accepted": [
+          {
+            "id": "116",
+            "label": {
+              "pt": "Camboja",
+              "en": "Cambodia"
+            },
+            "aliases": [
+              "Camboja",
+              "Cambodia",
+              "Kingdom of Cambodia",
+              "KH"
+            ]
+          },
+          {
+            "id": "418",
+            "label": {
+              "pt": "Laos",
+              "en": "Laos"
+            },
+            "aliases": [
+              "Laos",
+              "Lao People's Democratic Republic",
+              "LA",
+              "Lao",
+              "Sathalanalat Paxathipatai Paxaxon Lao"
+            ]
+          },
+          {
+            "id": "524",
+            "label": {
+              "pt": "Nepal",
+              "en": "Nepal"
+            },
+            "aliases": [
+              "Nepal",
+              "Federal Democratic Republic of Nepal",
+              "NP",
+              "Loktāntrik Ganatantra Nepāl"
+            ]
+          },
+          {
+            "id": "408",
+            "label": {
+              "pt": "Coreia do Norte",
+              "en": "North Korea"
+            },
+            "aliases": [
+              "Coreia do Norte",
+              "North Korea",
+              "Democratic People's Republic of Korea",
+              "KP",
+              "DPRK",
+              "Chosŏn Minjujuŭi Inmin Konghwaguk",
+              "Korea, Democratic People's Republic of"
+            ]
+          },
+          {
+            "id": "764",
+            "label": {
+              "pt": "Tailândia",
+              "en": "Thailand"
+            },
+            "aliases": [
+              "Tailândia",
+              "Thailand",
+              "Kingdom of Thailand",
+              "TH",
+              "Prathet",
+              "Thai",
+              "Ratcha Anachak Thai"
+            ]
+          },
+          {
+            "id": "158",
+            "label": {
+              "pt": "Ilha Formosa",
+              "en": "Taiwan"
+            },
+            "aliases": [
+              "Ilha Formosa",
+              "Taiwan",
+              "Republic of China (Taiwan)",
+              "TW",
+              "Táiwān",
+              "Republic of China",
+              "Zhōnghuá Mínguó",
+              "Chinese Taipei"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "flag-colors-asia-red-yellow-only",
+      "revision": 1,
+      "inputType": "TEXT_MULTIPLE",
+      "category": "flags",
+      "topicId": "flag-colors:asia:red-yellow:only",
+      "prompt": {
+        "pt": "Nomeia países da Ásia cuja bandeira tem apenas vermelho e amarelo. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.",
+        "en": "Name countries in Asia whose flag has only red and yellow. Ignore coats of arms, seals and fine outlines; include shades of the named colours."
+      },
+      "explanation": {
+        "pt": "Contam China, Quirguistão e Vietname. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.",
+        "en": "Accepted: China, Kyrgyzstan and Vietnam. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct."
+      },
+      "sources": [
+        {
+          "title": "UN Vienna Protocol · National flags supplied by Permanent Missions",
+          "url": "https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf"
+        },
+        {
+          "title": "flag-icons · National flag SVG collection",
+          "url": "https://github.com/lipis/flag-icons/tree/main/flags/4x3"
+        }
+      ],
+      "checkedAt": "2026-11-09",
+      "countryIds": [
+        "156",
+        "417",
+        "704"
+      ],
+      "suggestionDomain": "countries",
+      "answer": {
+        "accepted": [
+          {
+            "id": "156",
+            "label": {
+              "pt": "China",
+              "en": "China"
+            },
+            "aliases": [
+              "China",
+              "People's Republic of China",
+              "CN",
+              "Zhōngguó",
+              "Zhongguo",
+              "Zhonghua",
+              "Zhōnghuá Rénmín Gònghéguó"
+            ]
+          },
+          {
+            "id": "417",
+            "label": {
+              "pt": "Quirguistão",
+              "en": "Kyrgyzstan"
+            },
+            "aliases": [
+              "Quirguistão",
+              "Kyrgyzstan",
+              "Kyrgyz Republic",
+              "KG",
+              "Kyrgyz Respublikasy"
+            ]
+          },
+          {
+            "id": "704",
+            "label": {
+              "pt": "Vietname",
+              "en": "Vietnam"
+            },
+            "aliases": [
+              "Vietname",
+              "Vietnam",
+              "Socialist Republic of Vietnam",
+              "VN",
+              "Cộng hòa Xã hội chủ nghĩa Việt Nam",
+              "Viet Nam"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "flag-colors-asia-red-green-white-only",
+      "revision": 1,
+      "inputType": "TEXT_MULTIPLE",
+      "category": "flags",
+      "topicId": "flag-colors:asia:green-red-white:only",
+      "prompt": {
+        "pt": "Nomeia países da Ásia cuja bandeira tem apenas vermelho, verde e branco. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.",
+        "en": "Name countries in Asia whose flag has only red, green and white. Ignore coats of arms, seals and fine outlines; include shades of the named colours."
+      },
+      "explanation": {
+        "pt": "Contam Irão, Líbano e Omã. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.",
+        "en": "Accepted: Iran, Lebanon and Oman. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct."
+      },
+      "sources": [
+        {
+          "title": "UN Vienna Protocol · National flags supplied by Permanent Missions",
+          "url": "https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf"
+        },
+        {
+          "title": "flag-icons · National flag SVG collection",
+          "url": "https://github.com/lipis/flag-icons/tree/main/flags/4x3"
+        }
+      ],
+      "checkedAt": "2026-11-09",
+      "countryIds": [
+        "364",
+        "422",
+        "512"
+      ],
+      "suggestionDomain": "countries",
+      "answer": {
+        "accepted": [
+          {
+            "id": "364",
+            "label": {
+              "pt": "Irão",
+              "en": "Iran"
+            },
+            "aliases": [
+              "Irão",
+              "Iran",
+              "Islamic Republic of Iran",
+              "IR",
+              "Iran, Islamic Republic of",
+              "Jomhuri-ye Eslāmi-ye Irān"
+            ]
+          },
+          {
+            "id": "422",
+            "label": {
+              "pt": "Líbano",
+              "en": "Lebanon"
+            },
+            "aliases": [
+              "Líbano",
+              "Lebanon",
+              "Lebanese Republic",
+              "LB",
+              "Al-Jumhūrīyah Al-Libnānīyah"
+            ]
+          },
+          {
+            "id": "512",
+            "label": {
+              "pt": "Omã",
+              "en": "Oman"
+            },
+            "aliases": [
+              "Omã",
+              "Oman",
+              "Sultanate of Oman",
+              "OM",
+              "Salṭanat ʻUmān"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "flag-colors-americas-blue-white-only",
+      "revision": 1,
+      "inputType": "TEXT_MULTIPLE",
+      "category": "flags",
+      "topicId": "flag-colors:americas:blue-white:only",
+      "prompt": {
+        "pt": "Nomeia países das Américas cuja bandeira tem apenas azul e branco. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.",
+        "en": "Name countries in the Americas whose flag has only blue and white. Ignore coats of arms, seals and fine outlines; include shades of the named colours."
+      },
+      "explanation": {
+        "pt": "Contam Guatemala, Honduras, Nicarágua e El Salvador. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.",
+        "en": "Accepted: Guatemala, Honduras, Nicaragua and El Salvador. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct."
+      },
+      "sources": [
+        {
+          "title": "UN Vienna Protocol · National flags supplied by Permanent Missions",
+          "url": "https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf"
+        },
+        {
+          "title": "flag-icons · National flag SVG collection",
+          "url": "https://github.com/lipis/flag-icons/tree/main/flags/4x3"
+        }
+      ],
+      "checkedAt": "2026-11-09",
+      "countryIds": [
+        "320",
+        "340",
+        "558",
+        "222"
+      ],
+      "suggestionDomain": "countries",
+      "answer": {
+        "accepted": [
+          {
+            "id": "320",
+            "label": {
+              "pt": "Guatemala",
+              "en": "Guatemala"
+            },
+            "aliases": [
+              "Guatemala",
+              "Republic of Guatemala",
+              "GT"
+            ]
+          },
+          {
+            "id": "340",
+            "label": {
+              "pt": "Honduras",
+              "en": "Honduras"
+            },
+            "aliases": [
+              "Honduras",
+              "Republic of Honduras",
+              "HN",
+              "República de Honduras"
+            ]
+          },
+          {
+            "id": "558",
+            "label": {
+              "pt": "Nicarágua",
+              "en": "Nicaragua"
+            },
+            "aliases": [
+              "Nicarágua",
+              "Nicaragua",
+              "Republic of Nicaragua",
+              "NI",
+              "República de Nicaragua"
+            ]
+          },
+          {
+            "id": "222",
+            "label": {
+              "pt": "El Salvador",
+              "en": "El Salvador"
+            },
+            "aliases": [
+              "El Salvador",
+              "Republic of El Salvador",
+              "SV",
+              "República de El Salvador"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "flag-colors-americas-red-white-only",
+      "revision": 1,
+      "inputType": "TEXT_MULTIPLE",
+      "category": "flags",
+      "topicId": "flag-colors:americas:red-white:only",
+      "prompt": {
+        "pt": "Nomeia países das Américas cuja bandeira tem apenas vermelho e branco. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.",
+        "en": "Name countries in the Americas whose flag has only red and white. Ignore coats of arms, seals and fine outlines; include shades of the named colours."
+      },
+      "explanation": {
+        "pt": "Contam Canadá e Perú. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.",
+        "en": "Accepted: Canada and Peru. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct."
+      },
+      "sources": [
+        {
+          "title": "UN Vienna Protocol · National flags supplied by Permanent Missions",
+          "url": "https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf"
+        },
+        {
+          "title": "flag-icons · National flag SVG collection",
+          "url": "https://github.com/lipis/flag-icons/tree/main/flags/4x3"
+        }
+      ],
+      "checkedAt": "2026-11-09",
+      "countryIds": [
+        "124",
+        "604"
+      ],
+      "suggestionDomain": "countries",
+      "answer": {
+        "accepted": [
+          {
+            "id": "124",
+            "label": {
+              "pt": "Canadá",
+              "en": "Canada"
+            },
+            "aliases": [
+              "Canadá",
+              "Canada",
+              "CA"
+            ]
+          },
+          {
+            "id": "604",
+            "label": {
+              "pt": "Perú",
+              "en": "Peru"
+            },
+            "aliases": [
+              "Perú",
+              "Peru",
+              "Republic of Peru",
+              "PE",
+              "República del Perú"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "flag-colors-americas-blue-black-yellow-only",
+      "revision": 1,
+      "inputType": "TEXT_MULTIPLE",
+      "category": "flags",
+      "topicId": "flag-colors:americas:black-blue-yellow:only",
+      "prompt": {
+        "pt": "Nomeia países das Américas cuja bandeira tem apenas azul, preto e amarelo. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.",
+        "en": "Name countries in the Americas whose flag has only blue, black and yellow. Ignore coats of arms, seals and fine outlines; include shades of the named colours."
+      },
+      "explanation": {
+        "pt": "Contam Bahamas e Barbados. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.",
+        "en": "Accepted: Bahamas and Barbados. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct."
+      },
+      "sources": [
+        {
+          "title": "UN Vienna Protocol · National flags supplied by Permanent Missions",
+          "url": "https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf"
+        },
+        {
+          "title": "flag-icons · National flag SVG collection",
+          "url": "https://github.com/lipis/flag-icons/tree/main/flags/4x3"
+        }
+      ],
+      "checkedAt": "2026-11-09",
+      "countryIds": [
+        "044",
+        "052"
+      ],
+      "suggestionDomain": "countries",
+      "answer": {
+        "accepted": [
+          {
+            "id": "044",
+            "label": {
+              "pt": "Bahamas",
+              "en": "Bahamas"
+            },
+            "aliases": [
+              "Bahamas",
+              "Commonwealth of the Bahamas",
+              "BS"
+            ]
+          },
+          {
+            "id": "052",
+            "label": {
+              "pt": "Barbados",
+              "en": "Barbados"
+            },
+            "aliases": [
+              "Barbados",
+              "BB"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "flag-colors-americas-red-green-contains",
+      "revision": 1,
+      "inputType": "TEXT_MULTIPLE",
+      "category": "flags",
+      "topicId": "flag-colors:americas:green-red:contains",
+      "prompt": {
+        "pt": "Nomeia países das Américas cuja bandeira tem vermelho e verde. Pode ter outras cores. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.",
+        "en": "Name countries in the Americas whose flag has red and green. Other colours are allowed. Ignore coats of arms, seals and fine outlines; include shades of the named colours."
+      },
+      "explanation": {
+        "pt": "Contam Bolívia, Dominica, Granada, Guiana, São Cristóvão e Nevis, México e Suriname. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.",
+        "en": "Accepted: Bolivia, Dominica, Grenada, Guyana, Saint Kitts and Nevis, Mexico and Suriname. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct."
+      },
+      "sources": [
+        {
+          "title": "UN Vienna Protocol · National flags supplied by Permanent Missions",
+          "url": "https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf"
+        },
+        {
+          "title": "flag-icons · National flag SVG collection",
+          "url": "https://github.com/lipis/flag-icons/tree/main/flags/4x3"
+        }
+      ],
+      "checkedAt": "2026-11-09",
+      "countryIds": [
+        "068",
+        "212",
+        "308",
+        "328",
+        "659",
+        "484",
+        "740"
+      ],
+      "suggestionDomain": "countries",
+      "answer": {
+        "accepted": [
+          {
+            "id": "068",
+            "label": {
+              "pt": "Bolívia",
+              "en": "Bolivia"
+            },
+            "aliases": [
+              "Bolívia",
+              "Bolivia",
+              "Plurinational State of Bolivia",
+              "BO",
+              "Buliwya",
+              "Wuliwya",
+              "Bolivia, Plurinational State of",
+              "Estado Plurinacional de Bolivia",
+              "Buliwya Mamallaqta",
+              "Wuliwya Suyu",
+              "Tetã Volívia"
+            ]
+          },
+          {
+            "id": "212",
+            "label": {
+              "pt": "Dominica",
+              "en": "Dominica"
+            },
+            "aliases": [
+              "Dominica",
+              "Commonwealth of Dominica",
+              "DM",
+              "Dominique",
+              "Wai‘tu kubuli"
+            ]
+          },
+          {
+            "id": "308",
+            "label": {
+              "pt": "Granada",
+              "en": "Grenada"
+            },
+            "aliases": [
+              "Granada",
+              "Grenada",
+              "GD"
+            ]
+          },
+          {
+            "id": "328",
+            "label": {
+              "pt": "Guiana",
+              "en": "Guyana"
+            },
+            "aliases": [
+              "Guiana",
+              "Guyana",
+              "Co-operative Republic of Guyana",
+              "GY"
+            ]
+          },
+          {
+            "id": "659",
+            "label": {
+              "pt": "São Cristóvão e Nevis",
+              "en": "Saint Kitts and Nevis"
+            },
+            "aliases": [
+              "São Cristóvão e Nevis",
+              "Saint Kitts and Nevis",
+              "Federation of Saint Christopher and Nevis",
+              "KN"
+            ]
+          },
+          {
+            "id": "484",
+            "label": {
+              "pt": "México",
+              "en": "Mexico"
+            },
+            "aliases": [
+              "México",
+              "Mexico",
+              "United Mexican States",
+              "MX",
+              "Mexicanos",
+              "Estados Unidos Mexicanos"
+            ]
+          },
+          {
+            "id": "740",
+            "label": {
+              "pt": "Suriname",
+              "en": "Suriname"
+            },
+            "aliases": [
+              "Suriname",
+              "Republic of Suriname",
+              "SR",
+              "Sarnam",
+              "Sranangron",
+              "Republiek Suriname"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "flag-colors-oceania-blue-yellow-contains",
+      "revision": 1,
+      "inputType": "TEXT_MULTIPLE",
+      "category": "flags",
+      "topicId": "flag-colors:oceania:blue-yellow:contains",
+      "prompt": {
+        "pt": "Nomeia países da Oceânia cuja bandeira tem azul e amarelo. Pode ter outras cores. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.",
+        "en": "Name countries in Oceania whose flag has blue and yellow. Other colours are allowed. Ignore coats of arms, seals and fine outlines; include shades of the named colours."
+      },
+      "explanation": {
+        "pt": "Contam Kiribati, Nauru, Palau, Ilhas Salomão e Tuvalu. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.",
+        "en": "Accepted: Kiribati, Nauru, Palau, Solomon Islands and Tuvalu. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct."
+      },
+      "sources": [
+        {
+          "title": "UN Vienna Protocol · National flags supplied by Permanent Missions",
+          "url": "https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf"
+        },
+        {
+          "title": "flag-icons · National flag SVG collection",
+          "url": "https://github.com/lipis/flag-icons/tree/main/flags/4x3"
+        }
+      ],
+      "checkedAt": "2026-11-09",
+      "countryIds": [
+        "296",
+        "520",
+        "585",
+        "090",
+        "798"
+      ],
+      "suggestionDomain": "countries",
+      "answer": {
+        "accepted": [
+          {
+            "id": "296",
+            "label": {
+              "pt": "Kiribati",
+              "en": "Kiribati"
+            },
+            "aliases": [
+              "Kiribati",
+              "Independent and Sovereign Republic of Kiribati",
+              "KI",
+              "Republic of Kiribati",
+              "Ribaberiki Kiribati"
+            ]
+          },
+          {
+            "id": "520",
+            "label": {
+              "pt": "Nauru",
+              "en": "Nauru"
+            },
+            "aliases": [
+              "Nauru",
+              "Republic of Nauru",
+              "NR",
+              "Naoero",
+              "Pleasant Island",
+              "Ripublik Naoero"
+            ]
+          },
+          {
+            "id": "585",
+            "label": {
+              "pt": "Palau",
+              "en": "Palau"
+            },
+            "aliases": [
+              "Palau",
+              "Republic of Palau",
+              "PW",
+              "Beluu er a Belau"
+            ]
+          },
+          {
+            "id": "090",
+            "label": {
+              "pt": "Ilhas Salomão",
+              "en": "Solomon Islands"
+            },
+            "aliases": [
+              "Ilhas Salomão",
+              "Solomon Islands",
+              "SB"
+            ]
+          },
+          {
+            "id": "798",
+            "label": {
+              "pt": "Tuvalu",
+              "en": "Tuvalu"
+            },
+            "aliases": [
+              "Tuvalu",
+              "TV"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "flag-colors-oceania-blue-white-contains",
+      "revision": 1,
+      "inputType": "TEXT_MULTIPLE",
+      "category": "flags",
+      "topicId": "flag-colors:oceania:blue-white:contains",
+      "prompt": {
+        "pt": "Nomeia países da Oceânia cuja bandeira tem azul e branco. Pode ter outras cores. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.",
+        "en": "Name countries in Oceania whose flag has blue and white. Other colours are allowed. Ignore coats of arms, seals and fine outlines; include shades of the named colours."
+      },
+      "explanation": {
+        "pt": "Contam Austrália, Fiji, Micronésia, Kiribati, Ilhas Marshall, Nauru, Nova Zelândia, Ilhas Salomão, Tuvalu e Samoa. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.",
+        "en": "Accepted: Australia, Fiji, Micronesia, Kiribati, Marshall Islands, Nauru, New Zealand, Solomon Islands, Tuvalu and Samoa. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct."
+      },
+      "sources": [
+        {
+          "title": "UN Vienna Protocol · National flags supplied by Permanent Missions",
+          "url": "https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf"
+        },
+        {
+          "title": "flag-icons · National flag SVG collection",
+          "url": "https://github.com/lipis/flag-icons/tree/main/flags/4x3"
+        }
+      ],
+      "checkedAt": "2026-11-09",
+      "countryIds": [
+        "036",
+        "242",
+        "583",
+        "296",
+        "584",
+        "520",
+        "554",
+        "090",
+        "798",
+        "882"
+      ],
+      "suggestionDomain": "countries",
+      "answer": {
+        "accepted": [
+          {
+            "id": "036",
+            "label": {
+              "pt": "Austrália",
+              "en": "Australia"
+            },
+            "aliases": [
+              "Austrália",
+              "Australia",
+              "Commonwealth of Australia",
+              "AU"
+            ]
+          },
+          {
+            "id": "242",
+            "label": {
+              "pt": "Fiji",
+              "en": "Fiji"
+            },
+            "aliases": [
+              "Fiji",
+              "Republic of Fiji",
+              "FJ",
+              "Viti",
+              "Matanitu ko Viti",
+              "Fijī Gaṇarājya"
+            ]
+          },
+          {
+            "id": "583",
+            "label": {
+              "pt": "Micronésia",
+              "en": "Micronesia"
+            },
+            "aliases": [
+              "Micronésia",
+              "Micronesia",
+              "Federated States of Micronesia",
+              "FM",
+              "Micronesia, Federated States of"
+            ]
+          },
+          {
+            "id": "296",
+            "label": {
+              "pt": "Kiribati",
+              "en": "Kiribati"
+            },
+            "aliases": [
+              "Kiribati",
+              "Independent and Sovereign Republic of Kiribati",
+              "KI",
+              "Republic of Kiribati",
+              "Ribaberiki Kiribati"
+            ]
+          },
+          {
+            "id": "584",
+            "label": {
+              "pt": "Ilhas Marshall",
+              "en": "Marshall Islands"
+            },
+            "aliases": [
+              "Ilhas Marshall",
+              "Marshall Islands",
+              "Republic of the Marshall Islands",
+              "MH",
+              "Aolepān Aorōkin M̧ajeļ"
+            ]
+          },
+          {
+            "id": "520",
+            "label": {
+              "pt": "Nauru",
+              "en": "Nauru"
+            },
+            "aliases": [
+              "Nauru",
+              "Republic of Nauru",
+              "NR",
+              "Naoero",
+              "Pleasant Island",
+              "Ripublik Naoero"
+            ]
+          },
+          {
+            "id": "554",
+            "label": {
+              "pt": "Nova Zelândia",
+              "en": "New Zealand"
+            },
+            "aliases": [
+              "Nova Zelândia",
+              "New Zealand",
+              "NZ",
+              "Aotearoa"
+            ]
+          },
+          {
+            "id": "090",
+            "label": {
+              "pt": "Ilhas Salomão",
+              "en": "Solomon Islands"
+            },
+            "aliases": [
+              "Ilhas Salomão",
+              "Solomon Islands",
+              "SB"
+            ]
+          },
+          {
+            "id": "798",
+            "label": {
+              "pt": "Tuvalu",
+              "en": "Tuvalu"
+            },
+            "aliases": [
+              "Tuvalu",
+              "TV"
+            ]
+          },
+          {
+            "id": "882",
+            "label": {
+              "pt": "Samoa",
+              "en": "Samoa"
+            },
+            "aliases": [
+              "Samoa",
+              "Independent State of Samoa",
+              "WS",
+              "Malo Saʻoloto Tutoʻatasi o Sāmoa"
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "schemaVersion": 1,
+      "id": "flag-colors-oceania-red-yellow-contains",
+      "revision": 1,
+      "inputType": "TEXT_MULTIPLE",
+      "category": "flags",
+      "topicId": "flag-colors:oceania:red-yellow:contains",
+      "prompt": {
+        "pt": "Nomeia países da Oceânia cuja bandeira tem vermelho e amarelo. Pode ter outras cores. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.",
+        "en": "Name countries in Oceania whose flag has red and yellow. Other colours are allowed. Ignore coats of arms, seals and fine outlines; include shades of the named colours."
+      },
+      "explanation": {
+        "pt": "Contam Kiribati, Papua Nova Guiné, Tuvalu e Vanuatu. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.",
+        "en": "Accepted: Kiribati, Papua New Guinea, Tuvalu and Vanuatu. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct."
+      },
+      "sources": [
+        {
+          "title": "UN Vienna Protocol · National flags supplied by Permanent Missions",
+          "url": "https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf"
+        },
+        {
+          "title": "flag-icons · National flag SVG collection",
+          "url": "https://github.com/lipis/flag-icons/tree/main/flags/4x3"
+        }
+      ],
+      "checkedAt": "2026-11-09",
+      "countryIds": [
+        "296",
+        "598",
+        "798",
+        "548"
+      ],
+      "suggestionDomain": "countries",
+      "answer": {
+        "accepted": [
+          {
+            "id": "296",
+            "label": {
+              "pt": "Kiribati",
+              "en": "Kiribati"
+            },
+            "aliases": [
+              "Kiribati",
+              "Independent and Sovereign Republic of Kiribati",
+              "KI",
+              "Republic of Kiribati",
+              "Ribaberiki Kiribati"
+            ]
+          },
+          {
+            "id": "598",
+            "label": {
+              "pt": "Papua Nova Guiné",
+              "en": "Papua New Guinea"
+            },
+            "aliases": [
+              "Papua Nova Guiné",
+              "Papua New Guinea",
+              "Independent State of Papua New Guinea",
+              "PG",
+              "Independen Stet bilong Papua Niugini"
+            ]
+          },
+          {
+            "id": "798",
+            "label": {
+              "pt": "Tuvalu",
+              "en": "Tuvalu"
+            },
+            "aliases": [
+              "Tuvalu",
+              "TV"
+            ]
+          },
+          {
+            "id": "548",
+            "label": {
+              "pt": "Vanuatu",
+              "en": "Vanuatu"
+            },
+            "aliases": [
+              "Vanuatu",
+              "Republic of Vanuatu",
+              "VU",
+              "Ripablik blong Vanuatu",
+              "République de Vanuatu"
+            ]
+          }
+        ]
       }
     },
     {

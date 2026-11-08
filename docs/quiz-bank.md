@@ -1,17 +1,17 @@
-# Banco Conhecimento geral — 6 de novembro de 2026
+# Banco Conhecimento geral — 9 de novembro de 2026
 
-O banco disponibiliza **436 perguntas por idioma** (468 registos ativos, com variantes linguísticas separadas para 32 perguntas de nomes/letras). As variantes linguísticas não são somadas ao contador da interface. A causa da repetição anterior era a composição: 106 perguntas de texto, dois exemplares de cada um de quatro tipos e apenas um pin e uma distância. A seleção tentava incluir todos os tipos em cada run, repetindo necessariamente os grupos pequenos.
+O banco disponibiliza **462 perguntas por idioma** (494 registos ativos, com variantes linguísticas separadas para 32 perguntas de nomes/letras). As variantes linguísticas não são somadas ao contador da interface. A causa da repetição anterior era a composição: 106 perguntas de texto, dois exemplares de cada um de quatro tipos e apenas um pin e uma distância. A seleção tentava incluir todos os tipos em cada run, repetindo necessariamente os grupos pequenos.
 
 | Tipo | Antes | Agora |
 | --- | ---: | ---: |
 | `TEXT_SINGLE` | 106 | 131 |
 | `TRUE_FALSE` | 2 | 5 |
 | `NUMBER_EXACT` (aproximação) | 2 | 50 |
-| `TEXT_MULTIPLE` | 2 | 102 |
+| `TEXT_MULTIPLE` | 2 | 128 |
 | `SLIDER_TIMELINE` | 2 | 41 |
 | `SLIDER_DISTANCE` | 1 | 49 |
 | `MAP_PINPOINT` | 1 | 58 |
-| **Total** | **116** | **436** |
+| **Total** | **116** | **462** |
 
 ## Revisão do formato verdadeiro/falso
 
@@ -64,4 +64,6 @@ O histórico é local, partilhado entre dificuldades e rondas, e cresce até ao 
 
 ## Verificação
 
-Os testes validam os 468 registos ativos e os bancos elegíveis de 436 perguntas por idioma, as sete coberturas de input, unicidade dos IDs e prompts nas duas línguas, países válidos, fontes, diferenças de definição, pares de cidades, conjuntos de fronteiras e a seleção de partidas sucessivas de 10 perguntas sem repetir nenhum ID enquanto houver perguntas inéditas. O ciclo seguinte inclui todas as inéditas restantes antes de reciclar. Há também regressão específica para o antigo caso de um único pin esgotado, migração de histórico, armazenamento bloqueado e formulação de Berlim.
+Os testes validam os 494 registos ativos e os bancos elegíveis de 462 perguntas por idioma, as sete coberturas de input, unicidade dos IDs e prompts nas duas línguas, países válidos, fontes, diferenças de definição, pares de cidades, conjuntos de fronteiras e a seleção de partidas sucessivas de 10 perguntas sem repetir nenhum ID enquanto houver perguntas inéditas. O ciclo seguinte inclui todas as inéditas restantes antes de reciclar. Há também regressão específica para o antigo caso de um único pin esgotado, migração de histórico, armazenamento bloqueado e formulação de Berlim.
+
+26 perguntas bilingues de combinações de cores por continente: `src/quiz/flag-colors.js`; critérios e fontes em `quiz-flag-colors-provenance.md`.

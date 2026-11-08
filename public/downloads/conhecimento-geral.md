@@ -1,6 +1,6 @@
 # Conhecimento geral — banco completo de perguntas
 
-**436 perguntas elegíveis em PT · 436 em EN · 468 registos no ficheiro.**
+**462 perguntas elegíveis em PT · 462 em EN · 494 registos no ficheiro.**
 
 Inclui perguntas, soluções e fontes. Variantes de nomes PT/EN são registos separados; a partida seleciona a língua escolhida. A dificuldade só altera a quota de respostas das listas. Números, datas, distâncias e pins dão pontos por proximidade.
 
@@ -10,7 +10,7 @@ Cada pergunta inclui a tradução inglesa, a solução, a explicação e as font
 
 - Verdadeiro ou falso (TRUE_FALSE): 5 elegíveis em PT
 - Escreve a resposta (TEXT_SINGLE): 131 elegíveis em PT
-- Várias respostas (TEXT_MULTIPLE): 102 elegíveis em PT
+- Várias respostas (TEXT_MULTIPLE): 128 elegíveis em PT
 - Quantos? (NUMBER_EXACT): 50 elegíveis em PT
 - Coloca o pin (MAP_PINPOINT): 58 elegíveis em PT
 - Em que ano? (SLIDER_TIMELINE): 41 elegíveis em PT
@@ -5702,6 +5702,610 @@ Cada pergunta inclui a tradução inglesa, a solução, a explicação e as font
 - [President of Kazakhstan · National symbols](https://www.akorda.kz/ru/state_symbols/about_state_symbols)
 - [Government of Sri Lanka · National Flag](https://www.gov.lk/sri-lanka/country-overview)
 - [flag-icons · National flag SVGs (publisher collection)](https://github.com/lipis/flag-icons/tree/main/flags/4x3)
+
+### flag-colors-europa-red-white-blue-contains
+
+**PT:** Nomeia países da Europa cuja bandeira tem vermelho, branco e azul. Pode ter outras cores. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.
+
+**EN:** Name countries in Europe whose flag has red, white and blue. Other colours are allowed. Ignore coats of arms, seals and fine outlines; include shades of the named colours.
+
+**Resposta:** Chéquia · França · Reino Unido · Croácia · Islândia · Luxemburgo · Países Baixos · Noruega · Rússia · Sérvia · Eslováquia · Eslovénia
+
+**Respostas em inglês:** Czechia · France · United Kingdom · Croatia · Iceland · Luxembourg · Netherlands · Norway · Russia · Serbia · Slovakia · Slovenia
+
+**Quota de dificuldade:** Fácil 1 · Médio 6 · Difícil 12
+
+**Explicação PT:** Contam Chéquia, França, Reino Unido, Croácia, Islândia, Luxemburgo, Países Baixos, Noruega, Rússia, Sérvia, Eslováquia e Eslovénia. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.
+
+**Explanation EN:** Accepted: Czechia, France, United Kingdom, Croatia, Iceland, Luxembourg, Netherlands, Norway, Russia, Serbia, Slovakia and Slovenia. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct.
+
+**Categoria:** flags · Verificado: 2026-11-09
+
+**Fontes:**
+
+- [UN Vienna Protocol · National flags supplied by Permanent Missions](https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf)
+- [flag-icons · National flag SVG collection](https://github.com/lipis/flag-icons/tree/main/flags/4x3)
+
+### flag-colors-africa-green-yellow-red-contains
+
+**PT:** Nomeia países de África cuja bandeira tem verde, amarelo e vermelho. Pode ter outras cores. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.
+
+**EN:** Name countries in Africa whose flag has green, yellow and red. Other colours are allowed. Ignore coats of arms, seals and fine outlines; include shades of the named colours.
+
+**Resposta:** Benin · Burkina Faso · República Centro-Africana · Camarões · Congo · Comores · Eritreia · Etiópia · Gana · Guiné · Guiné-Bissau · Mali · Moçambique · Mauritânia · Maurício · Namíbia · Senegal · Sudão do Sul · São Tomé e Príncipe · Seicheles · Togo · África do Sul · Zimbabwe
+
+**Respostas em inglês:** Benin · Burkina Faso · Central African Republic · Cameroon · Congo · Comoros · Eritrea · Ethiopia · Ghana · Guinea · Guinea-Bissau · Mali · Mozambique · Mauritania · Mauritius · Namibia · Senegal · South Sudan · São Tomé and Príncipe · Seychelles · Togo · South Africa · Zimbabwe
+
+**Quota de dificuldade:** Fácil 1 · Médio 12 · Difícil 23
+
+**Explicação PT:** Contam Benin, Burkina Faso, República Centro-Africana, Camarões, Congo, Comores, Eritreia, Etiópia, Gana, Guiné, Guiné-Bissau, Mali, Moçambique, Mauritânia, Maurício, Namíbia, Senegal, Sudão do Sul, São Tomé e Príncipe, Seicheles, Togo, África do Sul e Zimbabwe. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.
+
+**Explanation EN:** Accepted: Benin, Burkina Faso, Central African Republic, Cameroon, Congo, Comoros, Eritrea, Ethiopia, Ghana, Guinea, Guinea-Bissau, Mali, Mozambique, Mauritania, Mauritius, Namibia, Senegal, South Sudan, São Tomé and Príncipe, Seychelles, Togo, South Africa and Zimbabwe. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct.
+
+**Categoria:** flags · Verificado: 2026-11-09
+
+**Fontes:**
+
+- [UN Vienna Protocol · National flags supplied by Permanent Missions](https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf)
+- [flag-icons · National flag SVG collection](https://github.com/lipis/flag-icons/tree/main/flags/4x3)
+
+### flag-colors-oceania-red-white-blue-contains
+
+**PT:** Nomeia países da Oceânia cuja bandeira tem vermelho, branco e azul. Pode ter outras cores. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.
+
+**EN:** Name countries in Oceania whose flag has red, white and blue. Other colours are allowed. Ignore coats of arms, seals and fine outlines; include shades of the named colours.
+
+**Resposta:** Austrália · Fiji · Kiribati · Nova Zelândia · Tuvalu · Samoa
+
+**Respostas em inglês:** Australia · Fiji · Kiribati · New Zealand · Tuvalu · Samoa
+
+**Quota de dificuldade:** Fácil 1 · Médio 3 · Difícil 6
+
+**Explicação PT:** Contam Austrália, Fiji, Kiribati, Nova Zelândia, Tuvalu e Samoa. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.
+
+**Explanation EN:** Accepted: Australia, Fiji, Kiribati, New Zealand, Tuvalu and Samoa. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct.
+
+**Categoria:** flags · Verificado: 2026-11-09
+
+**Fontes:**
+
+- [UN Vienna Protocol · National flags supplied by Permanent Missions](https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf)
+- [flag-icons · National flag SVG collection](https://github.com/lipis/flag-icons/tree/main/flags/4x3)
+
+### flag-colors-americas-red-white-blue-contains
+
+**PT:** Nomeia países das Américas cuja bandeira tem vermelho, branco e azul. Pode ter outras cores. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.
+
+**EN:** Name countries in the Americas whose flag has red, white and blue. Other colours are allowed. Ignore coats of arms, seals and fine outlines; include shades of the named colours.
+
+**Resposta:** Antígua e Barbuda · Belize · Chile · Costa Rica · Cuba · República Dominicana · Haiti · Panamá · Paraguai · Estados Unidos · Venezuela
+
+**Respostas em inglês:** Antigua and Barbuda · Belize · Chile · Costa Rica · Cuba · Dominican Republic · Haiti · Panama · Paraguay · United States · Venezuela
+
+**Quota de dificuldade:** Fácil 1 · Médio 6 · Difícil 11
+
+**Explicação PT:** Contam Antígua e Barbuda, Belize, Chile, Costa Rica, Cuba, República Dominicana, Haiti, Panamá, Paraguai, Estados Unidos e Venezuela. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.
+
+**Explanation EN:** Accepted: Antigua and Barbuda, Belize, Chile, Costa Rica, Cuba, Dominican Republic, Haiti, Panama, Paraguay, United States and Venezuela. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct.
+
+**Categoria:** flags · Verificado: 2026-11-09
+
+**Fontes:**
+
+- [UN Vienna Protocol · National flags supplied by Permanent Missions](https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf)
+- [flag-icons · National flag SVG collection](https://github.com/lipis/flag-icons/tree/main/flags/4x3)
+
+### flag-colors-asia-red-white-contains
+
+**PT:** Nomeia países da Ásia cuja bandeira tem vermelho e branco. Pode ter outras cores. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.
+
+**EN:** Name countries in Asia whose flag has red and white. Other colours are allowed. Ignore coats of arms, seals and fine outlines; include shades of the named colours.
+
+**Resposta:** Emirados Árabes Unidos · Azerbeijão · Bahrein · Geórgia · Indonésia · Irão · Iraque · Jordânia · Japão · Camboja · Coreia do Sul · Kuwait · Laos · Líbano · Maldivas · Myanmar · Malásia · Nepal · Omã · Filipinas · Coreia do Norte · Palestina · Catar · Singapura · Síria · Tailândia · Tajiquistão · Turquemenistão · Timor-Leste · Turquia · Ilha Formosa · Uzbequistão · Iémen
+
+**Respostas em inglês:** United Arab Emirates · Azerbaijan · Bahrain · Georgia · Indonesia · Iran · Iraq · Jordan · Japan · Cambodia · South Korea · Kuwait · Laos · Lebanon · Maldives · Myanmar · Malaysia · Nepal · Oman · Philippines · North Korea · Palestine · Qatar · Singapore · Syria · Thailand · Tajikistan · Turkmenistan · Timor-Leste · Türkiye · Taiwan · Uzbekistan · Yemen
+
+**Quota de dificuldade:** Fácil 1 · Médio 17 · Difícil 33
+
+**Explicação PT:** Contam Emirados Árabes Unidos, Azerbeijão, Bahrein, Geórgia, Indonésia, Irão, Iraque, Jordânia, Japão, Camboja, Coreia do Sul, Kuwait, Laos, Líbano, Maldivas, Myanmar, Malásia, Nepal, Omã, Filipinas, Coreia do Norte, Palestina, Catar, Singapura, Síria, Tailândia, Tajiquistão, Turquemenistão, Timor-Leste, Turquia, Ilha Formosa, Uzbequistão e Iémen. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.
+
+**Explanation EN:** Accepted: United Arab Emirates, Azerbaijan, Bahrain, Georgia, Indonesia, Iran, Iraq, Jordan, Japan, Cambodia, South Korea, Kuwait, Laos, Lebanon, Maldives, Myanmar, Malaysia, Nepal, Oman, Philippines, North Korea, Palestine, Qatar, Singapore, Syria, Thailand, Tajikistan, Turkmenistan, Timor-Leste, Türkiye, Taiwan, Uzbekistan and Yemen. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct.
+
+**Categoria:** flags · Verificado: 2026-11-09
+
+**Fontes:**
+
+- [UN Vienna Protocol · National flags supplied by Permanent Missions](https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf)
+- [flag-icons · National flag SVG collection](https://github.com/lipis/flag-icons/tree/main/flags/4x3)
+- [Syrian Ministry of Culture · Current flag](https://events.moc.gov.sy/en/about-flag)
+- [Cambodian Embassy · Official flag colour specifications](https://asean.org/wp-content/uploads/2020/10/flagspec_Cambodia-Flag-specifications.pdf)
+- [Qatar Amiri Diwan · Flag colours](https://www.diwan.gov.qa/en/about-qatar)
+
+### flag-colors-asia-green-white-contains
+
+**PT:** Nomeia países da Ásia cuja bandeira tem verde e branco. Pode ter outras cores. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.
+
+**EN:** Name countries in Asia whose flag has green and white. Other colours are allowed. Ignore coats of arms, seals and fine outlines; include shades of the named colours.
+
+**Resposta:** Emirados Árabes Unidos · Azerbeijão · Índia · Irão · Iraque · Jordânia · Kuwait · Líbano · Maldivas · Myanmar · Omã · Paquistão · Palestina · Arábia Saudita · Síria · Tajiquistão · Turquemenistão · Uzbequistão
+
+**Respostas em inglês:** United Arab Emirates · Azerbaijan · India · Iran · Iraq · Jordan · Kuwait · Lebanon · Maldives · Myanmar · Oman · Pakistan · Palestine · Saudi Arabia · Syria · Tajikistan · Turkmenistan · Uzbekistan
+
+**Quota de dificuldade:** Fácil 1 · Médio 9 · Difícil 18
+
+**Explicação PT:** Contam Emirados Árabes Unidos, Azerbeijão, Índia, Irão, Iraque, Jordânia, Kuwait, Líbano, Maldivas, Myanmar, Omã, Paquistão, Palestina, Arábia Saudita, Síria, Tajiquistão, Turquemenistão e Uzbequistão. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.
+
+**Explanation EN:** Accepted: United Arab Emirates, Azerbaijan, India, Iran, Iraq, Jordan, Kuwait, Lebanon, Maldives, Myanmar, Oman, Pakistan, Palestine, Saudi Arabia, Syria, Tajikistan, Turkmenistan and Uzbekistan. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct.
+
+**Categoria:** flags · Verificado: 2026-11-09
+
+**Fontes:**
+
+- [UN Vienna Protocol · National flags supplied by Permanent Missions](https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf)
+- [flag-icons · National flag SVG collection](https://github.com/lipis/flag-icons/tree/main/flags/4x3)
+- [Syrian Ministry of Culture · Current flag](https://events.moc.gov.sy/en/about-flag)
+
+### flag-colors-africa-blue-white-contains
+
+**PT:** Nomeia países de África cuja bandeira tem azul e branco. Pode ter outras cores. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.
+
+**EN:** Name countries in Africa whose flag has blue and white. Other colours are allowed. Ignore coats of arms, seals and fine outlines; include shades of the named colours.
+
+**Resposta:** Botswana · República Centro-Africana · Comores · Cabo Verde · Djibouti · Gâmbia · Guiné Equatorial · Libéria · Lesoto · Namíbia · Serra Leoa · Somália · Sudão do Sul · Essuatíni · Seicheles · África do Sul
+
+**Respostas em inglês:** Botswana · Central African Republic · Comoros · Cape Verde · Djibouti · Gambia · Equatorial Guinea · Liberia · Lesotho · Namibia · Sierra Leone · Somalia · South Sudan · Eswatini · Seychelles · South Africa
+
+**Quota de dificuldade:** Fácil 1 · Médio 8 · Difícil 16
+
+**Explicação PT:** Contam Botswana, República Centro-Africana, Comores, Cabo Verde, Djibouti, Gâmbia, Guiné Equatorial, Libéria, Lesoto, Namíbia, Serra Leoa, Somália, Sudão do Sul, Essuatíni, Seicheles e África do Sul. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.
+
+**Explanation EN:** Accepted: Botswana, Central African Republic, Comoros, Cape Verde, Djibouti, Gambia, Equatorial Guinea, Liberia, Lesotho, Namibia, Sierra Leone, Somalia, South Sudan, Eswatini, Seychelles and South Africa. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct.
+
+**Categoria:** flags · Verificado: 2026-11-09
+
+**Fontes:**
+
+- [UN Vienna Protocol · National flags supplied by Permanent Missions](https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf)
+- [flag-icons · National flag SVG collection](https://github.com/lipis/flag-icons/tree/main/flags/4x3)
+
+### flag-colors-africa-green-yellow-blue-contains
+
+**PT:** Nomeia países de África cuja bandeira tem verde, amarelo e azul. Pode ter outras cores. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.
+
+**EN:** Name countries in Africa whose flag has green, yellow and blue. Other colours are allowed. Ignore coats of arms, seals and fine outlines; include shades of the named colours.
+
+**Resposta:** República Centro-Africana · Comores · Eritreia · Etiópia · Gabão · Maurício · Namíbia · Ruanda · Sudão do Sul · Seicheles · Tanzânia · África do Sul
+
+**Respostas em inglês:** Central African Republic · Comoros · Eritrea · Ethiopia · Gabon · Mauritius · Namibia · Rwanda · South Sudan · Seychelles · Tanzania · South Africa
+
+**Quota de dificuldade:** Fácil 1 · Médio 6 · Difícil 12
+
+**Explicação PT:** Contam República Centro-Africana, Comores, Eritreia, Etiópia, Gabão, Maurício, Namíbia, Ruanda, Sudão do Sul, Seicheles, Tanzânia e África do Sul. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.
+
+**Explanation EN:** Accepted: Central African Republic, Comoros, Eritrea, Ethiopia, Gabon, Mauritius, Namibia, Rwanda, South Sudan, Seychelles, Tanzania and South Africa. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct.
+
+**Categoria:** flags · Verificado: 2026-11-09
+
+**Fontes:**
+
+- [UN Vienna Protocol · National flags supplied by Permanent Missions](https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf)
+- [flag-icons · National flag SVG collection](https://github.com/lipis/flag-icons/tree/main/flags/4x3)
+
+### flag-colors-africa-red-black-white-contains
+
+**PT:** Nomeia países de África cuja bandeira tem vermelho, preto e branco. Pode ter outras cores. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.
+
+**EN:** Name countries in Africa whose flag has red, black and white. Other colours are allowed. Ignore coats of arms, seals and fine outlines; include shades of the named colours.
+
+**Resposta:** Egito · Quénia · Líbia · Moçambique · Sudão · Sudão do Sul · Essuatíni · Uganda · África do Sul · Zimbabwe
+
+**Respostas em inglês:** Egypt · Kenya · Libya · Mozambique · Sudan · South Sudan · Eswatini · Uganda · South Africa · Zimbabwe
+
+**Quota de dificuldade:** Fácil 1 · Médio 5 · Difícil 10
+
+**Explicação PT:** Contam Egito, Quénia, Líbia, Moçambique, Sudão, Sudão do Sul, Essuatíni, Uganda, África do Sul e Zimbabwe. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.
+
+**Explanation EN:** Accepted: Egypt, Kenya, Libya, Mozambique, Sudan, South Sudan, Eswatini, Uganda, South Africa and Zimbabwe. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct.
+
+**Categoria:** flags · Verificado: 2026-11-09
+
+**Fontes:**
+
+- [UN Vienna Protocol · National flags supplied by Permanent Missions](https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf)
+- [flag-icons · National flag SVG collection](https://github.com/lipis/flag-icons/tree/main/flags/4x3)
+
+### flag-colors-europa-blue-white-only
+
+**PT:** Nomeia países da Europa cuja bandeira tem apenas azul e branco. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.
+
+**EN:** Name countries in Europe whose flag has only blue and white. Ignore coats of arms, seals and fine outlines; include shades of the named colours.
+
+**Resposta:** Finlândia · Grécia · San Marino
+
+**Respostas em inglês:** Finland · Greece · San Marino
+
+**Quota de dificuldade:** Fácil 1 · Médio 2 · Difícil 3
+
+**Explicação PT:** Contam Finlândia, Grécia e San Marino. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.
+
+**Explanation EN:** Accepted: Finland, Greece and San Marino. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct.
+
+**Categoria:** flags · Verificado: 2026-11-09
+
+**Fontes:**
+
+- [UN Vienna Protocol · National flags supplied by Permanent Missions](https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf)
+- [flag-icons · National flag SVG collection](https://github.com/lipis/flag-icons/tree/main/flags/4x3)
+
+### flag-colors-europa-blue-yellow-only
+
+**PT:** Nomeia países da Europa cuja bandeira tem apenas azul e amarelo. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.
+
+**EN:** Name countries in Europe whose flag has only blue and yellow. Ignore coats of arms, seals and fine outlines; include shades of the named colours.
+
+**Resposta:** Suécia · Ucrânia
+
+**Respostas em inglês:** Sweden · Ukraine
+
+**Quota de dificuldade:** Fácil 1 · Médio 1 · Difícil 2
+
+**Explicação PT:** Contam Suécia e Ucrânia. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.
+
+**Explanation EN:** Accepted: Sweden and Ukraine. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct.
+
+**Categoria:** flags · Verificado: 2026-11-09
+
+**Fontes:**
+
+- [UN Vienna Protocol · National flags supplied by Permanent Missions](https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf)
+- [flag-icons · National flag SVG collection](https://github.com/lipis/flag-icons/tree/main/flags/4x3)
+
+### flag-colors-europa-black-red-yellow-only
+
+**PT:** Nomeia países da Europa cuja bandeira tem apenas preto, vermelho e amarelo. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.
+
+**EN:** Name countries in Europe whose flag has only black, red and yellow. Ignore coats of arms, seals and fine outlines; include shades of the named colours.
+
+**Resposta:** Bélgica · Alemanha
+
+**Respostas em inglês:** Belgium · Germany
+
+**Quota de dificuldade:** Fácil 1 · Médio 1 · Difícil 2
+
+**Explicação PT:** Contam Bélgica e Alemanha. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.
+
+**Explanation EN:** Accepted: Belgium and Germany. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct.
+
+**Categoria:** flags · Verificado: 2026-11-09
+
+**Fontes:**
+
+- [UN Vienna Protocol · National flags supplied by Permanent Missions](https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf)
+- [flag-icons · National flag SVG collection](https://github.com/lipis/flag-icons/tree/main/flags/4x3)
+
+### flag-colors-europa-red-yellow-only
+
+**PT:** Nomeia países da Europa cuja bandeira tem apenas vermelho e amarelo. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.
+
+**EN:** Name countries in Europe whose flag has only red and yellow. Ignore coats of arms, seals and fine outlines; include shades of the named colours.
+
+**Resposta:** Espanha · Macedónia do Norte · Montenegro
+
+**Respostas em inglês:** Spain · North Macedonia · Montenegro
+
+**Quota de dificuldade:** Fácil 1 · Médio 2 · Difícil 3
+
+**Explicação PT:** Contam Espanha, Macedónia do Norte e Montenegro. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.
+
+**Explanation EN:** Accepted: Spain, North Macedonia and Montenegro. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct.
+
+**Categoria:** flags · Verificado: 2026-11-09
+
+**Fontes:**
+
+- [UN Vienna Protocol · National flags supplied by Permanent Missions](https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf)
+- [flag-icons · National flag SVG collection](https://github.com/lipis/flag-icons/tree/main/flags/4x3)
+
+### flag-colors-europa-red-green-white-only
+
+**PT:** Nomeia países da Europa cuja bandeira tem apenas vermelho, verde e branco. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.
+
+**EN:** Name countries in Europe whose flag has only red, green and white. Ignore coats of arms, seals and fine outlines; include shades of the named colours.
+
+**Resposta:** Bulgária · Bielorússia · Hungria · Itália
+
+**Respostas em inglês:** Bulgaria · Belarus · Hungary · Italy
+
+**Quota de dificuldade:** Fácil 1 · Médio 2 · Difícil 4
+
+**Explicação PT:** Contam Bulgária, Bielorússia, Hungria e Itália. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.
+
+**Explanation EN:** Accepted: Bulgaria, Belarus, Hungary and Italy. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct.
+
+**Categoria:** flags · Verificado: 2026-11-09
+
+**Fontes:**
+
+- [UN Vienna Protocol · National flags supplied by Permanent Missions](https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf)
+- [flag-icons · National flag SVG collection](https://github.com/lipis/flag-icons/tree/main/flags/4x3)
+
+### flag-colors-europa-blue-yellow-red-only
+
+**PT:** Nomeia países da Europa cuja bandeira tem apenas azul, amarelo e vermelho. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.
+
+**EN:** Name countries in Europe whose flag has only blue, yellow and red. Ignore coats of arms, seals and fine outlines; include shades of the named colours.
+
+**Resposta:** Andorra · Liechtenstein · Moldávia · Roménia
+
+**Respostas em inglês:** Andorra · Liechtenstein · Moldova · Romania
+
+**Quota de dificuldade:** Fácil 1 · Médio 2 · Difícil 4
+
+**Explicação PT:** Contam Andorra, Liechtenstein, Moldávia e Roménia. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.
+
+**Explanation EN:** Accepted: Andorra, Liechtenstein, Moldova and Romania. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct.
+
+**Categoria:** flags · Verificado: 2026-11-09
+
+**Fontes:**
+
+- [UN Vienna Protocol · National flags supplied by Permanent Missions](https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf)
+- [flag-icons · National flag SVG collection](https://github.com/lipis/flag-icons/tree/main/flags/4x3)
+
+### flag-colors-asia-red-white-only
+
+**PT:** Nomeia países da Ásia cuja bandeira tem apenas vermelho e branco. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.
+
+**EN:** Name countries in Asia whose flag has only red and white. Ignore coats of arms, seals and fine outlines; include shades of the named colours.
+
+**Resposta:** Bahrein · Geórgia · Indonésia · Japão · Catar · Singapura · Turquia
+
+**Respostas em inglês:** Bahrain · Georgia · Indonesia · Japan · Qatar · Singapore · Türkiye
+
+**Quota de dificuldade:** Fácil 1 · Médio 4 · Difícil 7
+
+**Explicação PT:** Contam Bahrein, Geórgia, Indonésia, Japão, Catar, Singapura e Turquia. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.
+
+**Explanation EN:** Accepted: Bahrain, Georgia, Indonesia, Japan, Qatar, Singapore and Türkiye. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct.
+
+**Categoria:** flags · Verificado: 2026-11-09
+
+**Fontes:**
+
+- [UN Vienna Protocol · National flags supplied by Permanent Missions](https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf)
+- [flag-icons · National flag SVG collection](https://github.com/lipis/flag-icons/tree/main/flags/4x3)
+- [Qatar Amiri Diwan · Flag colours](https://www.diwan.gov.qa/en/about-qatar)
+
+### flag-colors-asia-red-white-blue-only
+
+**PT:** Nomeia países da Ásia cuja bandeira tem apenas vermelho, branco e azul. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.
+
+**EN:** Name countries in Asia whose flag has only red, white and blue. Ignore coats of arms, seals and fine outlines; include shades of the named colours.
+
+**Resposta:** Camboja · Laos · Nepal · Coreia do Norte · Tailândia · Ilha Formosa
+
+**Respostas em inglês:** Cambodia · Laos · Nepal · North Korea · Thailand · Taiwan
+
+**Quota de dificuldade:** Fácil 1 · Médio 3 · Difícil 6
+
+**Explicação PT:** Contam Camboja, Laos, Nepal, Coreia do Norte, Tailândia e Ilha Formosa. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.
+
+**Explanation EN:** Accepted: Cambodia, Laos, Nepal, North Korea, Thailand and Taiwan. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct.
+
+**Categoria:** flags · Verificado: 2026-11-09
+
+**Fontes:**
+
+- [UN Vienna Protocol · National flags supplied by Permanent Missions](https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf)
+- [flag-icons · National flag SVG collection](https://github.com/lipis/flag-icons/tree/main/flags/4x3)
+- [Cambodian Embassy · Official flag colour specifications](https://asean.org/wp-content/uploads/2020/10/flagspec_Cambodia-Flag-specifications.pdf)
+
+### flag-colors-asia-red-yellow-only
+
+**PT:** Nomeia países da Ásia cuja bandeira tem apenas vermelho e amarelo. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.
+
+**EN:** Name countries in Asia whose flag has only red and yellow. Ignore coats of arms, seals and fine outlines; include shades of the named colours.
+
+**Resposta:** China · Quirguistão · Vietname
+
+**Respostas em inglês:** China · Kyrgyzstan · Vietnam
+
+**Quota de dificuldade:** Fácil 1 · Médio 2 · Difícil 3
+
+**Explicação PT:** Contam China, Quirguistão e Vietname. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.
+
+**Explanation EN:** Accepted: China, Kyrgyzstan and Vietnam. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct.
+
+**Categoria:** flags · Verificado: 2026-11-09
+
+**Fontes:**
+
+- [UN Vienna Protocol · National flags supplied by Permanent Missions](https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf)
+- [flag-icons · National flag SVG collection](https://github.com/lipis/flag-icons/tree/main/flags/4x3)
+
+### flag-colors-asia-red-green-white-only
+
+**PT:** Nomeia países da Ásia cuja bandeira tem apenas vermelho, verde e branco. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.
+
+**EN:** Name countries in Asia whose flag has only red, green and white. Ignore coats of arms, seals and fine outlines; include shades of the named colours.
+
+**Resposta:** Irão · Líbano · Omã
+
+**Respostas em inglês:** Iran · Lebanon · Oman
+
+**Quota de dificuldade:** Fácil 1 · Médio 2 · Difícil 3
+
+**Explicação PT:** Contam Irão, Líbano e Omã. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.
+
+**Explanation EN:** Accepted: Iran, Lebanon and Oman. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct.
+
+**Categoria:** flags · Verificado: 2026-11-09
+
+**Fontes:**
+
+- [UN Vienna Protocol · National flags supplied by Permanent Missions](https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf)
+- [flag-icons · National flag SVG collection](https://github.com/lipis/flag-icons/tree/main/flags/4x3)
+
+### flag-colors-americas-blue-white-only
+
+**PT:** Nomeia países das Américas cuja bandeira tem apenas azul e branco. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.
+
+**EN:** Name countries in the Americas whose flag has only blue and white. Ignore coats of arms, seals and fine outlines; include shades of the named colours.
+
+**Resposta:** Guatemala · Honduras · Nicarágua · El Salvador
+
+**Respostas em inglês:** Guatemala · Honduras · Nicaragua · El Salvador
+
+**Quota de dificuldade:** Fácil 1 · Médio 2 · Difícil 4
+
+**Explicação PT:** Contam Guatemala, Honduras, Nicarágua e El Salvador. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.
+
+**Explanation EN:** Accepted: Guatemala, Honduras, Nicaragua and El Salvador. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct.
+
+**Categoria:** flags · Verificado: 2026-11-09
+
+**Fontes:**
+
+- [UN Vienna Protocol · National flags supplied by Permanent Missions](https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf)
+- [flag-icons · National flag SVG collection](https://github.com/lipis/flag-icons/tree/main/flags/4x3)
+
+### flag-colors-americas-red-white-only
+
+**PT:** Nomeia países das Américas cuja bandeira tem apenas vermelho e branco. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.
+
+**EN:** Name countries in the Americas whose flag has only red and white. Ignore coats of arms, seals and fine outlines; include shades of the named colours.
+
+**Resposta:** Canadá · Perú
+
+**Respostas em inglês:** Canada · Peru
+
+**Quota de dificuldade:** Fácil 1 · Médio 1 · Difícil 2
+
+**Explicação PT:** Contam Canadá e Perú. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.
+
+**Explanation EN:** Accepted: Canada and Peru. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct.
+
+**Categoria:** flags · Verificado: 2026-11-09
+
+**Fontes:**
+
+- [UN Vienna Protocol · National flags supplied by Permanent Missions](https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf)
+- [flag-icons · National flag SVG collection](https://github.com/lipis/flag-icons/tree/main/flags/4x3)
+
+### flag-colors-americas-blue-black-yellow-only
+
+**PT:** Nomeia países das Américas cuja bandeira tem apenas azul, preto e amarelo. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.
+
+**EN:** Name countries in the Americas whose flag has only blue, black and yellow. Ignore coats of arms, seals and fine outlines; include shades of the named colours.
+
+**Resposta:** Bahamas · Barbados
+
+**Respostas em inglês:** Bahamas · Barbados
+
+**Quota de dificuldade:** Fácil 1 · Médio 1 · Difícil 2
+
+**Explicação PT:** Contam Bahamas e Barbados. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.
+
+**Explanation EN:** Accepted: Bahamas and Barbados. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct.
+
+**Categoria:** flags · Verificado: 2026-11-09
+
+**Fontes:**
+
+- [UN Vienna Protocol · National flags supplied by Permanent Missions](https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf)
+- [flag-icons · National flag SVG collection](https://github.com/lipis/flag-icons/tree/main/flags/4x3)
+
+### flag-colors-americas-red-green-contains
+
+**PT:** Nomeia países das Américas cuja bandeira tem vermelho e verde. Pode ter outras cores. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.
+
+**EN:** Name countries in the Americas whose flag has red and green. Other colours are allowed. Ignore coats of arms, seals and fine outlines; include shades of the named colours.
+
+**Resposta:** Bolívia · Dominica · Granada · Guiana · São Cristóvão e Nevis · México · Suriname
+
+**Respostas em inglês:** Bolivia · Dominica · Grenada · Guyana · Saint Kitts and Nevis · Mexico · Suriname
+
+**Quota de dificuldade:** Fácil 1 · Médio 4 · Difícil 7
+
+**Explicação PT:** Contam Bolívia, Dominica, Granada, Guiana, São Cristóvão e Nevis, México e Suriname. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.
+
+**Explanation EN:** Accepted: Bolivia, Dominica, Grenada, Guyana, Saint Kitts and Nevis, Mexico and Suriname. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct.
+
+**Categoria:** flags · Verificado: 2026-11-09
+
+**Fontes:**
+
+- [UN Vienna Protocol · National flags supplied by Permanent Missions](https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf)
+- [flag-icons · National flag SVG collection](https://github.com/lipis/flag-icons/tree/main/flags/4x3)
+
+### flag-colors-oceania-blue-yellow-contains
+
+**PT:** Nomeia países da Oceânia cuja bandeira tem azul e amarelo. Pode ter outras cores. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.
+
+**EN:** Name countries in Oceania whose flag has blue and yellow. Other colours are allowed. Ignore coats of arms, seals and fine outlines; include shades of the named colours.
+
+**Resposta:** Kiribati · Nauru · Palau · Ilhas Salomão · Tuvalu
+
+**Respostas em inglês:** Kiribati · Nauru · Palau · Solomon Islands · Tuvalu
+
+**Quota de dificuldade:** Fácil 1 · Médio 3 · Difícil 5
+
+**Explicação PT:** Contam Kiribati, Nauru, Palau, Ilhas Salomão e Tuvalu. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.
+
+**Explanation EN:** Accepted: Kiribati, Nauru, Palau, Solomon Islands and Tuvalu. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct.
+
+**Categoria:** flags · Verificado: 2026-11-09
+
+**Fontes:**
+
+- [UN Vienna Protocol · National flags supplied by Permanent Missions](https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf)
+- [flag-icons · National flag SVG collection](https://github.com/lipis/flag-icons/tree/main/flags/4x3)
+
+### flag-colors-oceania-blue-white-contains
+
+**PT:** Nomeia países da Oceânia cuja bandeira tem azul e branco. Pode ter outras cores. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.
+
+**EN:** Name countries in Oceania whose flag has blue and white. Other colours are allowed. Ignore coats of arms, seals and fine outlines; include shades of the named colours.
+
+**Resposta:** Austrália · Fiji · Micronésia · Kiribati · Ilhas Marshall · Nauru · Nova Zelândia · Ilhas Salomão · Tuvalu · Samoa
+
+**Respostas em inglês:** Australia · Fiji · Micronesia · Kiribati · Marshall Islands · Nauru · New Zealand · Solomon Islands · Tuvalu · Samoa
+
+**Quota de dificuldade:** Fácil 1 · Médio 5 · Difícil 10
+
+**Explicação PT:** Contam Austrália, Fiji, Micronésia, Kiribati, Ilhas Marshall, Nauru, Nova Zelândia, Ilhas Salomão, Tuvalu e Samoa. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.
+
+**Explanation EN:** Accepted: Australia, Fiji, Micronesia, Kiribati, Marshall Islands, Nauru, New Zealand, Solomon Islands, Tuvalu and Samoa. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct.
+
+**Categoria:** flags · Verificado: 2026-11-09
+
+**Fontes:**
+
+- [UN Vienna Protocol · National flags supplied by Permanent Missions](https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf)
+- [flag-icons · National flag SVG collection](https://github.com/lipis/flag-icons/tree/main/flags/4x3)
+
+### flag-colors-oceania-red-yellow-contains
+
+**PT:** Nomeia países da Oceânia cuja bandeira tem vermelho e amarelo. Pode ter outras cores. Ignora brasões, selos e contornos finos; inclui os tons das cores indicadas.
+
+**EN:** Name countries in Oceania whose flag has red and yellow. Other colours are allowed. Ignore coats of arms, seals and fine outlines; include shades of the named colours.
+
+**Resposta:** Kiribati · Papua Nova Guiné · Tuvalu · Vanuatu
+
+**Respostas em inglês:** Kiribati · Papua New Guinea · Tuvalu · Vanuatu
+
+**Quota de dificuldade:** Fácil 1 · Médio 2 · Difícil 4
+
+**Explicação PT:** Contam Kiribati, Papua Nova Guiné, Tuvalu e Vanuatu. Incluem-se os painéis de fundo e símbolos fora dos brasões; dourado conta como amarelo e bordô como vermelho, mas laranja é distinto.
+
+**Explanation EN:** Accepted: Kiribati, Papua New Guinea, Tuvalu and Vanuatu. Background panels and symbols outside coats of arms count; gold counts as yellow and maroon as red, but orange is distinct.
+
+**Categoria:** flags · Verificado: 2026-11-09
+
+**Fontes:**
+
+- [UN Vienna Protocol · National flags supplied by Permanent Missions](https://www.unvienna.org/uploads/protocol/res/generic-information_html/A-Z_Flags_external.pdf)
+- [flag-icons · National flag SVG collection](https://github.com/lipis/flag-icons/tree/main/flags/4x3)
 
 ### multiple-doubly-landlocked
 
