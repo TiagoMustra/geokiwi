@@ -52,7 +52,7 @@ As entidades têm um ID único, nomes PT/EN e aliases. A resposta é comparada s
 
 `EASY`: 1 elemento. `MEDIUM`: `Math.ceil(total / 2)`. `HARD`: todos. Num conjunto de cinco países, as quotas são 1 / 3 / 5. Num conjunto de dois, são 1 / 1 / 2. A dificuldade altera apenas a quota de `TEXT_MULTIPLE`, conforme o requisito; fica fixa durante a partida e visível na pergunta. Saves e recordes distinguem rondas e dificuldade.
 
-A UI diz «Acertaste X de Y», em que Y é a quota atual, e mostra também o total de soluções possíveis. Elementos errados ou repetidos não terminam a lista: dão uma mensagem e permitem continuar. A lista termina ao atingir a quota ou ao saltar. Saltar dá zero pontos, mantém os elementos já encontrados para revisão e revela a solução completa.
+A UI diz «Acertaste X de Y», em que Y é a quota atual, e mostra também o total de soluções possíveis. Elementos errados ou repetidos não terminam a lista: dão uma mensagem e permitem continuar. A lista termina ao atingir a quota ou ao saltar. Os pontos das listas são `floor(100 × acertos / quota)`: dois de três valem 66. Entram no total à medida que se responde, sem duplicar ao concluir. O botão passa de Saltar a «Concluir com X pontos» quando já há acertos; conserva-os e revela a solução completa. Sem acertos, Saltar continua a dar zero.
 
 ## Números, unidades e limites
 
@@ -68,7 +68,7 @@ A UI diz «Acertaste X de Y», em que Y é a quota atual, e mostra também o tot
 
 O pin usa o mapa físico existente, sem realce de países ao passar o rato, com rios, lagos, relevo e movimento/zoom. A coordenada de domínio é `{lat, lng}`; só o adaptador usa `[lng, lat]` de MapLibre/GeoJSON. A solução e a ligação ao palpite aparecem depois de confirmar ou saltar.
 
-Nomes, booleanos e listas dão 100 pontos ao acertar e 0 ao falhar. Números e sliders dão 0–100 por proximidade, usando o erro absoluto na unidade da pergunta. A curva é `round(100 × max(0, 1 − (erro − margem100) / (erroZero − margem100))²)`. Dentro da margem, recebe 100; fora dela, a pontuação fica limitada a 99 até cair a zero.
+Nomes individuais e booleanos dão 100 pontos ao acertar e 0 ao falhar. Listas dão 0–100 pontos proporcionais à quota da dificuldade. Números e sliders dão 0–100 por proximidade, usando o erro absoluto na unidade da pergunta. A curva é `round(100 × max(0, 1 − (erro − margem100) / (erroZero − margem100))²)`. Dentro da margem, recebe 100; fora dela, a pontuação fica limitada a 99 até cair a zero.
 
 Por defeito, contagens/alturas permitem 2% de erro para 100 pontos e dão zero a partir de um erro igual ao valor-alvo (mínimo de uma unidade). Para a CN Tower: 550 m → 100, 500 m → 85, 400 m → 54, 200 m → 14, 0 m → 0. `267k` é uma aproximação válida dos 267 570 do levantamento sueco e recebe 100. Nas datas, a escala é absoluta: ano correto → 100, desvio de um ano → 96, de dez anos → 64, de cinquenta anos → 0. Evita-se aplicar uma percentagem ao número do ano. Distâncias usam a tolerância em km da pergunta e uma escala zero de pelo menos 250 km. `scoring.fullCreditError/zeroCreditError` permite configurar as duas margens por pergunta, sempre em unidades absolutas.
 
@@ -78,7 +78,7 @@ O feedback permanece visível em acertos, aproximações, erros ou saltos até o
 
 ## Persistência e compatibilidade
 
-`localStorage` continua a guardar tudo neste navegador. Não foi acrescentado servidor, base de dados ou conta. Chaves: `geokiwi.geoguru.saves.v2` e `geokiwi.geoguru.records.v2`, com slots `10:EASY`, `20:MEDIUM`, etc. `scoringVersion: 3` identifica a pontuação por aproximação. O progresso e a pontuação são reconstruídos a partir dos eventos; partidas anteriores conservam a ordem e os palpites e recebem a nova pontuação ao retomar. Os recordes existentes mantêm-se. IDs desconhecidos, revisões incompatíveis e eventos impossíveis não são retomados.
+`localStorage` continua a guardar tudo neste navegador. Não foi acrescentado servidor, base de dados ou conta. Chaves: `geokiwi.geoguru.saves.v2` e `geokiwi.geoguru.records.v2`, com slots `10:EASY`, `20:MEDIUM`, etc. `scoringVersion: 4` identifica a pontuação por aproximação e o crédito parcial das listas. O progresso e a pontuação são reconstruídos a partir dos eventos; partidas anteriores conservam a ordem e os palpites e recebem a nova pontuação ao retomar. Os recordes existentes mantêm-se. IDs desconhecidos, revisões incompatíveis e eventos impossíveis não são retomados.
 
 O histórico `geokiwi.geoguru.history.v1` guarda apenas IDs de perguntas efetivamente apresentadas, por ordem de visualização, sem reservar o resto da fila. É partilhado entre dificuldades e quantidades de rondas neste navegador. `createNewQuiz` evita repetir perguntas vistas enquanto existirem inéditas suficientes; se restarem poucas, usa todas antes de reciclar antigas. Um tipo esgotado não força a repetição das suas perguntas. Formatos diferentes sobre o mesmo facto usam `topicId` para evitar a mesma matéria duas vezes numa partida quando há alternativas. Partidas novas de pelo menos 10 rondas incluem uma pergunta inédita de bandeiras e uma de nomes/letras, enquanto houver alguma em cada grupo; estes destaques nunca forçam repetições. A ordem final é baralhada. Retomar continua a conservar a fila guardada; reiniciar ou jogar de novo usa a nova seleção. Ver [quiz-bank.md](quiz-bank.md) para contagens e proveniência.
 

@@ -46,6 +46,7 @@
 .quiz-slider .quiz-unit-field input{font-variant-numeric:tabular-nums}
 .quiz-progress-label{display:flex;justify-content:space-between;gap:10px;font:12px Space,sans-serif;color:var(--progress-ink)}
 .quiz-progress-label>span{color:var(--progress-soft);font-size:11px}.quiz-progress-track{height:4px;background:var(--line);margin-top:7px}.quiz-progress-track>i{display:block;height:100%;background:var(--accent);transition:width .15s}
+.quiz-list-points{display:block;margin-top:7px;font:600 12px/1.4 Space,sans-serif;color:var(--progress-ink)}
 .quiz-found-list{display:flex;flex-wrap:wrap;gap:5px;list-style:none;padding:0;margin:9px 0 0}.quiz-found-list li{display:inline-flex;align-items:center;gap:5px;padding:4px 7px;font:11px Space,sans-serif;background:var(--tint);color:var(--progress-ink)}
 .quiz-question-footer{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:12px;color:var(--progress-soft);font:10px Space,sans-serif}
 .quiz-question-footer .play-skip{display:flex;align-items:center;gap:8px;margin-left:auto;min-height:32px;border:0;background:transparent;color:var(--progress-soft);padding:5px 0 5px 12px;font:9px var(--mono)}

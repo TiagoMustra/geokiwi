@@ -1,6 +1,6 @@
 import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { normalizeAnswer } from '../../lib/game.js';
-import { inputBounds, parseSmartNumber, requiredAnswers, sliderSolutionPosition } from '../../quiz/engine.js';
+import { inputBounds, parseSmartNumber, requiredAnswers, multipleAnswerPoints, sliderSolutionPosition } from '../../quiz/engine.js';
 import { suggestionEntities } from '../../quiz/questions.js';
 import { allowsQuizSuggestions } from '../../quiz/presentation.js';
 import { Icon } from '../Icon.jsx';
@@ -43,8 +43,8 @@ export function EntityTextInput({question,foundIds,disabled,onSubmit,locale,sugg
 }
 
 export function MultipleProgress({question,difficulty,foundIds,locale}) {
-  const total=question.answer.accepted.length,required=requiredAnswers(total,difficulty),found=foundIds.length;
-  return <div className="quiz-multiple-progress"><div className="quiz-progress-label" role="status"><strong>{locale==='en'?`Found ${found} of ${required}`:`Acertaste ${found} de ${required}`}</strong><span>{total} {locale==='en'?'possible':'possíveis'}</span></div><div className="quiz-progress-track" role="progressbar" aria-label={locale==='en'?'Answers found':'Respostas descobertas'} aria-valuenow={found} aria-valuemin={0} aria-valuemax={required}><i style={{width:`${Math.min(100,found/required*100)}%`}}/></div>{foundIds.length>0&&<ul className="quiz-found-list">{foundIds.map(id=><li key={id}><Icon name="check" size={12}/>{question.answer.accepted.find(e=>e.id===id)?.label[locale]}</li>)}</ul>}</div>;
+  const total=question.answer.accepted.length,required=requiredAnswers(total,difficulty),found=foundIds.length,points=multipleAnswerPoints(found,total,difficulty);
+  return <div className="quiz-multiple-progress"><div className="quiz-progress-label" role="status"><strong>{locale==='en'?`Found ${found} of ${required}`:`Acertaste ${found} de ${required}`}</strong><span>{total} {locale==='en'?'possible':'possíveis'}</span></div><div className="quiz-progress-track" role="progressbar" aria-label={locale==='en'?'Answers found':'Respostas descobertas'} aria-valuenow={found} aria-valuemin={0} aria-valuemax={required}><i style={{width:`${Math.min(100,found/required*100)}%`}}/></div><output className="quiz-list-points" aria-live="polite">{points}/100 {locale==='en'?'points':'pontos'}</output>{foundIds.length>0&&<ul className="quiz-found-list">{foundIds.map(id=><li key={id}><Icon name="check" size={12}/>{question.answer.accepted.find(e=>e.id===id)?.label[locale]}</li>)}</ul>}</div>;
 }
 
 export function NumberExactInput({question,disabled,onSubmit,locale}) {

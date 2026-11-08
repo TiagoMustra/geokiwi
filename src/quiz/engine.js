@@ -4,12 +4,17 @@ import { selectQuizQuestions } from './selection.js';
 export const DIFFICULTIES = ['EASY', 'MEDIUM', 'HARD'];
 export const INPUT_TYPES = ['TRUE_FALSE','TEXT_SINGLE','TEXT_MULTIPLE','NUMBER_EXACT','MAP_PINPOINT','SLIDER_TIMELINE','SLIDER_DISTANCE'];
 export const MAX_DISTANCE_KM = 20037;
-export const QUIZ_SCORING_VERSION = 3;
+export const QUIZ_SCORING_VERSION = 4;
 export const validDifficulty = value => DIFFICULTIES.includes(value) ? value : 'EASY';
 export const currentYear = () => new Date().getFullYear();
 export function requiredAnswers(total, difficulty) {
   if (!Number.isInteger(total) || total < 1) throw new RangeError('Empty answer set');
   return difficulty === 'HARD' ? total : difficulty === 'MEDIUM' ? Math.ceil(total / 2) : 1;
+}
+/** Whole points, rounded down: two of three required answers earn 66/100. */
+export function multipleAnswerPoints(found, total, difficulty = 'EASY') {
+  const required = requiredAnswers(total, difficulty);
+  return Math.floor(100 * Math.max(0, Math.min(found, required)) / required);
 }
 
 /** Decimal comma or point with a suffix; locale-specific thousands without one.
@@ -81,7 +86,7 @@ export function sliderSolutionPosition(question) {
 /** @param {import('./types').QuizQuestion} question */
 export function evaluateSubmission(question,value,{difficulty='EASY',foundIds=[],skipped=false,locale='pt',year=currentYear()}={}) {
   const base={questionId:question.id,value,skipped,foundIds:[...foundIds],points:0,correct:false};
-  if (skipped) return {answer:{...base,value:''},foundIds,notice:null};
+  if (skipped) return {answer:{...base,value:'',points:question.inputType==='TEXT_MULTIPLE'?multipleAnswerPoints(foundIds.length,question.answer.accepted.length,difficulty):0},foundIds,notice:null};
   let correct=false,extra={};
   switch(question.inputType) {
     case 'TRUE_FALSE':
@@ -139,10 +144,13 @@ export function submitQuiz(game,bankById,value,{skipped=false,locale='pt'}={}) {
   if(!question)return game;
   const result=evaluateSubmission(question,value,{difficulty:game.difficulty,foundIds:game.foundIds,skipped,locale});
   if(!result.answer&&!result.accepted)return {...game,notice:result.notice};
+  // List points accrue during entry; concluding the question must not add them twice.
+  const priorPoints=question.inputType==='TEXT_MULTIPLE'?multipleAnswerPoints(game.foundIds.length,question.answer.accepted.length,game.difficulty):0;
+  const earnedPoints=result.answer?.points??multipleAnswerPoints(result.foundIds.length,question.answer.accepted.length,game.difficulty);
   return {...game,notice:null,foundIds:result.foundIds,
     events:[...game.events,{index:game.index,value:skipped?'':value,locale,skipped}],
     answers:result.answer?[...game.answers,result.answer]:game.answers,
-    score:game.score+(result.answer?.points||0)};
+    score:game.score+earnedPoints-priorPoints};
 }
 export function nextQuiz(game) {
   if(game.finished||!game.answers[game.index])return game;

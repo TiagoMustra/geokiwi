@@ -49,7 +49,7 @@ test('multiple answers accumulate, deduplicate translated aliases, and finish on
       if(i<required-1){
         assert.equal(game.answers.length,0);
         const duplicate=submitQuiz(game,bank,list.answer.accepted[i].label.en,{locale:'en'});
-        assert.equal(duplicate.notice,'duplicate');assert.equal(duplicate.events.length,game.events.length);assert.equal(duplicate.score,0);
+        assert.equal(duplicate.notice,'duplicate');assert.equal(duplicate.events.length,game.events.length);assert.equal(duplicate.score,game.score);
       }
     }
     assert.equal(game.score,100);assert.equal(game.answers.length,1);
@@ -133,17 +133,17 @@ test('runs mix input types, use a question once and score each submission at mos
   }
   assert.equal(game.finished,true);assert.equal(game.score,0);
 });
-test('skipping a partially completed list reveals it and gives zero points',()=>{
+test('concluding a partially completed list reveals it and retains earned points',()=>{
   let game=submitQuiz(newRun(list,'HARD'),bank,'Russia');
   game=submitQuiz(game,bank,'',{skipped:true});assert.equal(game.answers[0].skipped,true);
-  assert.deepEqual(game.answers[0].foundIds,['643']);assert.equal(game.score,0);
+  assert.deepEqual(game.answers[0].foundIds,['643']);assert.equal(game.score,20);assert.equal(game.answers[0].points,20);
 });
 test('saves restore partial lists and recompute scores instead of trusting edited snapshots',()=>{
   let game=submitQuiz(newRun(list,'HARD'),bank,'Russia');const storage=memory();
   assert.equal(checkpointQuiz(game,storage),true);
-  let restored=readQuizSave(10,'HARD',storage);assert.deepEqual(restored.foundIds,['643']);assert.equal(restored.score,0);
+  let restored=readQuizSave(10,'HARD',storage);assert.deepEqual(restored.foundIds,['643']);assert.equal(restored.score,20);
   const saved=JSON.parse(storage.getItem(QUIZ_SAVE_KEY));saved['10:HARD'].score=9999;saved['10:HARD'].foundIds=list.answer.accepted.map(e=>e.id);storage.setItem(QUIZ_SAVE_KEY,JSON.stringify(saved));
-  restored=readQuizSave(10,'HARD',storage);assert.deepEqual(restored.foundIds,['643']);assert.equal(restored.score,0);
+  restored=readQuizSave(10,'HARD',storage);assert.deepEqual(restored.foundIds,['643']);assert.equal(restored.score,20);
   game=submitQuiz(restored,bank,'Iran');assert.equal(game.foundIds.length,2);
   const stale={...saved['10:HARD'],revisions:{[list.id]:999}};assert.equal(restoreQuiz(stale),null);
 });
@@ -159,7 +159,7 @@ test('older numeric saves recalculate partial points while keeping guesses and r
   const game=submitQuiz(newRun(bank['number-cn-tower']),bank,'400');
   const old={...game,scoringVersion:2,score:0,answers:game.answers.map(a=>({...a,points:0}))};
   const restored=restoreQuiz(old);
-  assert.equal(restored.scoringVersion,3);assert.equal(restored.score,54);
+  assert.equal(restored.scoringVersion,4);assert.equal(restored.score,54);
   assert.equal(restored.answers[0].value,400);assert.deepEqual(restored.queue,old.queue);
   assert.equal(submitQuiz(restored,bank,'553.33'),restored);
 });

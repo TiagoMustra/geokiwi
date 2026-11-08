@@ -110,7 +110,7 @@ export interface SubmissionEvent {
 }
 export interface QuizRun {
   version: 2;
-  scoringVersion: 3;
+  scoringVersion: 4;
   id: string;
   startedAt: number;
   rounds: number;
