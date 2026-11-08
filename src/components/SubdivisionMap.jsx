@@ -2,8 +2,9 @@ import { useEffect, useMemo, useRef } from 'react';
 import { geoAlbersUsa, geoMercator, geoPath, select, zoom, zoomIdentity } from 'd3';
 import { Icon } from './Icon.jsx';
 
-export default function SubdivisionMap({ kind, features, districts = null, onChoose, answered = false, solved = [], wrong = [], flash, keepCorrect = true, review = false, focusIds = [] }) {
+export default function SubdivisionMap({ kind, features, districts = null, onChoose, answered = false, solved = [], wrong = [], flash, keepCorrect = true, review = false, focusIds = [], playableIds = null }) {
   const svgRef = useRef(null), groupRef = useRef(null), zoomRef = useRef(null);
+  const eligibleIds = useMemo(() => playableIds === null ? null : new Set(playableIds), [playableIds]);
   const reviewProjection = useMemo(() => {
     if (!review || kind !== 'municipios' || !focusIds.length || focusIds.length === features.length) return null;
     const selected = features.filter(f => focusIds.includes(String(f.id)));
@@ -33,7 +34,8 @@ export default function SubdivisionMap({ kind, features, districts = null, onCho
     return () => svg.on('.zoom', null);
   }, []);
   return <div className="map-container subdivision-map"><svg ref={svgRef} viewBox="0 0 1100 650" role="group" aria-label="Mapa interativo. Arrasta para mover e usa os botões para ampliar."><rect width="1100" height="650" className="mercator-ocean"/><g ref={groupRef}>{paths.map(({feature,d}) => {
-    const id=String(feature.id); const classes=`country playable${keepCorrect && solved.includes(id) ? ' correct' : ''}${wrong.includes(id) ? ' wrong' : ''}${flash?.id===id ? flash.correct ? ' correct':' wrong' : ''}${flash && !flash.correct && flash.targetId===id ? kind === 'municipios' ? ' reveal-answer' : ' correct' : ''}`;
-    return <path key={id} data-subdivision-id={id} d={d || undefined} className={classes} vectorEffect="non-scaling-stroke" role={review ? undefined : 'button'} tabIndex={answered ? -1 : 0} aria-label={`Selecionar ${feature.properties.name}`} onClick={e => { if (!e.defaultPrevented && !answered) onChoose(id); }} onKeyDown={e => { if (!answered && (e.key==='Enter'||e.key===' ')) {e.preventDefault();onChoose(id);} }} />;
+    const id=String(feature.id), eligible=!eligibleIds || eligibleIds.has(id), interactive=eligible&&!answered&&!review;
+    const classes=`country ${eligible?'playable':'outside'}${eligible&&keepCorrect&&solved.includes(id)?' correct':''}${eligible&&wrong.includes(id)?' wrong':''}${eligible&&flash?.id===id?flash.correct?' correct':' wrong':''}${eligible&&flash&&!flash.correct&&flash.targetId===id?kind==='municipios'?' reveal-answer':' correct':''}`;
+    return <path key={id} data-subdivision-id={id} d={d || undefined} className={classes} vectorEffect="non-scaling-stroke" pointerEvents={eligible?undefined:'none'} role={interactive?'button':undefined} tabIndex={interactive?0:undefined} aria-label={interactive?`Selecionar ${feature.properties.name}`:feature.properties.name} onClick={e => { if (!e.defaultPrevented && interactive) onChoose(id); }} onKeyDown={e => { if (interactive && (e.key==='Enter'||e.key===' ')) {e.preventDefault();onChoose(id);} }} />;
   })}{districtPath && <path d={districtPath} className="district-boundary" vectorEffect="non-scaling-stroke" pointerEvents="none" aria-hidden="true"/>}</g></svg>{kind === 'municipios' && <div className="district-legend"><i/> LIMITE DE DISTRITO</div>}<div className="map-controls"><button aria-label="Aumentar zoom" onClick={() => select(svgRef.current).transition().duration(200).call(zoomRef.current.scaleBy,1.5)}><Icon name="plus"/></button><button aria-label="Diminuir zoom" onClick={() => select(svgRef.current).transition().duration(200).call(zoomRef.current.scaleBy,1/1.5)}><Icon name="minus"/></button><button aria-label="Recentrar" onClick={() => select(svgRef.current).transition().duration(200).call(zoomRef.current.transform,zoomIdentity)}><Icon name="crosshair"/></button></div><div className="map-credit">{kind==='municipios' ? 'DGT · CAOP' : 'US CENSUS · US ATLAS'}</div></div>;
 }
