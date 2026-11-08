@@ -20,7 +20,7 @@ O modo Conhecimento geral usa agora uma união discriminada por `inputType`. Os 
 | `src/quiz/storage.js` | Saves e recordes por rondas/dificuldade; reconstrução das respostas e migração da versão anterior |
 | `src/quiz/presentation.js` | Nomes localizados dos tipos, soluções, dificuldade e erros |
 | `src/components/quiz/QuestionInput.jsx` | Router dos sete tipos e componentes de input reutilizáveis |
-| `src/components/CountryClueGame.jsx` | Orquestração: pergunta, input, mapa, feedback, avanço, resultados, pausa e reinício |
+| `src/components/CountryClueGame.jsx` | Orquestração: pergunta, input, mapa, feedback, avanço, resultados e reinício |
 | `src/quiz/quiz.css` | UI compacta com os temas e estilo existentes |
 
 Fluxo: **dados → `QuestionInput` → submissão → `submitQuiz` → feedback/progresso → checkpoint → próxima pergunta**. O componente nunca decide se uma resposta está correta. Uma submissão repetida durante o feedback não altera a pontuação.
@@ -74,7 +74,7 @@ Por defeito, contagens/alturas permitem 2% de erro para 100 pontos e dão zero a
 
 O pin conserva a fórmula: 100 dentro da tolerância e, fora dela, `round(100 × exp(-distânciaKm / decayKm))`, limitado a 0–100. Não existe penalização por país diferente nestas perguntas genéricas; o jogo separado de capitais mantém as suas regras. Nos sliders, o palpite mantém-se visível e a resposta correta aparece marcada na própria barra após responder ou saltar. Os botões de verdadeiro/falso são neutros antes de responder.
 
-O feedback dura 3 segundos em acertos e 4,5 segundos em aproximações, erros ou saltos. Continua a existir pausa para ler. O ecrã final dá destaque aos pontos e mostra a média por ronda; este modo só oferece jogar novamente ou voltar ao menu, sem revisão nem treino dos erros.
+O feedback permanece visível em acertos, aproximações, erros ou saltos até o utilizador clicar no cartão da resposta. Não há temporizador nem botão de pausa neste modo. O ecrã final dá destaque aos pontos e mostra a média por ronda; este modo só oferece jogar novamente ou voltar ao menu, sem revisão nem treino dos erros.
 
 ## Persistência e compatibilidade
 
@@ -86,7 +86,7 @@ As partidas antigas de texto são adaptadas como Easy, com a mesma ordem e respo
 
 ## Pistas visuais e língua dos nomes
 
-Os pins identificam o tipo de alvo (`placeType`: cidade, cume ou monumento). Os dez monumentos têm fotografias locais, sem bandeiras visíveis na inspeção, que podem ser ampliadas num diálogo; o feedback pausa enquanto o diálogo está aberto. O nome do país só é mostrado na solução. A mira fixa foi removida do mapa partilhado. Autoria, licença e origem acompanham cada foto, com lista completa em `public/licenses/landmark-photos.txt`.
+Os pins identificam o tipo de alvo (`placeType`: cidade, cume ou monumento). Os dez monumentos têm fotografias locais, sem bandeiras visíveis na inspeção, que podem ser ampliadas num diálogo; o avanço fica bloqueado enquanto o diálogo está aberto. O nome do país só é mostrado na solução. A mira fixa foi removida do mapa partilhado. Autoria, licença e origem acompanham cada foto, com lista completa em `public/licenses/landmark-photos.txt`.
 
 As perguntas de nomes têm `nameLanguage` fixo, não inferido do idioma atual: contam os nomes comuns do catálogo do jogo nessa língua, sem espaços/hífens e com acentos normalizados. As duas traduções do enunciado deixam explícita essa língua. Trocar PT/EN durante uma partida mantém os mesmos critérios e respostas. Uma partida nova só seleciona a variante de nomes do idioma escolhido. Bandeiras usam conjuntos completos e finitos e as quotas habituais de dificuldade.
 
@@ -132,3 +132,9 @@ O cartão chama-se «Conhecimento geral» / «General knowledge» e mantém-se e
 ## Curadoria de formatos
 
 A revisão dos 53 V/F mantém cinco relações/equívocos com interesse próprio, converte sete e retira 41 repetidos ou fracos. A pergunta científica do Namibe continua V/F; Kiribati é identificação de país e Berlim fica só na timeline. O contador e as exportações usam apenas perguntas ativas. `quizQuestionById` mantém objetos arquivados para reconstruir eventos antigos. A atualização de uma partida substitui só perguntas retiradas ainda sem resposta, sem alterar pontos/respostas e sem criar IDs repetidos. O histórico converte os IDs antigos para a versão canónica. Ver `quiz-editorial-review.md`.
+
+## Feedback e avanço manual
+
+Cada resposta concluída mostra os pontos ganhos numa animação ascendente, do vermelho (poucos pontos) ao verde (100 pontos), e mantém o valor no cartão da solução. O quiz não avança por tempo: clica no cartão da resposta, ou ativa o seu botão com Enter/Espaço, para continuar. Os links das fontes abrem sem avançar a ronda.
+
+As perguntas sobre os próprios nomes (categoria `names` ou `nameLanguage`) nunca oferecem autocomplete, mesmo com as sugestões ativadas. A opção continua disponível nas restantes perguntas de escrita.

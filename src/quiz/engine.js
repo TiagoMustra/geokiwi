@@ -5,7 +5,6 @@ export const DIFFICULTIES = ['EASY', 'MEDIUM', 'HARD'];
 export const INPUT_TYPES = ['TRUE_FALSE','TEXT_SINGLE','TEXT_MULTIPLE','NUMBER_EXACT','MAP_PINPOINT','SLIDER_TIMELINE','SLIDER_DISTANCE'];
 export const MAX_DISTANCE_KM = 20037;
 export const QUIZ_SCORING_VERSION = 3;
-export const quizFeedbackDuration = answer => answer.correct ? 3000 : 4500;
 export const validDifficulty = value => DIFFICULTIES.includes(value) ? value : 'EASY';
 export const currentYear = () => new Date().getFullYear();
 export function requiredAnswers(total, difficulty) {

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import { createQuiz, evaluateSubmission, requiredAnswers, parseSmartNumber, inputBounds, MAX_DISTANCE_KM, distanceKm, fromLngLat, toLngLat, submitQuiz, nextQuiz, validateQuestion, INPUT_TYPES, numericScoring, scoreNumericAnswer, sliderSolutionPosition, quizFeedbackDuration } from '../src/quiz/engine.js';
+import { createQuiz, evaluateSubmission, requiredAnswers, parseSmartNumber, inputBounds, MAX_DISTANCE_KM, distanceKm, fromLngLat, toLngLat, submitQuiz, nextQuiz, validateQuestion, INPUT_TYPES, numericScoring, scoreNumericAnswer, sliderSolutionPosition } from '../src/quiz/engine.js';
 import { dynamicQuestions, quizQuestions, quizQuestionById as bank } from '../src/quiz/questions.js';
 import { restoreQuiz, checkpointQuiz, readQuizSave, readQuizRecord, saveQuizRecord, QUIZ_SAVE_KEY } from '../src/quiz/storage.js';
 import { quizRetirements } from '../src/quiz/editorial-review.js';
@@ -99,11 +99,6 @@ test('slider solutions use the same bounded scale as the thumb, including BCE an
   assert.ok(sliderSolutionPosition(ancient)>0&&sliderSolutionPosition(ancient)<10);
   assert.equal(sliderSolutionPosition({...bank['distance-lisbon-paris'],answer:{km:0,toleranceKm:0}}),0);
   assert.equal(sliderSolutionPosition({...bank['distance-lisbon-paris'],answer:{km:20037,toleranceKm:0}}),100);
-});
-test('both correct and incorrect quiz feedback allow time to read the answer',()=>{
-  assert.equal(quizFeedbackDuration({correct:true}),3000);
-  assert.equal(quizFeedbackDuration({correct:false,points:54}),4500);
-  assert.equal(quizFeedbackDuration({correct:false,skipped:true}),4500);
 });
 test('timeline and distance bounds apply equally to manual entry and sliders',()=>{
   const q={...bank['timeline-berlin'],range:{min:-3000,max:'CURRENT_YEAR',step:1}};

@@ -1,4 +1,9 @@
 import { inputBounds } from './engine.js';
+/** Lexical clues must be solved from memory, never from an entity list. */
+export const allowsQuizSuggestions = question => ['TEXT_SINGLE','TEXT_MULTIPLE'].includes(question.inputType)
+  && question.category !== 'names' && !question.nameLanguage && question.suggestionDomain !== 'none';
+/** Continuous red → orange → yellow → green for the shared 0–100 scale. */
+export const quizPointsColor = points => `hsl(${Math.round(Math.max(0,Math.min(100,Number(points)||0))*1.2)} 78% var(--quiz-points-lightness,60%))`;
 export const placeTypeLabel=(type,locale)=>({city:{pt:'Cidade',en:'City'},peak:{pt:'Cume',en:'Summit'},monument:{pt:'Monumento',en:'Monument'}}[type]?.[locale]||'');
 export const difficultyLabel=(difficulty,locale)=>({EASY:{pt:'Fácil',en:'Easy'},MEDIUM:{pt:'Médio',en:'Medium'},HARD:{pt:'Difícil',en:'Hard'}}[difficulty]?.[locale]||difficulty);
 export const inputLabel=(type,locale)=>({TRUE_FALSE:{pt:'Verdadeiro ou falso',en:'True or false'},TEXT_SINGLE:{pt:'Escreve a resposta',en:'Type the answer'},TEXT_MULTIPLE:{pt:'Várias respostas',en:'Multiple answers'},NUMBER_EXACT:{pt:'Quantos?',en:'How many?'},MAP_PINPOINT:{pt:'Coloca o pin',en:'Place the pin'},SLIDER_TIMELINE:{pt:'Em que ano?',en:'Which year?'},SLIDER_DISTANCE:{pt:'Qual é a distância?',en:'How far?'}}[type]?.[locale]||'');

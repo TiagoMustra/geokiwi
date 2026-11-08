@@ -2,6 +2,7 @@ import { useEffect, useId, useMemo, useRef, useState } from 'react';
 import { normalizeAnswer } from '../../lib/game.js';
 import { inputBounds, parseSmartNumber, requiredAnswers, sliderSolutionPosition } from '../../quiz/engine.js';
 import { suggestionEntities } from '../../quiz/questions.js';
+import { allowsQuizSuggestions } from '../../quiz/presentation.js';
 import { Icon } from '../Icon.jsx';
 
 const numberFormat=(value,locale)=>new Intl.NumberFormat(locale==='en'?'en-GB':'pt-PT',{maximumFractionDigits:2}).format(value);
@@ -11,7 +12,8 @@ export function TrueFalseInput({onSubmit,disabled,locale}) {
 }
 
 /** Suggestions span the entity domain; the correct answer is never prioritised. */
-export function EntityTextInput({question,foundIds,disabled,onSubmit,locale,suggestions=true}) {
+export function EntityTextInput({question,foundIds,disabled,onSubmit,locale,suggestions:requestedSuggestions=true}) {
+  const suggestions=requestedSuggestions&&allowsQuizSuggestions(question);
   const [value,setValue]=useState(''),[open,setOpen]=useState(false),[active,setActive]=useState(-1);
   const id=useId(),listId=`${id}-list`,input=useRef(null),list=useRef(null);
   const items=useMemo(()=>{
