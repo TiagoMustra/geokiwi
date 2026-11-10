@@ -1,3 +1,4 @@
+import { getGameStorage } from '../auth/game-storage.js';
 import { makeQueue } from './game.js';
 import { capitalDistance, capitalPoints } from './extra-game.js';
 
@@ -36,7 +37,7 @@ export function restoreStadiumGame(saved,stadiums){
  if(saved.index>game.index)game=nextStadiumRound(game);
  return game.index===saved.index&&!game.finished?game:null;
 }
-export function readStadiumSave(storage){try{return JSON.parse((storage??globalThis.localStorage).getItem(STADIUM_SAVE_KEY)||'null');}catch{return null;}}
-export function writeStadiumSave(game,storage){try{const s=storage??globalThis.localStorage;if(game.finished)s.removeItem(STADIUM_SAVE_KEY);else s.setItem(STADIUM_SAVE_KEY,JSON.stringify(game));return true;}catch{return false;}}
-export function readStadiumRecord(storage){try{const n=Number((storage??globalThis.localStorage).getItem(STADIUM_RECORD_KEY));return Number.isInteger(n)&&n>=0&&n<=1000?n:0;}catch{return 0;}}
-export function saveStadiumRecord(game,storage){if(!game.finished)return false;try{(storage??globalThis.localStorage).setItem(STADIUM_RECORD_KEY,String(Math.max(readStadiumRecord(storage),game.score)));return true;}catch{return false;}}
+export function readStadiumSave(storage){try{return JSON.parse((storage??getGameStorage()).getItem(STADIUM_SAVE_KEY)||'null');}catch{return null;}}
+export function writeStadiumSave(game,storage){try{const s=storage??getGameStorage();if(game.finished)s.removeItem(STADIUM_SAVE_KEY);else s.setItem(STADIUM_SAVE_KEY,JSON.stringify(game));return true;}catch{return false;}}
+export function readStadiumRecord(storage){try{const n=Number((storage??getGameStorage()).getItem(STADIUM_RECORD_KEY));return Number.isInteger(n)&&n>=0&&n<=1000?n:0;}catch{return 0;}}
+export function saveStadiumRecord(game,storage){if(!game.finished)return false;try{(storage??getGameStorage()).setItem(STADIUM_RECORD_KEY,String(Math.max(readStadiumRecord(storage),game.score)));return true;}catch{return false;}}

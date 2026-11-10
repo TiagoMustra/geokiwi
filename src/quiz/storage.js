@@ -1,3 +1,4 @@
+import { getGameStorage } from '../auth/game-storage.js';
 import { quizQuestionById, quizQuestions, getQuizPool } from './questions.js';
 import { createQuiz, submitQuiz, nextQuiz, validDifficulty, DIFFICULTIES, QUIZ_SCORING_VERSION } from './engine.js';
 import { quizRetirements, upgradeQuizQueue } from './editorial-review.js';
@@ -9,8 +10,8 @@ export const QUIZ_HISTORY_KEY='geokiwi.geoguru.history.v1';
 const object=v=>v&&typeof v==='object'&&!Array.isArray(v);
 const safeRounds=n=>[10,20,30].includes(n)?n:10;
 const slot=(rounds,difficulty)=>`${safeRounds(rounds)}:${validDifficulty(difficulty)}`;
-function read(key,storage){try{const v=JSON.parse((storage??globalThis.localStorage).getItem(key)||'{}');return object(v)?v:{};}catch{return {};}}
-function write(key,value,storage){try{(storage??globalThis.localStorage).setItem(key,JSON.stringify(value));return true;}catch{return false;}}
+function read(key,storage){try{const v=JSON.parse((storage??getGameStorage()).getItem(key)||'{}');return object(v)?v:{};}catch{return {};}}
+function write(key,value,storage){try{(storage??getGameStorage()).setItem(key,JSON.stringify(value));return true;}catch{return false;}}
 
 export function readQuizHistory(storage){
   const value=read(QUIZ_HISTORY_KEY,storage);

@@ -1,3 +1,4 @@
+import { getGameStorage } from '../auth/game-storage.js';
 import { geoArea, geoContains, geoDistance } from 'd3';
 import { makeQueue } from './game.js';
 import { capitalPoints } from './extra-game.js';
@@ -143,13 +144,13 @@ export function restoreExplorerGame(saved, places, rounds = saved?.rounds) {
   return { ...game, index: saved.index };
 }
 export function readExplorerSave(rounds = 10, storage) {
-  try { const saved = JSON.parse((storage ?? globalThis.localStorage).getItem(explorerSaveKey(rounds)) || 'null'); return validSnapshot(saved, rounds) ? saved : null; } catch { return null; }
+  try { const saved = JSON.parse((storage ?? getGameStorage()).getItem(explorerSaveKey(rounds)) || 'null'); return validSnapshot(saved, rounds) ? saved : null; } catch { return null; }
 }
 export function writeExplorerSave(game, storage) {
-  try { (storage ?? globalThis.localStorage).setItem(explorerSaveKey(game.rounds), JSON.stringify(game)); return true; } catch { return false; }
+  try { (storage ?? getGameStorage()).setItem(explorerSaveKey(game.rounds), JSON.stringify(game)); return true; } catch { return false; }
 }
-export function clearExplorerSave(rounds = 10, storage) { try { (storage ?? globalThis.localStorage).removeItem(explorerSaveKey(rounds)); } catch {} }
-export function readExplorerRecord(rounds = 10, storage) { try { const score = Number((storage ?? globalThis.localStorage).getItem(recordKey(rounds))); return Number.isFinite(score) && score >= 0 && score <= normalizeExplorerRounds(rounds) * 100 ? score : 0; } catch { return 0; } }
+export function clearExplorerSave(rounds = 10, storage) { try { (storage ?? getGameStorage()).removeItem(explorerSaveKey(rounds)); } catch {} }
+export function readExplorerRecord(rounds = 10, storage) { try { const score = Number((storage ?? getGameStorage()).getItem(recordKey(rounds))); return Number.isFinite(score) && score >= 0 && score <= normalizeExplorerRounds(rounds) * 100 ? score : 0; } catch { return 0; } }
 export function saveExplorerRecord(rounds, score, storage) {
-  try { (storage ?? globalThis.localStorage).setItem(recordKey(rounds), String(Math.max(readExplorerRecord(rounds, storage), Math.max(0, Math.min(normalizeExplorerRounds(rounds) * 100, score))))); } catch {}
+  try { (storage ?? getGameStorage()).setItem(recordKey(rounds), String(Math.max(readExplorerRecord(rounds, storage), Math.max(0, Math.min(normalizeExplorerRounds(rounds) * 100, score))))); } catch {}
 }

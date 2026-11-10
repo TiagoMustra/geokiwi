@@ -1,3 +1,4 @@
+import { getGameStorage } from '../auth/game-storage.js';
 import countries from '../data/countries.json' with {type:'json'};
 import { countryClues, countryClueById } from '../data/country-clues.js';
 import { makeQueue, normalizeAnswer } from './game.js';
@@ -7,11 +8,11 @@ export const COUNTRY_CLUE_RECORD_KEY = 'geokiwi.country-clues.records.v1';
 const safeRounds = rounds => COUNTRY_CLUE_ROUNDS.includes(Number(rounds)) ? Number(rounds) : 10;
 const dict = value => value && typeof value==='object' && !Array.isArray(value);
 const storageRead = (key, storage) => {
-  try {const value=JSON.parse((storage??globalThis.localStorage).getItem(key)||'{}');return dict(value)?value:{};}
+  try {const value=JSON.parse((storage??getGameStorage()).getItem(key)||'{}');return dict(value)?value:{};}
   catch {return {};}
 };
 const storageWrite = (key,value,storage) => {
-  try{(storage??globalThis.localStorage).setItem(key,JSON.stringify(value));return true;}catch{return false;}
+  try{(storage??getGameStorage()).setItem(key,JSON.stringify(value));return true;}catch{return false;}
 };
 export function createCountryClueGame({rounds=10,pool=countryClues,random=Math.random,practice=false}={}) {
  const size=safeRounds(rounds);

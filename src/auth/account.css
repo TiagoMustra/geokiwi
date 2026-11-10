@@ -1,0 +1,9 @@
+.account-loading{min-height:100svh;display:grid;place-items:center;padding:20px;color:var(--muted);font:14px Space,sans-serif}
+.account-trigger{display:inline-flex;align-items:center;gap:7px;background:none;border:1px solid var(--line);padding:9px 11px;font:12px Space,sans-serif;max-width:150px}.account-trigger span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.account-modal{max-width:440px}.account-modal>p{font:14px/1.5 Space,sans-serif}.account-email{overflow-wrap:anywhere;color:var(--progress-soft)}
+.account-form{display:flex;flex-direction:column;gap:8px;margin:18px 0}.account-form label{font:500 13px Space,sans-serif}.account-form input{width:100%;min-height:44px;border:1px solid var(--line);background:var(--progress-panel);color:var(--progress-ink);font:16px Space,sans-serif;padding:10px 12px;border-radius:0}.account-form button{margin-top:7px;font:600 13px Space,sans-serif;min-height:44px;justify-content:center}
+.account-links{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;margin-top:14px}.account-links button,.account-signout{background:none;text-decoration:underline;text-underline-offset:3px;padding:5px 0;font:12px Space,sans-serif;color:var(--progress-soft)}
+.account-message,.account-sync{border-left:2px solid var(--accent);padding:9px 12px;font:13px/1.5 Space,sans-serif;margin:16px 0 0}.account-message.is-error{border-color:#bd7e7e}.account-sync.is-conflict,.account-sync.is-offline{border-color:#bc9b67}
+.account-conflict{display:grid;gap:8px;margin-top:12px}.account-conflict button,.account-import button{font:12px Space,sans-serif;min-height:42px;text-align:left}
+.account-import{border-top:1px solid var(--line);margin-top:18px;padding-top:12px}.account-import p{font:12px/1.5 Space,sans-serif}.account-signout{margin-top:20px}
+@media(max-width:680px){.account-trigger{padding:6px;max-width:90px;font-size:11px}.account-modal{max-width:calc(100vw - 24px)}}

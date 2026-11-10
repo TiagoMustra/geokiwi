@@ -1,3 +1,4 @@
+import { PointsBurst, EarnedPoints } from './PointsFeedback.jsx';
 import { createElement, useEffect, useMemo, useRef, useState } from 'react';
 import { stadiums } from '../data/stadiums.js';
 import { createStadiumGame, answerStadiumGame, nextStadiumRound, readStadiumSave, restoreStadiumGame, writeStadiumSave, readStadiumRecord, saveStadiumRecord, stadiumPrompt } from '../lib/stadium-game.js';
@@ -34,12 +35,13 @@ export default function StadiumGame({resume=false,onExit}){
  return <main className="game-screen play-screen stadium-play accent-cyan">
   <div className="game-map-area">{map}</div>
   <div className="play-score-panel"><button className="play-exit" aria-label={say('Guardar e sair','Save and exit')} onClick={onExit}><Icon name="back" size={18}/><KiwiMark size={23}/></button><div className="play-score"><span>{say('PONTOS','POINTS')}</span><strong>{game.score}</strong></div><div className="play-round"><span>{say('RONDA','ROUND')}</span><strong>{game.index+1}<small>/10</small></strong></div></div>
-  <section className="play-question stadium-question" aria-label={say('Estádio a localizar','Stadium to locate')}>
+  <section key={`${game.id}:${game.index}`} className="play-question stadium-question" aria-label={say('Estádio a localizar','Stadium to locate')}>
+   {result&&<PointsBurst points={result.points}/>}
    {createElement('h1',null,stadiumPrompt(target))}
    {!result&&<div className="stadium-submit"><button className="stadium-confirm" disabled={!draft||confirm} onClick={answer}><Icon name="pin" size={16}/>{say('Confirmar pin','Confirm pin')}</button><button className="stadium-skip" disabled={confirm} onClick={()=>setGame(g=>answerStadiumGame(g,stadiums,null,null,{skipped:true}))}>{say('Saltar','Skip')}<Icon name="arrow" size={13}/></button></div>}
   </section>
   <div className="play-controls stadium-controls"><LanguageControl/><RestartButton onClick={()=>setConfirm(true)}/>{!storageOK&&<small>{say('Progresso disponível só nesta sessão.','Progress is only available in this session.')}</small>}</div>
-  {result&&<section className="play-feedback stadium-feedback" role="status"><div><strong>+{result.points} {say('pontos','points')} · {distance(result)}</strong><h2>{target.name}</h2><p>{target.club} · {t(target.city)} · {t(target.country)}</p><a href={target.venueSource.url} target="_blank" rel="noreferrer">{say('Sobre o estádio','About the stadium')} <Icon name="northeast" size={11}/></a></div><button className="stadium-next" onClick={()=>setGame(nextStadiumRound)}>{game.index===9?say('Ver resultados','See results'):say('Próxima ronda','Next round')}<Icon name="arrow" size={16}/></button></section>}
+  {result&&<section className="play-feedback stadium-feedback" role="status"><div><EarnedPoints points={result.points}> · {distance(result)}</EarnedPoints><h2>{target.name}</h2><p>{target.club} · {t(target.city)} · {t(target.country)}</p><a href={target.venueSource.url} target="_blank" rel="noreferrer">{say('Sobre o estádio','About the stadium')} <Icon name="northeast" size={11}/></a></div><button className="stadium-next" onClick={()=>setGame(nextStadiumRound)}>{game.index===9?say('Ver resultados','See results'):say('Próxima ronda','Next round')}<Icon name="arrow" size={16}/></button></section>}
   {confirm&&<Modal title={say('Reiniciar esta partida?','Restart this run?')} onClose={()=>setConfirm(false)}><p>{say('O progresso desta partida será substituído. O recorde mantém-se.','This replaces your current run. Your best score stays saved.')}</p><div className="modal-actions"><button className="primary-button" onClick={()=>setConfirm(false)}>{say('Continuar','Continue')}</button><button className="secondary-button" onClick={restart}>{say('Reiniciar','Restart')}</button></div></Modal>}
  </main>;
 }

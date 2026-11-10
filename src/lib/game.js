@@ -1,3 +1,4 @@
+import { getGameStorage } from '../auth/game-storage.js';
 import { validRegion } from './regions.js';
 /** Rules shared by all four game modes. No UI or network dependencies. */
 export const POINTS = 100;
@@ -64,7 +65,7 @@ function validScoreKey(key) { const [mode, region, difficulty, scope, ...extra] 
 const STORAGE_KEY = 'geoquest.highscores.v2';
 export function readScores(storage) {
   try {
-    storage ??= globalThis.localStorage;
+    storage ??= getGameStorage();
     const parsed = JSON.parse(storage.getItem(STORAGE_KEY) || '{}');
     if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return {};
     return Object.fromEntries(Object.entries(parsed).filter(([key, value]) => validScoreKey(key) && Number.isSafeInteger(value) && value >= 0 && value % POINTS === 0));
@@ -75,7 +76,7 @@ export function saveScore(scores, game, storage) {
   const key = scoreKey(game.mode, game.region, game.difficulty, game.legacyQueue ? undefined : game.includeTerritories);
   const updated = { ...scores, [key]: Math.max(scores[key] || 0, game.score) };
   let persisted = true;
-  try { (storage ?? globalThis.localStorage).setItem(STORAGE_KEY, JSON.stringify(updated)); } catch { persisted = false; }
+  try { (storage ?? getGameStorage()).setItem(STORAGE_KEY, JSON.stringify(updated)); } catch { persisted = false; }
   return { scores: updated, persisted };
 }
 

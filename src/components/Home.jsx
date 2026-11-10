@@ -1,3 +1,4 @@
+import {useAccount} from '../auth/AccountProvider.jsx';
 import { districts } from '../data/districts.js';
 import { normalizeAnswer } from '../lib/game.js';
 import { extraScope } from '../lib/extra-game.js';
@@ -18,7 +19,9 @@ import StadiumCard, {hasStadiumSave} from './StadiumCard.jsx';
 import { ChallengeCard, hasChallengeSave } from './ChallengeCards.jsx';
 
 export default function Home({ difficulty, setDifficulty, mapView = 'flat', setMapView, scores, onStart, saves = {}, onResume, onStatistics, includeTerritories = false, setIncludeTerritories = () => {}, onExtraStart = () => {}, initialCategory = null, onChallengeStart = () => {} }) {
+  const account=useAccount();
   const {locale,t}=useLocale();
+  const en=locale==='en';
   const [regions, setRegions] = useState(() => Object.fromEntries(MODES.map(mode => [mode.id, Object.values(saves).filter(save => save.mode === mode.id).sort((a, b) => b.updatedAt - a.updatedAt)[0]?.region || 'mundo'])));
   const [capitalRegion, setCapitalRegion] = useState('mundo');
   const [municipalityMode, setMunicipalityMode] = useState('all');
@@ -41,7 +44,7 @@ export default function Home({ difficulty, setDifficulty, mapView = 'flat', setM
         <h2 id="games-title">Escolhe o teu jogo</h2>
       </div>
 
-      <p className="save-explainer"><Icon name="save" size={16} /><span>Progresso guardado automaticamente neste navegador.</span><button onClick={onStatistics}>VER ESTATÍSTICAS <Icon name="chart" size={15} /></button></p>
+      <p className="save-explainer"><Icon name="save" size={16} /><span>{account.user?account.status==='synced'?(en?'Progress saved to your account.':'Progresso guardado na tua conta.'):(en?'Progress saved on this device · waiting to sync.':'Progresso neste dispositivo · por sincronizar.'):(en?'Progress saved automatically in this browser.':'Progresso guardado automaticamente neste navegador.')}</span><button onClick={onStatistics}>VER ESTATÍSTICAS <Icon name="chart" size={15} /></button></p>
       <div className="category-grid" aria-label="Categorias de jogos">{GAME_CATEGORIES.map(category => {
         const open = selectedCategory === category.id;
         const hasSave = Object.values(saves).some(save => categoryHasGame(category, save.mode)) || (categoryHasGame(category,8)&&hasChallengeSave('explorer')) || (categoryHasGame(category,9)&&hasChallengeSave('clues')) || (categoryHasGame(category,10)&&hasStadiumSave());

@@ -14,3 +14,6 @@ releases/
 .dev.vars
 .dev.vars.*
 .tools/
+
+# Local-only browser QA harnesses
+.qa/

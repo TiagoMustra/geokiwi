@@ -78,6 +78,7 @@ export const pixelArtwork = {
 
 /** Solid, stepped glyphs remain legible in the smallest game controls. */
 export const pixelGlyphs = {
+  user: 'M5 1h6v1h1v5h-1v1H5V7H4V2h1ZM4 9h8v1h2v5H2v-5h2Z',
   arrow: 'M8 2h2v2h2v2h2v4h-2v2h-2v2H8v-2h2v-2H1V6h9V4H8Z',
   back: 'M6 2h2v2H6v2h9v4H6v2h2v2H6v-2H4v-2H2V6h2V4h2Z',
   northeast: 'M5 1h10v10h-2V5h-2v2H9v2H7v2H5v2H3v2H1v-2h2v-2h2V9h2V7h2V5h2V3H5Z',

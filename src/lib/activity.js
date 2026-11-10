@@ -1,3 +1,4 @@
+import { getGameStorage } from '../auth/game-storage.js';
 import { regionIncludes, validRegion } from './regions.js';
 import { gameReducer } from './game.js';
 
@@ -48,7 +49,7 @@ export function restoreGame(snapshot, countries) {
 export function readActivity(countries, storage) {
   const activity = emptyActivity();
   try {
-    const value = JSON.parse((storage ?? globalThis.localStorage).getItem(ACTIVITY_KEY) || 'null');
+    const value = JSON.parse((storage ?? getGameStorage()).getItem(ACTIVITY_KEY) || 'null');
     if (!object(value) || value.version !== 1) return activity;
     const ids = new Set(countries.map(c => c.id));
     for (const [key, stat] of Object.entries(object(value.stats) ? value.stats : {})) {
@@ -92,7 +93,7 @@ export function checkpoint(previous, game, now = Date.now()) {
 }
 
 export function writeActivity(activity, storage) {
-  try { (storage ?? globalThis.localStorage).setItem(ACTIVITY_KEY, JSON.stringify(activity)); return true; }
+  try { (storage ?? getGameStorage()).setItem(ACTIVITY_KEY, JSON.stringify(activity)); return true; }
   catch { return false; }
 }
 

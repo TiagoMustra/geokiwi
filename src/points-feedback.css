@@ -1,0 +1,5 @@
+.points-burst{position:absolute;left:50%;top:42px;z-index:12;pointer-events:none;color:var(--points-color);font:600 clamp(32px,4vw,46px)/1.2 Space,sans-serif;white-space:nowrap;text-shadow:0 2px 8px var(--progress-panel);animation:points-rise 2.1s ease-out both}
+@keyframes points-rise{0%{opacity:0;transform:translate(-50%,8px) scale(.85)}15%{opacity:1;transform:translate(-50%,0) scale(1)}55%{opacity:1}100%{opacity:0;transform:translate(-50%,-64px)}}
+.play-feedback .earned-points{font:600 14px/1.4 Space,sans-serif;letter-spacing:0}
+:root[data-theme="light"]{--points-lightness:38%}
+@media(prefers-reduced-motion:reduce){.points-burst{animation:none;opacity:0}}
