@@ -1,8 +1,12 @@
 # Contas GeoKiwi · Supabase
 
-A integração está implementada, mas ainda precisa de um projeto Supabase e da configuração abaixo. Sem estas variáveis, o site continua a funcionar como convidado e não mostra um botão de login sem serviço ligado.
+O projeto **geokiwi**, na organização **Kiwi Corp**, está ligado em `https://ngoldetzdfrbrsqpcwdv.supabase.co`. A migração foi aplicada e os testes de acesso passaram no projeto real. O Site URL é `https://geokiwi.pages.dev`; os redirecionamentos exatos do site público, do Site privado e do desenvolvimento local foram guardados. A configuração local usa apenas a chave pública em `.env.local`, que não entra no Git.
 
-## Ativar
+**Pendente para registos públicos:** configurar SMTP próprio. O projeto continua com o remetente de teste do Supabase, pelo que confirmações e recuperações de acesso têm destinatários e volume limitados. A confirmação por email continua ativada. A entrega de emails e a primeira inscrição com confirmação ainda não foram verificadas de ponta a ponta.
+
+Sem configuração de ambiente, o código continua a funcionar como convidado e esconde o botão de conta.
+
+## Recriar a configuração
 
 1. Cria um projeto no Supabase, de preferência numa região europeia próxima dos jogadores. Guarda a palavra-passe da base de dados; não a coloques no código nem no chat.
 2. No SQL Editor, executa uma vez [a migração](../supabase/migrations/202611100001_accounts.sql). Cria `profiles`, `game_progress`, políticas de acesso e a função de sincronização. Numa migração posterior usa um ficheiro novo, não voltes a executar esta criação de tabelas.
@@ -53,7 +57,7 @@ As políticas RLS permitem a cada jogador ler apenas o seu perfil e progresso. O
 
 ## Estado de validação e custos
 
-Os 184 testes da aplicação passaram, incluindo 12 testes de isolamento, sincronização, conflitos e falhas. Os ecrãs foram verificados no navegador com um serviço simulado local: confirmação pendente, importação, troca de contas, recuperação e layout móvel. A migração e o teste [access.sql](../supabase/tests/access.sql) passaram num PostgreSQL temporário (PGlite), com a camada Auth simulada, incluindo RLS e rejeição de acesso entre contas. Isto não substitui testar Auth, SMTP e políticas no projeto Supabase real. A migração ainda não foi executada no projeto do utilizador.
+Os 184 testes da aplicação passaram, incluindo 12 testes de isolamento, sincronização, conflitos e falhas. Os ecrãs foram verificados no navegador com um serviço simulado local: confirmação pendente, importação, troca de contas, recuperação e layout móvel. A migração e o teste [access.sql](../supabase/tests/access.sql) passaram num PostgreSQL temporário (PGlite), com a camada Auth simulada, incluindo RLS e rejeição de acesso entre contas. A mesma migração e o teste `access.sql` também foram executados com sucesso no projeto Supabase real, incluindo isolamento entre contas, revisão CAS, rejeição de escrita direta e acesso anónimo. Os dados temporários do teste foram revertidos por rollback. A API Auth respondeu à chave pública correta, com Email/password ativo e confirmação de email obrigatória. A entrega de emails e o ciclo completo de inscrição/confirmação permanecem por verificar.
 
 O plano gratuito é adequado para começar. À data da consulta (10/11/2026), inclui 50 mil utilizadores ativos por mês e 500 MB de base de dados, mas projetos gratuitos podem ser pausados após uma semana de inatividade. Confirmar os limites atuais e o custo do serviço SMTP antes de abrir inscrições públicas.
 

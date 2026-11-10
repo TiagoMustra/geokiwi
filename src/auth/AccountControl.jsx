@@ -10,6 +10,8 @@ import './account.css';
 const errorText=(error,en)=>{
  const code=error?.code||'';
  if(code==='invalid_credentials')return en?'Email or password is incorrect.':'O email ou a palavra-passe não está correto.';
+ if(code==='email_address_not_authorized')return en?'New account registration is still limited. You can keep playing without an account.':'O registo de novas contas ainda est\u00e1 limitado. Podes continuar a jogar sem conta.';
+ if(code==='email_address_invalid')return en?'Enter a valid email address.':'Introduz um endere\u00e7o de email v\u00e1lido.';
  if(code==='email_not_confirmed')return en?'Confirm your email before signing in.':'Confirma o teu email antes de entrar.';
  if(code==='user_already_exists')return en?'This account already exists. Try signing in.':'Esta conta já existe. Experimenta entrar.';
  if(/rate|over_/.test(code)||error?.status===429)return en?'Too many requests. Please try again later.':'Demasiados pedidos. Tenta novamente mais tarde.';
