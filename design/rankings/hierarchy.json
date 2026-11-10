@@ -3,14 +3,44 @@
   "status": "selected-concept-not-active",
   "selectedAt": "2026-11-10",
   "subject": "kiwi fruit",
-  "badgeSheet": "kiwi-maturation-badges-v1.png",
+  "badgeSheet": "kiwi-maturation-badges-v2.png",
   "ranks": [
-    {"id": "seed", "order": 1, "name_pt": "Semente", "name_en": "Seed"},
-    {"id": "sprout", "order": 2, "name_pt": "Rebento", "name_en": "Sprout"},
-    {"id": "green", "order": 3, "name_pt": "Kiwi Verde", "name_en": "Green Kiwi"},
-    {"id": "ripe", "order": 4, "name_pt": "Kiwi Maduro", "name_en": "Ripe Kiwi"},
-    {"id": "yellow", "order": 5, "name_pt": "Kiwi Amarelo", "name_en": "Yellow Kiwi"},
-    {"id": "golden", "order": 6, "name_pt": "Kiwi Dourado", "name_en": "Golden Kiwi"}
+    {
+      "id": "peduncle",
+      "order": 1,
+      "name_pt": "Pedúnculo",
+      "name_en": "Stalk"
+    },
+    {
+      "id": "leafy-peduncle",
+      "order": 2,
+      "name_pt": "Pedúnculo com folha",
+      "name_en": "Leafy Stalk"
+    },
+    {
+      "id": "green",
+      "order": 3,
+      "name_pt": "Kiwi Verde",
+      "name_en": "Green Kiwi"
+    },
+    {
+      "id": "ripe",
+      "order": 4,
+      "name_pt": "Kiwi Maduro",
+      "name_en": "Ripe Kiwi"
+    },
+    {
+      "id": "yellow",
+      "order": 5,
+      "name_pt": "Kiwi Amarelo",
+      "name_en": "Yellow Kiwi"
+    },
+    {
+      "id": "golden",
+      "order": 6,
+      "name_pt": "Kiwi Dourado",
+      "name_en": "Golden Kiwi"
+    }
   ],
   "thresholds": null,
   "notes": "Art and hierarchy chosen; ranking rules, profiles and progression are not implemented or activated."
