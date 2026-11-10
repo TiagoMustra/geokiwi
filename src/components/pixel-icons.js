@@ -6,6 +6,15 @@ export const pixelPalette = {
 };
 
 export const pixelArtwork = {
+  stadium: [
+    ['edge','M3 2h10v1h2v2h1v7h-1v2h-2v1H3v-1H1v-2H0V5h1V3h2Z'],
+    ['shade','M3 3h10v1h2v8h-2v2H3v-2H1V5h2Z'],
+    ['paper','M3 3h10v2H3ZM1 5h2v6H1Zm12 0h2v6h-2ZM3 12h10v2H3Z'],
+    ['green','M3 5h10v7H3Z'],
+    ['leaf','M4 6h3v5H4Zm4 0h4v5H8Z'],
+    ['light','M7 5h1v7H7ZM3 7h2v3H3Zm8 0h2v3h-2Z'],
+    ['deep','M1 5h2v1H1Zm12 0h2v1h-2ZM3 12h10v1H3Z'],
+  ],
   book: [
     ['edge', 'M1 1h5v1h4V1h5v13h-5v1H6v-1H1Z'],
     ['shade', 'M2 2h4v1h4V2h4v11h-4v1H6v-1H2Z'],

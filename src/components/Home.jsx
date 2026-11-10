@@ -14,6 +14,7 @@ import MapViewControl from './MapViewControl.jsx';
 import GameCardHeading, { CARD_TITLES } from './GameCardHeading.jsx';
 import { useLocale } from '../i18n/LocaleContext.jsx';
 import KiwiFacts from './KiwiFacts.jsx';
+import StadiumCard, {hasStadiumSave} from './StadiumCard.jsx';
 import { ChallengeCard, hasChallengeSave } from './ChallengeCards.jsx';
 
 export default function Home({ difficulty, setDifficulty, mapView = 'flat', setMapView, scores, onStart, saves = {}, onResume, onStatistics, includeTerritories = false, setIncludeTerritories = () => {}, onExtraStart = () => {}, initialCategory = null, onChallengeStart = () => {} }) {
@@ -43,7 +44,7 @@ export default function Home({ difficulty, setDifficulty, mapView = 'flat', setM
       <p className="save-explainer"><Icon name="save" size={16} /><span>Progresso guardado automaticamente neste navegador.</span><button onClick={onStatistics}>VER ESTATÍSTICAS <Icon name="chart" size={15} /></button></p>
       <div className="category-grid" aria-label="Categorias de jogos">{GAME_CATEGORIES.map(category => {
         const open = selectedCategory === category.id;
-        const hasSave = Object.values(saves).some(save => categoryHasGame(category, save.mode)) || (categoryHasGame(category,8)&&hasChallengeSave('explorer')) || (categoryHasGame(category,9)&&hasChallengeSave('clues'));
+        const hasSave = Object.values(saves).some(save => categoryHasGame(category, save.mode)) || (categoryHasGame(category,8)&&hasChallengeSave('explorer')) || (categoryHasGame(category,9)&&hasChallengeSave('clues')) || (categoryHasGame(category,10)&&hasStadiumSave());
         return <button type="button" key={category.id} className={`category-card accent-${category.color} ${open ? 'is-open' : ''}`} aria-expanded={open} aria-controls="category-games" onClick={() => { setLastCategory(category.id); setSelectedCategory(open ? null : category.id); }}>
           <span className="category-icon"><Icon name={category.icon} size={48}/></span>
           <span className="category-copy"><strong>{category.name}</strong><small>{category.description}</small><span>{category.games.length} {category.games.length===1?'JOGO':'JOGOS'}{hasSave ? ' · PARTIDA GUARDADA' : ''}</span></span>
@@ -91,6 +92,7 @@ export default function Home({ difficulty, setDifficulty, mapView = 'flat', setM
         <div className="card-score"><span><Icon name="trophy" size={14}/> RECORDE</span><strong>{String(high).padStart(4,'0')}</strong></div>{saved && <div className="saved-run compact-saved-run"><span>{saved.answers.length}/{saved.queue.length} GUARDADOS</span><button className="start-button" onClick={()=>onExtraStart(item.kind,region,true,municipalityId)}>RETOMAR PARTIDA</button></div>}<button className={saved?'new-run-button':'start-button'} disabled={waitingForMunicipality} onClick={()=>onExtraStart(item.kind,region,false,municipalityId)}>{saved?'COMEÇAR NOVO JOGO':'JOGAR'} <Icon name="arrow" size={17}/></button></article>;
       })}
       {categoryHasGame(activeCategory,8)&&<ChallengeCard key="explorer" kind="explorer" color={activeCategory.color} onStart={onChallengeStart}/>}
+      {categoryHasGame(activeCategory,10)&&<StadiumCard color={activeCategory.color} onStart={onChallengeStart}/>}
       {categoryHasGame(activeCategory,9)&&<ChallengeCard key="clues" kind="clues" color={activeCategory.color} onStart={onChallengeStart}/>}
       </div>
         </section>}</div>

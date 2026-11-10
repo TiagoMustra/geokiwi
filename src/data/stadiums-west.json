@@ -1,0 +1,893 @@
+[
+  {
+    "id": "emirates-stadium",
+    "name": "Emirates Stadium",
+    "club": "Arsenal",
+    "city": "Londres",
+    "country": "Inglaterra",
+    "countryId": "826",
+    "league": "Premier League",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -0.108333,
+      51.555
+    ],
+    "membershipSource": {
+      "title": "Premier League: All you need to know about the 20 Premier League stadiums (2026/27)",
+      "url": "https://www.premierleague.com/en/news/4725666/all-you-need-to-know-about-the-20-premier-league-stadiums/"
+    },
+    "venueSource": {
+      "title": "Premier League: All you need to know about the 20 Premier League stadiums (2026/27)",
+      "url": "https://www.premierleague.com/en/news/4725666/all-you-need-to-know-about-the-20-premier-league-stadiums/"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): Emirates Stadium — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q163995"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "villa-park",
+    "name": "Villa Park",
+    "club": "Aston Villa",
+    "city": "Birmingham",
+    "country": "Inglaterra",
+    "countryId": "826",
+    "league": "Premier League",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -1.884722,
+      52.509167
+    ],
+    "membershipSource": {
+      "title": "Premier League: All you need to know about the 20 Premier League stadiums (2026/27)",
+      "url": "https://www.premierleague.com/en/news/4725666/all-you-need-to-know-about-the-20-premier-league-stadiums/"
+    },
+    "venueSource": {
+      "title": "Premier League: All you need to know about the 20 Premier League stadiums (2026/27)",
+      "url": "https://www.premierleague.com/en/news/4725666/all-you-need-to-know-about-the-20-premier-league-stadiums/"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): Villa Park — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q175339"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "stamford-bridge",
+    "name": "Stamford Bridge",
+    "club": "Chelsea",
+    "city": "Londres",
+    "country": "Inglaterra",
+    "countryId": "826",
+    "league": "Premier League",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -0.191111,
+      51.481667
+    ],
+    "membershipSource": {
+      "title": "Premier League: All you need to know about the 20 Premier League stadiums (2026/27)",
+      "url": "https://www.premierleague.com/en/news/4725666/all-you-need-to-know-about-the-20-premier-league-stadiums/"
+    },
+    "venueSource": {
+      "title": "Premier League: All you need to know about the 20 Premier League stadiums (2026/27)",
+      "url": "https://www.premierleague.com/en/news/4725666/all-you-need-to-know-about-the-20-premier-league-stadiums/"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): Stamford Bridge — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q171458"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "selhurst-park",
+    "name": "Selhurst Park",
+    "club": "Crystal Palace",
+    "city": "Londres",
+    "country": "Inglaterra",
+    "countryId": "826",
+    "league": "Premier League",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -0.085556,
+      51.398333
+    ],
+    "membershipSource": {
+      "title": "Premier League: All you need to know about the 20 Premier League stadiums (2026/27)",
+      "url": "https://www.premierleague.com/en/news/4725666/all-you-need-to-know-about-the-20-premier-league-stadiums/"
+    },
+    "venueSource": {
+      "title": "Premier League: All you need to know about the 20 Premier League stadiums (2026/27)",
+      "url": "https://www.premierleague.com/en/news/4725666/all-you-need-to-know-about-the-20-premier-league-stadiums/"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): Selhurst Park — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q1066373"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "craven-cottage",
+    "name": "Craven Cottage",
+    "club": "Fulham",
+    "city": "Londres",
+    "country": "Inglaterra",
+    "countryId": "826",
+    "league": "Premier League",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -0.221667,
+      51.475
+    ],
+    "membershipSource": {
+      "title": "Premier League: All you need to know about the 20 Premier League stadiums (2026/27)",
+      "url": "https://www.premierleague.com/en/news/4725666/all-you-need-to-know-about-the-20-premier-league-stadiums/"
+    },
+    "venueSource": {
+      "title": "Premier League: All you need to know about the 20 Premier League stadiums (2026/27)",
+      "url": "https://www.premierleague.com/en/news/4725666/all-you-need-to-know-about-the-20-premier-league-stadiums/"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): Craven Cottage — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q318043"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "anfield",
+    "name": "Anfield",
+    "club": "Liverpool",
+    "city": "Liverpool",
+    "country": "Inglaterra",
+    "countryId": "826",
+    "league": "Premier League",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -2.960833,
+      53.430833
+    ],
+    "membershipSource": {
+      "title": "Premier League: All you need to know about the 20 Premier League stadiums (2026/27)",
+      "url": "https://www.premierleague.com/en/news/4725666/all-you-need-to-know-about-the-20-premier-league-stadiums/"
+    },
+    "venueSource": {
+      "title": "Premier League: All you need to know about the 20 Premier League stadiums (2026/27)",
+      "url": "https://www.premierleague.com/en/news/4725666/all-you-need-to-know-about-the-20-premier-league-stadiums/"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): Anfield — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q45671"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "etihad-stadium",
+    "name": "Etihad Stadium",
+    "club": "Manchester City",
+    "city": "Manchester",
+    "country": "Inglaterra",
+    "countryId": "826",
+    "league": "Premier League",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -2.200278,
+      53.483056
+    ],
+    "membershipSource": {
+      "title": "Premier League: All you need to know about the 20 Premier League stadiums (2026/27)",
+      "url": "https://www.premierleague.com/en/news/4725666/all-you-need-to-know-about-the-20-premier-league-stadiums/"
+    },
+    "venueSource": {
+      "title": "Premier League: All you need to know about the 20 Premier League stadiums (2026/27)",
+      "url": "https://www.premierleague.com/en/news/4725666/all-you-need-to-know-about-the-20-premier-league-stadiums/"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): Etihad Stadium — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q48159"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "old-trafford",
+    "name": "Old Trafford",
+    "club": "Manchester United",
+    "city": "Manchester",
+    "country": "Inglaterra",
+    "countryId": "826",
+    "league": "Premier League",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -2.291389,
+      53.463056
+    ],
+    "membershipSource": {
+      "title": "Premier League: All you need to know about the 20 Premier League stadiums (2026/27)",
+      "url": "https://www.premierleague.com/en/news/4725666/all-you-need-to-know-about-the-20-premier-league-stadiums/"
+    },
+    "venueSource": {
+      "title": "Premier League: All you need to know about the 20 Premier League stadiums (2026/27)",
+      "url": "https://www.premierleague.com/en/news/4725666/all-you-need-to-know-about-the-20-premier-league-stadiums/"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): Old Trafford — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q83457"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "st-james-park",
+    "name": "St James’ Park",
+    "club": "Newcastle United",
+    "city": "Newcastle upon Tyne",
+    "country": "Inglaterra",
+    "countryId": "826",
+    "league": "Premier League",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -1.621667,
+      54.975556
+    ],
+    "membershipSource": {
+      "title": "Premier League: All you need to know about the 20 Premier League stadiums (2026/27)",
+      "url": "https://www.premierleague.com/en/news/4725666/all-you-need-to-know-about-the-20-premier-league-stadiums/"
+    },
+    "venueSource": {
+      "title": "Premier League: All you need to know about the 20 Premier League stadiums (2026/27)",
+      "url": "https://www.premierleague.com/en/news/4725666/all-you-need-to-know-about-the-20-premier-league-stadiums/"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): St James’ Park — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q191774"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "city-ground",
+    "name": "City Ground",
+    "club": "Nottingham Forest",
+    "city": "West Bridgford",
+    "country": "Inglaterra",
+    "countryId": "826",
+    "league": "Premier League",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -1.132778,
+      52.94
+    ],
+    "membershipSource": {
+      "title": "Premier League: All you need to know about the 20 Premier League stadiums (2026/27)",
+      "url": "https://www.premierleague.com/en/news/4725666/all-you-need-to-know-about-the-20-premier-league-stadiums/"
+    },
+    "venueSource": {
+      "title": "Premier League: All you need to know about the 20 Premier League stadiums (2026/27)",
+      "url": "https://www.premierleague.com/en/news/4725666/all-you-need-to-know-about-the-20-premier-league-stadiums/"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): City Ground — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q593446"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "stadium-of-light",
+    "name": "Stadium of Light",
+    "club": "Sunderland",
+    "city": "Sunderland",
+    "country": "Inglaterra",
+    "countryId": "826",
+    "league": "Premier League",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -1.388173,
+      54.914429
+    ],
+    "membershipSource": {
+      "title": "Premier League: All you need to know about the 20 Premier League stadiums (2026/27)",
+      "url": "https://www.premierleague.com/en/news/4725666/all-you-need-to-know-about-the-20-premier-league-stadiums/"
+    },
+    "venueSource": {
+      "title": "Premier League: All you need to know about the 20 Premier League stadiums (2026/27)",
+      "url": "https://www.premierleague.com/en/news/4725666/all-you-need-to-know-about-the-20-premier-league-stadiums/"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): Stadium of Light — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q31969"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "tottenham-hotspur-stadium",
+    "name": "Tottenham Hotspur Stadium",
+    "club": "Tottenham Hotspur",
+    "city": "Londres",
+    "country": "Inglaterra",
+    "countryId": "826",
+    "league": "Premier League",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -0.066389,
+      51.604444
+    ],
+    "membershipSource": {
+      "title": "Premier League: All you need to know about the 20 Premier League stadiums (2026/27)",
+      "url": "https://www.premierleague.com/en/news/4725666/all-you-need-to-know-about-the-20-premier-league-stadiums/"
+    },
+    "venueSource": {
+      "title": "Premier League: All you need to know about the 20 Premier League stadiums (2026/27)",
+      "url": "https://www.premierleague.com/en/news/4725666/all-you-need-to-know-about-the-20-premier-league-stadiums/"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): Tottenham Hotspur Stadium — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q55074091"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "san-mames",
+    "name": "San Mamés",
+    "club": "Athletic Club",
+    "city": "Bilbao",
+    "country": "Espanha",
+    "countryId": "724",
+    "league": "La Liga",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -2.949369,
+      43.264205
+    ],
+    "membershipSource": {
+      "title": "LALIGA: Equipos de LALIGA EA SPORTS 2026/27",
+      "url": "https://www.laliga.com/laliga-easports/clubes"
+    },
+    "venueSource": {
+      "title": "LALIGA: Athletic Club — club and stadium profile 2026/27",
+      "url": "https://www.laliga.com/clubes/athletic-club/plantilla"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): San Mamés — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q182864"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "metropolitano",
+    "name": "Metropolitano",
+    "club": "Atlético de Madrid",
+    "city": "Madrid",
+    "country": "Espanha",
+    "countryId": "724",
+    "league": "La Liga",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -3.599444,
+      40.436111
+    ],
+    "membershipSource": {
+      "title": "LALIGA: Equipos de LALIGA EA SPORTS 2026/27",
+      "url": "https://www.laliga.com/laliga-easports/clubes"
+    },
+    "venueSource": {
+      "title": "LALIGA: Atlético de Madrid — club and stadium profile 2026/27",
+      "url": "https://www.laliga.com/clubes/atletico-de-madrid/plantilla"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): Metropolitano — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q1369687"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "el-sadar",
+    "name": "El Sadar",
+    "club": "CA Osasuna",
+    "city": "Pamplona",
+    "country": "Espanha",
+    "countryId": "724",
+    "league": "La Liga",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -1.636944,
+      42.796667
+    ],
+    "membershipSource": {
+      "title": "LALIGA: Equipos de LALIGA EA SPORTS 2026/27",
+      "url": "https://www.laliga.com/laliga-easports/clubes"
+    },
+    "venueSource": {
+      "title": "LALIGA: CA Osasuna — club and stadium profile 2026/27",
+      "url": "https://www.laliga.com/clubes/c-a-osasuna/plantilla"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): El Sadar — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q735783"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "balaidos",
+    "name": "Balaídos",
+    "club": "Celta",
+    "city": "Vigo",
+    "country": "Espanha",
+    "countryId": "724",
+    "league": "La Liga",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -8.740328,
+      42.211861
+    ],
+    "membershipSource": {
+      "title": "LALIGA: Equipos de LALIGA EA SPORTS 2026/27",
+      "url": "https://www.laliga.com/laliga-easports/clubes"
+    },
+    "venueSource": {
+      "title": "LALIGA: Celta — club and stadium profile 2026/27",
+      "url": "https://www.laliga.com/clubes/rc-celta/plantilla"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): Balaídos — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q1326578"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "mendizorroza",
+    "name": "Mendizorroza",
+    "club": "Deportivo Alavés",
+    "city": "Vitoria-Gasteiz",
+    "country": "Espanha",
+    "countryId": "724",
+    "league": "La Liga",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -2.688044,
+      42.837111
+    ],
+    "membershipSource": {
+      "title": "LALIGA: Equipos de LALIGA EA SPORTS 2026/27",
+      "url": "https://www.laliga.com/laliga-easports/clubes"
+    },
+    "venueSource": {
+      "title": "LALIGA: Deportivo Alavés — club and stadium profile 2026/27",
+      "url": "https://www.laliga.com/clubes/d-alaves/plantilla"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): Mendizorroza — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q1369390"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "rcde-stadium",
+    "name": "RCDE Stadium",
+    "club": "RCD Espanyol",
+    "city": "Cornellà de Llobregat",
+    "country": "Espanha",
+    "countryId": "724",
+    "league": "La Liga",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      2.075667,
+      41.347861
+    ],
+    "membershipSource": {
+      "title": "LALIGA: Equipos de LALIGA EA SPORTS 2026/27",
+      "url": "https://www.laliga.com/laliga-easports/clubes"
+    },
+    "venueSource": {
+      "title": "LALIGA: RCD Espanyol — club and stadium profile 2026/27",
+      "url": "https://www.laliga.com/clubes/rcd-espanyol/plantilla"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): RCDE Stadium — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q473223"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "bernabeu",
+    "name": "Bernabéu",
+    "club": "Real Madrid",
+    "city": "Madrid",
+    "country": "Espanha",
+    "countryId": "724",
+    "league": "La Liga",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -3.68835,
+      40.45306
+    ],
+    "membershipSource": {
+      "title": "LALIGA: Equipos de LALIGA EA SPORTS 2026/27",
+      "url": "https://www.laliga.com/laliga-easports/clubes"
+    },
+    "venueSource": {
+      "title": "LALIGA: Real Madrid — club and stadium profile 2026/27",
+      "url": "https://www.laliga.com/clubes/real-madrid/plantilla"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): Bernabéu — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q164027"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "anoeta",
+    "name": "Anoeta",
+    "club": "Real Sociedad",
+    "city": "San Sebastián",
+    "country": "Espanha",
+    "countryId": "724",
+    "league": "La Liga",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -1.973617,
+      43.301378
+    ],
+    "membershipSource": {
+      "title": "LALIGA: Equipos de LALIGA EA SPORTS 2026/27",
+      "url": "https://www.laliga.com/laliga-easports/clubes"
+    },
+    "venueSource": {
+      "title": "LALIGA: Real Sociedad — club and stadium profile 2026/27",
+      "url": "https://www.laliga.com/clubes/real-sociedad/plantilla"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): Anoeta — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q917845"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "ramon-sanchez-pizjuan",
+    "name": "Ramón Sánchez-Pizjuán",
+    "club": "Sevilla FC",
+    "city": "Sevilha",
+    "country": "Espanha",
+    "countryId": "724",
+    "league": "La Liga",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -5.970467,
+      37.383878
+    ],
+    "membershipSource": {
+      "title": "LALIGA: Equipos de LALIGA EA SPORTS 2026/27",
+      "url": "https://www.laliga.com/laliga-easports/clubes"
+    },
+    "venueSource": {
+      "title": "LALIGA: Sevilla FC — club and stadium profile 2026/27",
+      "url": "https://www.laliga.com/clubes/sevilla-fc/plantilla"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): Ramón Sánchez-Pizjuán — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q275429"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "mestalla",
+    "name": "Camp de Mestalla",
+    "club": "Valencia CF",
+    "city": "Valência",
+    "country": "Espanha",
+    "countryId": "724",
+    "league": "La Liga",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -0.358333,
+      39.474722
+    ],
+    "membershipSource": {
+      "title": "LALIGA: Equipos de LALIGA EA SPORTS 2026/27",
+      "url": "https://www.laliga.com/laliga-easports/clubes"
+    },
+    "venueSource": {
+      "title": "LALIGA: Valencia CF — club and stadium profile 2026/27",
+      "url": "https://www.laliga.com/clubes/valencia-cf/plantilla"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): Camp de Mestalla — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q202762"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "estadio-de-la-ceramica",
+    "name": "Estadio de la Cerámica",
+    "club": "Villarreal CF",
+    "city": "Vila-real",
+    "country": "Espanha",
+    "countryId": "724",
+    "league": "La Liga",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -0.103611,
+      39.944167
+    ],
+    "membershipSource": {
+      "title": "LALIGA: Equipos de LALIGA EA SPORTS 2026/27",
+      "url": "https://www.laliga.com/laliga-easports/clubes"
+    },
+    "venueSource": {
+      "title": "LALIGA: Villarreal CF — club and stadium profile 2026/27",
+      "url": "https://www.laliga.com/clubes/villarreal-cf/plantilla"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): Estadio de la Cerámica — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q741157"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "estadio-da-luz",
+    "name": "Estádio da Luz",
+    "club": "SL Benfica",
+    "city": "Lisboa",
+    "country": "Portugal",
+    "countryId": "620",
+    "league": "Primeira Liga",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -9.184722,
+      38.752778
+    ],
+    "membershipSource": {
+      "title": "Liga Portugal: SL Benfica — 2026-2027 club and stadium profile",
+      "url": "https://www.ligaportugal.pt/team/278/sl-benfica"
+    },
+    "venueSource": {
+      "title": "Liga Portugal: SL Benfica — 2026-2027 club and stadium profile",
+      "url": "https://www.ligaportugal.pt/team/278/sl-benfica"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): Estádio da Luz — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q7875112"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "estadio-do-dragao",
+    "name": "Estádio do Dragão",
+    "club": "FC Porto",
+    "city": "Porto",
+    "country": "Portugal",
+    "countryId": "620",
+    "league": "Primeira Liga",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -8.583933,
+      41.161758
+    ],
+    "membershipSource": {
+      "title": "Liga Portugal: FC Porto — 2026-2027 club and stadium profile",
+      "url": "https://www.ligaportugal.pt/team/157/fc-porto"
+    },
+    "venueSource": {
+      "title": "Liga Portugal: FC Porto — 2026-2027 club and stadium profile",
+      "url": "https://www.ligaportugal.pt/team/157/fc-porto"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): Estádio do Dragão — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q271454"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "estadio-jose-alvalade",
+    "name": "Estádio José Alvalade",
+    "club": "Sporting CP",
+    "city": "Lisboa",
+    "country": "Portugal",
+    "countryId": "620",
+    "league": "Primeira Liga",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -9.160783,
+      38.761194
+    ],
+    "membershipSource": {
+      "title": "Liga Portugal: Sporting CP — 2026-2027 club and stadium profile",
+      "url": "https://www.ligaportugal.pt/team/303/sporting-cp"
+    },
+    "venueSource": {
+      "title": "Liga Portugal: Sporting CP — 2026-2027 club and stadium profile",
+      "url": "https://www.ligaportugal.pt/team/303/sporting-cp"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): Estádio José Alvalade — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q287359"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "estadio-municipal-braga",
+    "name": "Estádio Municipal de Braga",
+    "club": "SC Braga",
+    "city": "Braga",
+    "country": "Portugal",
+    "countryId": "620",
+    "league": "Primeira Liga",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -8.4308,
+      41.5624
+    ],
+    "membershipSource": {
+      "title": "Liga Portugal: SC Braga — 2026-2027 club and stadium profile",
+      "url": "https://www.ligaportugal.pt/team/285/sc-braga"
+    },
+    "venueSource": {
+      "title": "Liga Portugal: SC Braga — 2026-2027 club and stadium profile",
+      "url": "https://www.ligaportugal.pt/team/285/sc-braga"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): Estádio Municipal de Braga — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q849239"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "estadio-afonso-henriques",
+    "name": "Estádio D. Afonso Henriques",
+    "club": "Vitória SC",
+    "city": "Guimarães",
+    "country": "Portugal",
+    "countryId": "620",
+    "league": "Primeira Liga",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -8.300972,
+      41.445833
+    ],
+    "membershipSource": {
+      "title": "Liga Portugal: Vitória SC — 2026-2027 club and stadium profile",
+      "url": "https://www.ligaportugal.pt/team/337/vitoria-sc"
+    },
+    "venueSource": {
+      "title": "Liga Portugal: Vitória SC — 2026-2027 club and stadium profile",
+      "url": "https://www.ligaportugal.pt/team/337/vitoria-sc"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): Estádio D. Afonso Henriques — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q1057274"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "estadio-cidade-barcelos",
+    "name": "Estádio Cidade de Barcelos",
+    "club": "Gil Vicente FC",
+    "city": "Barcelos",
+    "country": "Portugal",
+    "countryId": "620",
+    "league": "Primeira Liga",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -8.622778,
+      41.551111
+    ],
+    "membershipSource": {
+      "title": "Liga Portugal: Gil Vicente FC — 2026-2027 club and stadium profile",
+      "url": "https://www.ligaportugal.pt/team/162/gil-vicente-fc"
+    },
+    "venueSource": {
+      "title": "Liga Portugal: Gil Vicente FC — 2026-2027 club and stadium profile",
+      "url": "https://www.ligaportugal.pt/team/162/gil-vicente-fc"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): Estádio Cidade de Barcelos — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q1167583"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "estadio-municipal-famalicao",
+    "name": "Estádio Municipal de Famalicão",
+    "club": "FC Famalicão",
+    "city": "Vila Nova de Famalicão",
+    "country": "Portugal",
+    "countryId": "620",
+    "league": "Primeira Liga",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -8.522422,
+      41.401278
+    ],
+    "membershipSource": {
+      "title": "Liga Portugal: FC Famalicão — 2026-2027 club and stadium profile",
+      "url": "https://www.ligaportugal.pt/team/141/fc-famalicao"
+    },
+    "venueSource": {
+      "title": "Liga Portugal: FC Famalicão — 2026-2027 club and stadium profile",
+      "url": "https://www.ligaportugal.pt/team/141/fc-famalicao"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): Estádio Municipal de Famalicão — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q1293399"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "parque-joaquim-almeida-freitas",
+    "name": "Parque Desportivo Comendador Joaquim de Almeida Freitas",
+    "club": "Moreirense FC",
+    "city": "Moreira de Cónegos",
+    "country": "Portugal",
+    "countryId": "620",
+    "league": "Primeira Liga",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -8.354761,
+      41.378089
+    ],
+    "membershipSource": {
+      "title": "Liga Portugal: Moreirense FC — 2026-2027 club and stadium profile",
+      "url": "https://www.ligaportugal.pt/team/226/moreirense-fc"
+    },
+    "venueSource": {
+      "title": "Liga Portugal: Moreirense FC — 2026-2027 club and stadium profile",
+      "url": "https://www.ligaportugal.pt/team/226/moreirense-fc"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): Parque Desportivo Comendador Joaquim de Almeida Freitas — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q256588"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "estadio-municipal-arouca",
+    "name": "Estádio Municipal de Arouca",
+    "club": "FC Arouca",
+    "city": "Arouca",
+    "country": "Portugal",
+    "countryId": "620",
+    "league": "Primeira Liga",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -8.248611,
+      40.928333
+    ],
+    "membershipSource": {
+      "title": "Liga Portugal: FC Arouca — 2026-2027 club and stadium profile",
+      "url": "https://www.ligaportugal.pt/team/619/fc-arouca"
+    },
+    "venueSource": {
+      "title": "Liga Portugal: FC Arouca — 2026-2027 club and stadium profile",
+      "url": "https://www.ligaportugal.pt/team/619/fc-arouca"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): Estádio Municipal de Arouca — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q1370706"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "estadio-rio-ave",
+    "name": "Estádio do Rio Ave Futebol Clube",
+    "club": "Rio Ave FC",
+    "city": "Vila do Conde",
+    "country": "Portugal",
+    "countryId": "620",
+    "league": "Primeira Liga",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -8.740186,
+      41.362756
+    ],
+    "membershipSource": {
+      "title": "Liga Portugal: Rio Ave FC — 2026-2027 club and stadium profile",
+      "url": "https://www.ligaportugal.pt/team/241/rio-ave-fc"
+    },
+    "venueSource": {
+      "title": "Liga Portugal: Rio Ave FC — 2026-2027 club and stadium profile",
+      "url": "https://www.ligaportugal.pt/team/241/rio-ave-fc"
+    },
+    "coordinateSource": {
+      "title": "Wikidata (CC0): Estádio do Rio Ave Futebol Clube — stadium coordinate location",
+      "url": "https://www.wikidata.org/wiki/Q550041"
+    },
+    "checkedAt": "2026-11-10"
+  }
+]

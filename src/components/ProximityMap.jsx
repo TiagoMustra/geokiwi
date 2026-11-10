@@ -14,14 +14,14 @@ const motionDuration = () => reducedMotion() ? 0 : 450;
 const colors = {correct:'#5b996c',wrong:'#ce6672',reveal:'#d3a34c'};
 
 /** Dedicated physical map: no country paths, country hover, selection or microstate dots. */
-export default function ProximityMap({region='mundo',disabled=false,onPointClick,guessPoint=null,reveal=null,reviewPoints=null,geographicFeature=null,geographicFeatureStatus='reveal',focusReveal=true}) {
+export default function ProximityMap({region='mundo',disabled=false,onPointClick,guessPoint=null,reveal=null,reviewPoints=null,geographicFeature=null,geographicFeatureStatus='reveal',focusReveal=true,revealMaxZoom=8,initialBounds=null}) {
   const {locale,countryName,capitalName}=useLocale(); const en=locale==='en';
   const host=useRef(null), mapRef=useRef(null), library=useRef(null), markers=useRef([]), propsRef=useRef(null);
   const [ready,setReady]=useState(false),[failed,setFailed]=useState(false),[attempt,setAttempt]=useState(0);
   propsRef.current={disabled,onPointClick};
   const reset=()=>{
     const map=mapRef.current;if(!map)return;
-    map.fitBounds(initialProximityBounds(region),{padding:24,maxZoom:5,duration:motionDuration()});
+    map.fitBounds(initialBounds||initialProximityBounds(region),{padding:24,maxZoom:5,duration:motionDuration()});
   };
   useEffect(()=>{
     let live=true,observer; let map;
@@ -46,13 +46,13 @@ export default function ProximityMap({region='mundo',disabled=false,onPointClick
         setReady(true);
       });
       map.on('error',event=>{if(!event.sourceId&&!event.tile&&live)setFailed(true);});
-      map.fitBounds(initialProximityBounds(region),{padding:24,maxZoom:5,duration:0});
+      map.fitBounds(initialBounds||initialProximityBounds(region),{padding:24,maxZoom:5,duration:0});
       observer=new ResizeObserver(()=>map.resize());observer.observe(host.current);
     }).catch(()=>{if(live)setFailed(true);});
     return()=>{live=false;observer?.disconnect();markers.current.forEach(marker=>marker.remove());markers.current=[];map?.remove();mapRef.current=null;};
   },[attempt]);
 
-  useEffect(()=>{if(ready)reset();},[region,ready]);
+  useEffect(()=>{if(ready)reset();},[region,ready,initialBounds]);
   useEffect(()=>{
     const map=mapRef.current;if(!map||!ready)return;
     map.getCanvas().setAttribute('aria-label',en?'Physical map. Drag or use arrow keys to move; scroll to zoom. Enter places a pin at the centre.':'Mapa físico. Arrasta ou usa as setas para mover; scroll para ampliar. Enter coloca o pin no centro.');
@@ -87,8 +87,8 @@ export default function ProximityMap({region='mundo',disabled=false,onPointClick
     const bounds=revealMapBounds(geographicFeature,point,guessPoint);if(!bounds)return;
     const height=host.current.clientHeight,width=host.current.clientWidth;
     const padding={top:Math.min(height*.28,220),bottom:Math.min(height*.24,175),left:Math.min(width*.1,80),right:Math.min(width*.1,80)};
-    map.fitBounds(bounds,{padding,maxZoom:8,duration:motionDuration()});
-  },[ready,focusReveal,reveal?.country.id,geographicFeature,guessPoint]);
+    map.fitBounds(bounds,{padding,maxZoom:revealMaxZoom,duration:motionDuration()});
+  },[ready,focusReveal,reveal?.country.id,geographicFeature,guessPoint,revealMaxZoom]);
 
   return <div className="proximity-map" data-map-view="physical">
     <div className="proximity-map-host" ref={host}/>

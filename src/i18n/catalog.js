@@ -1,5 +1,10 @@
 /** English UI catalog. Portuguese is the source language; game IDs stay language-independent. */
 export const english = {
+  'Inglaterra': 'England',
+  'Stadium Pinpoint · Fontes dos dados ↗': 'Stadium Pinpoint · Data sources ↗',
+  'Estádios e coordenadas · época 2026/27': 'Stadiums and coordinates · 2026/27 season',
+  '10 rondas. Vês só o nome do estádio; coloca e confirma o pin no mapa. Ganhas até 100 pontos por proximidade, com a mesma regra das capitais. Clube, cidade e país só aparecem na solução.': '10 rounds. You see only the stadium name; place and confirm your pin on the map. Earn up to 100 points for proximity, using the same rule as capitals. The club, city and country appear only after answering.',
+  'Mapas, estádios e lugares': 'Maps, stadiums and places',
   'Conhecimento geral': 'General knowledge', 'Conhecimento geral · Fontes dos dados ↗': 'General knowledge · Data sources ↗', 'Portugal, EUA e exploração': 'Portugal, USA and exploration', 'JOGO': 'GAME',
 
   'Fotografias dos monumentos ↗': 'Monument photographs ↗', 'Autores, fontes e licenças das fotografias': 'Photograph creators, sources and licenses',

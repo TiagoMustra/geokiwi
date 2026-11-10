@@ -1,0 +1,16 @@
+.stadium-play .stadium-question{width:min(420px,calc(100% - 540px));min-width:270px;padding:14px 18px;text-align:left}
+.stadium-question h1{font:600 24px/1.25 Space,sans-serif;white-space:normal;overflow-wrap:anywhere;margin:0}
+.stadium-submit{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px}
+.stadium-confirm,.stadium-next{display:flex;align-items:center;justify-content:center;gap:8px;background:var(--tint);color:var(--progress-ink);border:1px solid var(--line);padding:10px 12px;font:500 12px Space,sans-serif;min-height:40px}
+.stadium-confirm:hover:enabled,.stadium-next:hover{border-color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,var(--progress-panel))}
+.stadium-skip{display:flex;align-items:center;gap:7px;background:none;color:var(--progress-soft);font:12px Space,sans-serif;padding:9px 0}
+.stadium-play .stadium-controls{width:170px}.stadium-controls .language-control{align-self:flex-end}
+.stadium-play .stadium-feedback{width:min(600px,calc(100% - 32px));max-width:none;justify-content:space-between;align-items:center;gap:14px;padding:14px 18px;border-color:var(--line)}
+.stadium-feedback>div{min-width:0}.stadium-feedback strong{font:600 15px/1.4 Space,sans-serif;color:var(--accent)}
+.stadium-feedback h2{font:600 18px/1.3 Space,sans-serif;margin:5px 0;overflow-wrap:anywhere}.stadium-feedback p{font:12px/1.4 Space,sans-serif;margin:4px 0;color:var(--progress-soft)}
+.stadium-feedback a{font:11px Space,sans-serif;text-decoration:underline;color:var(--progress-soft)}
+.stadium-next{flex-shrink:0;transition:background .18s ease}.stadium-next svg{transition:translate .18s ease}.stadium-next:hover svg{translate:3px 0}
+.stadium-review{margin-top:24px}.stadium-review h2{font:600 20px Space,sans-serif}.stadium-review>button{display:flex;align-items:center;justify-content:space-between;gap:12px;width:100%;text-align:left;background:var(--progress-panel);border:1px solid var(--line);padding:12px;margin-bottom:6px;font:14px Space,sans-serif}.stadium-review small{display:block;color:var(--progress-soft);font-size:11px;margin-top:4px}.stadium-review>button.is-selected{border-color:var(--accent)}
+@media(max-width:900px){.stadium-play .stadium-question{top:115px;width:min(420px,calc(100% - 24px));min-width:0}}
+@media(max-width:680px){.stadium-play .stadium-controls{width:145px;right:12px;top:12px}.stadium-play .stadium-question{top:135px;padding:12px 14px}.stadium-question h1{font-size:21px}.stadium-play .stadium-feedback{bottom:14px;flex-wrap:wrap;padding:12px 14px}.stadium-next{margin-left:auto;min-height:38px}.stadium-feedback h2{font-size:16px}}
+@media(prefers-reduced-motion:reduce){.stadium-next,.stadium-next svg{transition:none}.stadium-next:hover svg{translate:none}}

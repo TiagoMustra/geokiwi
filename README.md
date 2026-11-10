@@ -11,7 +11,7 @@ A ideia é juntar, num único sítio, vários minijogos de geografia inspirados 
 - **Países:** encontrar no mapa ou escrever o nome.
 - **Capitais:** descobrir o país, escrever a capital ou colocar um pin o mais perto possível.
 - **Conhecimento geral:** perguntas sobre bandeiras, lugares e curiosidades do mundo.
-- **Outros modos:** concelhos de Portugal, estados dos EUA e exploração de lugares pelo mundo.
+- **Outros modos:** concelhos de Portugal, estados dos EUA, exploração de lugares pelo mundo e Stadium Pinpoint.
 
 Podes escolher as regiões que queres treinar, ajustar a dificuldade e retomar uma partida mais tarde. Há mapas planos e um globo para explorar, temas claro e escuro e opção de jogar em português ou inglês — tudo com um toque a kiwi.
 

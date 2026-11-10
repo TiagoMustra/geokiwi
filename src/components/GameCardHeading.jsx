@@ -10,6 +10,7 @@ const artwork = {
   6: {icon:'city',badge:'pin',pt:'APROXIMAR O PIN',en:'PLACE THE PIN'},
   7: {icon:'flag',badge:'crosshair',pt:'ENCONTRAR O ESTADO',en:'FIND THE STATE'},
   8: {icon:'map',badge:'pin',pt:'EXPLORAR E APROXIMAR',en:'EXPLORE AND PIN'},
+  10: {icon:'stadium',badge:'pin',pt:'LOCALIZAR O ESTÁDIO',en:'PINPOINT THE STADIUM'},
   9: {icon:'book',badge:'help',pt:'QUIZ DE GEOGRAFIA',en:'GEOGRAPHY QUIZ'},
 };
 export const CARD_TITLES={1:'Encontra o país',2:'Escreve o país',3:'País pela capital',4:'Escreve a capital'};

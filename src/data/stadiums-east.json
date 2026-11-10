@@ -1,0 +1,812 @@
+[
+  {
+    "id": "stadium-de-allianz-arena",
+    "name": "Allianz Arena",
+    "club": "FC Bayern München",
+    "city": "München",
+    "country": "Alemanha",
+    "countryId": "276",
+    "league": "Bundesliga",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      11.624722,
+      48.218889
+    ],
+    "membershipSource": {
+      "title": "Bundesliga — Clubübersicht Saison 2026-2027",
+      "url": "https://www.bundesliga.com/de/bundesliga/clubs"
+    },
+    "venueSource": {
+      "title": "Bundesliga — FC Bayern München, stadium profile",
+      "url": "https://www.bundesliga.com/de/bundesliga/clubs/fc-bayern-muenchen"
+    },
+    "coordinateSource": {
+      "title": "Wikidata Q127429 — stadium coordinate location (P625)",
+      "url": "https://www.wikidata.org/wiki/Q127429"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "stadium-de-signal-iduna-park",
+    "name": "SIGNAL IDUNA PARK",
+    "club": "Borussia Dortmund",
+    "city": "Dortmund",
+    "country": "Alemanha",
+    "countryId": "276",
+    "league": "Bundesliga",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      7.451669,
+      51.4925
+    ],
+    "membershipSource": {
+      "title": "Bundesliga — Clubübersicht Saison 2026-2027",
+      "url": "https://www.bundesliga.com/de/bundesliga/clubs"
+    },
+    "venueSource": {
+      "title": "Bundesliga — Borussia Dortmund, stadium profile",
+      "url": "https://www.bundesliga.com/de/bundesliga/clubs/borussia-dortmund"
+    },
+    "coordinateSource": {
+      "title": "Wikidata Q150928 — stadium coordinate location (P625)",
+      "url": "https://www.wikidata.org/wiki/Q150928"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "stadium-de-deutsche-bank-park",
+    "name": "Deutsche Bank Park",
+    "club": "Eintracht Frankfurt",
+    "city": "Frankfurt am Main",
+    "country": "Alemanha",
+    "countryId": "276",
+    "league": "Bundesliga",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      8.645281,
+      50.068611
+    ],
+    "membershipSource": {
+      "title": "Bundesliga — Clubübersicht Saison 2026-2027",
+      "url": "https://www.bundesliga.com/de/bundesliga/clubs"
+    },
+    "venueSource": {
+      "title": "Bundesliga — Eintracht Frankfurt, stadium profile",
+      "url": "https://www.bundesliga.com/de/bundesliga/clubs/eintracht-frankfurt"
+    },
+    "coordinateSource": {
+      "title": "Wikidata Q157273 — stadium coordinate location (P625)",
+      "url": "https://www.wikidata.org/wiki/Q157273"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "stadium-de-europa-park-stadion",
+    "name": "Europa-Park Stadion",
+    "club": "SC Freiburg",
+    "city": "Freiburg im Breisgau",
+    "country": "Alemanha",
+    "countryId": "276",
+    "league": "Bundesliga",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      7.83,
+      48.021667
+    ],
+    "membershipSource": {
+      "title": "Bundesliga — Clubübersicht Saison 2026-2027",
+      "url": "https://www.bundesliga.com/de/bundesliga/clubs"
+    },
+    "venueSource": {
+      "title": "Bundesliga — SC Freiburg, stadium profile",
+      "url": "https://www.bundesliga.com/de/bundesliga/clubs/sport-club-freiburg"
+    },
+    "coordinateSource": {
+      "title": "Wikidata Q64586775 — stadium coordinate location (P625)",
+      "url": "https://www.wikidata.org/wiki/Q64586775"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "stadium-de-volksparkstadion",
+    "name": "Volksparkstadion",
+    "club": "Hamburger SV",
+    "city": "Hamburg",
+    "country": "Alemanha",
+    "countryId": "276",
+    "league": "Bundesliga",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      9.898611,
+      53.586939
+    ],
+    "membershipSource": {
+      "title": "Bundesliga — Clubübersicht Saison 2026-2027",
+      "url": "https://www.bundesliga.com/de/bundesliga/clubs"
+    },
+    "venueSource": {
+      "title": "Bundesliga — Hamburger SV, stadium profile",
+      "url": "https://www.bundesliga.com/de/bundesliga/clubs/hamburger-sv"
+    },
+    "coordinateSource": {
+      "title": "Wikidata Q150933 — stadium coordinate location (P625)",
+      "url": "https://www.wikidata.org/wiki/Q150933"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "stadium-de-weserstadion",
+    "name": "Weserstadion",
+    "club": "SV Werder Bremen",
+    "city": "Bremen",
+    "country": "Alemanha",
+    "countryId": "276",
+    "league": "Bundesliga",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      8.8375,
+      53.066389
+    ],
+    "membershipSource": {
+      "title": "Bundesliga — Clubübersicht Saison 2026-2027",
+      "url": "https://www.bundesliga.com/de/bundesliga/clubs"
+    },
+    "venueSource": {
+      "title": "Bundesliga — SV Werder Bremen, stadium profile",
+      "url": "https://www.bundesliga.com/de/bundesliga/clubs/sv-werder-bremen"
+    },
+    "coordinateSource": {
+      "title": "Wikidata Q154475 — stadium coordinate location (P625)",
+      "url": "https://www.wikidata.org/wiki/Q154475"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "stadium-de-rheinenergiestadion",
+    "name": "RheinEnergieSTADION",
+    "club": "1. FC Köln",
+    "city": "Köln",
+    "country": "Alemanha",
+    "countryId": "276",
+    "league": "Bundesliga",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      6.875,
+      50.933611
+    ],
+    "membershipSource": {
+      "title": "Bundesliga — Clubübersicht Saison 2026-2027",
+      "url": "https://www.bundesliga.com/de/bundesliga/clubs"
+    },
+    "venueSource": {
+      "title": "Bundesliga — 1. FC Köln, stadium profile",
+      "url": "https://www.bundesliga.com/de/bundesliga/clubs/1-fc-koeln"
+    },
+    "coordinateSource": {
+      "title": "Wikidata Q151893 — stadium coordinate location (P625)",
+      "url": "https://www.wikidata.org/wiki/Q151893"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "stadium-de-red-bull-arena",
+    "name": "Red Bull Arena",
+    "club": "RB Leipzig",
+    "city": "Leipzig",
+    "country": "Alemanha",
+    "countryId": "276",
+    "league": "Bundesliga",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      12.348061,
+      51.345831
+    ],
+    "membershipSource": {
+      "title": "Bundesliga — Clubübersicht Saison 2026-2027",
+      "url": "https://www.bundesliga.com/de/bundesliga/clubs"
+    },
+    "venueSource": {
+      "title": "Bundesliga — RB Leipzig, stadium profile",
+      "url": "https://www.bundesliga.com/de/bundesliga/clubs/rb-leipzig"
+    },
+    "coordinateSource": {
+      "title": "Wikidata Q210466 — stadium coordinate location (P625)",
+      "url": "https://www.wikidata.org/wiki/Q210466"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "stadium-de-bayarena",
+    "name": "BayArena",
+    "club": "Bayer 04 Leverkusen",
+    "city": "Leverkusen",
+    "country": "Alemanha",
+    "countryId": "276",
+    "league": "Bundesliga",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      7.002222,
+      51.038333
+    ],
+    "membershipSource": {
+      "title": "Bundesliga — Clubübersicht Saison 2026-2027",
+      "url": "https://www.bundesliga.com/de/bundesliga/clubs"
+    },
+    "venueSource": {
+      "title": "Bundesliga — Bayer 04 Leverkusen, stadium profile",
+      "url": "https://www.bundesliga.com/de/bundesliga/clubs/bayer-04-leverkusen"
+    },
+    "coordinateSource": {
+      "title": "Wikidata Q156630 — stadium coordinate location (P625)",
+      "url": "https://www.wikidata.org/wiki/Q156630"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "stadium-de-mhparena",
+    "name": "MHPArena",
+    "club": "VfB Stuttgart",
+    "city": "Stuttgart",
+    "country": "Alemanha",
+    "countryId": "276",
+    "league": "Bundesliga",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      9.231939,
+      48.792219
+    ],
+    "membershipSource": {
+      "title": "Bundesliga — Clubübersicht Saison 2026-2027",
+      "url": "https://www.bundesliga.com/de/bundesliga/clubs"
+    },
+    "venueSource": {
+      "title": "Bundesliga — VfB Stuttgart, stadium profile",
+      "url": "https://www.bundesliga.com/de/bundesliga/clubs/vfb-stuttgart"
+    },
+    "coordinateSource": {
+      "title": "Wikidata Q152349 — stadium coordinate location (P625)",
+      "url": "https://www.wikidata.org/wiki/Q152349"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "stadium-it-new-balance-arena",
+    "name": "New Balance Arena",
+    "club": "Atalanta BC",
+    "city": "Bergamo",
+    "country": "Itália",
+    "countryId": "380",
+    "league": "Serie A",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      9.680806,
+      45.708889
+    ],
+    "membershipSource": {
+      "title": "Lega Serie A — Serie A Enilive 2026/2027, official fixture list (matchdays 1–5)",
+      "url": "https://images.legaseriea.it/image/private/fl_attachment/prd/czailts3apyt3kuxjran.pdf"
+    },
+    "venueSource": {
+      "title": "Lega Serie A — Atalanta: club e stadio",
+      "url": "https://www.legaseriea.it/team/atalanta/stadium"
+    },
+    "coordinateSource": {
+      "title": "Wikidata Q780526 — stadium coordinate location (P625)",
+      "url": "https://www.wikidata.org/wiki/Q780526"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "stadium-it-renato-dall-ara",
+    "name": "Stadio Renato Dall’Ara",
+    "club": "Bologna FC 1909",
+    "city": "Bologna",
+    "country": "Itália",
+    "countryId": "380",
+    "league": "Serie A",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      11.309806,
+      44.492194
+    ],
+    "membershipSource": {
+      "title": "Lega Serie A — Serie A Enilive 2026/2027, official fixture list (matchdays 1–5)",
+      "url": "https://images.legaseriea.it/image/private/fl_attachment/prd/czailts3apyt3kuxjran.pdf"
+    },
+    "venueSource": {
+      "title": "Bologna FC — Stadio Renato Dall’Ara",
+      "url": "https://www.bolognafc.it/stadio/"
+    },
+    "coordinateSource": {
+      "title": "Wikidata Q757182 — stadium coordinate location (P625)",
+      "url": "https://www.wikidata.org/wiki/Q757182"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "stadium-it-unipol-domus",
+    "name": "Unipol Domus",
+    "club": "Cagliari Calcio",
+    "city": "Cagliari",
+    "country": "Itália",
+    "countryId": "380",
+    "league": "Serie A",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      9.137417,
+      39.199694
+    ],
+    "membershipSource": {
+      "title": "Lega Serie A — Serie A Enilive 2026/2027, official fixture list (matchdays 1–5)",
+      "url": "https://images.legaseriea.it/image/private/fl_attachment/prd/czailts3apyt3kuxjran.pdf"
+    },
+    "venueSource": {
+      "title": "Cagliari Calcio — Unipol Domus",
+      "url": "https://cagliaricalcio.com/biglietti/stadio/"
+    },
+    "coordinateSource": {
+      "title": "Wikidata Q30880646 — stadium coordinate location (P625)",
+      "url": "https://www.wikidata.org/wiki/Q30880646"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "stadium-it-allianz-stadium",
+    "name": "Allianz Stadium",
+    "club": "Juventus FC",
+    "city": "Torino",
+    "country": "Itália",
+    "countryId": "380",
+    "league": "Serie A",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      7.64125,
+      45.109589
+    ],
+    "membershipSource": {
+      "title": "Lega Serie A — Serie A Enilive 2026/2027, official fixture list (matchdays 1–5)",
+      "url": "https://images.legaseriea.it/image/private/fl_attachment/prd/czailts3apyt3kuxjran.pdf"
+    },
+    "venueSource": {
+      "title": "Juventus — Allianz Stadium",
+      "url": "https://www.juventus.com/it/allianz-stadium/"
+    },
+    "coordinateSource": {
+      "title": "Wikidata Q62149 — stadium coordinate location (P625)",
+      "url": "https://www.wikidata.org/wiki/Q62149"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "stadium-it-san-siro",
+    "name": "Stadio Giuseppe Meazza (San Siro)",
+    "club": "AC Milan",
+    "city": "Milano",
+    "country": "Itália",
+    "countryId": "380",
+    "league": "Serie A",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      9.123889,
+      45.478056
+    ],
+    "membershipSource": {
+      "title": "Lega Serie A — Serie A Enilive 2026/2027, official fixture list (matchdays 1–5)",
+      "url": "https://images.legaseriea.it/image/private/fl_attachment/prd/czailts3apyt3kuxjran.pdf"
+    },
+    "venueSource": {
+      "title": "Lega Serie A — Milan: club e stadio",
+      "url": "https://www.legaseriea.it/team/milan/stadium"
+    },
+    "coordinateSource": {
+      "title": "Wikidata Q133566 — stadium coordinate location (P625)",
+      "url": "https://www.wikidata.org/wiki/Q133566"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "stadium-it-diego-armando-maradona",
+    "name": "Stadio Diego Armando Maradona",
+    "club": "SSC Napoli",
+    "city": "Napoli",
+    "country": "Itália",
+    "countryId": "380",
+    "league": "Serie A",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      14.193011,
+      40.827969
+    ],
+    "membershipSource": {
+      "title": "Lega Serie A — Serie A Enilive 2026/2027, official fixture list (matchdays 1–5)",
+      "url": "https://images.legaseriea.it/image/private/fl_attachment/prd/czailts3apyt3kuxjran.pdf"
+    },
+    "venueSource": {
+      "title": "Lega Serie A — Napoli: club e stadio",
+      "url": "https://www.legaseriea.it/team/napoli/stadium"
+    },
+    "coordinateSource": {
+      "title": "Wikidata Q82709 — stadium coordinate location (P625)",
+      "url": "https://www.wikidata.org/wiki/Q82709"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "stadium-it-ennio-tardini",
+    "name": "Stadio Ennio Tardini",
+    "club": "Parma Calcio 1913",
+    "city": "Parma",
+    "country": "Itália",
+    "countryId": "380",
+    "league": "Serie A",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      10.338444,
+      44.794917
+    ],
+    "membershipSource": {
+      "title": "Lega Serie A — Serie A Enilive 2026/2027, official fixture list (matchdays 1–5)",
+      "url": "https://images.legaseriea.it/image/private/fl_attachment/prd/czailts3apyt3kuxjran.pdf"
+    },
+    "venueSource": {
+      "title": "Lega Serie A — Parma: club e stadio",
+      "url": "https://www.legaseriea.it/team/parma/stadium"
+    },
+    "coordinateSource": {
+      "title": "Wikidata Q610546 — stadium coordinate location (P625)",
+      "url": "https://www.wikidata.org/wiki/Q610546"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "stadium-it-olimpico-roma",
+    "name": "Stadio Olimpico",
+    "club": "AS Roma",
+    "city": "Roma",
+    "country": "Itália",
+    "countryId": "380",
+    "league": "Serie A",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      12.454722,
+      41.933889
+    ],
+    "membershipSource": {
+      "title": "Lega Serie A — Serie A Enilive 2026/2027, official fixture list (matchdays 1–5)",
+      "url": "https://images.legaseriea.it/image/private/fl_attachment/prd/czailts3apyt3kuxjran.pdf"
+    },
+    "venueSource": {
+      "title": "AS Roma — The Stadio Olimpico",
+      "url": "https://www.asroma.com/en/stadium/"
+    },
+    "coordinateSource": {
+      "title": "Wikidata Q159884 — stadium coordinate location (P625)",
+      "url": "https://www.wikidata.org/wiki/Q159884"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "stadium-it-olimpico-grande-torino",
+    "name": "Stadio Olimpico Grande Torino",
+    "club": "Torino FC",
+    "city": "Torino",
+    "country": "Itália",
+    "countryId": "380",
+    "league": "Serie A",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      7.65,
+      45.041669
+    ],
+    "membershipSource": {
+      "title": "Lega Serie A — Serie A Enilive 2026/2027, official fixture list (matchdays 1–5)",
+      "url": "https://images.legaseriea.it/image/private/fl_attachment/prd/czailts3apyt3kuxjran.pdf"
+    },
+    "venueSource": {
+      "title": "Torino FC — Lo Stadio Olimpico Grande Torino",
+      "url": "https://www.torinofc.it/stadio/lo-stadio-olimpico-grande-torino"
+    },
+    "coordinateSource": {
+      "title": "Wikidata Q214629 — stadium coordinate location (P625)",
+      "url": "https://www.wikidata.org/wiki/Q214629"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "stadium-it-bluenergy-stadium",
+    "name": "Bluenergy Stadium – Stadio Friuli",
+    "club": "Udinese Calcio",
+    "city": "Udine",
+    "country": "Itália",
+    "countryId": "380",
+    "league": "Serie A",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      13.200111,
+      46.081611
+    ],
+    "membershipSource": {
+      "title": "Lega Serie A — Serie A Enilive 2026/2027, official fixture list (matchdays 1–5)",
+      "url": "https://images.legaseriea.it/image/private/fl_attachment/prd/czailts3apyt3kuxjran.pdf"
+    },
+    "venueSource": {
+      "title": "Lega Serie A — Udinese: club e stadio",
+      "url": "https://www.legaseriea.it/team/udinese/stadium"
+    },
+    "coordinateSource": {
+      "title": "Wikidata Q640031 — stadium coordinate location (P625)",
+      "url": "https://www.wikidata.org/wiki/Q640031"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "stadium-fr-parc-des-princes",
+    "name": "Parc des Princes",
+    "club": "Paris Saint-Germain",
+    "city": "Paris",
+    "country": "França",
+    "countryId": "250",
+    "league": "Ligue 1",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      2.25305,
+      48.84145
+    ],
+    "membershipSource": {
+      "title": "LFP — Ligue 1 McDonald's: Le calendrier de la saison 2026/2027 !",
+      "url": "https://ligue1.com/fr/articles/l1_article_5284-"
+    },
+    "venueSource": {
+      "title": "Paris Saint-Germain — Le Parc des Princes",
+      "url": "https://www.psg.fr/le-club/installations/parc-des-princes"
+    },
+    "coordinateSource": {
+      "title": "Wikidata Q193431 — stadium coordinate location (P625)",
+      "url": "https://www.wikidata.org/wiki/Q193431"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "stadium-fr-cepac-velodrome",
+    "name": "CEPAC Vélodrome",
+    "club": "Olympique de Marseille",
+    "city": "Marseille",
+    "country": "França",
+    "countryId": "250",
+    "league": "Ligue 1",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      5.39591,
+      43.26985
+    ],
+    "membershipSource": {
+      "title": "LFP — Ligue 1 McDonald's: Le calendrier de la saison 2026/2027 !",
+      "url": "https://ligue1.com/fr/articles/l1_article_5284-"
+    },
+    "venueSource": {
+      "title": "CEPAC Vélodrome — Informations pratiques (OM match access)",
+      "url": "https://www.cepacvelodrome.com/informations-pratiques.html"
+    },
+    "coordinateSource": {
+      "title": "OpenStreetMap stadium way 172853962 — centroid published by Mapcarta",
+      "url": "https://mapcarta.com/26237738"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "stadium-fr-groupama-stadium",
+    "name": "Groupama Stadium",
+    "club": "Olympique Lyonnais",
+    "city": "Décines-Charpieu",
+    "country": "França",
+    "countryId": "250",
+    "league": "Ligue 1",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      4.982131,
+      45.765224
+    ],
+    "membershipSource": {
+      "title": "LFP — Ligue 1 McDonald's: Le calendrier de la saison 2026/2027 !",
+      "url": "https://ligue1.com/fr/articles/l1_article_5284-"
+    },
+    "venueSource": {
+      "title": "OL Vallée — Groupama Stadium",
+      "url": "https://www.olvallee.fr/accueil-groupama-stadium/"
+    },
+    "coordinateSource": {
+      "title": "Wikidata Q8507 — stadium coordinate location (P625)",
+      "url": "https://www.wikidata.org/wiki/Q8507"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "stadium-fr-pierre-mauroy",
+    "name": "Decathlon Arena – Stade Pierre-Mauroy",
+    "club": "LOSC Lille",
+    "city": "Villeneuve-d’Ascq",
+    "country": "França",
+    "countryId": "250",
+    "league": "Ligue 1",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      3.130631,
+      50.611961
+    ],
+    "membershipSource": {
+      "title": "LFP — Ligue 1 McDonald's: Le calendrier de la saison 2026/2027 !",
+      "url": "https://ligue1.com/fr/articles/l1_article_5284-"
+    },
+    "venueSource": {
+      "title": "Decathlon Arena – Stade Pierre-Mauroy — LOSC saison 2026-2027",
+      "url": "https://www.stade-pierre-mauroy.com/"
+    },
+    "coordinateSource": {
+      "title": "Wikidata Q1410402 — stadium coordinate location (P625)",
+      "url": "https://www.wikidata.org/wiki/Q1410402"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "stadium-fr-bollaert-delelis",
+    "name": "Stade Bollaert-Delelis",
+    "club": "RC Lens",
+    "city": "Lens",
+    "country": "França",
+    "countryId": "250",
+    "league": "Ligue 1",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      2.814911,
+      50.4329
+    ],
+    "membershipSource": {
+      "title": "LFP — Ligue 1 McDonald's: Le calendrier de la saison 2026/2027 !",
+      "url": "https://ligue1.com/fr/articles/l1_article_5284-"
+    },
+    "venueSource": {
+      "title": "RC Lens — Stade Bollaert-Delelis: La passion à l’unisson",
+      "url": "https://www.rclens.fr/fr/stade-bollaert-delelis/passion-unisson"
+    },
+    "coordinateSource": {
+      "title": "Wikidata Q854122 — stadium coordinate location (P625)",
+      "url": "https://www.wikidata.org/wiki/Q854122"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "stadium-fr-roazhon-park",
+    "name": "Roazhon Park",
+    "club": "Stade Rennais FC",
+    "city": "Rennes",
+    "country": "França",
+    "countryId": "250",
+    "league": "Ligue 1",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -1.712819,
+      48.107431
+    ],
+    "membershipSource": {
+      "title": "LFP — Ligue 1 McDonald's: Le calendrier de la saison 2026/2027 !",
+      "url": "https://ligue1.com/fr/articles/l1_article_5284-"
+    },
+    "venueSource": {
+      "title": "Stade Rennais FC — Roazhon Park",
+      "url": "https://www.staderennais.com/le-roazon-park"
+    },
+    "coordinateSource": {
+      "title": "Wikidata Q1121760 — stadium coordinate location (P625)",
+      "url": "https://www.wikidata.org/wiki/Q1121760"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "stadium-fr-allianz-riviera",
+    "name": "Allianz Riviera",
+    "club": "OGC Nice",
+    "city": "Nice",
+    "country": "França",
+    "countryId": "250",
+    "league": "Ligue 1",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      7.192619,
+      43.705131
+    ],
+    "membershipSource": {
+      "title": "LFP — Ligue 1 McDonald's: Le calendrier de la saison 2026/2027 !",
+      "url": "https://ligue1.com/fr/articles/l1_article_5284-"
+    },
+    "venueSource": {
+      "title": "OGC Nice — Plan du stade Allianz Riviera",
+      "url": "https://billetterie.ogcnice.com/fr/stade/plan-du-stade-allianz-riviera"
+    },
+    "coordinateSource": {
+      "title": "Wikidata Q127372 — stadium coordinate location (P625)",
+      "url": "https://www.wikidata.org/wiki/Q127372"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "stadium-fr-stadium-toulouse",
+    "name": "Stadium de Toulouse",
+    "club": "Toulouse FC",
+    "city": "Toulouse",
+    "country": "França",
+    "countryId": "250",
+    "league": "Ligue 1",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      1.434055,
+      43.583296
+    ],
+    "membershipSource": {
+      "title": "LFP — Ligue 1 McDonald's: Le calendrier de la saison 2026/2027 !",
+      "url": "https://ligue1.com/fr/articles/l1_article_5284-"
+    },
+    "venueSource": {
+      "title": "Toulouse FC — Infos Stadium",
+      "url": "https://www.toulousefc.com/infos-stadium"
+    },
+    "coordinateSource": {
+      "title": "Wikidata Q738044 — stadium coordinate location (P625)",
+      "url": "https://www.wikidata.org/wiki/Q738044"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "stadium-fr-francis-le-ble",
+    "name": "Stade Francis-Le Blé",
+    "club": "Stade Brestois 29",
+    "city": "Brest",
+    "country": "França",
+    "countryId": "250",
+    "league": "Ligue 1",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -4.461481,
+      48.402931
+    ],
+    "membershipSource": {
+      "title": "LFP — Ligue 1 McDonald's: Le calendrier de la saison 2026/2027 !",
+      "url": "https://ligue1.com/fr/articles/l1_article_5284-"
+    },
+    "venueSource": {
+      "title": "Stade Brestois 29 — Stade Francis-Le Blé: Présentation",
+      "url": "https://billetterie.sb29.bzh/fr/stade-francis-le-ble/presentation"
+    },
+    "coordinateSource": {
+      "title": "Wikidata Q1432517 — stadium coordinate location (P625)",
+      "url": "https://www.wikidata.org/wiki/Q1432517"
+    },
+    "checkedAt": "2026-11-10"
+  },
+  {
+    "id": "stadium-fr-raymond-kopa",
+    "name": "Stade Raymond-Kopa",
+    "club": "Angers SCO",
+    "city": "Angers",
+    "country": "França",
+    "countryId": "250",
+    "league": "Ligue 1",
+    "leagueSeason": "2026/27",
+    "coordinates": [
+      -0.5307,
+      47.46051
+    ],
+    "membershipSource": {
+      "title": "LFP — Ligue 1 McDonald's: Le calendrier de la saison 2026/2027 !",
+      "url": "https://ligue1.com/fr/articles/l1_article_5284-"
+    },
+    "venueSource": {
+      "title": "Angers SCO — Stade Raymond-Kopa",
+      "url": "https://angers-sco.fr/club/stade/"
+    },
+    "coordinateSource": {
+      "title": "OpenStreetMap stadium way 302691255 — centroid published by Mapcarta",
+      "url": "https://mapcarta.com/25586220"
+    },
+    "checkedAt": "2026-11-10"
+  }
+]
