@@ -9,7 +9,7 @@
 :root[data-theme="light"] .is-home .site-header{background:#fff9e9eb;border-bottom-color:#b9b99c80}
 .is-home .site-footer{background:#17251eed;border-color:var(--line);position:relative;z-index:1}
 :root[data-theme="light"] .is-home .site-footer{background:#fff9e9eb}
-.island-home.home-shell{width:100%;flex:1;position:relative;padding-bottom:40px}
+.island-home.home-shell{width:100%;flex:1;position:relative;padding-bottom:40px;margin-inline:auto}
 .island-hero.hero{display:flex;align-items:center;justify-content:center;min-height:clamp(240px,32vh,340px);padding:30px 0 26px;gap:0}
 .island-hero .hero-copy{width:100%;padding:0;text-align:center}
 .island-hero h1{font-size:clamp(23px,2.6vw,36px);margin:0;line-height:1.7;letter-spacing:-1px;text-shadow:0 2px 0 #10251d70}
@@ -85,3 +85,4 @@
 .scenic-app .results-shell{padding:24px;background:var(--progress-panel);border:1px solid var(--line)}
 .scenic-app .modal::backdrop{background:#15251ca3}
 @media(max-width:680px){.scenic-app .stats-page{width:calc(100% - 28px);padding:20px 15px;margin:16px auto 24px}.scenic-app .results-shell{padding:18px 14px}.scenic-app .clean-results.results-page{padding:18px 14px}}
+.scenic-app .island-home .section-heading{justify-content:center;text-align:center}

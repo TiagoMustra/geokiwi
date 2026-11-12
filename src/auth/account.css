@@ -6,4 +6,41 @@
 .account-message,.account-sync{border-left:2px solid var(--accent);padding:9px 12px;font:13px/1.5 Space,sans-serif;margin:16px 0 0}.account-message.is-error{border-color:#bd7e7e}.account-sync.is-conflict,.account-sync.is-offline{border-color:#bc9b67}
 .account-conflict{display:grid;gap:8px;margin-top:12px}.account-conflict button,.account-import button{font:12px Space,sans-serif;min-height:42px;text-align:left}
 .account-import{border-top:1px solid var(--line);margin-top:18px;padding-top:12px}.account-import p{font:12px/1.5 Space,sans-serif}.account-signout{margin-top:20px}
+.account-modal{max-width:560px}
+.account-modal h2{font:700 28px/1.2 Space,sans-serif;letter-spacing:-.7px;margin-bottom:24px}
+.profile-avatar{display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;background:var(--tint,#b8e96d14);border:1px solid var(--line)}
+.profile-avatar img{display:block;width:100%;height:100%;object-fit:cover}
+.account-trigger{padding:6px 10px 6px 6px;gap:9px;min-height:40px}
+.account-trigger .profile-avatar{border:0;background:none}
+.profile-identity{display:flex;align-items:center;gap:18px;margin-top:6px}
+.profile-identity>div{min-width:0}.profile-identity strong{font:700 23px/1.2 Space,sans-serif;overflow-wrap:anywhere}
+.profile-identity .account-email{font:12px/1.5 Space,sans-serif;margin:6px 0 0}
+.profile-photo-actions{display:flex;flex-wrap:wrap;align-items:center;gap:10px;margin-top:16px}
+.profile-photo-actions .secondary-button{font:500 12px Space,sans-serif;min-height:36px;padding:8px 12px;gap:8px}
+.profile-photo-actions small{width:100%;font:11px/1.4 Space,sans-serif;color:var(--progress-soft)}
+.profile-photo-remove{background:none;font:12px Space,sans-serif;color:var(--progress-soft);padding:10px;text-decoration:underline;text-underline-offset:3px}
+.account-modal .account-form:has(#account-name){display:grid;grid-template-columns:1fr auto;gap:8px;margin:22px 0}
+.account-form label[for="account-name"]{grid-column:1/-1}.account-form #account-name{min-width:0}
+.account-form:has(#account-name) button{margin:0;padding:8px 18px}
+.profile-rank{border-top:1px solid var(--line);padding-top:20px;margin-top:22px}
+.profile-section-heading{display:flex;align-items:center;justify-content:space-between;gap:12px}
+.profile-section-heading h3{font:600 16px Space,sans-serif;margin:0}
+.profile-section-heading>span{font:9px var(--mono);letter-spacing:.7px;color:var(--progress-soft)}
+.profile-rank-current{display:flex;align-items:center;gap:12px;margin:18px 0 14px}
+.profile-rank-current>div{display:flex;flex-direction:column;gap:4px}.profile-rank-current strong{font:700 28px/1 Space,sans-serif}
+.profile-rank-current small{font:12px Space,sans-serif;color:var(--progress-soft)}
+.profile-best-streak{margin-left:auto;display:flex;flex-direction:column;gap:6px;font:9px var(--mono);color:var(--progress-soft);text-align:right}
+.profile-best-streak b{font:600 20px Space,sans-serif;color:var(--progress-ink)}
+.profile-rank-track{height:5px;background:var(--progress-track);overflow:hidden}.profile-rank-track span{height:100%;background:var(--lime);display:block}
+.profile-next-rank{font:12px/1.5 Space,sans-serif;color:var(--progress-soft);margin:8px 0 18px}
+.kiwi-rank-badge{display:inline-block;flex-shrink:0;background-image:url('/art/ranks/kiwi-maturation.png');background-repeat:no-repeat;background-size:600% 200%;image-rendering:pixelated}
+.profile-rank-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.profile-rank-grid>div{display:flex;flex-direction:column;align-items:center;text-align:center;border:1px solid var(--line);padding:8px 5px 11px;gap:4px;min-width:0}
+.profile-rank-grid>div.is-current{border-color:var(--lime);background:var(--tint)}
+.profile-rank-grid strong{font:500 11px/1.3 Space,sans-serif}.profile-rank-grid small{font:10px Space,sans-serif;color:var(--progress-soft)}
+.profile-rank-note{font:12px/1.6 Space,sans-serif;color:var(--progress-soft);margin:14px 0 0}
+.account-modal .account-sync{font-size:11px;background:var(--progress-panel);margin-top:22px;padding:8px 10px;border:1px solid var(--line)}
 @media(max-width:680px){.account-trigger{padding:6px;max-width:90px;font-size:11px}.account-modal{max-width:calc(100vw - 24px)}}
+.modal.account-modal{background:var(--panel);border-color:var(--line);color:var(--progress-ink)}
+.account-modal .secondary-button{background:var(--panel);border-color:var(--line);color:var(--progress-ink)}
+.profile-rank-ladder{margin:12px 0}.profile-rank-ladder summary{display:flex;justify-content:space-between;align-items:center;cursor:pointer;font:500 12px Space,sans-serif;min-height:36px;color:var(--progress-soft);list-style:none}.profile-rank-ladder summary::-webkit-details-marker{display:none}.profile-rank-ladder summary span{font-size:18px}.profile-rank-ladder[open] summary span{transform:rotate(45deg)}

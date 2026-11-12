@@ -62,3 +62,15 @@ Os 184 testes da aplicação passaram, incluindo 12 testes de isolamento, sincro
 O plano gratuito é adequado para começar. À data da consulta (10/11/2026), inclui 50 mil utilizadores ativos por mês e 500 MB de base de dados, mas projetos gratuitos podem ser pausados após uma semana de inatividade. Confirmar os limites atuais e o custo do serviço SMTP antes de abrir inscrições públicas.
 
 Documentação oficial: [Auth React](https://supabase.com/docs/guides/auth/quickstarts/react), [RLS](https://supabase.com/docs/guides/database/postgres/row-level-security), [chaves API](https://supabase.com/docs/guides/getting-started/api-keys), [SMTP](https://supabase.com/docs/guides/auth/auth-smtp), [planos](https://supabase.com/pricing).
+
+## Fotografias e ranks diários (12/11/2026)
+
+A migração `202611120001_profile_daily.sql` acrescenta `profiles.avatar_path`, o bucket privado `avatars` e o histórico `daily_completions`. Foi aplicada no projeto GeoKiwi. Os testes `supabase/tests/profile_daily.sql` passaram no projeto real e revertem todos os utilizadores/dados temporários.
+
+Cada conta pode guardar apenas o objeto `<user UUID>/avatar.webp`. O navegador recorta ao centro, redimensiona para 320×320 e volta a codificar em WebP, sem enviar o original ou os seus metadados. Entradas JPG/PNG/WebP até 10 MB e 40 megapíxeis; o bucket limita o ficheiro final a 512 KiB. RLS restringe leitura, escrita e remoção ao dono. URLs assinadas duram uma hora e são renovadas em sessões visíveis e ao regressar ao separador; não são guardadas em perfis nem no snapshot de progresso.
+
+Os ranks dependem da sequência **atual** de dias consecutivos (UTC): 1–7 Pedúnculo, 8–14 Pedúnculo com folha, 15–21 Verde, 22–28 Maduro, 29–35 Amarelo, 36+ Dourado. Zero dias significa sem rank. Concluir ontem mantém a sequência válida durante hoje; falhar um dia reinicia o rank atual, mantendo o recorde de sequência.
+
+`get_my_daily_streak()` calcula os valores a partir de `daily_completions`, com leitura apenas da própria conta. Não há permissão de escrita pelo cliente, nem conversão de partidas locais em streaks. **O daily continua por implementar**: o seu futuro servidor terá de validar a tentativa e inserir uma única conclusão por utilizador/data. Até lá, os perfis mostram zero dias e a progressão disponível. Não há resultados competitivos publicados.
+
+O domínio principal é agora `https://geokiwi.pt`, com os callbacks exatos de raiz e `?auth=recovery` para o domínio principal e www. O SMTP do Supabase está configurado com Resend e o remetente `GeoKiwi <contas@geokiwi.pt>`; a chave privada fica apenas no Supabase. Os callbacks anteriores continuam disponíveis para os utilizadores dos links antigos.

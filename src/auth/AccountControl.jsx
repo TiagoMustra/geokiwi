@@ -1,14 +1,20 @@
-import {useEffect,useState} from 'react';
+import {useEffect,useRef,useState} from 'react';
 import {useAccount} from './AccountProvider.jsx';
 import {useLocale} from '../i18n/LocaleContext.jsx';
 import {validDisplayName} from './remote.js';
 import {authReturnUrl,passwordReturnUrl} from './client.js';
 import Modal from '../components/Modal.jsx';
 import {Icon} from '../components/Icon.jsx';
+import Avatar from './Avatar.jsx';
+import KiwiRank from '../components/KiwiRank.jsx';
+import {prepareAvatar} from './avatar.js';
 import './account.css';
 
 const errorText=(error,en)=>{
  const code=error?.code||'';
+ if(code==='avatar_type')return en?'Choose a JPG, PNG or WebP image.':'Escolhe uma imagem JPG, PNG ou WebP.';
+ if(code==='avatar_size')return en?'Choose an image smaller than 10 MB and 40 megapixels.':'Escolhe uma imagem com menos de 10 MB e 40 megapíxeis.';
+ if(code==='avatar_read')return en?'Could not read this image. Try a different photo.':'Não foi possível ler a imagem. Tenta outra fotografia.';
  if(code==='invalid_credentials')return en?'Email or password is incorrect.':'O email ou a palavra-passe não está correto.';
  if(code==='email_address_not_authorized')return en?'New account registration is still limited. You can keep playing without an account.':'O registo de novas contas ainda est\u00e1 limitado. Podes continuar a jogar sem conta.';
  if(code==='email_address_invalid')return en?'Enter a valid email address.':'Introduz um endere\u00e7o de email v\u00e1lido.';
@@ -20,6 +26,7 @@ const errorText=(error,en)=>{
 };
 export default function AccountControl(){
  const account=useAccount(),{locale}=useLocale(),en=locale==='en',say=(pt,eng)=>en?eng:pt;
+ const photoInput=useRef(null);
  const [open,setOpen]=useState(false),[mode,setMode]=useState('login'),[busy,setBusy]=useState(false),[error,setError]=useState(''),[notice,setNotice]=useState(''),[nickname,setNickname]=useState('');
  useEffect(()=>{if(account.recovery){setMode('recovery');setOpen(true);}},[account.recovery]);
  useEffect(()=>{setNickname(account.profile?.display_name||'');},[account.profile?.display_name]);
@@ -42,14 +49,20 @@ export default function AccountControl(){
   }catch(error){setError(errorText(error,en));}finally{setBusy(false);}
  }
  async function saveProfile(event){event.preventDefault();if(busy)return;if(!validDisplayName(nickname)){setError(say('O nome deve ter entre 2 e 24 caracteres.','Your name must contain 2–24 characters.'));return;}setBusy(true);setError('');try{await account.updateProfile(nickname);setNotice(say('Nome guardado.','Name saved.'));}catch(e){setError(errorText(e,en));}finally{setBusy(false);}}
+ async function changePhoto(event){
+  const file=event.target.files?.[0];event.target.value='';if(!file||busy)return;setBusy(true);setError('');setNotice('');
+  try{const blob=await prepareAvatar(file);await account.updateAvatar(blob);setNotice(say('Fotografia guardada.','Photo saved.'));}catch(e){setError(errorText(e,en));}finally{setBusy(false);}
+ }
+ async function deletePhoto(){if(busy)return;setBusy(true);setError('');setNotice('');try{await account.removeAvatar();setNotice(say('Fotografia removida.','Photo removed.'));}catch(e){setError(errorText(e,en));}finally{setBusy(false);}}
  const syncing={loading:say('A carregar o progresso…','Loading progress…'),syncing:say('A guardar na conta…','Saving to your account…'),pending:say('Alterações por guardar…','Changes waiting to sync…'),synced:say('Progresso guardado na conta','Progress saved to your account'),offline:say('Sem ligação à conta. O progresso fica neste dispositivo até voltar a sincronizar.','Cannot reach your account. Progress stays on this device until it can sync.'),conflict:say('Há alterações neste dispositivo e noutra sessão. Escolhe o progresso que queres manter.','Progress changed on this device and another session. Choose which progress to keep.')};
  return <>
-  <button className="account-trigger" onClick={()=>{setOpen(true);if(!account.recovery)switchMode('login');}}><Icon name="user" size={17}/><span>{account.user?(account.profile?.display_name||say('Conta','Account')):say('Entrar','Sign in')}</span></button>
+  <button type="button" className="account-trigger" aria-haspopup="dialog" aria-expanded={open} aria-label={account.user?say('Abrir perfil','Open profile'):say('Entrar','Sign in')} onClick={()=>{setOpen(true);if(account.user)void account.refreshProfile();if(!account.recovery)switchMode('login');}}><Avatar src={account.user?account.profile?.avatar_url:null} size={26}/><span>{account.user?(account.profile?.display_name||say('Conta','Account')):say('Entrar','Sign in')}</span></button>
   {open&&<Modal title={account.recovery?say('Nova palavra-passe','New password'):account.user?say('A tua conta','Your account'):mode==='signup'?say('Criar conta','Create account'):mode==='reset'?say('Recuperar acesso','Recover access'):say('Entrar no GeoKiwi','Sign in to GeoKiwi')} kicker="GEOKIWI" className="account-modal" onClose={close}>
    {account.user&&!account.recovery?<>
-    <p className="account-email">{account.user.email}</p>
+    <div className="profile-identity"><Avatar src={account.profile?.avatar_url} size={76}/><div><strong>{account.profile?.display_name||say('Explorador','Explorer')}</strong><p className="account-email">{account.user.email}</p></div></div>
+    <div className="profile-photo-actions"><input ref={photoInput} className="sr-only" id="profile-photo" type="file" accept="image/jpeg,image/png,image/webp" onChange={changePhoto} disabled={busy} tabIndex={-1} aria-label={say('Escolher fotografia de perfil','Choose profile photo')}/><button type="button" className="secondary-button" disabled={busy||!account.profile} onClick={()=>photoInput.current?.click()}><Icon name="plus" size={13}/>{busy?say('A guardar…','Saving…'):say('Alterar fotografia','Change photo')}</button>{account.profile?.avatar_path&&<button type="button" className="profile-photo-remove" onClick={deletePhoto} disabled={busy}>{say('Remover','Remove')}</button>}<small>JPG, PNG, WebP · {say('até 10 MB · recorte quadrado','up to 10 MB · square crop')}</small></div>
     <form className="account-form" onSubmit={saveProfile}><label htmlFor="account-name">{say('Nome público','Display name')}</label><input id="account-name" name="nickname" required minLength={2} maxLength={24} autoComplete="nickname" value={nickname} onChange={e=>setNickname(e.target.value)} disabled={busy}/><button className="secondary-button" disabled={busy||!account.profile}>{say('Guardar nome','Save name')}</button></form>
-    <p className={`account-sync is-${account.status}`} role="status">{syncing[account.status]||''}</p>
+    <KiwiRank daily={account.daily} loading={account.dailyLoading}/><p className={`account-sync is-${account.status}`} role="status">{syncing[account.status]||''}</p>
     {account.status==='offline'&&<button className="secondary-button" disabled={busy} onClick={()=>{void account.retry();}}>{say('Tentar sincronizar','Retry sync')}</button>}
     {account.status==='conflict'&&<div className="account-conflict"><button className="secondary-button" onClick={()=>{void account.resolve('local');}}>{say('Manter o deste dispositivo','Keep this device’s progress')}</button><button className="secondary-button" onClick={()=>{void account.resolve('cloud');}}>{say('Usar o guardado na conta','Use progress saved in the account')}</button></div>}
     {account.canImport&&<div className="account-import"><p>{say('Tens partidas de convidado neste navegador. Podes copiá-las para esta conta.','You have guest games in this browser. You can copy them into this account.')}</p><button className="secondary-button" onClick={()=>{try{account.importGuest();setNotice(say('Progresso importado.','Progress imported.'));}catch(e){setError(errorText(e,en));}}}>{say('Importar partidas locais','Import local games')}</button></div>}

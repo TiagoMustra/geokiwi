@@ -21,10 +21,6 @@ A faixa atual mede 2172 × 724 px e contém seis células de 362 × 724 px, da e
 
 ## Estado da implementação
 
-Esta entrega define apenas a hierarquia visual e seus recursos gráficos. Nenhum ranking foi ativado no jogo. Não foram definidos pontos, experiência, limites entre níveis ou critérios de progressão. A aplicação não foi alterada por esta tarefa.
+O perfil apresenta as seis insígnias e a progressão por sequência diária atual: 1–7, 8–14, 15–21, 22–28, 29–35 e 36+ dias. A imagem original é usada como sprite CSS, preservando os ficheiros de conceito.
 
-## Geração
-
-Arte gerada com a ferramenta nativa imagegen, por edição da referência aprovada. Instrução: extrair e preservar a linha A de maturação, manter os seis emblemas de kiwi-fruta em pixel art, remover texto e fundo, produzir uma faixa PNG com transparência real e seis células igualmente espaçadas. O ajuste final manteve os desenhos e corrigiu margem e espaçamento.
-
-Revisão v2: substituição dos dois primeiros motivos por um pedúnculo castanho e um pedúnculo com folha, sem semente, raízes ou solo. Os quatro níveis de kiwi mantêm a direção visual aprovada.
+Zero dias não atribui rank. As conclusões vêm de uma tabela protegida no Supabase; o navegador não pode criá-las. O desafio diário ainda não está disponível, por isso a progressão está preparada e os perfis continuam sem dias ganhos.

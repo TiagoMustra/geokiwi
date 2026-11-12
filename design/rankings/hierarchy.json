@@ -1,6 +1,6 @@
 {
   "id": "maturation",
-  "status": "selected-concept-not-active",
+  "status": "daily-streak-progression",
   "selectedAt": "2026-11-10",
   "subject": "kiwi fruit",
   "badgeSheet": "kiwi-maturation-badges-v2.png",
@@ -42,6 +42,13 @@
       "name_en": "Golden Kiwi"
     }
   ],
-  "thresholds": null,
-  "notes": "Art and hierarchy chosen; ranking rules, profiles and progression are not implemented or activated."
+  "thresholds": [
+    1,
+    8,
+    15,
+    22,
+    29,
+    36
+  ],
+  "notes": "Ranks derive from the current consecutive daily-completion streak (UTC days). Zero days is unranked. Completion writes are server-only; the daily challenge is not yet live."
 }
