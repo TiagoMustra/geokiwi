@@ -7,9 +7,10 @@ import {matchesAnswer,saveTheme,readTheme} from '../src/lib/game.js';
 const countries=JSON.parse(readFileSync(new URL('../src/data/countries.json',import.meta.url)));
 const memory=()=>{const m=new Map();return {getItem:k=>m.get(k)||null,setItem:(k,v)=>m.set(k,v)};};
 test('locale choice persists independently and safely handles blocked or corrupt storage',()=>{
- const storage=memory();assert.equal(readLocale(storage),'pt');saveTheme('light',storage);saveLocale('en',storage);assert.equal(readLocale(storage),'en');assert.equal(readTheme(storage),'light');
- storage.setItem(LOCALE_KEY,'bad');assert.equal(readLocale(storage),'pt');
- const blocked={getItem(){throw Error('blocked')},setItem(){throw Error('blocked')}};assert.equal(readLocale(blocked),'pt');assert.doesNotThrow(()=>saveLocale('en',blocked));
+ const storage=memory();assert.equal(readLocale(storage),'en');assert.equal(readTheme(storage),'dark');saveTheme('light',storage);saveLocale('pt',storage);assert.equal(readLocale(storage),'pt');assert.equal(readTheme(storage),'light');
+ saveLocale('en',storage);assert.equal(readLocale(storage),'en');
+ storage.setItem(LOCALE_KEY,'bad');assert.equal(readLocale(storage),'en');
+ const blocked={getItem(){throw Error('blocked')},setItem(){throw Error('blocked')}};assert.equal(readLocale(blocked),'en');assert.equal(readTheme(blocked),'dark');assert.doesNotThrow(()=>saveLocale('en',blocked));
 });
 test('UI translation covers geographic names and counters without translating fragments of words',()=>{
  assert.equal(translate('197 países + 35 territórios','en'),'197 countries + 35 territories');

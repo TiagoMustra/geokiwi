@@ -1,7 +1,7 @@
 import { createContext, createElement, useContext, useEffect, useMemo, useState } from 'react';
 import { readLocale, saveLocale, translate, countryName, capitalName } from './locale.js';
 import './locale.css';
-export const LocaleContext = createContext({locale:'pt',setLocale:()=>{}});
+export const LocaleContext = createContext({locale:'en',setLocale:()=>{}});
 export function LocaleProvider({children}) {
   const [locale,updateLocale]=useState(readLocale);
   const setLocale=value=>updateLocale(value==='en'?'en':'pt');

@@ -9,7 +9,7 @@ import GameCardHeading from './GameCardHeading.jsx';
 import { Icon } from './Icon.jsx';
 import '../challenges.css';
 
-const options=[10,20,30];
+const options=[10];
 export function hasChallengeSave(kind){
   return kind==='explorer'?options.some(rounds=>readExplorerSave(rounds)):DIFFICULTIES.some(level=>options.some(rounds=>readQuizSave(rounds,level)));
 }
@@ -21,7 +21,8 @@ function initialPreferences(kind){
 export function ChallengeCard({kind,onStart,color}){
   const {locale}=useLocale(),en=locale==='en',explorer=kind==='explorer';
   const [initial]=useState(()=>initialPreferences(kind));
-  const [rounds,setRounds]=useState(initial.rounds),[difficulty,setDifficulty]=useState(initial.difficulty||'EASY');
+  const rounds=10;
+  const [difficulty,setDifficulty]=useState(initial.difficulty||'EASY');
   const saved=explorer?readExplorerSave(rounds):readQuizSave(rounds,difficulty);
   const record=explorer?readExplorerRecord(rounds):readQuizRecord(rounds,difficulty);
   const title=explorer?(en?'Explore the world':'Explora o mundo'):(en?'General knowledge':'Conhecimento geral');
@@ -30,8 +31,6 @@ export function ChallengeCard({kind,onStart,color}){
     <GameCardHeading mode={explorer?8:9} title={title} titleId={`mode-title-${explorer?8:9}`}/>
     <p className={`game-card-description ${explorer?'':'quiz-bank-count'}`}>{explorer?(en?'Cities, landscapes and places around the world.':'Cidades, paisagens e lugares pelo mundo.'):`${getQuizPool(locale).length} ${en?'questions':'perguntas'}`}</p>
     {!explorer&&<a className="quiz-bank-link" href="/downloads/conhecimento-geral.md" download>{en?'All questions (MD)':'Todas as perguntas (MD)'}<Icon name="northeast" size={11}/></a>}
-    <div className="region-heading">{en?'ROUNDS':'RONDAS'}</div>
-    <div className="challenge-rounds" role="group" aria-label={en?`Rounds for ${title}`:`Rondas de ${title}`}>{options.map(value=><button type="button" key={value} aria-pressed={value===rounds} className={value===rounds?'selected':''} onClick={()=>setRounds(value)}>{value}</button>)}</div>
     {!explorer&&<div className="challenge-difficulty"><div className="region-heading">{en?'DIFFICULTY':'DIFICULDADE'}</div><div className="challenge-rounds" role="group" aria-label={en?'Quiz difficulty':'Dificuldade do quiz'}>{DIFFICULTIES.map(level=><button type="button" key={level} className={difficulty===level?'selected':''} aria-pressed={difficulty===level} onClick={()=>setDifficulty(level)}>{difficultyLabel(level,locale)}</button>)}</div><p aria-live="polite">{listHint} {en?'Partial answers also earn points.':'Acertos parciais também dão pontos.'}</p></div>}
     <div className="card-score"><span><Icon name="trophy" size={14}/>{en?'BEST':'RECORDE'} · {rounds} {en?'ROUNDS':'RONDAS'}</span><strong>{String(record||0).padStart(4,'0')}</strong></div>
     {saved&&<div className="saved-run compact-saved-run"><span><Icon name="save" size={14}/>{saved.answers.length}/{saved.queue.length} {en?'SAVED':'GUARDADAS'}</span><button type="button" className="start-button" onClick={()=>onStart(kind,rounds,true,difficulty)}>{en?'RESUME GAME':'RETOMAR PARTIDA'}<Icon name="play" size={16}/></button></div>}

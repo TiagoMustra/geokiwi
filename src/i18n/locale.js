@@ -2,8 +2,8 @@ import { english } from './catalog.js';
 import { countryTranslations, capitalTranslations } from './geography.js';
 export const LOCALE_KEY = 'geokiwi.locale.v1';
 export function readLocale(storage) {
-  try { return (storage ?? globalThis.localStorage).getItem(LOCALE_KEY) === 'en' ? 'en' : 'pt'; }
-  catch { return 'pt'; }
+  try { return (storage ?? globalThis.localStorage).getItem(LOCALE_KEY) === 'pt' ? 'pt' : 'en'; }
+  catch { return 'en'; }
 }
 export function saveLocale(locale, storage) {
   try { (storage ?? globalThis.localStorage).setItem(LOCALE_KEY, locale === 'en' ? 'en' : 'pt'); } catch { /* The switch still works for this session. */ }
